@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{1F7C6A04-489B-139C-D813-4F190A80F268}") = "CacadorDeParticulas", "Assembly-CSharp.csproj", "{3CF66EB7-B489-398E-68D6-568870EF16A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CF66EB7-B489-398E-68D6-568870EF16A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF66EB7-B489-398E-68D6-568870EF16A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF66EB7-B489-398E-68D6-568870EF16A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF66EB7-B489-398E-68D6-568870EF16A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
