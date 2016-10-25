@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.W)) {
 				rb2d.AddForce (new Vector2 (0, jumpForce));
 				// saltando
-				anim.SetTrigger ("jump");
+
 			}
 		}
 
@@ -56,25 +56,29 @@ public class PlayerController : MonoBehaviour {
 
 	private void UpdateAnimator () {
 		if (groundCheck.isGrounded ()) {
-			if (rb2d.velocity.x != 0.0f) {
-				anim.SetTrigger ("walk");
+			if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("Walking") &&
+			    !anim.GetCurrentAnimatorStateInfo (0).IsName ("Stoped")) {
+				anim.Play ("JumpDownStop");
 			} else {
-				anim.SetTrigger ("stop");
+				if (rb2d.velocity.x != 0.0f) {
+					anim.Play ("Walking");
+				} else {
+					anim.Play ("Stoped");
+				}
 			}
-			anim.SetTrigger ("touchground");
+
 		} else {
 			if (rb2d.velocity.y < 0.0f) {
-				anim.SetTrigger ("fall");
-			} else if (rb2d.velocity.y < 0.2f) {
-				anim.SetTrigger ("jumpfall");
+				if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("JumpDown")) {
+					anim.Play ("JumpUpJumpDown");
+				}
+			} else if (rb2d.velocity.y > 0.0f) {
+				if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("JumpUp")) {
+					anim.Play ("StopJumpUp");
+				}
 			} else {
 
 			}
 		}
-
-		//if (anim.GetCurrentAnimatorStateInfo (0).IsName ("JumpDown")) {
-		//	anim.SetTrigger ("fall");
-		//} else 
-
 	}
 }

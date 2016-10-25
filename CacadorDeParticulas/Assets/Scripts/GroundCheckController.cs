@@ -9,7 +9,7 @@ public class GroundCheckController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Ground")
 		{
-			print ("grounded");
+
 			grounded = true;
 		}
 	}
@@ -18,7 +18,7 @@ public class GroundCheckController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Ground")
 		{
-			print ("ungrounded");
+
 			grounded = false;
 		}
 	}
