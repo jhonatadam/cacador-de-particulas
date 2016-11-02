@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	public float jumpForce;
 
+	private Vector3 lastPosition;
+
 	public GroundCheckController groundCheck;
 	public AnimUpdaterController animUpdater;
 
@@ -15,10 +17,12 @@ public class PlayerController : MonoBehaviour {
 	
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
+		lastPosition = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (groundCheck.isGrounded ()) {
 			if (Input.GetKeyDown (KeyCode.W)) {
 				rb2d.AddForce (new Vector2 (0, jumpForce));
@@ -27,13 +31,20 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		lastPosition = transform.position;
+
 		float horizontalMoviment = Input.GetAxis ("Horizontal");
+
 		UpdatePlayerVelocity (horizontalMoviment);
 		animUpdater.UpdateAnim (gameObject);
 	}
 
 	private void UpdatePlayerVelocity (float horizontalMovement) {
 		rb2d.velocity = new Vector2 (horizontalMovement * speed, rb2d.velocity.y);
+	}
+
+	public Vector3 GetDelta () {
+		return transform.position - lastPosition;
 	}
 		
 }
