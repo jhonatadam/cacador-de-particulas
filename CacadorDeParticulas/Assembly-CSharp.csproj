@@ -45,11 +45,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ElevatorController.cs" />
      <Compile Include="Assets\Scripts\AnimUpdaterController.cs" />
      <Compile Include="Assets\Scripts\ArrowController.cs" />
      <Compile Include="Assets\Scripts\BagController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\ContactCheck.cs" />
+     <Compile Include="Assets\Scripts\ElevatorController.cs" />
      <Compile Include="Assets\Scripts\GroundCheckController.cs" />
      <Compile Include="Assets\Scripts\ParalaxController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
