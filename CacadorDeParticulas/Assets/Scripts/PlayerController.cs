@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D rb2d;
 
 	private bool isFacingRight = true;
-	
+
+	private bool updateOn = true;
+
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D> ();
 		lastPosition = transform.position;
@@ -22,20 +24,23 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (groundCheck.isGrounded ()) {
-			if (Input.GetKeyDown (KeyCode.W)) {
-				rb2d.AddForce (new Vector2 (0, jumpForce));
-			}
+		if (updateOn) {
+			if (groundCheck.isGrounded ()) {
+				if (Input.GetKeyDown (KeyCode.W)) {
+					rb2d.AddForce (new Vector2 (0, jumpForce));
+				}
+			}		
 		}
 	}
 
 	void FixedUpdate() {
 		lastPosition = transform.position;
 
-		float horizontalMoviment = Input.GetAxis ("Horizontal");
+		if (updateOn) {
+			float horizontalMoviment = Input.GetAxis ("Horizontal");
+			UpdatePlayerVelocity (horizontalMoviment);
+		}
 
-		UpdatePlayerVelocity (horizontalMoviment);
 		animUpdater.UpdateAnim (gameObject);
 	}
 
@@ -47,4 +52,9 @@ public class PlayerController : MonoBehaviour {
 		return transform.position - lastPosition;
 	}
 		
+	public void SetUpdateOn(bool value) {
+		updateOn = value;
+		rb2d.velocity = new Vector2 (0, 0);
+	}
+
 }

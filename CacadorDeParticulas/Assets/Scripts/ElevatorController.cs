@@ -23,7 +23,6 @@ public class ElevatorController : MonoBehaviour {
 	}
 
 	void Update () {
-		print (playerCheck.getIsInContact ());
 		if (playerCheck.getIsInContact()) {
 			if (Input.GetKeyDown (KeyCode.F)) {
 				move = true;
