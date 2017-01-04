@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MsgController.cs" />
      <Compile Include="Assets\Scripts\AnimUpdaterController.cs" />
      <Compile Include="Assets\Scripts\ArrowController.cs" />
      <Compile Include="Assets\Scripts\BagController.cs" />
@@ -53,9 +52,11 @@
      <Compile Include="Assets\Scripts\ContactCheck.cs" />
      <Compile Include="Assets\Scripts\ElevatorController.cs" />
      <Compile Include="Assets\Scripts\GroundCheckController.cs" />
+     <Compile Include="Assets\Scripts\MsgController.cs" />
      <Compile Include="Assets\Scripts\ParalaxController.cs" />
+     <Compile Include="Assets\Scripts\ParticleController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\keyScript.cs" />
+     <Compile Include="Assets\Scripts\keyScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
