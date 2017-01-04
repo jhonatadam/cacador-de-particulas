@@ -32,13 +32,16 @@ public class AnimUpdaterController : MonoBehaviour {
 		Rigidbody2D playerRb2d = player.GetComponent <Rigidbody2D> ();
 
 		if (groundCheck.isGrounded ()) {
+			
 			if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("Walking") &&
 				!anim.GetCurrentAnimatorStateInfo (0).IsName ("Stoped")) {
+				print ("aqui");
 				anim.Play ("JumpDownStop");
 			} else {
 				if (playerRb2d.velocity.x != 0.0f) {
 					anim.Play ("Walking");
 				} else {
+
 					anim.Play ("Stoped");
 				}
 			}
