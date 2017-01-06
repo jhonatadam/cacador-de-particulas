@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BagController : MonoBehaviour {
+public class Bag : MonoBehaviour {
 
-	public AnimUpdaterController updater;
+	public PlayerAnimUpdater updater;
 
 	void FixedUpdate() {
 		updater.UpdateAnim (gameObject);

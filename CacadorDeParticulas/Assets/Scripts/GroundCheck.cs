@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GroundCheckController : MonoBehaviour {
+public class GroundCheck : MonoBehaviour {
 
 	private bool grounded = false;
 	private ArrayList groundTag;

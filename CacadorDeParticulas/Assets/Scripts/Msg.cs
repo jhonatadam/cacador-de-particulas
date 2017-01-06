@@ -2,11 +2,11 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class MsgController : MonoBehaviour {
+public class Msg : MonoBehaviour {
 
 	public Canvas msgCv;
 	public ContactCheck cc;
-	public PlayerController player;
+	public Player player;
 
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.F)) {

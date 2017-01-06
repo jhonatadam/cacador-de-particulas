@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ElevatorController : MonoBehaviour {
+public class Elevator : MonoBehaviour {
 
 	public Vector3 topPosition;
 	public Vector3 downPosition;

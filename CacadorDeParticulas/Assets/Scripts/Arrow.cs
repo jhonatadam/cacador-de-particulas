@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ArrowController : MonoBehaviour {
+public class Arrow : MonoBehaviour {
 	
 	public float speed;
 	public float amplitude;

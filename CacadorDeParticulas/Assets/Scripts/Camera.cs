@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraController : MonoBehaviour {
+public class Camera : MonoBehaviour {
 
-	public PlayerController player;
+	public Player player;
 	public float offset;
 
 	public ContactCheck playerCheck;

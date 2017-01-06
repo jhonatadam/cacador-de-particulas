@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class keyScript : MonoBehaviour {
+public class key : MonoBehaviour {
 
 	bool up = true;
 	float scale = 1.0f;

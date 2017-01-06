@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
+public class Player : MonoBehaviour {
 
 	public float speed;
 	public float jumpForce;
 
 	private Vector3 lastPosition;
 
-	public GroundCheckController groundCheck;
-	public AnimUpdaterController animUpdater;
+	public GroundCheck groundCheck;
+	public PlayerAnimUpdater animUpdater;
 
 	private Rigidbody2D rb2d;
 

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ParalaxController : MonoBehaviour {
+public class Paralax : MonoBehaviour {
 
-	public PlayerController player;
+	public Player player;
 	public float offset;
 
 	void FixedUpdate () {

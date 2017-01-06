@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimUpdaterController : MonoBehaviour {
+public class PlayerAnimUpdater : MonoBehaviour {
 
 	public GameObject player;
-	public GroundCheckController groundCheck;
+	public GroundCheck groundCheck;
 
 	public void UpdateAnim(GameObject obj) {
 		float horizontalMoviment = Input.GetAxis ("Horizontal");
