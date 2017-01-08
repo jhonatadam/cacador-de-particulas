@@ -3,57 +3,65 @@ using System.Collections;
 
 public class Elevator : MonoBehaviour {
 
-	public Vector3 topPosition;
-	public Vector3 downPosition;
-	public Vector3 speed;
+	// Posições dos andares no eixo y
+	public float[] floorsPosition;
+
+	// Andar atual
+	public int currentFloor;
+
+	// Andar que o player deseja alcançar
+	private int nextFloor;
+
+	// Tamanho dos saltos na atualização do elevador
+	// (influencia na velocidade e na precisão com que
+	// o elevador alcança o andar seguinte)
+	public float step;
+
+	// checa que o player está dentro do elevador
 	public ContactCheck playerCheck;
+
+	// referências ao player e a câmera
 	public GameObject player;
 	public GameObject camera;
-	public GameObject arrowUp;
-	public GameObject arrowDown;
-
-	private bool isInTop = false;
-
-	private bool playerIn = false;
-
-	private bool move = false;
 
 	void Start () {
-		downPosition = transform.position;
+		nextFloor = currentFloor;
 	}
 
 	void Update () {
-		if (playerCheck.getIsInContact()) {
-			if (Input.GetKeyDown (KeyCode.F)) {
-				move = true;
-				arrowUp.SetActive (false);
-				arrowDown.SetActive (false);
+		if (playerCheck.getIsInContact() && (currentFloor == nextFloor)) {
+			if (Input.GetKeyDown (KeyCode.UpArrow) && (floorsPosition.Length > (currentFloor + 1))) {
+				nextFloor += 1;
+			}
+			if (Input.GetKeyDown (KeyCode.DownArrow) && (currentFloor > 0)) {
+				nextFloor -= 1;
 			}
 		}
 
-		if (move) {
-			if (!isInTop) {
-				if (transform.position.y < topPosition.y) {
-					transform.Translate (speed);
-					player.transform.Translate (speed);
-					camera.transform.Translate (speed);
+		if (currentFloor != nextFloor) {
+			if (currentFloor < nextFloor) {
+				if (transform.position.y < floorsPosition[nextFloor]) {
+					move ();
 				} else {
-					arrowDown.SetActive (true);
-					isInTop = true;
-					move = false;
+					currentFloor = nextFloor;
 				}
 			} else {
-				if (transform.position.y > downPosition.y) {
-					transform.Translate (-1*speed);
-					player.transform.Translate (-1*speed);
-					camera.transform.Translate (-1*speed);
+				if (transform.position.y > floorsPosition[nextFloor]) {
+					move ();
 				} else {
-					arrowUp.SetActive (true);
-					isInTop = false;
-					move = false;
+					currentFloor = nextFloor;
 				}
 			}
 		}
+	}
+
+	private void move() {
+		int direction = nextFloor - currentFloor;
+		Vector3 speed = new Vector3 (0, step, 0);
+
+		transform.Translate (direction * speed);
+		player.transform.Translate (direction * speed);
+		camera.transform.Translate (direction * speed);
 	}
 		
 }
