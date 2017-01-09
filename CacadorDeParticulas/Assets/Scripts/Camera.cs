@@ -9,8 +9,8 @@ public class Camera : MonoBehaviour {
 	public ContactCheck playerCheck;
 
 	void FixedUpdate () {
-
-		transform.Translate (new Vector3 ((offset * player.GetDelta ()).x, 0, 0));
+		transform.position = new Vector3 (player.transform.position.x, transform.position.y, transform.position.z);
+		//transform.Translate (new Vector3 ((offset * player.GetDelta ()).x, 0, 0));
 	}
 
 }
