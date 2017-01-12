@@ -88,7 +88,7 @@ public class Elevator : MonoBehaviour {
 
 		transform.Translate (direction * speed);
 		player.transform.Translate (direction * speed);
-		camera.transform.Translate (direction * speed);
+		//camera.transform.Translate (direction * speed);
 	}
 		
 }
