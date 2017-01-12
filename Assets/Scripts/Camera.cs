@@ -3,8 +3,14 @@ using System.Collections;
 
 public class Camera : MonoBehaviour {
 
-	public Player player;
+	public GameObject player;
 	public float offset;
+
+	// Limites da camera
+	public float topLimit;
+	public float bottomLimit;
+	public Vector2[] lateralLimits;
+
 
 	public ContactCheck playerCheck;
 
