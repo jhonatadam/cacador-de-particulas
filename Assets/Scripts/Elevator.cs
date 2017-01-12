@@ -20,9 +20,8 @@ public class Elevator : MonoBehaviour {
 	// checa que o player está dentro do elevador
 	public ContactCheck playerCheck;
 
-	// referências ao player e a câmera
+	// referências do player
 	public GameObject player;
-	public GameObject camera;
 
 	// referencia para o sprite do elevador
 	SpriteRenderer sr;
@@ -78,8 +77,7 @@ public class Elevator : MonoBehaviour {
 				}
 			}
 		}
-
-
+			
 	}
 
 	private void move() {
@@ -88,7 +86,6 @@ public class Elevator : MonoBehaviour {
 
 		transform.Translate (direction * speed);
 		player.transform.Translate (direction * speed);
-		camera.transform.Translate (direction * speed);
 	}
 		
 }

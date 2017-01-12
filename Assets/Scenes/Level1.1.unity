@@ -192,12 +192,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fba05a226f700f54e9798453e9fd67e0, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &114986234 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000011052304094, guid: fba05a226f700f54e9798453e9fd67e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 114986232}
-  m_Script: {fileID: 11500000, guid: 6c9ca39bf1cd00e42bf0166af673872d, type: 3}
 --- !u!1001 &217997014
 Prefab:
   m_ObjectHideFlags: 0
@@ -627,7 +621,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.61764705, g: 0.61310554, b: 0.61310554, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -659,7 +653,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1016850270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.39, y: -13, z: -10}
+  m_LocalPosition: {x: -10.27, y: -13.26, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -677,11 +671,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 20639909}
-  offset: 1
-  topLimit: 0
-  bottomLimit: 0
+  scrollMultiplier: 1
+  movementWindowSize: {x: 3.8, y: 2}
+  windowOffset: {x: 0, y: 0}
+  limitCameraMovement: 1
+  topLimit: -5
+  bottomLimit: -13
   lateralLimits: []
-  playerCheck: {fileID: 114986234}
+  activeTracking: 1
 --- !u!1001 &1017986606
 Prefab:
   m_ObjectHideFlags: 0
