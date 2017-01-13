@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Elevator : MonoBehaviour {
 
+	private bool moving;
+
 	// Posições dos andares no eixo y
 	public float[] floorsPosition;
 
@@ -20,9 +22,9 @@ public class Elevator : MonoBehaviour {
 	// checa que o player está dentro do elevador
 	public ContactCheck playerCheck;
 
-	// referências ao player e a câmera
-	public GameObject player;
-	public GameObject camera;
+	// referências do player
+	public Player player;
+	public CameraController cam;
 
 	// referencia para o sprite do elevador
 	SpriteRenderer sr;
@@ -48,47 +50,61 @@ public class Elevator : MonoBehaviour {
 	}
 
 	void Update () {
-		if (playerCheck.getIsInContact() && (currentFloor == nextFloor)) {
+		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) ) {
 			if (Input.GetKeyDown (KeyCode.UpArrow) && (floorsPosition.Length > (currentFloor + 1))) {
 				nextFloor += 1;
 				sr.sprite = sprites[1];
+
+				player.currentFloor += 1;
+				cam.activeTracking = false;
 			}
 			if (Input.GetKeyDown (KeyCode.DownArrow) && (currentFloor > 0)) {
 				nextFloor -= 1;
 				sr.sprite = sprites[2];
+
+				player.currentFloor -= 1;
+				cam.activeTracking = false;
 			}
 		}
 
 		if (currentFloor != nextFloor) {
 			if (currentFloor < nextFloor) {
 				if (transform.position.y < floorsPosition[nextFloor]) {
-					move ();
+					Move ();
 				} else {
-					currentFloor = nextFloor;
-					transform.position = new Vector3 (transform.position.x, floorsPosition[nextFloor], transform.position.z);
-					sr.sprite = sprites[0];
+					Stop ();
 				}
 			} else {
 				if (transform.position.y > floorsPosition[nextFloor]) {
-					move ();
+					Move ();
 				} else {
-					currentFloor = nextFloor;
-					transform.position = new Vector3 (transform.position.x, floorsPosition[nextFloor], transform.position.z);
-					sr.sprite = sprites[0];
+					Stop ();
 				}
 			}
 		}
-
-
+			
 	}
 
-	private void move() {
+	private void Move () {
+		moving = true;
 		int direction = nextFloor - currentFloor;
 		Vector3 speed = new Vector3 (0, step, 0);
 
 		transform.Translate (direction * speed);
 		player.transform.Translate (direction * speed);
-		camera.transform.Translate (direction * speed);
+		cam.transform.Translate (direction * speed);
+	}
+
+	private void Stop () {
+		currentFloor = nextFloor;
+		transform.position = new Vector3 (transform.position.x, floorsPosition[nextFloor], transform.position.z);
+		sr.sprite = sprites[0];
+		moving = false;
+		cam.activeTracking = true;
+	}
+
+	public bool GetMoving () {
+		return moving;
 	}
 		
 }
