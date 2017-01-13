@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 50000012792235538}
   - component: {fileID: 61000010617004178}
   - component: {fileID: 95000011723342920}
+  - component: {fileID: 70465693025536836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -163,12 +164,12 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012884978742}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.1}
+  m_Offset: {x: 0, y: -0.095}
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.41}
 --- !u!61 &61000010685036586
@@ -185,6 +186,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.3}
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.05}
+--- !u!70 &70465693025536836
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012884978742}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.06}
+  m_Size: {x: 0.2, y: 0.5}
+  m_Direction: 0
 --- !u!95 &95000011723342920
 Animator:
   serializedVersion: 3
@@ -268,6 +283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   jumpForce: 12000
+  previousPosition: {x: 0, y: 0, z: 0}
+  currentFloor: 0
   groundCheck: {fileID: 114000012518548960}
   animUpdater: {fileID: 114000013479630418}
 --- !u!212 &212000010147291480
