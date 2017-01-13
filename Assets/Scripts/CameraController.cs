@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Camera : MonoBehaviour {
+public class CameraController : MonoBehaviour {
 
-	public GameObject player;
+	public Player player;
+
+	// x se estiver se aproximando da camera (camera espera o player)
+	// x+2 se estiver se distanciando (camera acompanha o player)
+	public float scrollMultiplier;
 
 
-	public float scrollMultiplier = 1.8f;
 	public Vector2 movementWindowSize;
 	public Vector2 windowOffset;
 
 
 	// Limites da camera
 	public bool limitCameraMovement = true;
-	public float topLimit;
-	public float bottomLimit;
-	public Vector2[] lateralLimits;
+	public Rect[] floorsLimits;
 
 
 	[HideInInspector] 
@@ -23,16 +24,12 @@ public class Camera : MonoBehaviour {
 
 
 	private Vector3 cameraPosition;
-	private Vector3 playerPosition;
-	private Vector3 previousPlayerPosition;
 	private Rect windowRect;
 
 
 	void Start () {
+
 		cameraPosition = transform.position;
-
-		previousPlayerPosition = player.transform.position;
-
 
 		//These are the root x/y coordinates that we will use to create our boundary rectangle.
 		//Starts at the lower left, and takes the offset into account.
@@ -44,22 +41,19 @@ public class Camera : MonoBehaviour {
 	}
 
 
-	void LateUpdate()
-	{
-		playerPosition = player.transform.position;
-
+	void Update() {
+		
 		//Only worry about updating the camera based on player position if the player has actually moved.
 		//If the tracking isn't active at all, we don't bother with any of this crap.
-		if ( activeTracking && playerPosition != previousPlayerPosition )
+		if ( activeTracking && (player.GetPreviousPositionDifference () != new Vector3 (0, 0, 0)))
 		{
 
 			cameraPosition = transform.position;
 
-			//Get the distance of the player from the camera.
-			Vector3 playerPositionDifference = playerPosition - previousPlayerPosition;
+			float scrollValue = defineScrollValue ();
 
 			//Move the camera this direction, but faster than the player moved.
-			Vector3 multipliedDifference = playerPositionDifference * scrollMultiplier;
+			Vector3 multipliedDifference = player.GetPreviousPositionDifference () * scrollValue;
 
 			cameraPosition += multipliedDifference;
 			
@@ -71,9 +65,9 @@ public class Camera : MonoBehaviour {
 			// fast/popped into another place. This corrects for those cases, and snaps the 
 			// boundary to the player.
 
-			if(!windowRect.Contains(playerPosition))
+			if(!windowRect.Contains(player.transform.position))
 			{
-				Vector3 positionDifference = playerPosition - cameraPosition;
+				Vector3 positionDifference = player.transform.position - cameraPosition;
 				positionDifference.x -= windowOffset.x;
 				positionDifference.y -= windowOffset.y;
 
@@ -88,20 +82,43 @@ public class Camera : MonoBehaviour {
 			// Here we clamp the desired position into the area declared in the limit variables.
 			if( limitCameraMovement )
 			{
-				cameraPosition.y = Mathf.Clamp ( cameraPosition.y, bottomLimit, topLimit );
-				//cameraPosition.x = Mathf.Clamp ( cameraPosition.x, limitLeft, limitRight );
+				Rect currentFloorLimits = floorsLimits [player.currentFloor];
+				cameraPosition.y = Mathf.Clamp ( cameraPosition.y, currentFloorLimits.yMax, currentFloorLimits.y);
+				cameraPosition.x = Mathf.Clamp ( cameraPosition.x, currentFloorLimits.x, currentFloorLimits.xMax);
 			}
 
 			// and now we're updating the camera position using what came of all the calculations above.
 			transform.position = cameraPosition;
 
 		}
-
-		previousPlayerPosition = playerPosition;
 	}
 
-	static float DifferenceOutOfBounds ( float differenceAxis, float windowAxis )
-	{
+	private float defineScrollValue () {
+		float xDifference = player.GetPreviousPositionDifference ().x;
+
+		// para x do player dentro do intervalo (camera.x -delta, camera + delta) o valor do scroll eh 1 
+		float delta = 0.1f; 
+
+		if (player.transform.position.x < (transform.position.x - delta)) { // player esta a esquerda da camera
+			if (xDifference < 0) { // se esta se distanciando da camera
+				return 1 + scrollMultiplier;			
+			} else if (xDifference > 0) { // se esta indo em direcao a camera
+				return 1 - scrollMultiplier;
+			}
+		} else if (player.transform.position.x > (transform.position.x + delta)) { // player esta a direita da camera
+			if (xDifference < 0) { // se esta indo em direcao a camera
+				return 1 - scrollMultiplier;			
+			} else if (xDifference > 0) { // se esta se distanciando da camera
+				return 1 + scrollMultiplier;
+			}
+		} else { // player e camera estao na mesma posicao no eixo x
+			return 1;
+		}
+
+		return 	1;
+	}
+
+	static float DifferenceOutOfBounds ( float differenceAxis, float windowAxis ) {
 		float difference;
 
 		// We're seeing here if the player has overshot it at all on this axis. If not, we just set the 
