@@ -1004,8 +1004,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1.6
-    height: 1.9
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1031,7 +1031,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1016850270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.4, y: -13, z: -10}
+  m_LocalPosition: {x: -9.222, y: -13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1055,29 +1055,29 @@ MonoBehaviour:
   limitCameraMovement: 1
   floorsLimits:
   - serializedVersion: 2
-    x: -9.4
+    x: -9.222
     y: -13
-    width: 4.4
+    width: 4.222
     height: 0
   - serializedVersion: 2
-    x: -9.5
+    x: -9.322
     y: -11
-    width: 4.9
+    width: 4.794
     height: 0
   - serializedVersion: 2
-    x: -9.5
+    x: -9.322
     y: -9
-    width: 8
+    width: 7.644
     height: 0
   - serializedVersion: 2
-    x: -9.4
+    x: -9.122
     y: -7
-    width: 7.9
+    width: 7.544
     height: 0
   - serializedVersion: 2
-    x: -1.9
+    x: -1.972
     y: -5
-    width: 0.4
+    width: 0
     height: 0
   activeTracking: 1
 --- !u!1001 &1017986606
