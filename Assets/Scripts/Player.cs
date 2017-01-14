@@ -20,8 +20,11 @@ public class Player : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D> ();
 		previousPosition = transform.position;
 	}
-	
-	// Update is called once per frame
+
+	void OnDestroy () {
+		print ("Salvando estado do player");
+	}
+
 	void Update () {
 		if (updateOn) {
 			if (groundCheck.isGrounded ()) {
@@ -36,9 +39,10 @@ public class Player : MonoBehaviour {
 		if (updateOn) {
 			float horizontalMoviment = Input.GetAxis ("Horizontal");
 			UpdatePlayerVelocity (horizontalMoviment);
+			animUpdater.UpdateAnim (gameObject);
 		}
 
-		animUpdater.UpdateAnim (gameObject);
+
 	}
 
 	void LateUpdate() {
@@ -56,6 +60,10 @@ public class Player : MonoBehaviour {
 	public void SetUpdateOn(bool value) {
 		updateOn = value;
 		rb2d.velocity = new Vector2 (0, 0);
+	}
+
+	public bool GetUpdateOn() {
+		return updateOn;
 	}
 
 }

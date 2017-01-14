@@ -56,6 +56,7 @@ public class Elevator : MonoBehaviour {
 				sr.sprite = sprites[1];
 
 				player.currentFloor += 1;
+				player.SetUpdateOn (false);
 				cam.activeTracking = false;
 			}
 			if (Input.GetKeyDown (KeyCode.DownArrow) && (currentFloor > 0)) {
@@ -63,6 +64,7 @@ public class Elevator : MonoBehaviour {
 				sr.sprite = sprites[2];
 
 				player.currentFloor -= 1;
+				player.SetUpdateOn (false);
 				cam.activeTracking = false;
 			}
 		}
@@ -101,6 +103,7 @@ public class Elevator : MonoBehaviour {
 		sr.sprite = sprites[0];
 		moving = false;
 		cam.activeTracking = true;
+		player.SetUpdateOn (true);
 	}
 
 	public bool GetMoving () {
