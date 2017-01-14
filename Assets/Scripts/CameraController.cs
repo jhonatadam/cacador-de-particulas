@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour {
 
 
 	void Start () {
-
+		//GetComponent <Camera> ().aspect = 16f/9f;
 		cameraPosition = transform.position;
 
 		//These are the root x/y coordinates that we will use to create our boundary rectangle.
