@@ -47,7 +47,6 @@ public class CameraController : MonoBehaviour {
 		//If the tracking isn't active at all, we don't bother with any of this crap.
 		if ( activeTracking && (player.GetPreviousPositionDifference () != new Vector3 (0, 0, 0)))
 		{
-
 			cameraPosition = transform.position;
 
 			float scrollValue = defineScrollValue ();
