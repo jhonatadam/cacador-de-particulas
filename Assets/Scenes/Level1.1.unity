@@ -1070,14 +1070,14 @@ MonoBehaviour:
     width: 7.644
     height: 0
   - serializedVersion: 2
-    x: -9.122
+    x: -9.222
     y: -7
     width: 7.544
     height: 0
   - serializedVersion: 2
     x: -1.972
     y: -5
-    width: 0
+    width: 0.294
     height: 0
   activeTracking: 1
 --- !u!1001 &1017986606
