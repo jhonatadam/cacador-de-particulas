@@ -9,10 +9,15 @@ public class LightController : MonoBehaviour {
 	// recebe um valor de 0 à 1000
 	public int bugProbability;
 
+	public AudioClip bulbBlinkSound;
+
 	private SpriteRenderer sr;
-	// Use this for initialization
+	private AudioSource audioSource; 
+
+
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +26,7 @@ public class LightController : MonoBehaviour {
 			if (Random.Range (0, 1000) < bugProbability) {
 				if (sr.enabled) {
 					sr.enabled = false;
+					//audioSource.PlayOneShot (bulbBlinkSound);
 				}		
 			} else {
 				if (!sr.enabled) {

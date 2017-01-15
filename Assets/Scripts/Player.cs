@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
 	void Update () {
 		if (updateOn) {
 			if (groundCheck.isGrounded ()) {
-				if (Input.GetKeyDown (KeyCode.W)) {
+				if (Input.GetKeyDown (KeyCode.Space)) {
 					rb2d.AddForce (new Vector2 (0, jumpForce));
 				}
 			}		
