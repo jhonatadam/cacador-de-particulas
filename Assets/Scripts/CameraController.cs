@@ -53,7 +53,9 @@ public class CameraController : MonoBehaviour {
 			float scrollValue = defineScrollValue ();
 
 			//Move the camera this direction, but faster than the player moved.
-			Vector3 multipliedDifference = player.GetPreviousPositionDifference () * scrollValue;
+			Vector3 playerDiff = player.GetPreviousPositionDifference ();
+			Vector3 multipliedDifference =  
+				new Vector3 (playerDiff.x * scrollValue, playerDiff.y, playerDiff.z);
 
 			cameraPosition += multipliedDifference;
 			
@@ -83,7 +85,7 @@ public class CameraController : MonoBehaviour {
 			if( limitCameraMovement )
 			{
 				Rect currentFloorLimits = floorsLimits [GetPlayerCurrentFloor ()];
-				cameraPosition.y = Mathf.Clamp ( cameraPosition.y, currentFloorLimits.yMax, currentFloorLimits.y);
+				cameraPosition.y = Mathf.Clamp ( cameraPosition.y, currentFloorLimits.y, currentFloorLimits.yMax);
 				cameraPosition.x = Mathf.Clamp ( cameraPosition.x, currentFloorLimits.x, currentFloorLimits.xMax);
 			}
 
@@ -142,6 +144,12 @@ public class CameraController : MonoBehaviour {
 		float minDist = Mathf.Infinity;
 
 		for (int i = 0; i < floorsLimits.Length; i++) {
+			
+			if ((player.transform.position.y >= floorsLimits [i].y) && 
+				(player.transform.position.y <= floorsLimits [i].yMax + 1)) {
+				return i;
+			}
+
 			float distance = Mathf.Abs (floorsLimits [i].y - player.transform.position.y);
 			if (distance < minDist) {
 				currentFloor = i;
