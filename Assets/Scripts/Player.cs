@@ -7,7 +7,6 @@ public class Player : MonoBehaviour {
 	public float jumpForce;
 
 	public Vector3 previousPosition;
-	public int currentFloor;
 
 	public GroundCheck groundCheck;
 	public PlayerAnimUpdater animUpdater;

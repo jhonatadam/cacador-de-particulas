@@ -55,7 +55,6 @@ public class Elevator : MonoBehaviour {
 				nextFloor += 1;
 				sr.sprite = sprites[1];
 
-				player.currentFloor += 1;
 				player.SetUpdateOn (false);
 				cam.activeTracking = false;
 			}
@@ -63,7 +62,6 @@ public class Elevator : MonoBehaviour {
 				nextFloor -= 1;
 				sr.sprite = sprites[2];
 
-				player.currentFloor -= 1;
 				player.SetUpdateOn (false);
 				cam.activeTracking = false;
 			}

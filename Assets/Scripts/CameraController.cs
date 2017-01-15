@@ -42,7 +42,8 @@ public class CameraController : MonoBehaviour {
 
 
 	void Update() {
-		
+		// pegando andar atual do player
+
 		//Only worry about updating the camera based on player position if the player has actually moved.
 		//If the tracking isn't active at all, we don't bother with any of this crap.
 		if ( activeTracking && (player.GetPreviousPositionDifference () != new Vector3 (0, 0, 0)))
@@ -81,7 +82,7 @@ public class CameraController : MonoBehaviour {
 			// Here we clamp the desired position into the area declared in the limit variables.
 			if( limitCameraMovement )
 			{
-				Rect currentFloorLimits = floorsLimits [player.currentFloor];
+				Rect currentFloorLimits = floorsLimits [GetPlayerCurrentFloor ()];
 				cameraPosition.y = Mathf.Clamp ( cameraPosition.y, currentFloorLimits.yMax, currentFloorLimits.y);
 				cameraPosition.x = Mathf.Clamp ( cameraPosition.x, currentFloorLimits.x, currentFloorLimits.xMax);
 			}
@@ -133,6 +134,22 @@ public class CameraController : MonoBehaviour {
 		//Returns something if the overshot was legit, and zero if it wasn't.
 		return difference;
 
+	}
+
+
+	private int GetPlayerCurrentFloor () {
+		int currentFloor = 0;
+		float minDist = Mathf.Infinity;
+
+		for (int i = 0; i < floorsLimits.Length; i++) {
+			float distance = Mathf.Abs (floorsLimits [i].y - player.transform.position.y);
+			if (distance < minDist) {
+				currentFloor = i;
+				minDist = distance;
+			}
+		}
+
+		return currentFloor;
 	}
 
 }
