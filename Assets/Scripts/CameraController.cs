@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
+
+
 	public Player player;
 
 	// x se estiver se aproximando da camera (camera espera o player)
@@ -50,12 +52,12 @@ public class CameraController : MonoBehaviour {
 		{
 			cameraPosition = transform.position;
 
-			float scrollValue = defineScrollValue ();
+			Vector3 scrollValue = defineScrollValue ();
 
 			//Move the camera this direction, but faster than the player moved.
 			Vector3 playerDiff = player.GetPreviousPositionDifference ();
 			Vector3 multipliedDifference =  
-				new Vector3 (playerDiff.x * scrollValue, playerDiff.y, playerDiff.z);
+				new Vector3 (playerDiff.x * scrollValue.x, playerDiff.y * scrollValue.y, playerDiff.z * scrollValue.z);
 
 			cameraPosition += multipliedDifference;
 			
@@ -95,29 +97,43 @@ public class CameraController : MonoBehaviour {
 		}
 	}
 
-	private float defineScrollValue () {
-		float xDifference = player.GetPreviousPositionDifference ().x;
+	private Vector3 defineScrollValue () {
+		print (JsonUtility.ToJson (new ArrayList(floorsLimits)));
 
-		// para x do player dentro do intervalo (camera.x -delta, camera + delta) o valor do scroll eh 1 
-		float delta = 0.1f; 
+		Vector3 difference = player.GetPreviousPositionDifference ();
+		Vector3 scrollValue = new Vector3 ();
 
-		if (player.transform.position.x < (transform.position.x - delta)) { // player esta a esquerda da camera
-			if (xDifference < 0) { // se esta se distanciando da camera
+		scrollValue.x = 
+			DefineScrollValueOfAnAxe (difference.x, player.transform.position.x, transform.position.x, 0f);
+		scrollValue.y = 
+			DefineScrollValueOfAnAxe (difference.y, player.transform.position.y, transform.position.y, -0.58f, 0.5f);
+		scrollValue.z = 1; // player não se move em z
+
+		return 	scrollValue;
+	}
+
+	private float DefineScrollValueOfAnAxe (
+		float difference, float playerPosition, float camPosition, float offset, float delta = 0.1f) {
+		// delta: para x (por exemplo) do player dentro do intervalo 
+		//(camera.x -delta, camera + delta) o valor do scroll eh 1  
+
+		if (playerPosition < (camPosition + offset - delta)) { // player esta a esquerda da camera
+			if (difference < 0) { // se esta se distanciando da camera
 				return 1 + scrollMultiplier;			
-			} else if (xDifference > 0) { // se esta indo em direcao a camera
+			} else if (difference > 0) { // se esta indo em direcao a camera
 				return 1 - scrollMultiplier;
 			}
-		} else if (player.transform.position.x > (transform.position.x + delta)) { // player esta a direita da camera
-			if (xDifference < 0) { // se esta indo em direcao a camera
+		} else if (playerPosition > (camPosition + offset + delta)) { // player esta a direita da camera
+			if (difference < 0) { // se esta indo em direcao a camera
 				return 1 - scrollMultiplier;			
-			} else if (xDifference > 0) { // se esta se distanciando da camera
+			} else if (difference > 0) { // se esta se distanciando da camera
 				return 1 + scrollMultiplier;
 			}
 		} else { // player e camera estao na mesma posicao no eixo x
 			return 1;
 		}
 
-		return 	1;
+		return 1;
 	}
 
 	static float DifferenceOutOfBounds ( float differenceAxis, float windowAxis ) {

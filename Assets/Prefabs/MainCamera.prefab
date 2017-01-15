@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408454721001154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.222, y: -13, z: -10}
+  m_LocalPosition: {x: 10.107466, y: -5.0097723, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4468846112316608}
@@ -114,7 +114,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408454721001154}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!82 &82792392082811522
 AudioSource:
   m_ObjectHideFlags: 1
@@ -220,29 +220,24 @@ MonoBehaviour:
   limitCameraMovement: 1
   floorsLimits:
   - serializedVersion: 2
-    x: -9.222
-    y: -13
-    width: 4.222
-    height: 0
-  - serializedVersion: 2
-    x: -9.322
-    y: -11
-    width: 4.794
-    height: 0
-  - serializedVersion: 2
-    x: -9.322
+    x: 7.98
     y: -9
-    width: 7.644
+    width: 2.242
+    height: 6
+  - serializedVersion: 2
+    x: -1
+    y: -1
+    width: 11.222
     height: 0
   - serializedVersion: 2
-    x: -9.222
-    y: -7
-    width: 7.544
+    x: -5.222
+    y: 1
+    width: 10.444
     height: 0
   - serializedVersion: 2
-    x: -1.972
-    y: -5
-    width: 0.294
+    x: -5.222
+    y: 3
+    width: 10.444
     height: 0
   activeTracking: 1
 --- !u!124 &124439958622794148
