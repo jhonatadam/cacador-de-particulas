@@ -3,8 +3,6 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
-
-
 	public Player player;
 
 	// x se estiver se aproximando da camera (camera espera o player)
@@ -44,7 +42,6 @@ public class CameraController : MonoBehaviour {
 
 
 	void Update() {
-		// pegando andar atual do player
 
 		//Only worry about updating the camera based on player position if the player has actually moved.
 		//If the tracking isn't active at all, we don't bother with any of this crap.
@@ -98,7 +95,6 @@ public class CameraController : MonoBehaviour {
 	}
 
 	private Vector3 defineScrollValue () {
-		print (JsonUtility.ToJson (new ArrayList(floorsLimits)));
 
 		Vector3 difference = player.GetPreviousPositionDifference ();
 		Vector3 scrollValue = new Vector3 ();

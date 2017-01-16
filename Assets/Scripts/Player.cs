@@ -1,7 +1,20 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
+[Serializable]
+public class PlayerInfo
+{
+	public float health;
+	public float energy;
+	public bool[] doors;
+	public int sceneId;
+	public Vector3 scenePosition;
+}
+
 public class Player : MonoBehaviour {
+
+	PlayerInfo info = new PlayerInfo();
 
 	public float speed;
 	public float jumpForce;
@@ -16,6 +29,9 @@ public class Player : MonoBehaviour {
 	private bool updateOn = true;
 
 	void Start () {
+		print (JsonUtility.ToJson(info));
+
+
 		rb2d = GetComponent<Rigidbody2D> ();
 		previousPosition = transform.position;
 	}
