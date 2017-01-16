@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+
+[Serializable]
+public class CameraLimits {
+	public Rect[] floorsLimits;
+}
 
 public class CameraController : MonoBehaviour {
 
@@ -28,7 +34,11 @@ public class CameraController : MonoBehaviour {
 
 
 	void Start () {
-		//GetComponent <Camera> ().aspect = 16f/9f;
+		// salvando limites da camera
+		//CameraLimits cl = new CameraLimits ();
+		//cl.floorsLimits = floorsLimits;
+		//print (JsonUtility.ToJson(cl));
+
 		cameraPosition = transform.position;
 
 		//These are the root x/y coordinates that we will use to create our boundary rectangle.
@@ -49,10 +59,12 @@ public class CameraController : MonoBehaviour {
 		{
 			cameraPosition = transform.position;
 
-			float scrollValue = defineScrollValue ();
+			Vector3 scrollValue = defineScrollValue ();
 
 			//Move the camera this direction, but faster than the player moved.
-			Vector3 multipliedDifference = player.GetPreviousPositionDifference () * scrollValue;
+			Vector3 playerDiff = player.GetPreviousPositionDifference ();
+			Vector3 multipliedDifference =  
+				new Vector3 (playerDiff.x * scrollValue.x, playerDiff.y * scrollValue.y, playerDiff.z * scrollValue.z);
 
 			cameraPosition += multipliedDifference;
 			
@@ -81,8 +93,8 @@ public class CameraController : MonoBehaviour {
 			// Here we clamp the desired position into the area declared in the limit variables.
 			if( limitCameraMovement )
 			{
-				Rect currentFloorLimits = floorsLimits [player.currentFloor];
-				cameraPosition.y = Mathf.Clamp ( cameraPosition.y, currentFloorLimits.yMax, currentFloorLimits.y);
+				Rect currentFloorLimits = floorsLimits [GetPlayerCurrentFloor ()];
+				cameraPosition.y = Mathf.Clamp ( cameraPosition.y, currentFloorLimits.y, currentFloorLimits.yMax);
 				cameraPosition.x = Mathf.Clamp ( cameraPosition.x, currentFloorLimits.x, currentFloorLimits.xMax);
 			}
 
@@ -92,29 +104,42 @@ public class CameraController : MonoBehaviour {
 		}
 	}
 
-	private float defineScrollValue () {
-		float xDifference = player.GetPreviousPositionDifference ().x;
+	private Vector3 defineScrollValue () {
 
-		// para x do player dentro do intervalo (camera.x -delta, camera + delta) o valor do scroll eh 1 
-		float delta = 0.1f; 
+		Vector3 difference = player.GetPreviousPositionDifference ();
+		Vector3 scrollValue = new Vector3 ();
 
-		if (player.transform.position.x < (transform.position.x - delta)) { // player esta a esquerda da camera
-			if (xDifference < 0) { // se esta se distanciando da camera
+		scrollValue.x = 
+			DefineScrollValueOfAnAxe (difference.x, player.transform.position.x, transform.position.x, 0f);
+		scrollValue.y = 
+			DefineScrollValueOfAnAxe (difference.y, player.transform.position.y, transform.position.y, -0.58f, 0.5f);
+		scrollValue.z = 1; // player não se move em z
+
+		return 	scrollValue;
+	}
+
+	private float DefineScrollValueOfAnAxe (
+		float difference, float playerPosition, float camPosition, float offset, float delta = 0.1f) {
+		// delta: para x (por exemplo) do player dentro do intervalo 
+		//(camera.x -delta, camera + delta) o valor do scroll eh 1  
+
+		if (playerPosition < (camPosition + offset - delta)) { // player esta a esquerda da camera
+			if (difference < 0) { // se esta se distanciando da camera
 				return 1 + scrollMultiplier;			
-			} else if (xDifference > 0) { // se esta indo em direcao a camera
+			} else if (difference > 0) { // se esta indo em direcao a camera
 				return 1 - scrollMultiplier;
 			}
-		} else if (player.transform.position.x > (transform.position.x + delta)) { // player esta a direita da camera
-			if (xDifference < 0) { // se esta indo em direcao a camera
+		} else if (playerPosition > (camPosition + offset + delta)) { // player esta a direita da camera
+			if (difference < 0) { // se esta indo em direcao a camera
 				return 1 - scrollMultiplier;			
-			} else if (xDifference > 0) { // se esta se distanciando da camera
+			} else if (difference > 0) { // se esta se distanciando da camera
 				return 1 + scrollMultiplier;
 			}
 		} else { // player e camera estao na mesma posicao no eixo x
 			return 1;
 		}
 
-		return 	1;
+		return 1;
 	}
 
 	static float DifferenceOutOfBounds ( float differenceAxis, float windowAxis ) {
@@ -133,6 +158,28 @@ public class CameraController : MonoBehaviour {
 		//Returns something if the overshot was legit, and zero if it wasn't.
 		return difference;
 
+	}
+
+
+	private int GetPlayerCurrentFloor () {
+		int currentFloor = 0;
+		float minDist = Mathf.Infinity;
+
+		for (int i = 0; i < floorsLimits.Length; i++) {
+			
+			if ((player.transform.position.y >= floorsLimits [i].y) && 
+				(player.transform.position.y <= floorsLimits [i].yMax + 1)) {
+				return i;
+			}
+
+			float distance = Mathf.Abs (floorsLimits [i].y - player.transform.position.y);
+			if (distance < minDist) {
+				currentFloor = i;
+				minDist = distance;
+			}
+		}
+
+		return currentFloor;
 	}
 
 }
