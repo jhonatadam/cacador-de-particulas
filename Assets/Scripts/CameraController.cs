@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+
+[Serializable]
+public class CameraLimits {
+	public Rect[] floorsLimits;
+}
 
 public class CameraController : MonoBehaviour {
 
@@ -28,7 +34,11 @@ public class CameraController : MonoBehaviour {
 
 
 	void Start () {
-		//GetComponent <Camera> ().aspect = 16f/9f;
+		// salvando limites da camera
+		//CameraLimits cl = new CameraLimits ();
+		//cl.floorsLimits = floorsLimits;
+		//print (JsonUtility.ToJson(cl));
+
 		cameraPosition = transform.position;
 
 		//These are the root x/y coordinates that we will use to create our boundary rectangle.
@@ -42,7 +52,7 @@ public class CameraController : MonoBehaviour {
 
 
 	void Update() {
-
+		
 		//Only worry about updating the camera based on player position if the player has actually moved.
 		//If the tracking isn't active at all, we don't bother with any of this crap.
 		if ( activeTracking && (player.GetPreviousPositionDifference () != new Vector3 (0, 0, 0)))

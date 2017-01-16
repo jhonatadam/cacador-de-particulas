@@ -14,7 +14,13 @@ public class SceneTransition : MonoBehaviour {
 
 	void Update () {
 		if (cc.getIsInContact ()) {
+			//Scene nextScene = SceneManager.GetSceneByName (nextSceneName);
+			//if (!nextScene.IsValid () || !nextScene.isLoaded) {
+			//	Application.LoadLevelAdditive (nextSceneName);
+			//}
+
 			SceneManager.LoadScene (nextSceneName);
+			//gameObject.SetActive (false);
 		}
 	}
 }
