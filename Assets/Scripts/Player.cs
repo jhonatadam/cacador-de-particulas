@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.IO;
 using System.Collections;
 
 [Serializable]
@@ -7,9 +8,65 @@ public class PlayerInfo
 {
 	public float health;
 	public float energy;
+
 	public bool[] doors;
-	public int sceneId;
-	public Vector3 scenePosition;
+
+	public bool isFacingRight;
+	public Vector3 position;
+
+	private string fileName = "PlayerInfo.json";
+	private string filePath = "Assets/Resources/JSONData/";
+
+
+	public void Save () {
+
+		#if UNITY_STANDALONE
+		filePath = "Particles_Data/Resources/";
+		#endif
+
+		#if UNITY_EDITOR
+		filePath = "Assets/Resources/JSONData/";
+		#endif
+
+		string jsonInfo = JsonUtility.ToJson (this);
+
+		using (FileStream fs = new FileStream (filePath + fileName, FileMode.Create)) {
+			using (StreamWriter sw = new StreamWriter (fs)) {
+				sw.Write (jsonInfo);
+			}
+		}
+
+		#if UNITY_EDITOR
+		UnityEditor.AssetDatabase.Refresh ();
+		#endif
+
+	}
+
+	public void Load () {
+		
+		#if UNITY_STANDALONE
+		filePath = "Particles_Data/Resources/";
+		#endif
+
+		#if UNITY_EDITOR
+		filePath = "Assets/Resources/JSONData/";
+		#endif
+
+		string jsonInfo;//= JsonUtility.ToJson (this);
+
+		using (FileStream fs = new FileStream (filePath + fileName, FileMode.Open)) {
+			using (StreamReader sr = new StreamReader (fs)) {
+				jsonInfo = sr.ReadToEnd();
+				JsonUtility.FromJsonOverwrite(jsonInfo, this);
+			}
+		}
+
+		#if UNITY_EDITOR
+		UnityEditor.AssetDatabase.Refresh ();
+		#endif
+	
+	}
+
 }
 
 public class Player : MonoBehaviour {
@@ -29,15 +86,15 @@ public class Player : MonoBehaviour {
 	private bool updateOn = true;
 
 	void Start () {
-		print (JsonUtility.ToJson(info));
-
+		info.Load ();
 
 		rb2d = GetComponent<Rigidbody2D> ();
 		previousPosition = transform.position;
 	}
 
 	void OnDestroy () {
-		print ("Salvando estado do player");
+		info.Save ();
+		print ("saved");
 	}
 
 	void Update () {
