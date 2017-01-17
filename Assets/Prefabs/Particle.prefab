@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72d65910da1f8f47876e50f41921d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  step: 0.01
+  step: 1
   radious: 4
   TrSortingLayer: 
 --- !u!198 &198584914152557314
@@ -254,7 +254,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1899835169
+  randomSeed: -1619930261
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2891,7 +2891,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -15560998
+  randomSeed: -2070257682
   InitialModule:
     serializedVersion: 3
     enabled: 1

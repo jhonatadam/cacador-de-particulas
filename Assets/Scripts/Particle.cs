@@ -9,6 +9,14 @@ public class Particle : MonoBehaviour {
 
 	private float num = 0;
 
+	private float angle;
+	//transform
+	Transform trans;
+	//posição
+	Vector3 pos;
+	//rotação
+	Vector3 rot;
+
 	private Vector3 initialPosition;
 
 
@@ -16,6 +24,12 @@ public class Particle : MonoBehaviour {
 		initialPosition = transform.position;
 		TrailRenderer tr = GetComponent<TrailRenderer> ();
 		tr.sortingLayerName = TrSortingLayer;
+
+		trans = transform;
+		pos = trans.position;
+		rot = trans.rotation.eulerAngles;
+
+		Destroy (gameObject, 5f);
 	}
 	
 	void FixedUpdate () {
@@ -29,8 +43,17 @@ public class Particle : MonoBehaviour {
 	}
 
 	void LinearMovement() {
-		transform.position = initialPosition + new Vector3 (num, 0, 0);
-		//transform.position = initialPosition + transform.forward;
+		
+		//Convertendo euler's angle para radiano.
+		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
+
+
+		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
+		pos.y += (Mathf.Sin (angle) * step) * Time.deltaTime;
+	
 		num += step;
+
+		transform.position = pos;
+		transform.rotation = Quaternion.Euler(rot);
 	}
 }
