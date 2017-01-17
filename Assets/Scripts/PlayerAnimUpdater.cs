@@ -35,7 +35,6 @@ public class PlayerAnimUpdater : MonoBehaviour {
 			
 			if (!anim.GetCurrentAnimatorStateInfo (0).IsName ("Walking") &&
 				!anim.GetCurrentAnimatorStateInfo (0).IsName ("Stoped")) {
-				print ("aqui");
 				anim.Play ("JumpDownStop");
 			} else {
 				if (playerRb2d.velocity.x != 0.0f) {

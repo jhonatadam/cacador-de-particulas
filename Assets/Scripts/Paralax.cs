@@ -7,6 +7,6 @@ public class Paralax : MonoBehaviour {
 	public float offset;
 
 	void FixedUpdate () {
-		transform.Translate (new Vector3((offset * player.GetDelta ()).x, 0, 0));
+		transform.Translate (new Vector3((offset * player.GetPreviousPositionDifference ()).x, 0, 0));
 	}
 }

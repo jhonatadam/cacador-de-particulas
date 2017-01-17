@@ -28,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011603234776
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 50000012792235538}
   - component: {fileID: 61000010617004178}
   - component: {fileID: 95000011723342920}
+  - component: {fileID: 70465693025536836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 1000012884978742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.39, y: -13.112, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000010268703816}
   - {fileID: 4000011463062420}
@@ -148,10 +149,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 45
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -163,14 +164,14 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012884978742}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.34}
+  m_Offset: {x: 0, y: -0.095}
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 1.95}
+  m_Size: {x: 0.1, y: 0.41}
 --- !u!61 &61000010685036586
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -182,9 +183,23 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -1.2}
+  m_Offset: {x: 0, y: -0.3}
   serializedVersion: 2
-  m_Size: {x: 0.37, y: 0.37}
+  m_Size: {x: 0.08, y: 0.05}
+--- !u!70 &70465693025536836
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012884978742}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.06}
+  m_Size: {x: 0.2, y: 0.5}
+  m_Direction: 0
 --- !u!95 &95000011723342920
 Animator:
   serializedVersion: 3
@@ -267,7 +282,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  jumpForce: 15000
+  jumpForce: 12000
+  previousPosition: {x: 0, y: 0, z: 0}
+  currentFloor: 0
   groundCheck: {fileID: 114000012518548960}
   animUpdater: {fileID: 114000013479630418}
 --- !u!212 &212000010147291480
