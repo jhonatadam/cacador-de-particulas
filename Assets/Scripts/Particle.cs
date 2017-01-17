@@ -29,8 +29,8 @@ public class Particle : MonoBehaviour {
 	}
 
 	void LinearMovement() {
-		//transform.position = initialPosition + new Vector3 (num, num, 180);
-		transform.position = initialPosition + transform.forward;
+		transform.position = initialPosition + new Vector3 (num, 0, 0);
+		//transform.position = initialPosition + transform.forward;
 		num += step;
 	}
 }
