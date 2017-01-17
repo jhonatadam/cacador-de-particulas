@@ -9,6 +9,7 @@ public class TitleMenu : MonoBehaviour {
 	public string firstSceneName;
 
 	public Button continuar;
+	public GameObject loadingImg;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,7 @@ public class TitleMenu : MonoBehaviour {
 	}
 
 	public void NovoJogo() {
+		loadingImg.SetActive (true);
 		SceneManager.LoadScene (firstSceneName);
 
 
