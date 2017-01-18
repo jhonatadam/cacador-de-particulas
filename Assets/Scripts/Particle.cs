@@ -8,11 +8,18 @@ public class Particle : MonoBehaviour {
 	public string TrSortingLayer;
 	public float lifeTime;
 
+	public GameObject daughter1;
+	public GameObject daughter2;
+
+	private TrailRenderer tail;
+
 	private float currentLife = 0f;
 
 	private float num = 0;
 
 	private float angle;
+
+	private ParticleSystem ps;
 
 	private SpriteRenderer sr;
 
@@ -37,17 +44,25 @@ public class Particle : MonoBehaviour {
 
 		Destroy (gameObject, lifeTime);
 		sr = GetComponent<SpriteRenderer> ();
+		tail = GetComponent<TrailRenderer> ();
+		ps = GetComponent<ParticleSystem> ();
 	}
 	
 	void FixedUpdate () {
 		//CircularMovement ();
 		LinearMovement();
 
+		if (Random.Range(0f,1f) >= 0.998f) {
+			Decay ();
+		}
+
 	}
 
 	void Update(){
-		currentLife = Time.deltaTime;
-		sr.color = new Color (sr.color.r, sr.color.g, sr.color.b, currentLife/lifeTime);
+		currentLife += Time.deltaTime;
+		//sr.color = new Color (sr.color.r, sr.color.g, sr.color.b, currentLife/lifeTime);
+
+
 
 	}
 
@@ -69,5 +84,18 @@ public class Particle : MonoBehaviour {
 
 		transform.position = pos;
 		transform.rotation = Quaternion.Euler(rot);
+	}
+
+	void Decay() {
+		if (daughter1 != null && daughter2 != null) {
+			
+			Instantiate (daughter1, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z + 25));
+			Instantiate (daughter2, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z - 25));
+
+			step = 0;
+			sr.enabled = false;
+			ps.Stop ();
+			Destroy (gameObject, tail.time);
+		}
 	}
 }
