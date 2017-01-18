@@ -10,6 +10,9 @@ public class ParticleGenerator : MonoBehaviour {
 	public int delay;
 	private int actualTime;
 
+	public int minAngle;
+	public int maxAngle;
+
 	// Use this for initialization
 	void Start () {
 		actualTime = 0;
@@ -28,7 +31,7 @@ public class ParticleGenerator : MonoBehaviour {
 			//Instantiate (particle, generatePoint.position, new Quaternion(0, 0, Mathf.Clamp(Random.rotation.z, 300,405), 
 			//	Mathf.Clamp(Random.rotation.w, 300, 405)));
 
-			Instantiate(particle, generatePoint.position, Quaternion.Euler(0, 0, Random.Range(315, 405) + generatePoint.eulerAngles.z));
+			Instantiate(particle, generatePoint.position, Quaternion.Euler(0, 0, Random.Range(minAngle, maxAngle) + generatePoint.eulerAngles.z));
 
 			actualTime = 0;
 		}
