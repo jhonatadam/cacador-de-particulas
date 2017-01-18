@@ -51,14 +51,16 @@ public class Elevator : MonoBehaviour {
 
 	void Update () {
 		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) ) {
-			if (Input.GetKeyDown (KeyCode.UpArrow) && (floorsPosition.Length > (currentFloor + 1))) {
+			float verticalMovement = Input.GetAxis ("Vertical");
+
+			if (verticalMovement > 0.0f && (floorsPosition.Length > (currentFloor + 1))) {
 				nextFloor += 1;
 				sr.sprite = sprites[1];
 
 				player.SetUpdateOn (false);
 				cam.activeTracking = false;
 			}
-			if (Input.GetKeyDown (KeyCode.DownArrow) && (currentFloor > 0)) {
+			if (verticalMovement < 0.0f && (currentFloor > 0)) {
 				nextFloor -= 1;
 				sr.sprite = sprites[2];
 

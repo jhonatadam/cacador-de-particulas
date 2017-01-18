@@ -8,19 +8,17 @@ public class SceneTransition : MonoBehaviour {
 	public ContactCheck cc;
 	public string nextSceneName;
 
+	public SceneDataManager sdm;
+
 	void Start () {
 		
 	}
 
 	void Update () {
 		if (cc.getIsInContact ()) {
-			//Scene nextScene = SceneManager.GetSceneByName (nextSceneName);
-			//if (!nextScene.IsValid () || !nextScene.isLoaded) {
-			//	Application.LoadLevelAdditive (nextSceneName);
-			//}
-
+			sdm.UpdatePlayerData ();
+			sdm.UpdateSceneData ();
 			SceneManager.LoadScene (nextSceneName);
-			//gameObject.SetActive (false);
 		}
 	}
 }
