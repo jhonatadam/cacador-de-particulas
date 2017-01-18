@@ -6,10 +6,16 @@ public class Particle : MonoBehaviour {
 	public float step;
 	public float radious;
 	public string TrSortingLayer;
+	public float lifeTime;
+
+	private float currentLife = 0f;
 
 	private float num = 0;
 
 	private float angle;
+
+	private SpriteRenderer sr;
+
 	//transform
 	Transform trans;
 	//posição
@@ -29,12 +35,20 @@ public class Particle : MonoBehaviour {
 		pos = trans.position;
 		rot = trans.rotation.eulerAngles;
 
-		Destroy (gameObject, 5f);
+		Destroy (gameObject, lifeTime);
+		sr = GetComponent<SpriteRenderer> ();
 	}
 	
 	void FixedUpdate () {
 		//CircularMovement ();
 		LinearMovement();
+
+	}
+
+	void Update(){
+		currentLife = Time.deltaTime;
+		sr.color = new Color (sr.color.r, sr.color.g, sr.color.b, currentLife/lifeTime);
+
 	}
 
 	void CircularMovement() {

@@ -199,6 +199,7 @@ MonoBehaviour:
   step: 1
   radious: 4
   TrSortingLayer: 
+  lifeTime: 7
 --- !u!198 &198584914152557314
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -254,7 +255,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1619930261
+  randomSeed: 914851203
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2891,7 +2892,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2070257682
+  randomSeed: 1867190493
   InitialModule:
     serializedVersion: 3
     enabled: 1
