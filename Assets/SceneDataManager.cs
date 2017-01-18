@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 [Serializable]
 public class PlayerData {
@@ -15,6 +16,7 @@ public class PlayerData {
 	// Permissao das portas
 	public bool[] doors;
 
+	public bool isFacingRight;
 	public Vector3 position;
 	public Vector2 velocity;
 
@@ -42,6 +44,8 @@ public class SceneDataManager : MonoBehaviour {
 	public string sceneName;
 
 	public GameObject player;
+
+	public GameObject camera;
 	
 	public Elevator[] elevators;
 
@@ -85,6 +89,10 @@ public class SceneDataManager : MonoBehaviour {
 
 			player.transform.position = playerData.position;
 			player.GetComponent <Rigidbody2D> ().velocity = playerData.velocity;
+			player.GetComponent<SpriteRenderer> ().flipX = !playerData.isFacingRight;
+
+			camera.transform.position = 
+				new Vector3 (playerData.position.x, playerData.position.y, camera.transform.position.z);
 
 		}
 
@@ -93,9 +101,38 @@ public class SceneDataManager : MonoBehaviour {
 		string sceneJson = LoadJsonFile (filePath + sceneFileName);
 
 		if (!sceneJson.Equals ("")) {
-			
+			JsonUtility.FromJsonOverwrite (sceneJson, sceneData);
+
+			// carregando elevadores
+			for (int i = 0; i < elevators.Length; i++) {
+				elevators [i].currentFloor = sceneData.elevatorCurrentFloor [i];
+
+				elevators [i].transform.position = new Vector3 (
+						elevators [i].transform.position.x, 
+						elevators [i].floorsPosition [elevators [i].currentFloor],
+						elevators [i].transform.position.z
+				);
+			}
+
+			// carregando portas
+			for (int i = 0; i < doors.Length; i++) {
+				doors [i].state = sceneData.doorState [i]; 
+			}
 		}
 
+	}
+
+	void OnApplicationQuit () {
+		// definindo caminho dos arquivos
+		#if UNITY_STANDALONE
+		filePath = standaloneTempFilePath;
+		#endif
+
+		#if UNITY_EDITOR
+		filePath = editorTempFilePath;
+		#endif
+
+		FileUtil.DeleteFileOrDirectory (filePath + playerFileName);
 	}
 
 	void OnDestroy () {
@@ -109,10 +146,13 @@ public class SceneDataManager : MonoBehaviour {
 		filePath = editorTempFilePath;
 		#endif
 
-		//salvando dados do player
+		// salvando dados do player
 		string playerJson = JsonUtility.ToJson (playerData);
 		SaveJsonFile (filePath + playerFileName, playerJson);
 
+		// salvando dados da cena
+		string sceneJson = JsonUtility.ToJson (sceneData);
+		SaveJsonFile (filePath + sceneFileName, sceneJson);
 
 		#if UNITY_EDITOR
 		UnityEditor.AssetDatabase.Refresh ();
@@ -150,5 +190,20 @@ public class SceneDataManager : MonoBehaviour {
 	public void UpdatePlayerData () {
 		playerData.position = player.transform.position;
 		playerData.velocity = player.GetComponent <Rigidbody2D> ().velocity;
+		playerData.isFacingRight = !player.GetComponent<SpriteRenderer> ().flipX;
+	}
+
+	public void UpdateSceneData () {
+		// elevadores
+		sceneData.elevatorCurrentFloor = new int[elevators.Length];
+		for (int i = 0; i < elevators.Length; i++) {
+			sceneData.elevatorCurrentFloor [i] = elevators [i].currentFloor;
+		}
+
+		// portas
+		sceneData.doorState = new DoorState[doors.Length];
+		for (int i = 0; i < doors.Length; i++) {
+			sceneData.doorState [i] = doors [i].state; 
+		}
 	}
 }
