@@ -18,20 +18,24 @@ public class DoorPanel : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
-
-		panelColor = new Color (0, 1, 0, 1);
-
-		ledSr.color = new Color (1, 0, 0, 1);
-		sr.color = panelColor * VariationValue ();
-
-		lightSr.color = LightColor ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (contactCheck.getIsInContact () && Input.GetKeyDown (KeyCode.F)) {
-			door.opened = true;
+		
+		if (door.state == DoorState.Locked) {
+			ledSr.color = new Color (1, 0, 0, 1);
+			panelColor = new Color (1, 0, 0, 1);
+		} else if (door.state == DoorState.Unlocked) {
+			ledSr.color = new Color (1, 0, 0, 1);
+			panelColor = new Color (0, 1, 1, 1);
+		} else {
 			ledSr.color = new Color (0, 1, 0, 1);
+			panelColor = new Color (0, 1, 1, 1);
+		}
+
+		if (contactCheck.getIsInContact () && Input.GetButtonDown ("Fire1") && door.state == DoorState.Unlocked) {
+			door.state = DoorState.Opened;
 		}
 
 		sr.color = panelColor * VariationValue ();

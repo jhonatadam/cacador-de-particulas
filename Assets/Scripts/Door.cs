@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DoorState {Locked, Unlocked, Opened};
+
 public class Door : MonoBehaviour {
 
 	//id da porta.
 	public int id;
 
-	//Variável que indica se a porta está aberta.
-	public bool opened = false;
+	// indica o estado da porta (locked, unlocked e opened)
+	public DoorState state;
 
 	private Animator animator;
 
@@ -16,15 +18,15 @@ public class Door : MonoBehaviour {
 	void Start () {
 		animator = GetComponent<Animator> ();
 
-		if (opened) {
+		if (state == DoorState.Opened) {
 			animator.Play ("OpenedDoor");
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (opened && !animator.GetCurrentAnimatorStateInfo (0).IsName ("OpenedDoor")) {
-			animator.SetBool ("Opened", opened);
+		if ((state == DoorState.Opened) && !animator.GetCurrentAnimatorStateInfo (0).IsName ("OpenedDoor")) {
+			animator.SetBool ("Opened", true);
 		}
 	}
 
