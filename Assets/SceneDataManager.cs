@@ -5,12 +5,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class SceneData {
+public class PlayerData {
 
-	// PLAYER--------------------------------------
-	public Vector3 playerPosition;
-	public Vector2 playerVelocity;
-	public bool[] playerDoorPermission;
+	public string currentScene;
+
+	public float health;
+	public float energy;
+
+	// Permissao das portas
+	public bool[] doors;
+
+	public Vector3 position;
+	public Vector2 velocity;
+
+}
+
+[Serializable]
+public class SceneData {
 
 	// ELEVADOR------------------------------------
 	// conjunto de andares atuais dos elevadores
@@ -23,9 +34,12 @@ public class SceneData {
 	// conjunto de estado das portas
 	// (mapeado da mesma forma que os elevadores)
 	public DoorState[] doorState;
+
 }
 
 public class SceneDataManager : MonoBehaviour {
+
+	public string sceneName;
 
 	public GameObject player;
 	
@@ -33,68 +47,108 @@ public class SceneDataManager : MonoBehaviour {
 
 	public Door[] doors;
 
-	// Dados da cena
-	SceneData sceneData;
+	//Dados do player
+	private PlayerData playerData = new PlayerData();
 
-	private string fileName = "PlayerInfo.json";
+	// Dados da cena
+	private SceneData sceneData = new SceneData();
+
+	private string playerFileName = "Player.json";
+	private string sceneFileName = "";
 	private string filePath = null;
 
 	// caminhos onde o arquivo deve ser salvo
-	private string standaloneFilePath = "Particles_Data/Resources/";
-	private string editorFilePath = "Assets/Resources/JSONData/";
+	private string standaloneSaveFilePath = "Particles_Data/Resources/Save/";
+	private string editorSaveFilePath = "Assets/Resources/JSONData/Save/";
+
+	private string standaloneTempFilePath = "Particles_Data/Resources/Temp/";
+	private string editorTempFilePath = "Assets/Resources/JSONData/Temp/";
 
 	void Start () {
-		
+		// definindo nome do arquivo da cena
+		sceneFileName = sceneName + ".json";
+
+		// selecionando caminho dos arquivos
+		#if UNITY_STANDALONE
+		filePath = standaloneTempFilePath;
+		#endif
+
+		#if UNITY_EDITOR
+		filePath = editorTempFilePath;
+		#endif
+
+		// carregando player
+		string playerJson = LoadJsonFile (filePath + playerFileName);
+
+		if (!playerJson.Equals("")) {
+			JsonUtility.FromJsonOverwrite(playerJson, playerData);
+
+			player.transform.position = playerData.position;
+			player.GetComponent <Rigidbody2D> ().velocity = playerData.velocity;
+
+		}
+
+
+		// carregando cena
+		string sceneJson = LoadJsonFile (filePath + sceneFileName);
+
+		if (!sceneJson.Equals ("")) {
+			
+		}
+
 	}
 
 	void OnDestroy () {
 
-	}
-
-	public void Save () {
+		// definindo caminho dos arquivos
 		#if UNITY_STANDALONE
-		filePath = standaloneFilePath;
+		filePath = standaloneTempFilePath;
 		#endif
 
 		#if UNITY_EDITOR
-		filePath = editorFilePath;
+		filePath = editorTempFilePath;
 		#endif
 
-		string json = JsonUtility.ToJson (sceneData);
+		//salvando dados do player
+		string playerJson = JsonUtility.ToJson (playerData);
+		SaveJsonFile (filePath + playerFileName, playerJson);
 
-		using (FileStream fs = new FileStream (filePath + fileName, FileMode.Create)) {
-			using (StreamWriter sw = new StreamWriter (fs)) {
-				sw.Write (json);
-			}
-		}
 
 		#if UNITY_EDITOR
 		UnityEditor.AssetDatabase.Refresh ();
 		#endif
 	}
 
-	public void Load () {
-		#if UNITY_STANDALONE
-		filePath = standaloneFilePath;
-		#endif
-
-		#if UNITY_EDITOR
-		filePath = editorFilePath;
-		#endif
-
-		string json;
-
-		using (FileStream fs = new FileStream (filePath + fileName, FileMode.Open)) {
-			using (StreamReader sr = new StreamReader (fs)) {
-				jsonInfo = sr.ReadToEnd();
-				JsonUtility.FromJsonOverwrite(json, sceneData);
-			}
-		}
-
-
-		// carregando dados nos gameobjects da cena...
-
+	public void Save () {
 
 	}
-		
+
+	private string LoadJsonFile (string file) {
+		string json = "";
+
+		try {
+			using (FileStream fs = new FileStream (file, FileMode.Open)) {
+				using (StreamReader sr = new StreamReader (fs)) {
+					json = sr.ReadToEnd();
+				}
+			}
+		} catch {
+		}
+
+		return json;
+	}
+
+	private void SaveJsonFile (string file, string json) {
+		print ("salvando");
+		using (FileStream fs = new FileStream (file, FileMode.Create)) {
+			using (StreamWriter sw = new StreamWriter (fs)) {
+				sw.Write (json);
+			}
+		}
+	}
+
+	public void UpdatePlayerData () {
+		playerData.position = player.transform.position;
+		playerData.velocity = player.GetComponent <Rigidbody2D> ().velocity;
+	}
 }

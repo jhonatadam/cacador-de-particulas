@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum DoorState {Locked, Unlocked, Opened};
+public enum DoorState {Locked, Unlocked, Opened};
 
 public class Door : MonoBehaviour {
 

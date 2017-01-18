@@ -19,7 +19,7 @@ public class DoorPanel : MonoBehaviour {
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
 
-		panelColor = new Color (0, 1, 0, 1);
+		panelColor = new Color (0, 1, 1, 1);
 
 		ledSr.color = new Color (1, 0, 0, 1);
 		sr.color = panelColor * VariationValue ();
@@ -29,7 +29,7 @@ public class DoorPanel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (contactCheck.getIsInContact () && Input.GetKeyDown (KeyCode.F)) {
+		if (contactCheck.getIsInContact () && Input.GetButtonDown ("Fire1")) {
 			door.opened = true;
 			ledSr.color = new Color (0, 1, 0, 1);
 		}

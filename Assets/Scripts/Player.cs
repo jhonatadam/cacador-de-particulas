@@ -3,75 +3,9 @@ using System;
 using System.IO;
 using System.Collections;
 
-[Serializable]
-public class PlayerInfo
-{
-	public float health;
-	public float energy;
 
-	public bool[] doors;
-
-	public bool isFacingRight;
-	public Vector3 position;
-
-	private string fileName = "PlayerInfo.json";
-	private string filePath = "Assets/Resources/JSONData/";
-
-
-	public void Save () {
-
-		#if UNITY_STANDALONE
-		filePath = "Particles_Data/Resources/";
-		#endif
-
-		#if UNITY_EDITOR
-		filePath = "Assets/Resources/JSONData/";
-		#endif
-
-		string jsonInfo = JsonUtility.ToJson (this);
-
-		using (FileStream fs = new FileStream (filePath + fileName, FileMode.Create)) {
-			using (StreamWriter sw = new StreamWriter (fs)) {
-				sw.Write (jsonInfo);
-			}
-		}
-
-		#if UNITY_EDITOR
-		UnityEditor.AssetDatabase.Refresh ();
-		#endif
-
-	}
-
-	public void Load () {
-		
-		#if UNITY_STANDALONE
-		filePath = "Particles_Data/Resources/";
-		#endif
-
-		#if UNITY_EDITOR
-		filePath = "Assets/Resources/JSONData/";
-		#endif
-
-		string jsonInfo;//= JsonUtility.ToJson (this);
-
-		using (FileStream fs = new FileStream (filePath + fileName, FileMode.Open)) {
-			using (StreamReader sr = new StreamReader (fs)) {
-				jsonInfo = sr.ReadToEnd();
-				JsonUtility.FromJsonOverwrite(jsonInfo, this);
-			}
-		}
-
-		#if UNITY_EDITOR
-		UnityEditor.AssetDatabase.Refresh ();
-		#endif
-	
-	}
-
-}
 
 public class Player : MonoBehaviour {
-
-	PlayerInfo info = new PlayerInfo();
 
 	public float speed;
 	public float jumpForce;
@@ -86,21 +20,14 @@ public class Player : MonoBehaviour {
 	private bool updateOn = true;
 
 	void Start () {
-		info.Load ();
-
 		rb2d = GetComponent<Rigidbody2D> ();
 		previousPosition = transform.position;
-	}
-
-	void OnDestroy () {
-		info.Save ();
-		print ("saved");
 	}
 
 	void Update () {
 		if (updateOn) {
 			if (groundCheck.isGrounded ()) {
-				if (Input.GetKeyDown (KeyCode.Space)) {
+				if (Input.GetButtonDown ("Jump")) {
 					rb2d.AddForce (new Vector2 (0, jumpForce));
 				}
 			}		
