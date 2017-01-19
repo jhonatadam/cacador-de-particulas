@@ -12,7 +12,7 @@ public class Elevator : MonoBehaviour {
 	public int currentFloor;
 
 	// Andar que o player deseja alcançar
-	private int nextFloor;
+	public int nextFloor;
 
 	// Tamanho dos saltos na atualização do elevador
 	// (influencia na velocidade e na precisão com que

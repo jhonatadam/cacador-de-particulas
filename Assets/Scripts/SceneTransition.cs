@@ -16,8 +16,11 @@ public class SceneTransition : MonoBehaviour {
 
 	void Update () {
 		if (cc.getIsInContact ()) {
+
 			sdm.UpdatePlayerData ();
 			sdm.UpdateSceneData ();
+			sdm.UpdateSoundtrack ();
+
 			SceneManager.LoadScene (nextSceneName);
 		}
 	}

@@ -39,6 +39,12 @@ public class SceneData {
 
 }
 
+[Serializable]
+public class Soundtrack {
+	// tempo atual
+	public float currentTime;
+}
+
 public class SceneDataManager : MonoBehaviour {
 
 	public string sceneName;
@@ -46,6 +52,8 @@ public class SceneDataManager : MonoBehaviour {
 	public GameObject player;
 
 	public GameObject camera;
+
+	public AudioSource music;
 	
 	public Elevator[] elevators;
 
@@ -57,8 +65,12 @@ public class SceneDataManager : MonoBehaviour {
 	// Dados da cena
 	private SceneData sceneData = new SceneData();
 
+	// Dados da trilha sonora
+	private Soundtrack soundtrack = new Soundtrack ();
+
 	private string playerFileName = "Player.json";
 	private string sceneFileName = "";
+	private string soundtrackFileName = "Soundtrack.json";
 	private string filePath = null;
 
 	// caminhos onde o arquivo deve ser salvo
@@ -80,6 +92,11 @@ public class SceneDataManager : MonoBehaviour {
 		#if UNITY_EDITOR
 		filePath = editorTempFilePath;
 		#endif
+
+		// criar paste de temporários se nao existir
+		if (!Directory.Exists (filePath)) {
+			Directory.CreateDirectory (filePath);
+		}
 
 		// carregando player
 		string playerJson = LoadJsonFile (filePath + playerFileName);
@@ -106,11 +123,12 @@ public class SceneDataManager : MonoBehaviour {
 			// carregando elevadores
 			for (int i = 0; i < elevators.Length; i++) {
 				elevators [i].currentFloor = sceneData.elevatorCurrentFloor [i];
+				elevators [i].nextFloor = sceneData.elevatorCurrentFloor [i];
 
 				elevators [i].transform.position = new Vector3 (
-						elevators [i].transform.position.x, 
-						elevators [i].floorsPosition [elevators [i].currentFloor],
-						elevators [i].transform.position.z
+					elevators [i].transform.position.x, 
+					elevators [i].floorsPosition [elevators [i].currentFloor],
+					elevators [i].transform.position.z
 				);
 			}
 
@@ -119,6 +137,17 @@ public class SceneDataManager : MonoBehaviour {
 				doors [i].state = sceneData.doorState [i]; 
 			}
 		}
+
+		// carregando trilha sonora
+		string stJson = LoadJsonFile (filePath + soundtrackFileName);
+
+		if (!stJson.Equals ("")) {
+			JsonUtility.FromJsonOverwrite (stJson, soundtrack);
+
+			music.time = soundtrack.currentTime;
+		}
+
+		music.Play (0);
 
 	}
 
@@ -132,7 +161,9 @@ public class SceneDataManager : MonoBehaviour {
 		filePath = editorTempFilePath;
 		#endif
 
-		FileUtil.DeleteFileOrDirectory (filePath + playerFileName);
+		// deletando diretorio de arquivos
+		// temporários
+		Directory.Delete (filePath, true);
 	}
 
 	void OnDestroy () {
@@ -146,17 +177,20 @@ public class SceneDataManager : MonoBehaviour {
 		filePath = editorTempFilePath;
 		#endif
 
-		// salvando dados do player
-		string playerJson = JsonUtility.ToJson (playerData);
-		SaveJsonFile (filePath + playerFileName, playerJson);
+		if (Directory.Exists (filePath)) {
+			// salvando dados do player
+			string playerJson = JsonUtility.ToJson (playerData);
+			SaveJsonFile (filePath + playerFileName, playerJson);
 
-		// salvando dados da cena
-		string sceneJson = JsonUtility.ToJson (sceneData);
-		SaveJsonFile (filePath + sceneFileName, sceneJson);
+			// salvando dados da cena
+			string sceneJson = JsonUtility.ToJson (sceneData);
+			SaveJsonFile (filePath + sceneFileName, sceneJson);
 
-		#if UNITY_EDITOR
-		UnityEditor.AssetDatabase.Refresh ();
-		#endif
+			// salvando trilha sonora
+			string stJson = JsonUtility.ToJson (soundtrack);
+			SaveJsonFile (filePath + soundtrackFileName, stJson);
+		}
+		
 	}
 
 	public void Save () {
@@ -179,7 +213,6 @@ public class SceneDataManager : MonoBehaviour {
 	}
 
 	private void SaveJsonFile (string file, string json) {
-		print ("salvando");
 		using (FileStream fs = new FileStream (file, FileMode.Create)) {
 			using (StreamWriter sw = new StreamWriter (fs)) {
 				sw.Write (json);
@@ -206,4 +239,9 @@ public class SceneDataManager : MonoBehaviour {
 			sceneData.doorState [i] = doors [i].state; 
 		}
 	}
+
+	public void UpdateSoundtrack () {
+		soundtrack.currentTime = music.time + 0.1f;
+	}
+
 }
