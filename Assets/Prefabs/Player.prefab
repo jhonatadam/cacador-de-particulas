@@ -284,7 +284,6 @@ MonoBehaviour:
   speed: 1
   jumpForce: 12000
   previousPosition: {x: 0, y: 0, z: 0}
-  currentFloor: 0
   groundCheck: {fileID: 114000012518548960}
   animUpdater: {fileID: 114000013479630418}
 --- !u!212 &212000010147291480
