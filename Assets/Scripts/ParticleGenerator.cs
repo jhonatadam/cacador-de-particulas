@@ -15,6 +15,10 @@ public class ParticleGenerator : MonoBehaviour {
 
 	public GameObject[] particles;
 
+	public bool randomPosition;
+	public float minPosition;
+	public float maxPosition;
+
 	// Use this for initialization
 	void Start () {
 		actualTime = 0;
@@ -22,16 +26,16 @@ public class ParticleGenerator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//public  Quaternion rotation = Quaternion.identity;
-		//Instantiate (particle, generatePoint.position, generatePoint.rotation);
 
-
-		//Instantiate (particle, generatePoint.position, new Quaternion(0, 0, rnd., 0));
 		actualTime++;
 
+
+
 		if (actualTime == delay) {
-			//Instantiate (particle, generatePoint.position, new Quaternion(0, 0, Mathf.Clamp(Random.rotation.z, 300,405), 
-			//	Mathf.Clamp(Random.rotation.w, 300, 405)));
+
+			if (randomPosition) {
+				RandomPosition ();
+			}
 
 			Choose ();
 			Instantiate(particle, generatePoint.position, Quaternion.Euler(0, 0, Random.Range(minAngle, maxAngle) + generatePoint.eulerAngles.z));
@@ -41,11 +45,13 @@ public class ParticleGenerator : MonoBehaviour {
 	}
 
 	void Choose() {
-		int rnd = Random.Range (0, 10);
+		int rnd = Random.Range (0, particles.GetLength());
 
 		particle = particles [rnd];
 
 	}
 
-
+	void RandomPosition () {
+		generatePoint.position = new Vector3 (Random.Range (minPosition, maxPosition), generatePoint.position.y, generatePoint.position.z);
+	}
 }
