@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 58216322435257144}
   m_Layer: 0
   m_Name: Anti-Muon
-  m_TagString: Untagged
+  m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740453146063924}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0.9744039, y: 4.802622, z: 0}
+  m_LocalPosition: {x: 12.056709, y: 8.604617, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 4543144161547006}
@@ -215,8 +215,8 @@ MonoBehaviour:
   radious: 4
   TrSortingLayer: 
   lifeTime: 7
-  daughter1: {fileID: 1740453146063924}
-  daughter2: {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
+  daughter1: {fileID: 1769685696663256, guid: 74d7325364bce4770a18980c69aa7bec, type: 2}
+  daughter2: {fileID: 1212198057197184, guid: 4703751a0ea884f9ca82528d4e71684e, type: 2}
 --- !u!198 &198051529895712838
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -272,7 +272,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 349659150
+  randomSeed: -1910948200
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2909,7 +2909,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1561230652
+  randomSeed: -577244332
   InitialModule:
     serializedVersion: 3
     enabled: 1
