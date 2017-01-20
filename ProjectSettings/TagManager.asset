@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Elevator
+  - Particle
   layers:
   - Default
   - TransparentFX
