@@ -144,7 +144,7 @@ public class SceneDataManager : MonoBehaviour {
 		if (!stJson.Equals ("")) {
 			JsonUtility.FromJsonOverwrite (stJson, soundtrack);
 
-			music.time = soundtrack.currentTime;
+			music.time = soundtrack.currentTime + 0.1f + Time.deltaTime;
 		}
 
 		music.Play (0);
@@ -241,7 +241,7 @@ public class SceneDataManager : MonoBehaviour {
 	}
 
 	public void UpdateSoundtrack () {
-		soundtrack.currentTime = music.time + 0.1f;
+		soundtrack.currentTime = music.time;
 	}
 
 }
