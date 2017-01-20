@@ -45,7 +45,7 @@ public class ParticleGenerator : MonoBehaviour {
 	}
 
 	void Choose() {
-		int rnd = Random.Range (0, particles.GetLength());
+		int rnd = Random.Range (0, particles.Length);
 
 		particle = particles [rnd];
 
