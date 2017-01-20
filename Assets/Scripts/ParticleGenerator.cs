@@ -13,6 +13,10 @@ public class ParticleGenerator : MonoBehaviour {
 	public int minAngle;
 	public int maxAngle;
 
+	public float particleStep;
+
+	public float particleScale = 0.15f;
+
 	public GameObject[] particles;
 
 	public bool randomPosition;
@@ -38,7 +42,10 @@ public class ParticleGenerator : MonoBehaviour {
 			}
 
 			Choose ();
-			Instantiate(particle, generatePoint.position, Quaternion.Euler(0, 0, Random.Range(minAngle, maxAngle) + generatePoint.eulerAngles.z));
+			GameObject part = Instantiate(particle, generatePoint.position, Quaternion.Euler(0, 0, Random.Range(minAngle, maxAngle) + generatePoint.eulerAngles.z));
+
+			part.GetComponent<Particle> ().step = particleStep;
+			part.transform.localScale = new Vector3 (particleScale, particleScale, particleScale);
 
 			actualTime = 0;
 		}

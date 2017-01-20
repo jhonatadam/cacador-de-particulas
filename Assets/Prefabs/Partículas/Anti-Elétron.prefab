@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 58696904781266632}
   - component: {fileID: 50472185183626718}
   m_Layer: 0
-  m_Name: "Anti-El\xE9tron"
+  m_Name: "Anti-Ele\u0301tron"
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,7 +6,6 @@ public class Particle : MonoBehaviour {
 	public float step;
 	public float radious;
 	public string TrSortingLayer;
-	public float lifeTime;
 
 	public GameObject daughter1;
 	public GameObject daughter2;
@@ -44,7 +43,6 @@ public class Particle : MonoBehaviour {
 		pos = trans.position;
 		rot = trans.rotation.eulerAngles;
 
-		Destroy (gameObject, lifeTime);
 		sr = GetComponent<SpriteRenderer> ();
 		tail = GetComponent<TrailRenderer> ();
 		ps = GetComponent<ParticleSystem> ();
@@ -98,8 +96,14 @@ public class Particle : MonoBehaviour {
 
 			canDecay = false;
 			
-			Instantiate (daughter1, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z + 25));
-			Instantiate (daughter2, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z - 25));
+			daughter1 = Instantiate (daughter1, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z + 25));
+			daughter2 = Instantiate (daughter2, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z - 25));
+
+			daughter1.GetComponent<Particle> ().step = this.step;
+			daughter2.GetComponent<Particle> ().step = this.step;
+
+			daughter1.transform.localScale = this.transform.localScale;
+			daughter2.transform.localScale = this.transform.localScale;
 
 			step = 0;
 			sr.enabled = false;
