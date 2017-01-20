@@ -23,6 +23,8 @@ public class Particle : MonoBehaviour {
 
 	private SpriteRenderer sr;
 
+	private bool canDecay;
+
 	//transform
 	Transform trans;
 	//posição
@@ -46,6 +48,9 @@ public class Particle : MonoBehaviour {
 		sr = GetComponent<SpriteRenderer> ();
 		tail = GetComponent<TrailRenderer> ();
 		ps = GetComponent<ParticleSystem> ();
+
+		canDecay = true;
+
 	}
 	
 	void FixedUpdate () {
@@ -53,7 +58,9 @@ public class Particle : MonoBehaviour {
 		LinearMovement();
 
 		if (Random.Range(0f,1f) >= 0.998f) {
-			Decay ();
+			if (canDecay) {
+				Decay ();
+			}
 		}
 
 	}
@@ -88,6 +95,8 @@ public class Particle : MonoBehaviour {
 
 	void Decay() {
 		if (daughter1 != null && daughter2 != null) {
+
+			canDecay = false;
 			
 			Instantiate (daughter1, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z + 25));
 			Instantiate (daughter2, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z - 25));

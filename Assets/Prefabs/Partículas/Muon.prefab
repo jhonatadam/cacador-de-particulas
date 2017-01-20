@@ -42,9 +42,10 @@ GameObject:
   - component: {fileID: 198694071674323556}
   - component: {fileID: 199440186556499252}
   - component: {fileID: 58202202869369822}
+  - component: {fileID: 50933898312223558}
   m_Layer: 0
   m_Name: Muon
-  m_TagString: Untagged
+  m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1707839858607096}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: 0.5428227, y: 4.814507, z: 0}
+  m_LocalPosition: {x: 15.257053, y: 1.6175545, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 4812713118139896}
@@ -76,6 +77,26 @@ Transform:
   m_Father: {fileID: 4032218266853866}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50933898312223558
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1707839858607096}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58202202869369822
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -215,7 +236,7 @@ MonoBehaviour:
   radious: 4
   TrSortingLayer: 
   lifeTime: 7
-  daughter1: {fileID: 1707839858607096}
+  daughter1: {fileID: 0}
   daughter2: {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
 --- !u!198 &198694071674323556
 ParticleSystem:
@@ -272,7 +293,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 349659150
+  randomSeed: 835850373
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2909,7 +2930,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1561230652
+  randomSeed: -131767608
   InitialModule:
     serializedVersion: 3
     enabled: 1
