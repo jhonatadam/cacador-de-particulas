@@ -26,7 +26,7 @@ public class LightController : MonoBehaviour {
 			if (Random.Range (0, 1000) < bugProbability) {
 				if (sr.enabled) {
 					sr.enabled = false;
-					//audioSource.PlayOneShot (bulbBlinkSound);
+					audioSource.PlayOneShot (bulbBlinkSound);
 				}		
 			} else {
 				if (!sr.enabled) {
