@@ -142,7 +142,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a3d96bbc745274abcaa09d04b3721554, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 57d8360f53f2a6243ac1ccf3e4ef6055, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -200,7 +200,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -239,8 +239,8 @@ MonoBehaviour:
   floorsPosition:
   - -13
   - -11
-  currentFloor: 0
-  nextFloor: 0
+  currentFloor: 1
+  nextFloor: 1
   step: 0.01
   playerCheck: {fileID: 114000012389829900}
   player: {fileID: 0}

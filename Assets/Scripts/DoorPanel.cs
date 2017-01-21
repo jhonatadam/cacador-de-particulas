@@ -15,9 +15,16 @@ public class DoorPanel : MonoBehaviour {
 
 	public Door door;
 
+	// audio do painel
+	public AudioClip lockedSound;
+	public AudioClip unlockedSound;
+
+	private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
+		audioSource = GetComponent <AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -34,8 +41,13 @@ public class DoorPanel : MonoBehaviour {
 			panelColor = new Color (0, 1, 1, 1);
 		}
 
-		if (contactCheck.getIsInContact () && Input.GetButtonDown ("Fire1") && door.state == DoorState.Unlocked) {
-			door.state = DoorState.Opened;
+		if (contactCheck.getIsInContact () && Input.GetButtonDown ("Fire1")) {
+			if (door.state == DoorState.Locked) {
+				audioSource.PlayOneShot (lockedSound);
+			} else if (door.state == DoorState.Unlocked) {
+				door.state = DoorState.Opened;
+				audioSource.PlayOneShot (unlockedSound);
+			}
 		}
 
 		sr.color = panelColor * VariationValue ();

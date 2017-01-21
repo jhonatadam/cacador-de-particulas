@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 58701551813319604}
   - component: {fileID: 50739441558863546}
   m_Layer: 0
-  m_Name: "Pro\u0301ton"
+  m_Name: "Pr\xF3ton"
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,6 @@ MonoBehaviour:
   step: 1
   radious: 4
   TrSortingLayer: 
-  lifeTime: 7
   daughter1: {fileID: 1435227381563658}
   daughter2: {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
 --- !u!198 &198564747207738080
