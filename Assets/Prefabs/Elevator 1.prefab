@@ -142,7 +142,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 57d8360f53f2a6243ac1ccf3e4ef6055, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7bcb5a6ab3c6e314494ac5bbdcf234ce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -239,15 +239,15 @@ MonoBehaviour:
   floorsPosition:
   - -13
   - -11
-  currentFloor: 1
-  nextFloor: 1
+  currentFloor: 0
+  nextFloor: 0
   step: 0.01
   playerCheck: {fileID: 114000012389829900}
   player: {fileID: 0}
   cam: {fileID: 0}
   startSound: {fileID: 8300000, guid: df2b5f5315e014cb89b0f22cb6ad3e01, type: 3}
   endSound: {fileID: 8300000, guid: df2b5f5315e014cb89b0f22cb6ad3e01, type: 3}
-  movingSound: {fileID: 8300000, guid: a3d96bbc745274abcaa09d04b3721554, type: 3}
+  movingSound: {fileID: 8300000, guid: 7bcb5a6ab3c6e314494ac5bbdcf234ce, type: 3}
 --- !u!167 &167449395195426856
 AudioReverbZone:
   m_ObjectHideFlags: 1

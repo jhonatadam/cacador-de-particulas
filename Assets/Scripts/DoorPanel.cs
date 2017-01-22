@@ -18,6 +18,7 @@ public class DoorPanel : MonoBehaviour {
 	// audio do painel
 	public AudioClip lockedSound;
 	public AudioClip unlockedSound;
+	public AudioClip doorOpening;
 
 	private AudioSource audioSource;
 
@@ -47,6 +48,7 @@ public class DoorPanel : MonoBehaviour {
 			} else if (door.state == DoorState.Unlocked) {
 				door.state = DoorState.Opened;
 				audioSource.PlayOneShot (unlockedSound);
+				audioSource.PlayOneShot (doorOpening);
 			}
 		}
 

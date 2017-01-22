@@ -309,6 +309,7 @@ MonoBehaviour:
   door: {fileID: 114720279575849958}
   lockedSound: {fileID: 8300000, guid: fa057bef8cb47a34a9dbadcda7d5aa98, type: 3}
   unlockedSound: {fileID: 8300000, guid: 8b5c49c74593bd64f978b8f6e2e368c2, type: 3}
+  doorOpening: {fileID: 8300000, guid: 1c510ac951219e141912f4065cf90240, type: 3}
 --- !u!114 &114720279575849958
 MonoBehaviour:
   m_ObjectHideFlags: 1
