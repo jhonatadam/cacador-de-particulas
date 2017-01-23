@@ -343,6 +343,16 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1326789957}
+    - target: {fileID: 114000013514028234, guid: 53ec076573a170c4d88233c1c9c609c8,
+        type: 2}
+      propertyPath: nextFloor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013514028234, guid: 53ec076573a170c4d88233c1c9c609c8,
+        type: 2}
+      propertyPath: currentFloor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53ec076573a170c4d88233c1c9c609c8, type: 2}
   m_IsPrefabParent: 0
