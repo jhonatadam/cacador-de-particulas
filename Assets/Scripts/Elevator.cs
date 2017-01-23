@@ -38,15 +38,20 @@ public class Elevator : MonoBehaviour {
 	string spritePath = "Sprites/Scenario/Lab/";
 	string spriteName = "elevator-1x2";
 
+	// sound effects
+	public AudioClip startSound;
+	public AudioClip endSound;
+	public AudioClip movingSound;
+
+	private AudioSource audioSource;
+
 	void Start () {
 		nextFloor = currentFloor;
 
 		sr = GetComponent <SpriteRenderer> ();
 		sprites = Resources.LoadAll<Sprite>(spritePath + spriteName);
 
-		//stopSprite = Resources.Load("elevator-1x2_0", typeof(Sprite)) as Sprite;
-		//upSprite = Resources.Load("elevator-1x2_1", typeof(Sprite)) as Sprite;
-		//downSprite = Resources.Load("elevator-1x2_2", typeof(Sprite)) as Sprite;
+		audioSource = GetComponent <AudioSource> ();
 	}
 
 	void Update () {
@@ -59,6 +64,9 @@ public class Elevator : MonoBehaviour {
 
 				player.SetUpdateOn (false);
 				cam.activeTracking = false;
+
+				audioSource.PlayOneShot (startSound, 0.4f);
+				audioSource.Play (0);
 			}
 			if (verticalMovement < 0.0f && (currentFloor > 0)) {
 				nextFloor -= 1;
@@ -66,6 +74,9 @@ public class Elevator : MonoBehaviour {
 
 				player.SetUpdateOn (false);
 				cam.activeTracking = false;
+
+				audioSource.PlayOneShot (startSound, 0.4f);
+				audioSource.Play (0);
 			}
 		}
 
@@ -95,6 +106,7 @@ public class Elevator : MonoBehaviour {
 		transform.Translate (direction * speed);
 		player.transform.Translate (direction * speed);
 		cam.transform.Translate (direction * speed);
+
 	}
 
 	private void Stop () {
@@ -104,6 +116,9 @@ public class Elevator : MonoBehaviour {
 		moving = false;
 		cam.activeTracking = true;
 		player.SetUpdateOn (true);
+
+		audioSource.Stop ();
+		audioSource.PlayOneShot (endSound, 0.4f);
 	}
 
 	public bool GetMoving () {

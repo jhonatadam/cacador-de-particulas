@@ -3,7 +3,6 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 [Serializable]
 public class PlayerData {
@@ -144,10 +143,11 @@ public class SceneDataManager : MonoBehaviour {
 		if (!stJson.Equals ("")) {
 			JsonUtility.FromJsonOverwrite (stJson, soundtrack);
 
-			music.time = soundtrack.currentTime;
+			music.time = soundtrack.currentTime + 0.1f + Time.deltaTime;
 		}
 
-		music.Play (0);
+		if (music.isActiveAndEnabled)
+			music.Play (0);
 
 	}
 
@@ -241,7 +241,7 @@ public class SceneDataManager : MonoBehaviour {
 	}
 
 	public void UpdateSoundtrack () {
-		soundtrack.currentTime = music.time + 0.1f;
+		soundtrack.currentTime = music.time;
 	}
 
 }
