@@ -14,6 +14,7 @@ public class LightController : MonoBehaviour {
 	private SpriteRenderer sr;
 	private AudioSource audioSource; 
 
+	public ContactCheck cc;
 
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
@@ -21,12 +22,14 @@ public class LightController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (isBugged) {
 			if (Random.Range (0, 1000) < bugProbability) {
 				if (sr.enabled) {
 					sr.enabled = false;
-					//audioSource.PlayOneShot (bulbBlinkSound);
+					if (cc.getIsInContact ()) {
+						audioSource.PlayOneShot (bulbBlinkSound);
+					}
 				}		
 			} else {
 				if (!sr.enabled) {

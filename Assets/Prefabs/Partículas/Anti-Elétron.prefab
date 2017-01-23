@@ -235,7 +235,6 @@ MonoBehaviour:
   step: 1
   radious: 4
   TrSortingLayer: 
-  lifeTime: 7
   daughter1: {fileID: 0}
   daughter2: {fileID: 0}
 --- !u!198 &198219986116450434
