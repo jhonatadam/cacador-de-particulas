@@ -57,7 +57,7 @@ public class Particle : MonoBehaviour {
 		//CircularMovement ();
 		LinearMovement();
 
-		if (Random.Range(0f,1f) >= 0.9998f) {
+		if (Random.Range(0f,1f) >= 0.998f) {
 			if (canDecay) {
 				Decay ();
 			}
