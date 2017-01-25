@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 58687816107230156}
   - component: {fileID: 50931570839819262}
   m_Layer: 0
-  m_Name: "Ze\u0301vatron"
+  m_Name: "Z\xE9vatron"
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,6 @@ MonoBehaviour:
   TrSortingLayer: 
   daughter1: {fileID: 0}
   daughter2: {fileID: 0}
-  daughters: []
 --- !u!198 &198378362974381550
 ParticleSystem:
   m_ObjectHideFlags: 1
