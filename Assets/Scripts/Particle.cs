@@ -135,12 +135,28 @@ public class Particle : MonoBehaviour {
 			size--;
 
 		}
-
-		print ("parou");
+			
 		step = 0;
 		sr.enabled = false;
 		ps.Stop ();
 		Destroy (gameObject, tail.time);
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.tag == "Player") {
+			step = 0;
+			sr.enabled = false;
+			ps.Stop ();
+			Destroy (gameObject, tail.time);
+		}
+
+		if (other.gameObject.tag == "Elevator") {
+			step = 0;
+			sr.enabled = false;
+			ps.Stop ();
+			Destroy (gameObject, tail.time);
+		}
 	}
 
 }
