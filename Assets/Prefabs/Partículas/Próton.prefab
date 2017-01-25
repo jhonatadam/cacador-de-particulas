@@ -237,6 +237,7 @@ MonoBehaviour:
   TrSortingLayer: 
   daughter1: {fileID: 1435227381563658}
   daughter2: {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
+  daughters: []
 --- !u!198 &198564747207738080
 ParticleSystem:
   m_ObjectHideFlags: 1

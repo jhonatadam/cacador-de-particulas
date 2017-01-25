@@ -237,6 +237,7 @@ MonoBehaviour:
   TrSortingLayer: 
   daughter1: {fileID: 0}
   daughter2: {fileID: 0}
+  daughters: []
 --- !u!198 &198378362974381550
 ParticleSystem:
   m_ObjectHideFlags: 1
