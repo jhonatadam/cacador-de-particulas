@@ -10,6 +10,8 @@ public class Particle : MonoBehaviour {
 	public GameObject daughter1;
 	public GameObject daughter2;
 
+	public GameObject[] daughters; 
+
 	private TrailRenderer tail;
 
 	private float currentLife = 0f;
@@ -91,7 +93,7 @@ public class Particle : MonoBehaviour {
 		transform.rotation = Quaternion.Euler(rot);
 	}
 
-	void Decay() {
+	/*void Decay() {
 		if (daughter1 != null && daughter2 != null) {
 
 			canDecay = false;
@@ -110,5 +112,35 @@ public class Particle : MonoBehaviour {
 			ps.Stop ();
 			Destroy (gameObject, tail.time);
 		}
+	}*/
+
+	void Decay() {
+		canDecay = false;
+
+		if (daughters.Length == 0)
+			return;
+
+		float degrees = 25f;
+		int size = daughters.Length;
+
+		GameObject daughter;
+
+		foreach (GameObject particle in daughters) {
+			daughter = Instantiate (particle, transform.position, Quaternion.Euler (0f, 0f, transform.eulerAngles.z + degrees));
+
+			daughter.GetComponent<Particle> ().step = this.step;
+			//daughter.transform.localScale = this.transform.localScale;
+
+			degrees -= 50 / size;
+			size--;
+
+		}
+
+		print ("parou");
+		step = 0;
+		sr.enabled = false;
+		ps.Stop ();
+		Destroy (gameObject, tail.time);
 	}
+
 }
