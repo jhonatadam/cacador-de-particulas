@@ -44,8 +44,8 @@ public class ParticleGenerator : MonoBehaviour {
 			Choose ();
 			GameObject part = Instantiate(particle, generatePoint.position, Quaternion.Euler(0, 0, Random.Range(minAngle, maxAngle) + generatePoint.eulerAngles.z));
 
-			part.GetComponent<Particle> ().step = particleStep;
-			part.transform.localScale = new Vector3 (particleScale, particleScale, particleScale);
+			//part.GetComponent<Particle> ().step = particleStep;
+			//part.transform.localScale = new Vector3 (particleScale, particleScale, particleScale);
 
 			actualTime = 0;
 		}
