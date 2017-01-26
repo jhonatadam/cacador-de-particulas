@@ -25,7 +25,6 @@ public class TitleMenu : MonoBehaviour {
 		loadingImg.SetActive (true);
 		SceneManager.LoadScene (firstSceneName);
 
-
 	}
 
 	public void Sair() {
