@@ -7,9 +7,6 @@ public class Particle : MonoBehaviour {
 	public float radious;
 	public string TrSortingLayer;
 
-	public GameObject daughter1;
-	public GameObject daughter2;
-
 	public GameObject[] daughters; 
 
 	private TrailRenderer tail;
@@ -142,7 +139,7 @@ public class Particle : MonoBehaviour {
 		Destroy (gameObject, tail.time);
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player") {
 			step = 0;
