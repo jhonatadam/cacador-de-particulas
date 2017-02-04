@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 58653290550824850}
   - component: {fileID: 50124414658281314}
   m_Layer: 0
-  m_Name: "Anti-Ele\u0301tron"
+  m_Name: "Anti-El\xE9tron"
   m_TagString: Particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,10 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   step: 0.5
   radious: 4
-  TrSortingLayer: 
-  daughter1: {fileID: 0}
-  daughter2: {fileID: 1540430861523662}
   daughters: []
+  linearMovement: 1
 --- !u!198 &198010122112053732
 ParticleSystem:
   m_ObjectHideFlags: 1

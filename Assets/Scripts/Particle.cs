@@ -3,25 +3,29 @@ using System.Collections;
 
 public class Particle : MonoBehaviour {
 
+	//Velocidade da partícula.
 	public float step;
-	public float radious;
-	public string TrSortingLayer;
+	//Raio do movimento circular.
+	public float radious = 0.75f;
+	private string TrSortingLayer;
 
+	//Partículas para as quais pode-se decair.
 	public GameObject[] daughters; 
 
+	//Cauda da partícula.
 	private TrailRenderer tail;
-
-	private float currentLife = 0f;
 
 	private float num = 0;
 
-	private float angle;
+	private float angle = 0;
 
 	private ParticleSystem ps;
 
 	private SpriteRenderer sr;
 
 	private bool canDecay;
+
+	public bool linearMovement = true;
 
 	//transform
 	Transform trans;
@@ -51,8 +55,12 @@ public class Particle : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		//CircularMovement ();
-		LinearMovement();
+		
+		if (linearMovement) {
+			LinearMovement ();
+		} else {
+			CircularMovement2 ();
+		}
 
 		if (Random.Range(0f,1f) >= 0.9998f) {
 			if (canDecay) {
@@ -62,11 +70,7 @@ public class Particle : MonoBehaviour {
 
 	}
 
-	void Update(){
-		currentLife += Time.deltaTime;
-		//sr.color = new Color (sr.color.r, sr.color.g, sr.color.b, currentLife/lifeTime);
-
-
+	void Update() {
 
 	}
 
@@ -75,11 +79,26 @@ public class Particle : MonoBehaviour {
 		num += step;
 	}
 
+	void CircularMovement2() {
+		//initialPosition = transform.position;
+		//transform.position = initialPosition + new Vector3 (radious * Mathf.Sin (num), radious * Mathf.Cos (num), 0);
+
+		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
+
+		rot += new Vector3 (0, 0, 0.7f);
+
+
+		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
+		pos.y += (Mathf.Sin (angle) * step) * Time.deltaTime;
+
+		transform.position = pos;
+		transform.rotation = Quaternion.Euler(rot);
+	}
+
 	void LinearMovement() {
 		
 		//Convertendo euler's angle para radiano.
 		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
-
 
 		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
 		pos.y += (Mathf.Sin (angle) * step) * Time.deltaTime;
@@ -89,27 +108,6 @@ public class Particle : MonoBehaviour {
 		transform.position = pos;
 		transform.rotation = Quaternion.Euler(rot);
 	}
-
-	/*void Decay() {
-		if (daughter1 != null && daughter2 != null) {
-
-			canDecay = false;
-			
-			daughter1 = Instantiate (daughter1, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z + 25));
-			daughter2 = Instantiate (daughter2, transform.position, Quaternion.Euler (0, 0, transform.eulerAngles.z - 25));
-
-			daughter1.GetComponent<Particle> ().step = this.step;
-			daughter2.GetComponent<Particle> ().step = this.step;
-
-			daughter1.transform.localScale = this.transform.localScale;
-			daughter2.transform.localScale = this.transform.localScale;
-
-			step = 0;
-			sr.enabled = false;
-			ps.Stop ();
-			Destroy (gameObject, tail.time);
-		}
-	}*/
 
 	void Decay() {
 		canDecay = false;
