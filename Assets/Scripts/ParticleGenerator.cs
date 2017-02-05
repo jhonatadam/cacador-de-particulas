@@ -5,19 +5,19 @@ using UnityEngine;
 public class ParticleGenerator : MonoBehaviour {
 
 	public Transform generatePoint;
-	public GameObject particle;
+	private GameObject particle;
 
+	//Delay em frames para a criação de partículas.
 	public int delay;
 	private int actualTime;
 
+	//Ângulo mínimo e máximo para a direção das partículas.
 	public int minAngle;
 	public int maxAngle;
 
-	public float particleStep;
-
-	public float particleScale = 0.15f;
-
+	//Partículas que podem ser geradas.
 	public GameObject[] particles;
+
 
 	public bool randomPosition;
 	public float minPosition;
