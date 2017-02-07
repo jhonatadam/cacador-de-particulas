@@ -6,7 +6,7 @@ public class Bag : MonoBehaviour {
 	public PlayerAnimUpdater updater;
 
 	void FixedUpdate() {
-		updater.UpdateAnim (gameObject);
+		//updater.UpdateAnim (gameObject);
 	}
 		
 }

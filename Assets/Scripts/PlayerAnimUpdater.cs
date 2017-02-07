@@ -6,11 +6,10 @@ public class PlayerAnimUpdater : MonoBehaviour {
 	public GameObject player;
 	public GroundCheck groundCheck;
 
-	public void UpdateAnim(GameObject obj) {
-		float horizontalMoviment = Input.GetAxis ("Horizontal");
+	public void UpdateAnim(GameObject obj, float horizontalMovement) {
 
-		UpdateSpriteDirection (horizontalMoviment, obj);
-		UpdateAnimator (obj);
+		UpdateSpriteDirection (horizontalMovement, obj);
+		UpdateAnimator (obj, horizontalMovement);
 	}
 
 	private void UpdateSpriteDirection (float horizontalMovement, GameObject obj) {
@@ -27,7 +26,7 @@ public class PlayerAnimUpdater : MonoBehaviour {
 		}
 	}
 
-	private void UpdateAnimator (GameObject obj) {
+	/*private void UpdateAnimator (GameObject obj) {
 		Animator anim = obj.GetComponent <Animator> ();
 		Rigidbody2D playerRb2d = player.GetComponent <Rigidbody2D> ();
 
@@ -58,5 +57,13 @@ public class PlayerAnimUpdater : MonoBehaviour {
 
 			}
 		}
+	}*/
+
+	private void UpdateAnimator (GameObject obj, float horizontalMovement) {
+		Animator anim = obj.GetComponent <Animator> ();
+		Rigidbody2D playerRb2d = player.GetComponent <Rigidbody2D> ();
+
+		anim.SetFloat ("horizontalMovement", Mathf.Abs (horizontalMovement));
+
 	}
 }

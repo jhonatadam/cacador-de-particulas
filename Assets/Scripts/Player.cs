@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
 	public float speed;
 	public float jumpForce;
 
+	private Animator animator;
+
 	public Vector3 previousPosition;
 
 	public GroundCheck groundCheck;
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour {
 	private bool updateOn = true;
 
 	void Start () {
+		animator = GetComponent<Animator> ();
 		rb2d = GetComponent<Rigidbody2D> ();
 		previousPosition = transform.position;
 	}
@@ -30,8 +33,9 @@ public class Player : MonoBehaviour {
 
 	public void MoveHorizontally (float horizontalMovement) {
 		if (updateOn) {
+			//animator.SetFloat ("horizontalMovement", Mathf.Abs(horizontalMovement));
 			rb2d.velocity = new Vector2 (horizontalMovement * speed, rb2d.velocity.y);
-			animUpdater.UpdateAnim (gameObject);
+			animUpdater.UpdateAnim (gameObject, horizontalMovement);
 		}	
 	} 
 

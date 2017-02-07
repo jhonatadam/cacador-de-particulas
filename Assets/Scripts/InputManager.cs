@@ -51,7 +51,6 @@ public class InputManager : MonoBehaviour {
 	void FixedUpdate () {
 
 		float horizontalMovement = Input.GetAxis ("Horizontal");
-		print (horizontalMovement);
 		float verticalMovement = Input.GetAxis ("Vertical");
 
 		if (player) {
