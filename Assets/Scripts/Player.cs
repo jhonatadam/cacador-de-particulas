@@ -24,32 +24,29 @@ public class Player : MonoBehaviour {
 		previousPosition = transform.position;
 	}
 
-	void Update () {
-		if (updateOn) {
-			if (groundCheck.isGrounded ()) {
-				if (Input.GetButtonDown ("Jump")) {
-					rb2d.AddForce (new Vector2 (0, jumpForce));
-				}
-			}		
-		}
-	}
-
-	void FixedUpdate() {
-		if (updateOn) {
-			float horizontalMoviment = Input.GetAxis ("Horizontal");
-			UpdatePlayerVelocity (horizontalMoviment);
-			animUpdater.UpdateAnim (gameObject);
-		}
-
-
-	}
-
 	void LateUpdate() {
 		previousPosition = transform.position;
 	}
 
-	private void UpdatePlayerVelocity (float horizontalMovement) {
-		rb2d.velocity = new Vector2 (horizontalMovement * speed, rb2d.velocity.y);
+	public void MoveHorizontally (float horizontalMovement) {
+		if (updateOn) {
+			rb2d.velocity = new Vector2 (horizontalMovement * speed, rb2d.velocity.y);
+			animUpdater.UpdateAnim (gameObject);
+		}	
+	} 
+
+	public void Jump () {
+		if (updateOn && groundCheck.isGrounded ()) {
+			rb2d.AddForce (new Vector2 (0, jumpForce));
+		}
+	}
+
+	public void Dash () {
+		
+	}
+
+	public void Fire () {
+	
 	}
 
 	public Vector3 GetPreviousPositionDifference () {

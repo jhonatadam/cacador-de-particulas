@@ -54,31 +54,7 @@ public class Elevator : MonoBehaviour {
 		audioSource = GetComponent <AudioSource> ();
 	}
 
-	void Update () {
-		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) ) {
-			float verticalMovement = Input.GetAxis ("Vertical");
-
-			if (verticalMovement > 0.0f && (floorsPosition.Length > (currentFloor + 1))) {
-				nextFloor += 1;
-				sr.sprite = sprites[1];
-
-				player.SetUpdateOn (false);
-				cam.activeTracking = false;
-
-				audioSource.PlayOneShot (startSound, 0.4f);
-				audioSource.Play (0);
-			}
-			if (verticalMovement < 0.0f && (currentFloor > 0)) {
-				nextFloor -= 1;
-				sr.sprite = sprites[2];
-
-				player.SetUpdateOn (false);
-				cam.activeTracking = false;
-
-				audioSource.PlayOneShot (startSound, 0.4f);
-				audioSource.Play (0);
-			}
-		}
+	void FixedUpdate () {
 
 		if (currentFloor != nextFloor) {
 			if (currentFloor < nextFloor) {
@@ -96,6 +72,34 @@ public class Elevator : MonoBehaviour {
 			}
 		}
 			
+	}
+
+	public void GoToNextFloor (float verticalMovement) {
+		
+		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) ) {
+			if (verticalMovement > 0.0f && (floorsPosition.Length > (currentFloor + 1))) {
+				nextFloor += 1;
+				sr.sprite = sprites[1];
+
+				player.SetUpdateOn (false);
+				cam.activeTracking = false;
+
+				audioSource.PlayOneShot (startSound, 0.4f);
+				audioSource.Play (0);
+			}
+
+			if (verticalMovement < 0.0f && (currentFloor > 0)) {
+				nextFloor -= 1;
+				sr.sprite = sprites[2];
+
+				player.SetUpdateOn (false);
+				cam.activeTracking = false;
+
+				audioSource.PlayOneShot (startSound, 0.4f);
+				audioSource.Play (0);
+			}
+		}
+
 	}
 
 	private void Move () {

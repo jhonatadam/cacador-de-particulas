@@ -42,7 +42,12 @@ public class DoorPanel : MonoBehaviour {
 			panelColor = new Color (0, 1, 1, 1);
 		}
 
-		if (contactCheck.getIsInContact () && Input.GetButtonDown ("Fire1")) {
+		sr.color = panelColor * VariationValue ();
+		lightSr.color = LightColor ();
+	}
+
+	public void Push () {
+		if (contactCheck.getIsInContact ()) {
 			if (door.state == DoorState.Locked) {
 				audioSource.PlayOneShot (lockedSound);
 			} else if (door.state == DoorState.Unlocked) {
@@ -51,9 +56,6 @@ public class DoorPanel : MonoBehaviour {
 				audioSource.PlayOneShot (doorOpening);
 			}
 		}
-
-		sr.color = panelColor * VariationValue ();
-		lightSr.color = LightColor ();
 	}
 
 	private Color LightColor () {

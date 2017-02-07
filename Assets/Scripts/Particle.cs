@@ -85,7 +85,7 @@ public class Particle : MonoBehaviour {
 
 		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
 
-		rot += new Vector3 (0, 0, 0.7f);
+		rot += new Vector3 (0, 0, 0.5f);
 
 
 		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
