@@ -389,6 +389,11 @@ Prefab:
       propertyPath: floorsLimits.Array.data[1].height
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114089068154093012, guid: 8d91c96377b86cb4fa80f7c64ceb0594,
+        type: 2}
+      propertyPath: movementWindowSize.x
+      value: 3.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d91c96377b86cb4fa80f7c64ceb0594, type: 2}
   m_IsPrefabParent: 0
