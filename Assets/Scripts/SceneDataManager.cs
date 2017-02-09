@@ -164,6 +164,14 @@ public class SceneDataManager : MonoBehaviour {
 		// deletando diretorio de arquivos
 		// temporários
 		Directory.Delete (filePath, true);
+
+		// removendo arquivo .meta referente
+		// a pasta de arquivos temporários
+		#if UNITY_EDITOR
+		filePath = filePath.Remove (filePath.Length - 1);
+		File.Delete (filePath + ".meta");
+		#endif
+
 	}
 
 	void OnDestroy () {
