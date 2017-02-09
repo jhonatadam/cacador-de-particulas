@@ -48,7 +48,12 @@ public class Particle : MonoBehaviour {
 
 		sr = GetComponent<SpriteRenderer> ();
 		tail = GetComponent<TrailRenderer> ();
-		ps = GetComponent<ParticleSystem> ();
+
+		if (GetComponent<ParticleSystem> () != null) {
+			ps = GetComponent<ParticleSystem> ();
+		}
+
+
 
 		canDecay = true;
 
@@ -131,26 +136,27 @@ public class Particle : MonoBehaviour {
 
 		}
 			
+		destroyParticle ();
+	}
+
+	void destroyParticle() {
 		step = 0;
-		sr.enabled = false;
-		ps.Stop ();
+
+		if(sr)
+			sr.enabled = false;
+		if(ps)
+			ps.Stop ();
 		Destroy (gameObject, tail.time);
 	}
 
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player") {
-			step = 0;
-			sr.enabled = false;
-			ps.Stop ();
-			Destroy (gameObject, tail.time);
+			destroyParticle ();
 		}
 
 		if (other.gameObject.tag == "Elevator") {
-			step = 0;
-			sr.enabled = false;
-			ps.Stop ();
-			Destroy (gameObject, tail.time);
+			destroyParticle ();
 		}
 	}
 
