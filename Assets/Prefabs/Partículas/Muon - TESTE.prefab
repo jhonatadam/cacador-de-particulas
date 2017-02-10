@@ -234,13 +234,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   step: 1
   radious: 4
-  TrSortingLayer: 
-  daughter1: {fileID: 0}
-  daughter2: {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
   daughters:
   - {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
   - {fileID: 1173641927758544, guid: 7a6d11c8a9dc2dc43a53e0074c165394, type: 2}
   - {fileID: 1173641927758544, guid: 7a6d11c8a9dc2dc43a53e0074c165394, type: 2}
+  linearMovement: 1
 --- !u!198 &198179358562948970
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -2938,7 +2936,7 @@ ParticleSystem:
     serializedVersion: 3
     enabled: 1
     startLifetime:
-      scalar: 0.8
+      scalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2977,7 +2975,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.5
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3412,7 +3410,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 150
+      scalar: 60
       maxCurve:
         serializedVersion: 2
         m_Curve:

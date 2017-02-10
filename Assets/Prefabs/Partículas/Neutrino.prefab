@@ -234,10 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   step: 1
   radious: 4
-  TrSortingLayer: 
-  daughter1: {fileID: 0}
-  daughter2: {fileID: 0}
   daughters: []
+  linearMovement: 1
 --- !u!198 &198221653321140046
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -337,7 +335,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.5
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -772,7 +770,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 150
+      scalar: 60
       maxCurve:
         serializedVersion: 2
         m_Curve:
