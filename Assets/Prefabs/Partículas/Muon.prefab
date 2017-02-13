@@ -3750,10 +3750,10 @@ ParticleSystem:
           rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 16744192
+          rgba: 32767
         key2:
           serializedVersion: 2
-          rgba: 16711680
+          rgba: 66047
         key3:
           serializedVersion: 2
           rgba: 16777215

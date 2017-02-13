@@ -1113,10 +1113,10 @@ ParticleSystem:
           rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 255
+          rgba: 16744192
         key2:
           serializedVersion: 2
-          rgba: 65957
+          rgba: 16711680
         key3:
           serializedVersion: 2
           rgba: 16769572
@@ -1134,7 +1134,7 @@ ParticleSystem:
           rgba: 0
         ctime0: 0
         ctime1: 16384
-        ctime2: 65535
+        ctime2: 32768
         ctime3: 65342
         ctime4: 65342
         ctime5: 0
