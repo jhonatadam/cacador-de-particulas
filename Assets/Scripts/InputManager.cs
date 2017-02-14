@@ -53,9 +53,11 @@ public class InputManager : MonoBehaviour {
 		float horizontalMovement = Input.GetAxis ("Horizontal");
 		float verticalMovement = Input.GetAxis ("Vertical");
 
-		if (player) {
+		// nao sei pq, mas só funciona assim
+		// aparentemente checar se é nulo não é suficiente
+		try {
 			player.MoveHorizontally (horizontalMovement);
-		}
+		} catch { }
 
 		foreach (Elevator elevator in elevators) {
 			elevator.GoToNextFloor (verticalMovement);
