@@ -56,7 +56,7 @@ public class Particle : MonoBehaviour {
 		}
 
 		rb = GetComponent<Rigidbody2D> ();
-		rb.velocity = new Vector2 (0, -step);
+		//rb.velocity = new Vector2 (0, -step);
 
 		canDecay = true;
 
@@ -65,7 +65,7 @@ public class Particle : MonoBehaviour {
 	void FixedUpdate () {
 		
 		if (linearMovement) {
-			//LinearMovement ();
+			LinearMovement ();
 		} else {
 			CircularMovement2 ();
 		}
@@ -76,7 +76,7 @@ public class Particle : MonoBehaviour {
 			}
 		}
 
-		rb.velocity = new Vector2 (Random.Range (-0.5f, 0.5f), rb.velocity.y);
+		//rb.velocity = new Vector2 (Random.Range (-0.5f, 0.5f), rb.velocity.y);
 
 	}
 
@@ -106,24 +106,13 @@ public class Particle : MonoBehaviour {
 	}
 
 	void LinearMovement() {
-		
-		//Convertendo euler's angle para radiano.
-		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
-
-		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
-		pos.y += (Mathf.Sin (angle) * step) * Time.deltaTime;
-	
-		num += step;
-
-		transform.position = pos;
+		transform.Translate (Vector3.down * step * Time.deltaTime);
 		transform.rotation = Quaternion.Euler(rot);
 	}
 
 	void LinearMovement2() {
-
 		//Convertendo euler's angle para radiano.
 		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
-
 
 		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
 		pos.y += (Mathf.Sin (angle) * step) * Time.deltaTime;
