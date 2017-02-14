@@ -234,10 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   step: 1
   radious: 4
-  TrSortingLayer: 
-  lifeTime: 7
-  daughter1: {fileID: 1594093373125974}
-  daughter2: {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
+  daughters: []
+  linearMovement: 1
 --- !u!198 &198360398451796800
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -337,7 +335,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -772,7 +770,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 80
+      scalar: 60
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1112,10 +1110,10 @@ ParticleSystem:
           rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 16769572
+          rgba: 16744192
         key2:
           serializedVersion: 2
-          rgba: 0
+          rgba: 16711680
         key3:
           serializedVersion: 2
           rgba: 0
@@ -1132,14 +1130,14 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 0
-        ctime1: 65342
-        ctime2: 0
+        ctime1: 16384
+        ctime2: 32768
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 32768
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -1148,7 +1146,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
+        m_NumColorKeys: 3
         m_NumAlphaKeys: 2
       minGradient:
         key0:
@@ -2974,7 +2972,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.5
+      scalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3409,7 +3407,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 150
+      scalar: 100
       maxCurve:
         serializedVersion: 2
         m_Curve:

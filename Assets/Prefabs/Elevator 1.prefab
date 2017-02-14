@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114000013514028234}
   - component: {fileID: 61000013389649376}
   - component: {fileID: 61000010767568264}
-  - component: {fileID: 61000011735023150}
   - component: {fileID: 82362862973681724}
   - component: {fileID: 167449395195426856}
+  - component: {fileID: 61850211035244148}
   m_Layer: 0
   m_Name: Elevator 1
   m_TagString: Elevator
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010004406728}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.5, y: -13, z: 0}
+  m_LocalPosition: {x: -2.88227, y: -0.875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000011077947530}
@@ -105,20 +105,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.8}
   serializedVersion: 2
   m_Size: {x: 1, y: 0.2}
---- !u!61 &61000011735023150
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010004406728}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 3.56, y: 9.16}
 --- !u!61 &61000013389649376
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -133,6 +119,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -1}
   serializedVersion: 2
   m_Size: {x: 1, y: 0.2}
+--- !u!61 &61850211035244148
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010004406728}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.1}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.6}
 --- !u!82 &82362862973681724
 AudioSource:
   m_ObjectHideFlags: 1
@@ -145,7 +145,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 7bcb5a6ab3c6e314494ac5bbdcf234ce, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.7
   Loop: 1
   Mute: 0
   Spatialize: 0
