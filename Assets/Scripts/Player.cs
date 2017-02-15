@@ -9,6 +9,11 @@ public class Player : MonoBehaviour {
 
 	public float speed;
 	public float jumpForce;
+	public float dashTime;
+	public float dashSpeed;
+
+	private bool dashing;
+	private float dashEnlapsedTime = 0.0f;
 
 	private Animator animator;
 	private SpriteRenderer sr;
@@ -26,6 +31,21 @@ public class Player : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D> ();
 
 		previousPosition = transform.position;
+	}
+
+	void Update () {
+		
+		if (dashing) {
+			animator.SetFloat ("playerXVelocity", Mathf.Abs(rb2d.velocity.x));
+			dashEnlapsedTime += Time.deltaTime;
+
+			if (dashEnlapsedTime >= dashTime) {
+				dashing = false;
+				updateOn = true;
+				dashEnlapsedTime = 0.0f;
+			}
+		}
+
 	}
 
 	void LateUpdate() {
@@ -56,7 +76,12 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Dash () {
-		
+		if (!dashing) {
+			dashing = true;
+			updateOn = false;
+			rb2d.AddForce (new Vector2 ((sr.flipX ? -dashSpeed : dashSpeed) , 0.0f));
+			//rb2d.velocity = new Vector2 ((sr.flipX ? -dashSpeed : dashSpeed) , 0.0f);
+		}
 	}
 
 	public void Fire () {

@@ -146,8 +146,9 @@ public class SceneDataManager : MonoBehaviour {
 			music.time = soundtrack.currentTime + 0.1f + Time.deltaTime;
 		}
 
-		if (music.isActiveAndEnabled)
-			music.Play (0);
+		if (music)
+			if (music.isActiveAndEnabled)
+				music.Play (0);
 
 	}
 

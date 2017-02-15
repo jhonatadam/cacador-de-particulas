@@ -234,13 +234,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   step: 0.5
   radious: 4
-  TrSortingLayer: 
-  daughter1: {fileID: 0}
-  daughter2: {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
   daughters:
   - {fileID: 1346106613672192, guid: d34380da5dfeb49528ec767294b221ea, type: 2}
   - {fileID: 1173641927758544, guid: 7a6d11c8a9dc2dc43a53e0074c165394, type: 2}
   - {fileID: 1173641927758544, guid: 7a6d11c8a9dc2dc43a53e0074c165394, type: 2}
+  linearMovement: 1
 --- !u!198 &198870481582048662
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -340,7 +338,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -775,7 +773,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 80
+      scalar: 60
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1112,13 +1110,13 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4292460575
+          rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 16777215
+          rgba: 16744192
         key2:
           serializedVersion: 2
-          rgba: 16769572
+          rgba: 16711680
         key3:
           serializedVersion: 2
           rgba: 16769572
@@ -1134,15 +1132,15 @@ ParticleSystem:
         key7:
           serializedVersion: 2
           rgba: 0
-        ctime0: 46646
-        ctime1: 65342
-        ctime2: 65342
+        ctime0: 0
+        ctime1: 16384
+        ctime2: 32768
         ctime3: 65342
         ctime4: 65342
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 32768
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -1151,7 +1149,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_NumColorKeys: 2
+        m_NumColorKeys: 3
         m_NumAlphaKeys: 2
       minGradient:
         key0:
@@ -2977,7 +2975,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.5
+      scalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3412,7 +3410,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 150
+      scalar: 100
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3749,7 +3747,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4280604162
+          rgba: 4294967295
         key1:
           serializedVersion: 2
           rgba: 4281007872
@@ -3772,7 +3770,7 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 0
-        ctime1: 15998
+        ctime1: 16384
         ctime2: 65535
         ctime3: 0
         ctime4: 0

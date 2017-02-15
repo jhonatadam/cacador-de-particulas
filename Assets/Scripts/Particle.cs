@@ -34,6 +34,8 @@ public class Particle : MonoBehaviour {
 	//rotação
 	Vector3 rot;
 
+	Rigidbody2D rb;
+
 	private Vector3 initialPosition;
 
 
@@ -48,7 +50,13 @@ public class Particle : MonoBehaviour {
 
 		sr = GetComponent<SpriteRenderer> ();
 		tail = GetComponent<TrailRenderer> ();
-		ps = GetComponent<ParticleSystem> ();
+
+		if (GetComponent<ParticleSystem> () != null) {
+			ps = GetComponent<ParticleSystem> ();
+		}
+
+		rb = GetComponent<Rigidbody2D> ();
+		//rb.velocity = new Vector2 (0, -step);
 
 		canDecay = true;
 
@@ -67,6 +75,8 @@ public class Particle : MonoBehaviour {
 				Decay ();
 			}
 		}
+
+		//rb.velocity = new Vector2 (Random.Range (-0.5f, 0.5f), rb.velocity.y);
 
 	}
 
@@ -96,13 +106,17 @@ public class Particle : MonoBehaviour {
 	}
 
 	void LinearMovement() {
-		
+		transform.Translate (Vector3.down * step * Time.deltaTime);
+		transform.rotation = Quaternion.Euler(rot);
+	}
+
+	void LinearMovement2() {
 		//Convertendo euler's angle para radiano.
 		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
 
 		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
 		pos.y += (Mathf.Sin (angle) * step) * Time.deltaTime;
-	
+
 		num += step;
 
 		transform.position = pos;
@@ -131,26 +145,27 @@ public class Particle : MonoBehaviour {
 
 		}
 			
+		destroyParticle ();
+	}
+
+	void destroyParticle() {
 		step = 0;
-		sr.enabled = false;
-		ps.Stop ();
+
+		if(sr)
+			sr.enabled = false;
+		if(ps)
+			ps.Stop ();
 		Destroy (gameObject, tail.time);
 	}
 
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player") {
-			step = 0;
-			sr.enabled = false;
-			ps.Stop ();
-			Destroy (gameObject, tail.time);
+			destroyParticle ();
 		}
 
 		if (other.gameObject.tag == "Elevator") {
-			step = 0;
-			sr.enabled = false;
-			ps.Stop ();
-			Destroy (gameObject, tail.time);
+			destroyParticle ();
 		}
 	}
 
