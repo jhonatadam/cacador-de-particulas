@@ -55,9 +55,9 @@ public class InputManager : MonoBehaviour {
 
 		// nao sei pq, mas só funciona assim
 		// aparentemente checar se é nulo não é suficiente
-		try {
+		if (player != null) {
 			player.MoveHorizontally (horizontalMovement);
-		} catch { }
+		}
 
 		foreach (Elevator elevator in elevators) {
 			elevator.GoToNextFloor (verticalMovement);
