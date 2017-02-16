@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 	public float dashPushTime;
 	public float dashStartSpeed;
 	public float dashEndSpeed;
+	public float dashAngle;
 
 	private bool dashing = false;
 	private float dashEnlapsedTime = 0.0f;
@@ -37,18 +38,26 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 		if (dashing) {
-			if (dashEnlapsedTime < dashPushTime) {
+			
+			if (dashEnlapsedTime < dashPushTime) { // está em propulsão para frente
 				rb2d.velocity = new Vector2 (rb2d.velocity.x, 0.0f);
 				animator.SetFloat ("playerXVelocity", Mathf.Abs(rb2d.velocity.x));
 				dashEnlapsedTime += Time.deltaTime;
-			}else if (dashEnlapsedTime < dashTime) {
+
+				// restaurando angulo original do player ao longo do dash
+				transform.Rotate (new Vector3 (0,0, (sr.flipX ? -1 : 1)  * (dashAngle * (Time.deltaTime / dashPushTime))));
+			}else if (dashEnlapsedTime < dashTime) { // está parado, faz uma pequena espera pra recuperar os movimentos
 				rb2d.velocity = new Vector2 ((sr.flipX ? -dashEndSpeed : dashEndSpeed) , rb2d.velocity.y);
 				animator.SetFloat ("playerXVelocity", Mathf.Abs(rb2d.velocity.x));
 				dashEnlapsedTime += Time.deltaTime;
-			} else {
+
+				// restaurando angulo original do player ao longo do dash
+				//transform.Rotate (new Vector3 (0,0, (sr.flipX ? -1 : 1) * (dashAngle * (Time.deltaTime / (dashTime - dashPushTime)))));
+			} else { // saindo do dash
 				dashing = false;
 				updateOn = true;
 				dashEnlapsedTime = 0.0f;
+				transform.localEulerAngles = new Vector3 (0, 0, 0);
 			}
 		}
 	}
@@ -86,6 +95,7 @@ public class Player : MonoBehaviour {
 			dashing = true;
 			updateOn = false;
 			rb2d.velocity = new Vector2 ((sr.flipX ? -dashStartSpeed : dashStartSpeed) , 0.0f);
+			transform.Rotate (new Vector3 (0, 0, (sr.flipX ? 1 : -1) * dashAngle));
 		}
 	}
 
