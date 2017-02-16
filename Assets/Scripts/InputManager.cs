@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour {
 	public Player player;
 	public Elevator[] elevators;
 	public DoorPanel[] doorPanels;
+	public PauseMenu pauseMenu;
 
 	void Update () {
 
@@ -43,7 +44,7 @@ public class InputManager : MonoBehaviour {
 		}
 
 		if (Input.GetButtonDown ("Start")) {
-			
+			pauseMenu.ShowPauseMenu ();
 		}
 
 	}
