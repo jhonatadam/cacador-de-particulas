@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Dash () {
-		if (!dashing) {
+		if (updateOn && !dashing) {
 			dashing = true;
 			updateOn = false;
 			rb2d.velocity = new Vector2 ((sr.flipX ? -dashStartSpeed : dashStartSpeed) , 0.0f);

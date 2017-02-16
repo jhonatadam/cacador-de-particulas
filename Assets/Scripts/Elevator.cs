@@ -76,7 +76,7 @@ public class Elevator : MonoBehaviour {
 
 	public void GoToNextFloor (float verticalMovement) {
 		
-		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) ) {
+		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) && player.GetComponent<Player> ().GetUpdateOn ()) {
 			if (verticalMovement > 0.0f && (floorsPosition.Length > (currentFloor + 1))) {
 				nextFloor += 1;
 				sr.sprite = sprites[1];
