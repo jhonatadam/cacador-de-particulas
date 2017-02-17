@@ -26,6 +26,12 @@ public class Player : MonoBehaviour {
 
 	public GroundCheck groundCheck;
 
+	public float maxHealth = 200f;
+	public float health;
+
+	public float damageCoolDown = 10f;
+	private float damageTime = 0f;
+
 	private bool updateOn = true;
 
 	void Start () {
@@ -34,6 +40,9 @@ public class Player : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D> ();
 
 		previousPosition = transform.position;
+
+		//Inicializa o HP do player
+		health = maxHealth;
 	}
 
 	void Update () {
@@ -60,6 +69,10 @@ public class Player : MonoBehaviour {
 				transform.localEulerAngles = new Vector3 (0, 0, 0);
 			}
 		}
+	}
+
+	void FixedUpdate() {
+		UpdateDamageTime ();
 	}
 
 	void LateUpdate() {
@@ -122,5 +135,43 @@ public class Player : MonoBehaviour {
 		} else if (horizontalMovement > 0.0f) {
 			sr.flipX = false;
 		} 
+	}
+
+
+	/* Função que gera dano no player.
+	 * 
+	 * 
+	 * 
+	 **/
+	public void DamagePlayer(float damage) {
+		if (damageTime < damageCoolDown)
+			return;
+		
+		if (health - damage < 0) {
+			health = 0;
+			damageTime = 0;
+			return;
+		} 
+		health -= damage;
+		damageTime = 0;
+
+	}
+
+	/* Função que cura o HP do player
+	 * 
+	 * 
+	 * 
+	 * */
+	public void CurePlayer(float cure) {
+		if (health + cure > maxHealth) {
+			health = maxHealth;
+			return;
+		}
+
+		health += cure;
+	}
+
+	void UpdateDamageTime() {
+		damageTime++;
 	}
 }
