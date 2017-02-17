@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -46,6 +47,10 @@ public class PauseMenu : MonoBehaviour {
 
 	public void Continue() {
 		UnPause ();
+	}
+
+	public void BackToMenu() {
+		SceneManager.LoadScene ("TestMenuTitle");
 	}
 
 	public void Sair() {

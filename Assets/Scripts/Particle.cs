@@ -137,7 +137,7 @@ public class Particle : MonoBehaviour {
 		foreach (GameObject particle in daughters) {
 			daughter = Instantiate (particle, transform.position, Quaternion.Euler (0f, 0f, transform.eulerAngles.z + degrees));
 
-			daughter.GetComponent<Particle> ().step = this.step;
+			//daughter.GetComponent<Particle> ().step = this.step;
 			//daughter.transform.localScale = this.transform.localScale;
 
 			degrees -= 50 / size;
