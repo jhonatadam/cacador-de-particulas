@@ -25,6 +25,8 @@ public class Particle : MonoBehaviour {
 
 	private bool canDecay;
 
+	private bool canDamage = true;
+
 	public bool linearMovement = true;
 
 	//transform
@@ -161,6 +163,10 @@ public class Particle : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player") {
+			if (canDamage) {
+				other.GetComponent<Player> ().DamagePlayer (13f);
+				canDamage = false;
+			}
 			destroyParticle ();
 		}
 
