@@ -51,14 +51,14 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609874538033310}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -199,14 +199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72d65910da1f8f47876e50f41921d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  step: 0.5
-  radious: 4
-  TrSortingLayer: 
-  daughter1: {fileID: 0}
-  daughter2: {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
+  speed: 0.5
   daughters:
   - {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
   - {fileID: 1346106613672192, guid: d34380da5dfeb49528ec767294b221ea, type: 2}
+  linearMovement: 1
+  force: {x: 0, y: 0}
 --- !u!212 &212011199950313268
 SpriteRenderer:
   m_ObjectHideFlags: 1

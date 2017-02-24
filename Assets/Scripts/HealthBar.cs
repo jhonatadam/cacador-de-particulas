@@ -22,7 +22,6 @@ public class HealthBar : MonoBehaviour {
 
 	void CalculateBarSize() {
 		perCent = player.health / player.maxHealth;
-		Debug.Log (perCent.ToString());
 		hpBar.transform.localScale = new Vector3(perCent, 1f, 1f);
 		perCent *= 100;
 		text.text = perCent + "%";

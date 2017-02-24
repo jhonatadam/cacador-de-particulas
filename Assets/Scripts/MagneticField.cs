@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class MagneticField : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public float force;
 
-	void OnTriggerEnter2D(Collider2D other)
+	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Particle") {
-			Particle part = other.GetComponent<Particle>();
-			part.linearMovement = false;
+			Rigidbody2D particleRb2d = other.gameObject.GetComponent<Rigidbody2D> ();
+			Particle particleScript = other.GetComponent<Particle>();
+
+			Vector2 diff = other.transform.position - transform.position;
+
+			// pegando vetor unitário
+			diff = diff / (Mathf.Abs(diff.x) + Mathf.Abs(diff.y));
+
+			particleRb2d.AddForce (force * particleRb2d.velocity.magnitude * diff);
+
+			print (diff);
 		}
 	}
 
+	/*
 	void OnTriggerExit2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Particle") {
@@ -29,4 +31,5 @@ public class MagneticField : MonoBehaviour {
 			part.linearMovement = true;
 		}
 	}
+	*/
 }

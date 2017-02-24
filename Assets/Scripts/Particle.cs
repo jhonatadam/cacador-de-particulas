@@ -4,9 +4,8 @@ using System.Collections;
 public class Particle : MonoBehaviour {
 
 	//Velocidade da partícula.
-	public float step;
-	//Raio do movimento circular.
-	public float radious = 0.75f;
+	public float speed;
+
 	private string TrSortingLayer;
 
 	//Partículas para as quais pode-se decair.
@@ -40,6 +39,8 @@ public class Particle : MonoBehaviour {
 
 	private Vector3 initialPosition;
 
+	public Vector2 force;
+
 
 	void Start () {
 		initialPosition = transform.position;
@@ -56,21 +57,16 @@ public class Particle : MonoBehaviour {
 		if (GetComponent<ParticleSystem> () != null) {
 			ps = GetComponent<ParticleSystem> ();
 		}
-
+		 
 		rb = GetComponent<Rigidbody2D> ();
 		//rb.velocity = new Vector2 (0, -step);
 
 		canDecay = true;
 
+		rb.velocity = speed * new Vector2 (Mathf.Cos (rot.z * Mathf.Deg2Rad), Mathf.Sin (rot.z * Mathf.Deg2Rad));
 	}
 	
 	void FixedUpdate () {
-		
-		if (linearMovement) {
-			LinearMovement ();
-		} else {
-			CircularMovement2 ();
-		}
 
 		if (Random.Range(0f,1f) >= 0.9998f) {
 			if (canDecay) {
@@ -78,51 +74,10 @@ public class Particle : MonoBehaviour {
 			}
 		}
 
-		//rb.velocity = new Vector2 (Random.Range (-0.5f, 0.5f), rb.velocity.y);
-
 	}
 
 	void Update() {
 
-	}
-
-	void CircularMovement() {
-		transform.position = initialPosition + new Vector3 (radious * Mathf.Sin (num), radious * Mathf.Cos (num), 0);
-		num += step;
-	}
-
-	void CircularMovement2() {
-		//initialPosition = transform.position;
-		//transform.position = initialPosition + new Vector3 (radious * Mathf.Sin (num), radious * Mathf.Cos (num), 0);
-
-		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
-
-		rot += new Vector3 (0, 0, 0.5f);
-
-
-		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
-		pos.y += (Mathf.Sin (angle) * step) * Time.deltaTime;
-
-		transform.position = pos;
-		transform.rotation = Quaternion.Euler(rot);
-	}
-
-	void LinearMovement() {
-		transform.Translate (Vector3.down * step * Time.deltaTime);
-		transform.rotation = Quaternion.Euler(rot);
-	}
-
-	void LinearMovement2() {
-		//Convertendo euler's angle para radiano.
-		angle = transform.eulerAngles.magnitude * Mathf.Deg2Rad;
-
-		pos.x += (Mathf.Cos (angle) * step) * Time.deltaTime;
-		pos.y += (Mathf.Sin (angle) * step) * Time.deltaTime;
-
-		num += step;
-
-		transform.position = pos;
-		transform.rotation = Quaternion.Euler(rot);
 	}
 
 	void Decay() {
@@ -151,7 +106,7 @@ public class Particle : MonoBehaviour {
 	}
 
 	void destroyParticle() {
-		step = 0;
+		rb.velocity = new Vector2 (0, 0);
 
 		if(sr)
 			sr.enabled = false;
