@@ -1975,12 +1975,27 @@ Prefab:
       propertyPath: dashAngle
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 81081091692422916, guid: 9507699edbc61a94b9ca1fee5d41178a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114883163869520584, guid: 9507699edbc61a94b9ca1fee5d41178a,
+        type: 2}
+      propertyPath: playerSr
+      value: 
+      objectReference: {fileID: 1295213966}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9507699edbc61a94b9ca1fee5d41178a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1295213959 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000012884978742, guid: 9507699edbc61a94b9ca1fee5d41178a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1259749106}
+--- !u!212 &1295213966 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 212000010147291480, guid: 9507699edbc61a94b9ca1fee5d41178a,
     type: 2}
   m_PrefabInternal: {fileID: 1259749106}
 --- !u!1001 &1301547070

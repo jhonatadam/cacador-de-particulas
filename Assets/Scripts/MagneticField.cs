@@ -6,20 +6,20 @@ public class MagneticField : MonoBehaviour {
 
 	public float force;
 
+	public SpriteRenderer playerSr;
+
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Particle") {
 			Rigidbody2D particleRb2d = other.gameObject.GetComponent<Rigidbody2D> ();
 			Particle particleScript = other.GetComponent<Particle>();
 
-			Vector2 diff = other.transform.position - transform.position;
-
-			// pegando vetor unitário
-			diff = diff / (Mathf.Abs(diff.x) + Mathf.Abs(diff.y));
-
-			particleRb2d.AddForce (force * particleRb2d.velocity.magnitude * diff);
-
-			print (diff);
+			Vector3 fm = 
+				Vector3.Cross(
+					new Vector3 (particleRb2d.velocity.x, particleRb2d.velocity.y, 0), 
+					new Vector3 (0, 0, (playerSr.flipX ? force : -force)));
+			
+			particleRb2d.AddForce (new Vector2(fm.x, fm.y));
 		}
 	}
 
