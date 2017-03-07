@@ -26,8 +26,6 @@ public class Particle : MonoBehaviour {
 
 	private bool canDamage = true;
 
-	public bool linearMovement = true;
-
 	//transform
 	Transform trans;
 	//posição
@@ -40,6 +38,8 @@ public class Particle : MonoBehaviour {
 	private Vector3 initialPosition;
 
 	public Vector2 force;
+
+	public float charge = 0f;
 
 
 	void Start () {
@@ -106,15 +106,15 @@ public class Particle : MonoBehaviour {
 	}
 
 	public void destroyParticle() {
+		canDamage = false;
+		canDecay = false;
+
 		rb.velocity = new Vector2 (0, 0);
 
 		if(sr)
 			sr.enabled = false;
 		if(ps)
 			ps.Stop ();
-
-		canDamage = false;
-		canDecay = false;
 
 		Destroy (gameObject, tail.time);
 	}
