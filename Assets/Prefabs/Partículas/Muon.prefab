@@ -237,8 +237,8 @@ MonoBehaviour:
   - {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
   - {fileID: 1173641927758544, guid: 7a6d11c8a9dc2dc43a53e0074c165394, type: 2}
   - {fileID: 1173641927758544, guid: 7a6d11c8a9dc2dc43a53e0074c165394, type: 2}
-  linearMovement: 1
   force: {x: 0, y: 0}
+  charge: 1
 --- !u!198 &198694071674323556
 ParticleSystem:
   m_ObjectHideFlags: 1
