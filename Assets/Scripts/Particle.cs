@@ -105,13 +105,17 @@ public class Particle : MonoBehaviour {
 		destroyParticle ();
 	}
 
-	void destroyParticle() {
+	public void destroyParticle() {
 		rb.velocity = new Vector2 (0, 0);
 
 		if(sr)
 			sr.enabled = false;
 		if(ps)
 			ps.Stop ();
+
+		canDamage = false;
+		canDecay = false;
+
 		Destroy (gameObject, tail.time);
 	}
 

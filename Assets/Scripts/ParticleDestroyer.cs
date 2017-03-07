@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ParticleDestroyer : MonoBehaviour {
 
-	void OnTriggerEnter2D(Collider2D other) {
+	void OnTriggerExit2D(Collider2D other) {
 		if (other.gameObject.tag == "Particle") {
-			Destroy (other.gameObject);
+			other.gameObject.GetComponent<Particle> ().destroyParticle ();
 		}
 		//Destroy (other.gameObject);
 	}
