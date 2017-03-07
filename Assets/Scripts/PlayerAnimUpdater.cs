@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerAnimUpdater : MonoBehaviour {
-
+	/*
 	public GameObject player;
 	public GroundCheck groundCheck;
 
@@ -57,7 +57,7 @@ public class PlayerAnimUpdater : MonoBehaviour {
 
 			}
 		}
-	}*/
+	}
 
 	private void UpdateAnimator (GameObject obj, float horizontalMovement) {
 		Animator anim = obj.GetComponent <Animator> ();
@@ -66,4 +66,5 @@ public class PlayerAnimUpdater : MonoBehaviour {
 		anim.SetFloat ("horizontalMovement", Mathf.Abs (horizontalMovement));
 
 	}
+	*/
 }

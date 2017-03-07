@@ -23,12 +23,27 @@ public class ParticleGenerator : MonoBehaviour {
 	public float minPosition;
 	public float maxPosition;
 
-	// Use this for initialization
+	public int startParticlesNum;
+	public Rect particleStartRegion;
+
+
 	void Start () {
 		actualTime = 0;
-	}
+
+		for (int i = 0; i < startParticlesNum; i++) {
+
+			Vector3 partPosition = 
+				new Vector3 (
+					Random.Range(particleStartRegion.x, particleStartRegion.x + particleStartRegion.width), 
+					Random.Range(particleStartRegion.y - particleStartRegion.height, particleStartRegion.y),
+					generatePoint.position.z);
 	
-	// Update is called once per frame
+			Choose ();
+			Instantiate (particle, partPosition, Quaternion.Euler(0, 0, Random.Range(minAngle, maxAngle) + generatePoint.eulerAngles.z));
+		}
+	}
+
+
 	void FixedUpdate () {
 
 		actualTime++;

@@ -22,14 +22,5 @@ public class MagneticField : MonoBehaviour {
 			particleRb2d.AddForce (new Vector2(fm.x, fm.y));
 		}
 	}
-
-	/*
-	void OnTriggerExit2D(Collider2D other)
-	{
-		if (other.gameObject.tag == "Particle") {
-			Particle part = other.GetComponent<Particle>();
-			part.linearMovement = true;
-		}
-	}
-	*/
+		
 }
