@@ -14,7 +14,7 @@ public class MagneticField : MonoBehaviour {
 			Rigidbody2D particleRb2d = other.gameObject.GetComponent<Rigidbody2D> ();
 			Particle particleScript = other.GetComponent<Particle>();
 
-			Vector3 fm = 
+			Vector3 fm = particleScript.charge *
 				Vector3.Cross(
 					new Vector3 (particleRb2d.velocity.x, particleRb2d.velocity.y, 0), 
 					new Vector3 (0, 0, (playerSr.flipX ? force : -force)));
