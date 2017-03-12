@@ -234,8 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   daughters: []
-  linearMovement: 1
   force: {x: 0, y: 0}
+  charge: 1
 --- !u!198 &198080836491675078
 ParticleSystem:
   m_ObjectHideFlags: 1
