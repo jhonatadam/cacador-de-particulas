@@ -34,6 +34,8 @@ public class Player : MonoBehaviour {
 
 	private bool updateOn = true;
 
+	public GameObject magneticField;
+
 	void Start () {
 		animator = GetComponent <Animator> ();
 		sr = GetComponent <SpriteRenderer> ();
@@ -173,5 +175,16 @@ public class Player : MonoBehaviour {
 
 	void UpdateDamageTime() {
 		damageTime++;
+	}
+
+	/* Função que ativa/desativa o campo magnético
+	 * 
+	 * */
+	public void SwitchMagneticField() {
+		if (magneticField.activeInHierarchy) {
+			magneticField.SetActive (false);
+		} else {
+			magneticField.SetActive (true);
+		}
 	}
 }

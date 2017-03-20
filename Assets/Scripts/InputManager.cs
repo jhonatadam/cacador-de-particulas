@@ -47,6 +47,10 @@ public class InputManager : MonoBehaviour {
 			pauseMenu.ShowPauseMenu ();
 		}
 
+		if (Input.GetButtonDown("MagneticField")) {
+			player.SwitchMagneticField();
+		}
+
 	}
 
 	void FixedUpdate () {
