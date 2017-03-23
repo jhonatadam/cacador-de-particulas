@@ -96,12 +96,16 @@ public class Player : MonoBehaviour {
 
 	public void Jump () {
 		if (updateOn && (groundCheck.isGrounded () || groundCheck.isPlatformed())) {
+			if ((Input.GetAxisRaw ("Vertical") < 0) && groundCheck.isPlatformed()) {
+				return;
+			}
 			
 			// aplica forca do salto
 			rb2d.AddForce (new Vector2 (0, jumpForce));
 
 			// atualizando animator
-			animator.SetBool("jump", true);
+			animator.SetBool ("jump", true);
+			
 		}
 	}
 

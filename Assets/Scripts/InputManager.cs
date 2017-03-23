@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour {
 
 		}
 
-		if (Input.GetButtonDown ("Jump") && !(Input.GetAxisRaw ("Vertical") < 0)) {
+		if (Input.GetButtonDown ("Jump")){
 
 			if (player) {
 				player.Jump ();
