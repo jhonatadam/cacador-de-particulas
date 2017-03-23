@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour {
 
 		}
 
-		if (Input.GetButtonDown ("Jump")) {
+		if (Input.GetButtonDown ("Jump") && !(Input.GetAxisRaw ("Vertical") < 0)) {
 
 			if (player) {
 				player.Jump ();
@@ -49,6 +49,10 @@ public class InputManager : MonoBehaviour {
 
 		if (Input.GetButtonDown("MagneticField")) {
 			player.SwitchMagneticField();
+		}
+
+		if (Input.GetAxisRaw ("Vertical") < 0 && Input.GetButtonDown ("Jump")) {
+			player.ClimbDown ();
 		}
 
 	}

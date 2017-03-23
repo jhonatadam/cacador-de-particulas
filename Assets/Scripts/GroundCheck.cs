@@ -4,7 +4,12 @@ using System.Collections;
 public class GroundCheck : MonoBehaviour {
 
 	private bool grounded = false;
+	//Indica se o player está em uma plataforma
+	private bool platformed = false;
 	private ArrayList groundTag;
+
+	//Plataforma em que o player está em cima
+	private GameObject platform;
 
 	void Start () {
 		groundTag = new ArrayList ();
@@ -20,6 +25,11 @@ public class GroundCheck : MonoBehaviour {
 				grounded = true;
 			}
 		}
+
+		if(other.gameObject.tag == "Platform") {
+			platformed = true;
+			platform = other.gameObject;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other)
@@ -29,11 +39,24 @@ public class GroundCheck : MonoBehaviour {
 				grounded = false;
 			}
 		}
+
+		if(other.gameObject.tag == "Platform") {
+			platformed = false;
+			platform = null;
+		}
 	}
 
 	public bool isGrounded ()
 	{
 		return grounded;
 
+	}
+
+	public bool isPlatformed() {
+		return platformed;
+	}
+
+	public GameObject getPlatform() {
+		return platform;
 	}
 }

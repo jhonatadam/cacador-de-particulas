@@ -95,13 +95,22 @@ public class Player : MonoBehaviour {
 	} 
 
 	public void Jump () {
-		if (updateOn && groundCheck.isGrounded ()) {
+		if (updateOn && (groundCheck.isGrounded () || groundCheck.isPlatformed())) {
 			
 			// aplica forca do salto
 			rb2d.AddForce (new Vector2 (0, jumpForce));
 
 			// atualizando animator
 			animator.SetBool("jump", true);
+		}
+	}
+
+	public void ClimbDown() {
+		if (updateOn && groundCheck.isPlatformed ()) {
+			GameObject platform = groundCheck.getPlatform ();
+			if (platform) {
+				platform.GetComponent<BoxCollider2D> ().isTrigger = true;
+			}
 		}
 	}
 
