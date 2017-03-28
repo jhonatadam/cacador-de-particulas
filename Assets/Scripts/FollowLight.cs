@@ -12,6 +12,7 @@ public class FollowLight : MonoBehaviour {
 	private SpriteRenderer sr;
 
 	void Start () {
+		player = GameObject.Find ("Player");
 		sr = GetComponent <SpriteRenderer> ();
 		sr.enabled = true;
 
