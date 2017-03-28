@@ -46,6 +46,8 @@ public class Elevator : MonoBehaviour {
 	private AudioSource audioSource;
 
 	void Start () {
+		player = GameObject.Find ("Player").GetComponent<Player> ();
+
 		nextFloor = currentFloor;
 
 		sr = GetComponent <SpriteRenderer> ();

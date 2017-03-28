@@ -80,6 +80,8 @@ public class SceneDataManager : MonoBehaviour {
 	private string editorTempFilePath = "Assets/Resources/JSONData/Temp/";
 
 	void Start () {
+		player = GameObject.Find ("Player");
+
 		// definindo nome do arquivo da cena
 		sceneFileName = sceneName + ".json";
 
@@ -137,6 +139,7 @@ public class SceneDataManager : MonoBehaviour {
 			}
 		}
 
+		/*
 		// carregando trilha sonora
 		string stJson = LoadJsonFile (filePath + soundtrackFileName);
 
@@ -145,11 +148,11 @@ public class SceneDataManager : MonoBehaviour {
 
 			music.time = soundtrack.currentTime + 0.1f + Time.deltaTime;
 		}
-
+			
 		if (music)
 			if (music.isActiveAndEnabled)
 				music.Play (0);
-
+		*/
 	}
 
 	void OnApplicationQuit () {
@@ -195,9 +198,11 @@ public class SceneDataManager : MonoBehaviour {
 			string sceneJson = JsonUtility.ToJson (sceneData);
 			SaveJsonFile (filePath + sceneFileName, sceneJson);
 
+			/*
 			// salvando trilha sonora
 			string stJson = JsonUtility.ToJson (soundtrack);
 			SaveJsonFile (filePath + soundtrackFileName, stJson);
+			*/
 		}
 		
 	}
@@ -250,7 +255,7 @@ public class SceneDataManager : MonoBehaviour {
 	}
 
 	public void UpdateSoundtrack () {
-		soundtrack.currentTime = music.time;
+		//soundtrack.currentTime = music.time;
 	}
 
 }

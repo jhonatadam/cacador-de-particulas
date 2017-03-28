@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012884978742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.49, y: -1.67, z: 0}
+  m_LocalPosition: {x: -10.23, y: -13.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000010268703816}
@@ -368,7 +368,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012884978742}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!82 &82954048407041316
 AudioSource:
   m_ObjectHideFlags: 1
@@ -517,8 +517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ca17e7cecda8940a0250c0e2eb83c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1000012884978742}
-  groundCheck: {fileID: 114000012518548960}
 --- !u!114 &114000014268752804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,6 +540,7 @@ MonoBehaviour:
   maxHealth: 200
   health: 0
   damageCoolDown: 10
+  magneticField: {fileID: 1511213019771056}
 --- !u!114 &114657588856242778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -590,6 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 2
+  playerSr: {fileID: 212000010147291480}
 --- !u!212 &212000010147291480
 SpriteRenderer:
   m_ObjectHideFlags: 1

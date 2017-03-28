@@ -9,6 +9,10 @@ public class InputManager : MonoBehaviour {
 	public DoorPanel[] doorPanels;
 	public PauseMenu pauseMenu;
 
+	void Start () {
+		player = GameObject.Find ("Player").GetComponent<Player> ();
+	}
+
 	void Update () {
 
 		if (Input.GetButtonDown ("Fire")) {
@@ -19,7 +23,7 @@ public class InputManager : MonoBehaviour {
 
 		}
 
-		if (Input.GetButtonDown ("Jump")) {
+		if (Input.GetButtonDown ("Jump")){
 
 			if (player) {
 				player.Jump ();
@@ -45,6 +49,14 @@ public class InputManager : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Start")) {
 			pauseMenu.ShowPauseMenu ();
+		}
+
+		if (Input.GetButtonDown("MagneticField")) {
+			player.SwitchMagneticField();
+		}
+
+		if (Input.GetAxisRaw ("Vertical") < 0 && Input.GetButtonDown ("Jump")) {
+			player.ClimbDown ();
 		}
 
 	}

@@ -23,8 +23,21 @@ public class TitleMenu : MonoBehaviour {
 
 	public void NovoJogo() {
 		loadingImg.SetActive (true);
-		SceneManager.LoadScene (firstSceneName);
 
+		// carregando player
+		GameObject player = Resources.Load<GameObject>("Prefabs/Player");
+
+		if (player != null) {
+			player = Instantiate (player);
+			player.name = "Player";
+			DontDestroyOnLoad (player);
+		}
+
+		// mantendo instancia de soundtrack na cena carregada
+		GameObject soundtrack = GameObject.Find ("Soundtrack");
+		DontDestroyOnLoad (soundtrack);
+
+		SceneManager.LoadScene (firstSceneName);
 	}
 
 	public void Sair() {

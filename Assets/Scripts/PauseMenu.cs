@@ -6,12 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
 
+	private GameObject player;
+
 	public GameObject bgImage;
 	public GameObject menu;
 	private bool paused = false;
 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find ("Player");
+
 		menu.SetActive (false);
 		bgImage.SetActive (false);
 		
@@ -50,7 +54,8 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void BackToMenu() {
-		SceneManager.LoadScene ("TestMenuTitle");
+		Destroy (player);
+		SceneManager.LoadScene ("MenuTitle");
 	}
 
 	public void Sair() {

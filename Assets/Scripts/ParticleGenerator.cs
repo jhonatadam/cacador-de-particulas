@@ -57,8 +57,10 @@ public class ParticleGenerator : MonoBehaviour {
 			}
 
 			Choose ();
-			GameObject part = Instantiate(particle, generatePoint.position, Quaternion.Euler(0, 0, Random.Range(minAngle, maxAngle) + generatePoint.eulerAngles.z));
 
+			if (particle != null) {
+				GameObject part = Instantiate (particle, generatePoint.position, Quaternion.Euler (0, 0, Random.Range (minAngle, maxAngle) + generatePoint.eulerAngles.z));
+			}
 			//part.GetComponent<Particle> ().step = particleStep;
 			//part.transform.localScale = new Vector3 (particleScale, particleScale, particleScale);
 
@@ -69,7 +71,11 @@ public class ParticleGenerator : MonoBehaviour {
 	void Choose() {
 		int rnd = Random.Range (0, particles.Length);
 
-		particle = particles [rnd];
+		if (particles.Length != 0) {
+			particle = particles [rnd];
+		} else {
+			particle = null;
+		}
 
 	}
 
