@@ -34,6 +34,7 @@ public class CameraController : MonoBehaviour {
 
 
 	void Start () {
+		player = GameObject.Find ("Player").GetComponent<Player> ();
 		// salvando limites da camera
 		//CameraLimits cl = new CameraLimits ();
 		//cl.floorsLimits = floorsLimits;
