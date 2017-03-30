@@ -37,6 +37,9 @@ public class TitleMenu : MonoBehaviour {
 		GameObject soundtrack = GameObject.Find ("Soundtrack");
 		DontDestroyOnLoad (soundtrack);
 
+		GameObject tempData = GameObject.Find ("TempData");
+		DontDestroyOnLoad (tempData);
+
 		SceneManager.LoadScene (firstSceneName);
 	}
 

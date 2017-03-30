@@ -50,6 +50,8 @@ public class SceneDataManager : MonoBehaviour {
 
 	public GameObject player;
 
+	private TempData tempData;
+
 	public GameObject camera;
 
 	public AudioSource music;
@@ -71,7 +73,7 @@ public class SceneDataManager : MonoBehaviour {
 
 	void Start () {
 		player = GameObject.Find ("Player");
-
+		tempData = GameObject.Find ("TempData").GetComponent<TempData> ();
 
 		// definindo nome do arquivo da cena
 		sceneName = sceneName + ".json";
@@ -93,32 +95,18 @@ public class SceneDataManager : MonoBehaviour {
 		}
 		*/
 
+		foreach (Door door in doors) {
+			door.state = tempData.doorState [door.id];
+		}
 
-		// carregando cena
-		if (PlayerPrefs.HasKey (sceneName)) {
-			
-			string sceneJson = PlayerPrefs.GetString (sceneName);
+		foreach (Elevator e in elevators) {
+			// pegando o andar que o elevador deve estar
+			int i = tempData.elevatorFloors [e.id];
 
-			if (!sceneJson.Equals ("")) {
-				JsonUtility.FromJsonOverwrite (sceneJson, sceneData);
-
-				// carregando elevadores
-				for (int i = 0; i < elevators.Length; i++) {
-					elevators [i].currentFloor = sceneData.elevatorCurrentFloor [i];
-					elevators [i].nextFloor = sceneData.elevatorCurrentFloor [i];
-
-					elevators [i].transform.position = new Vector3 (
-						elevators [i].transform.position.x, 
-						elevators [i].floorsPosition [elevators [i].currentFloor],
-						elevators [i].transform.position.z
-					);
-				}
-
-				// carregando portas
-				for (int i = 0; i < doors.Length; i++) {
-					doors [i].state = sceneData.doorState [i]; 
-				}
-			}
+			e.currentFloor = i;
+			e.nextFloor = i;
+			e.transform.position = 
+				new Vector3 (e.transform.position.x, e.floorsPosition[i], e.transform.position.z);
 		}
 			
 	}
@@ -130,8 +118,8 @@ public class SceneDataManager : MonoBehaviour {
 	void OnDestroy () {
 		// salvando informações da cena (estado dos elevadores
 		// e das porta)
-		string sceneJson = JsonUtility.ToJson (sceneData);
-		PlayerPrefs.SetString (sceneName, sceneJson);
+		//string sceneJson = JsonUtility.ToJson (sceneData);
+		//PlayerPrefs.SetString (sceneName, sceneJson);
 	}
 
 	public void Save () {
@@ -169,15 +157,13 @@ public class SceneDataManager : MonoBehaviour {
 
 	public void UpdateSceneData () {
 		// elevadores
-		sceneData.elevatorCurrentFloor = new int[elevators.Length];
-		for (int i = 0; i < elevators.Length; i++) {
-			sceneData.elevatorCurrentFloor [i] = elevators [i].currentFloor;
+		foreach (Elevator elevator in elevators) {
+			tempData.elevatorFloors [elevator.id] = elevator.currentFloor;
 		}
 
 		// portas
-		sceneData.doorState = new DoorState[doors.Length];
-		for (int i = 0; i < doors.Length; i++) {
-			sceneData.doorState [i] = doors [i].state; 
+		foreach (Door door in doors) {
+			tempData.doorState [door.id] = door.state; 
 		}
 	}
 
