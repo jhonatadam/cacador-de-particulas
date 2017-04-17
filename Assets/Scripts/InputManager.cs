@@ -9,6 +9,10 @@ public class InputManager : MonoBehaviour {
 	public DoorPanel[] doorPanels;
 	public PauseMenu pauseMenu;
 
+	void Start () {
+		player = GameObject.Find ("Player").GetComponent<Player> ();
+	}
+
 	void Update () {
 
 		if (Input.GetButtonDown ("Fire")) {

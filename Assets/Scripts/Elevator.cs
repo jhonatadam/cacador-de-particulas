@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Elevator : MonoBehaviour {
 
+	public int id;
+
 	private bool moving;
 
 	// Posições dos andares no eixo y
@@ -23,7 +25,7 @@ public class Elevator : MonoBehaviour {
 	public ContactCheck playerCheck;
 
 	// referências do player
-	public Player player;
+	private Player player;
 	public CameraController cam;
 
 	// referencia para o sprite do elevador
@@ -45,7 +47,15 @@ public class Elevator : MonoBehaviour {
 
 	private AudioSource audioSource;
 
+	private TempData tempData;
+
 	void Start () {
+		player = GameObject.Find ("Player").GetComponent<Player> ();
+		tempData = GameObject.Find ("TempData").GetComponent<TempData> ();
+
+		currentFloor = tempData.elevatorFloors [id];
+
+
 		nextFloor = currentFloor;
 
 		sr = GetComponent <SpriteRenderer> ();

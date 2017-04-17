@@ -91,8 +91,14 @@ public class Particle : MonoBehaviour {
 
 		GameObject daughter;
 
+		// definindo angulo da velocidade dentro do circulo unitário
+		float angle = 
+			Vector2.Angle (new Vector2 (Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.y), 0), rb.velocity);	
+		angle *= (rb.velocity.y < 0 ? -1 : 1);  
+
+
 		foreach (GameObject particle in daughters) {
-			daughter = Instantiate (particle, transform.position, Quaternion.Euler (0f, 0f, transform.eulerAngles.z + degrees));
+			daughter = Instantiate (particle, transform.position, Quaternion.Euler (0f, 0f, angle + degrees));
 
 			//daughter.GetComponent<Particle> ().step = this.step;
 			//daughter.transform.localScale = this.transform.localScale;
