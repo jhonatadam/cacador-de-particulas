@@ -39,7 +39,7 @@ public class InputManager : MonoBehaviour {
 
 		}
 
-		if (Input.GetButtonDown ("Interact")) {
+		if (Input.GetAxisRaw ("Vertical") > 0) {
 
 			foreach  (DoorPanel doorPanel in doorPanels) {
 				doorPanel.Push ();
