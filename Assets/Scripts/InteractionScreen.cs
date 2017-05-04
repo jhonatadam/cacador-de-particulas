@@ -7,6 +7,8 @@ public class InteractionScreen : MonoBehaviour {
 	public SpriteRenderer arrow;
 	public GameObject screen;
 
+	public ContactCheck playerCheck;
+
 	// Use this for initialization
 	void Start () {
 		arrow.enabled = false;
@@ -14,22 +16,12 @@ public class InteractionScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		arrow.enabled = playerCheck.getIsInContact ();
 	}
 
-	void OnTriggerEnter2D(Collider2D other) {
-		if (other.gameObject.tag == "Player") {
-			arrow.enabled = true;
+	public void showScreen() {
+		if(playerCheck.getIsInContact()) {
+			print("Conteudo Exibido");
 		}
-	}
-
-	void OnTriggerExit2D(Collider2D other) {
-		if (other.gameObject.tag == "Player") {
-			arrow.enabled = false;
-		}
-	}
-
-	void showScreen() {
-
 	}
 }
