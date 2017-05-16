@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour {
 	public Player player;
 	public Elevator[] elevators;
 	public DoorPanel[] doorPanels;
+	public InteractionScreen[] interactives;
 	public PauseMenu pauseMenu;
 
 	void Start () {
@@ -57,6 +58,12 @@ public class InputManager : MonoBehaviour {
 
 		if (Input.GetAxisRaw ("Vertical") < 0 && Input.GetButtonDown ("Jump")) {
 			player.ClimbDown ();
+		}
+
+		if (Input.GetAxisRaw ("Vertical") > 0) {
+			foreach (InteractionScreen i in interactives) {
+				i.showScreen ();
+			}
 		}
 
 	}

@@ -724,7 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 1930114629029002}
   m_sendNavigationEvents: 1
-  m_DragThreshold: 5
+  m_DragThreshold: 3
 --- !u!114 &114359972798115046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1317,7 +1317,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &224142252906055576
 RectTransform:
@@ -1335,8 +1335,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72.44998, y: -81.482925}
-  m_SizeDelta: {x: 124.89996, y: 3.4341455}
+  m_AnchoredPosition: {x: 79.09999, y: 0}
+  m_SizeDelta: {x: 138.19998, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224204811383930040
 RectTransform:
@@ -1372,8 +1372,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72.44998, y: -58.04878}
-  m_SizeDelta: {x: 124.89996, y: 3.4341455}
+  m_AnchoredPosition: {x: 79.09999, y: 0}
+  m_SizeDelta: {x: 138.19998, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224274949413275682
 RectTransform:
@@ -1448,8 +1448,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72.44998, y: -34.61463}
-  m_SizeDelta: {x: 124.89996, y: 3.4341455}
+  m_AnchoredPosition: {x: 79.09999, y: 0}
+  m_SizeDelta: {x: 138.19998, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224680904412916412
 RectTransform:
@@ -1524,8 +1524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 72.44998, y: -10}
-  m_SizeDelta: {x: 124.89996, y: 2.8975601}
+  m_AnchoredPosition: {x: 79.09999, y: 0}
+  m_SizeDelta: {x: 138.19998, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224828899038747440
 RectTransform:
