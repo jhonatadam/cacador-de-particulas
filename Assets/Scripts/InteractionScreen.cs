@@ -9,6 +9,8 @@ public class InteractionScreen : MonoBehaviour {
 
 	public ContactCheck playerCheck;
 
+	private bool isShown = false;
+
 	// Use this for initialization
 	void Start () {
 		arrow.enabled = false;
@@ -17,11 +19,16 @@ public class InteractionScreen : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		arrow.enabled = playerCheck.getIsInContact ();
+		if (isShown && !arrow.enabled) {
+			Destroy (screen);
+			isShown = false;
+		}
 	}
 
 	public void showScreen() {
 		if(playerCheck.getIsInContact()) {
-			print("Conteudo Exibido");
+			isShown = true;
+			Instantiate (screen);
 		}
 	}
 }
