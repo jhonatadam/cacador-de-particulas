@@ -30,6 +30,7 @@ public class TitleMenu : MonoBehaviour {
 		if (player != null) {
 			player = Instantiate (player);
 			player.name = "Player";
+			player.transform.position = new Vector3 (-16.5f, -13f, player.transform.position.z);
 			DontDestroyOnLoad (player);
 		}
 
