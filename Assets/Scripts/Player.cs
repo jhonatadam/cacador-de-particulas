@@ -200,4 +200,28 @@ public class Player : MonoBehaviour {
 			magneticField.SetActive (true);
 		}
 	}
+
+	private void OnEnable() {
+		//Configurando listeners de eventos
+		EventsManager.onJumpBtn += Jump;
+		EventsManager.onDashBtn += Dash;
+		EventsManager.onMagneticFieldBtn += SwitchMagneticField;
+		EventsManager.onHorizontalBtn += MoveHorizontally;
+		EventsManager.onClimbDownCmd += ClimbDown;
+	}
+
+	private void OnDisable() {
+		//Configurando listeners de eventos
+		EventsManager.onJumpBtn -= Jump;
+		EventsManager.onDashBtn -= Dash;
+		EventsManager.onMagneticFieldBtn -= SwitchMagneticField;
+		EventsManager.onHorizontalBtn -= MoveHorizontally;
+		EventsManager.onClimbDownCmd -= ClimbDown;
+	}
+
+
+
+
+
+
 }

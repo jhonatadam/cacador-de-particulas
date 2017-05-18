@@ -31,4 +31,12 @@ public class InteractionScreen : MonoBehaviour {
 			Instantiate (screen);
 		}
 	}
+
+	private void OnEnable() {
+		EventsManager.onInteract += showScreen;
+	}
+
+	private void OnDisable() {
+		EventsManager.onInteract -= showScreen;
+	}
 }
