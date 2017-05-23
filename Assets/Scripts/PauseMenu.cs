@@ -65,4 +65,12 @@ public class PauseMenu : MonoBehaviour {
 		Application.Quit();
 		#endif
 	}
+
+	private void OnEnable() {
+		EventsManager.onStartBtn += Pause;
+	}
+
+	private void OnDisable() {
+		EventsManager.onStartBtn -= Pause;
+	}
 }

@@ -112,6 +112,36 @@ public class Elevator : MonoBehaviour {
 
 	}
 
+	public void GoToUpperFloor() {
+		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) && player.GetComponent<Player> ().GetUpdateOn ()) {
+			if (floorsPosition.Length > (currentFloor + 1)) {
+				nextFloor += 1;
+				sr.sprite = sprites[1];
+
+				player.SetUpdateOn (false);
+				cam.activeTracking = false;
+
+				audioSource.PlayOneShot (startSound, 0.4f);
+				audioSource.Play (0);
+			}
+		}
+	}
+
+	public void GoToLowerFloor() {
+		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) && player.GetComponent<Player> ().GetUpdateOn ()) {
+			if (currentFloor > 0) {
+				nextFloor -= 1;
+				sr.sprite = sprites[2];
+
+				player.SetUpdateOn (false);
+				cam.activeTracking = false;
+
+				audioSource.PlayOneShot (startSound, 0.4f);
+				audioSource.Play (0);
+			}
+		}
+	}
+
 	private void Move () {
 		moving = true;
 		int direction = nextFloor - currentFloor;
@@ -139,4 +169,13 @@ public class Elevator : MonoBehaviour {
 		return moving;
 	}
 		
+	private void OnEnable() {
+		EventsManager.onInteract += GoToUpperFloor;
+		EventsManager.onVerticalDown += GoToLowerFloor;
+	}
+
+	private void OnDisable() {
+		EventsManager.onInteract -= GoToUpperFloor;
+		EventsManager.onVerticalDown -= GoToLowerFloor;
+	}
 }
