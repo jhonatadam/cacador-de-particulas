@@ -73,4 +73,12 @@ public class DoorPanel : MonoBehaviour {
 		float value = Mathf.Abs(Mathf.Sin (Time.time));
 		return new Vector4 (value, value, value, 1);
 	}
+
+	private void OnEnable() {
+		EventsManager.onInteract += Push;
+	}
+
+	private void OnDisable() {
+		EventsManager.onInteract -= Push;
+	}
 }

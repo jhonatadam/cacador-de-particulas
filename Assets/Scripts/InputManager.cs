@@ -4,85 +4,82 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 
-	public Player player;
-	public Elevator[] elevators;
-	public DoorPanel[] doorPanels;
-	public InteractionScreen[] interactives;
-	public PauseMenu pauseMenu;
+	private bool canListen = true;
 
 	void Start () {
-		player = GameObject.Find ("Player").GetComponent<Player> ();
+		
 	}
 
 	void Update () {
 
-		if (Input.GetButtonDown ("Fire")) {
+		if (canListen) {
+			if (Input.GetButtonDown ("Fire")) {
 
-			if (player) {
-				player.Fire ();
 			}
 
-		}
+			if (Input.GetButtonDown ("Jump")){
+				EventsManager.JumpBtn ();
 
-		if (Input.GetButtonDown ("Jump")){
-
-			if (player) {
-				player.Jump ();
 			}
 
-		}
+			if (Input.GetButtonDown ("Dash")) {
+				EventsManager.DashBtn ();
 
-		if (Input.GetButtonDown ("Dash")) {
-
-			if (player) {
-				player.Dash ();
 			}
 
-		}
-
-		if (Input.GetAxisRaw ("Vertical") > 0) {
-
-			foreach  (DoorPanel doorPanel in doorPanels) {
-				doorPanel.Push ();
+			if (Input.GetAxisRaw ("Vertical") > 0) {
+				//Chama o evento Interact
+				EventsManager.Interact ();
 			}
 
-		}
-
-		if (Input.GetButtonDown ("Start")) {
-			pauseMenu.ShowPauseMenu ();
-		}
-
-		if (Input.GetButtonDown("MagneticField")) {
-			player.SwitchMagneticField();
-		}
-
-		if (Input.GetAxisRaw ("Vertical") < 0 && Input.GetButtonDown ("Jump")) {
-			player.ClimbDown ();
-		}
-
-		if (Input.GetAxisRaw ("Vertical") > 0) {
-			foreach (InteractionScreen i in interactives) {
-				i.showScreen ();
+			if (Input.GetAxisRaw ("Vertical") < 0) {
+				//Chama o evento VerticalDown
+				EventsManager.VerticalDown ();
 			}
+
+			if (Input.GetButtonDown ("Start")) {
+				EventsManager.StartBtn ();
+			}
+
+			if (Input.GetButtonDown("MagneticField")) {
+				EventsManager.MagneticFieldBtn ();
+			}
+
+			if (Input.GetAxisRaw ("Vertical") < 0 && Input.GetButtonDown ("Jump")) {
+				EventsManager.ClimbDownCmd ();
+			}
+
 		}
 
 	}
 
 	void FixedUpdate () {
 
-		float horizontalMovement = Input.GetAxis ("Horizontal");
-		float verticalMovement = Input.GetAxis ("Vertical");
+		if (canListen) {
+			
+			float horizontalMovement = Input.GetAxis ("Horizontal");
 
-		// nao sei pq, mas só funciona assim
-		// aparentemente checar se é nulo não é suficiente
-		try {
-			player.MoveHorizontally (horizontalMovement);
-		} catch {
+			EventsManager.HorizontalBtn (horizontalMovement);
+
 		}
 
-		foreach (Elevator elevator in elevators) {
-			elevator.GoToNextFloor (verticalMovement);
-		}
+	}
 
+	public void StopListening() {
+		canListen = false;
+	}
+
+	public void StartListening() {
+		canListen = true;
+	}
+
+	private void OnEnable() {
+		EventsManager.onCutsceneStart += StopListening;
+		EventsManager.onCutsceneEnd += StartListening;
+	}
+
+	private void OnDisable() {
+		EventsManager.onCutsceneStart -= StopListening;
+		EventsManager.onCutsceneEnd -= StartListening;
 	}
 }

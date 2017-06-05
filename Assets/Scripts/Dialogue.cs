@@ -35,6 +35,9 @@ public class Dialogue : MonoBehaviour {
 	//Indica qual a fala atual.
 	private int textoAtual = 0;
 
+	//Flag que indica se o dialogo acabou
+	private bool over = false;
+
 	void Start () {
 		canvas.SetActive (false);
 
@@ -50,7 +53,14 @@ public class Dialogue : MonoBehaviour {
 			if (canContinue && Input.GetButtonDown ("Jump")) {
 				continua = true;
 				CampoDeTexto.text = "";
+				if (over) {
+					DeActivate ();
+					canvas.SetActive (false);
+				}
 			}
+//			if (over && Input.GetButtonDown ("Jump")) {
+//				DeActivate ();
+//			}
 			
 			ShowDialogue ();
 
@@ -85,7 +95,7 @@ public class Dialogue : MonoBehaviour {
 
 	private void ShowDialogue() {
 		if (textoAtual == dialogo.Length) {
-			DeActivate ();
+			over = true;
 			print ("CABOU");
 		} else if(continua) {
 			StartCoroutine(ShowMessage(dialogo [textoAtual]));
@@ -109,5 +119,9 @@ public class Dialogue : MonoBehaviour {
 
 	private void LerTexto() {
 		dialogo = arquivoTexto.text.Split ('\n');
+	}
+
+	public bool isActive() {
+		return active;
 	}
 }
