@@ -39,6 +39,11 @@ public class EventsManager : MonoBehaviour {
 	//Quando se o comando climbDown
 	public static Event onClimbDownCmd;
 
+	//Quando uma cutscene inicia
+	public static Event onCutsceneStart;
+	//Quando uma cutscene termina
+	public static Event onCutsceneEnd;
+
 	public static void Interact() {
 		if (onInteract != null)
 			onInteract ();
@@ -77,5 +82,15 @@ public class EventsManager : MonoBehaviour {
 	public static void ClimbDownCmd() {
 		if (onClimbDownCmd != null)
 			onClimbDownCmd();
+	}
+
+	public static void CutsceneStart() {
+		if (onCutsceneStart != null)
+			onCutsceneStart ();
+	}
+
+	public static void CutsceneEnd() {
+		if (onCutsceneEnd != null)
+			onCutsceneEnd ();
 	}
 }
