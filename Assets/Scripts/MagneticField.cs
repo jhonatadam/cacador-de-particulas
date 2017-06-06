@@ -24,15 +24,19 @@ public class MagneticField : MonoBehaviour {
 
 			//print ("Velocidade da particula" + particleRb2d.velocity.magnitude);
 
+			// calculando força que o campo exerce sobre a partícula
 			Vector3 fm = particleScript.charge *
 				Vector3.Cross(
 					new Vector3 (particleRb2d.velocity.x, particleRb2d.velocity.y, 0), 
 					//new Vector3 (partVel.x, partVel.y, 0), 
 					new Vector3 (0, 0, (playerSr.flipX ? force : -force)));
 
-		//	print ("Fm" + fm);
-			
+			// aplicando força na partícula
 			particleRb2d.AddForce (new Vector2(fm.x, fm.y));
+
+			// a velocidade deve ser constante :)
+			particleRb2d.velocity = particleScript.speed * particleRb2d.velocity.normalized;
+
 		}
 	}
 
