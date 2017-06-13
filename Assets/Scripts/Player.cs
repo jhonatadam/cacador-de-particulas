@@ -144,7 +144,7 @@ public class Player : MonoBehaviour {
 		return updateOn;
 	}
 
-	private void UpdateSpriteDirection (float horizontalMovement) {
+	public void UpdateSpriteDirection (float horizontalMovement) {
 		if (horizontalMovement < 0.0f) {
 			sr.flipX = true; 
 		} else if (horizontalMovement > 0.0f) {
