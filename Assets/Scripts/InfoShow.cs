@@ -8,14 +8,16 @@ public class InfoShow : MonoBehaviour {
 
 
 	void Start() {
+		EventsManager.ShowScreen ();
 		Time.timeScale = 0f;
 	}
 
 	public void closeScreen() {	
-		Destroy (gameObject);
+		EventsManager.DismissScreen ();
+		Time.timeScale = 1f;
 	}
 
 	void OnDestroy() {
-		Time.timeScale = 1f;
+		
 	}
 }

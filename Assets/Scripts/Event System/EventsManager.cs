@@ -44,6 +44,11 @@ public class EventsManager : MonoBehaviour {
 	//Quando uma cutscene termina
 	public static Event onCutsceneEnd;
 
+	//Quando se abre alguma tela (Ex: Interactives)
+	public static Event onScreenShown;
+	//Quando se fecha alguma tela (Ex: Interactives)
+	public static Event onScreenDismissed;
+
 	public static void Interact() {
 		if (onInteract != null)
 			onInteract ();
@@ -92,5 +97,17 @@ public class EventsManager : MonoBehaviour {
 	public static void CutsceneEnd() {
 		if (onCutsceneEnd != null)
 			onCutsceneEnd ();
+	}
+
+	public static void ShowScreen() {
+		if (onScreenShown != null) {
+			onScreenShown ();
+		}
+	}
+
+	public static void DismissScreen() {
+		if (onScreenDismissed != null) {
+			onScreenDismissed ();
+		}
 	}
 }
