@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour {
 	public GameObject bgImage;
 	public GameObject menu;
 	private bool paused = false;
+	private bool locked = false;
 
 	// Use this for initialization
 	void Start () {
@@ -27,10 +28,12 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void ShowPauseMenu() {
-		if (!paused) {
-			Pause ();
-		} else {
-			UnPause ();
+		if (!locked) {
+			if (!paused) {
+				Pause ();
+			} else {
+				UnPause ();
+			}
 		}
 
 	}
@@ -66,11 +69,23 @@ public class PauseMenu : MonoBehaviour {
 		#endif
 	}
 
+	private void LockPause() {
+		locked = true;
+	}
+
+	private void UnlockPause() {
+		locked = false;
+	}
+
 	private void OnEnable() {
-		EventsManager.onStartBtn += Pause;
+		EventsManager.onStartBtn += ShowPauseMenu;
+		EventsManager.onScreenShown += LockPause;
+		EventsManager.onScreenDismissed += UnlockPause;
 	}
 
 	private void OnDisable() {
-		EventsManager.onStartBtn -= Pause;
+		EventsManager.onStartBtn -= ShowPauseMenu;
+		EventsManager.onScreenShown -= LockPause;
+		EventsManager.onScreenDismissed -= UnlockPause;
 	}
 }

@@ -77,7 +77,7 @@ public class Particle : MonoBehaviour {
 	}
 
 	void Update() {
-
+		
 	}
 
 	void Decay() {
