@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventsManager : MonoBehaviour {
 	
-	/* ==================== SISTEM DE EVENTOS =======================
+	/* ==================== SISTEMA DE EVENTOS =======================
 	 * 1 - Os eventos que terminam com btn sao eventos de quando se 
 	 *     apertam botoes;
 	 * 
@@ -36,6 +36,8 @@ public class EventsManager : MonoBehaviour {
 	public static Event onMagneticFieldBtn;
 	//Quando se aperta o eixo horizontal, positivo ou negativo
 	public static MovementEvent onHorizontalBtn;
+	//Quando se aperta o botao de atirar
+	public static Event onFireBtn;
 	//Quando se o comando climbDown
 	public static Event onClimbDownCmd;
 
@@ -82,6 +84,11 @@ public class EventsManager : MonoBehaviour {
 	public static void HorizontalBtn(float movement) {
 		if (onHorizontalBtn != null)
 			onHorizontalBtn (movement);
+	}
+
+	public static void FireBtn() {
+		if (onFireBtn != null)
+			onFireBtn ();
 	}
 
 	public static void ClimbDownCmd() {

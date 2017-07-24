@@ -14,7 +14,7 @@ public class InputManager : MonoBehaviour {
 
 		if (canListen) {
 			if (Input.GetButtonDown ("Fire")) {
-
+				EventsManager.FireBtn ();
 			}
 
 			if (Input.GetButtonDown ("Jump")){

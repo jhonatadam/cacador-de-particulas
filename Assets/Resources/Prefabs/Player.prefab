@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 70465693025536836}
   - component: {fileID: 81081091692422916}
   - component: {fileID: 111731539904393436}
+  - component: {fileID: 114936635614317724}
+  - component: {fileID: 114096391842613232}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -552,10 +554,20 @@ MonoBehaviour:
   dashAngle: 20
   previousPosition: {x: 0, y: 0, z: 0}
   groundCheck: {fileID: 114000012518548960}
-  maxHealth: 200
-  health: 0
-  damageCoolDown: 10
   magneticField: {fileID: 1511213019771056}
+--- !u!114 &114096391842613232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012884978742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2805be5b50994ee4b975f0e4e23f1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxEnergy: 100
+  energy: 0
 --- !u!114 &114657588856242778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,6 +617,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 2
   playerSr: {fileID: 212000010147291480}
+--- !u!114 &114936635614317724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012884978742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad072be9ec01f44649de59a85ca70168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  health: 0
+  damageCoolDown: 10
 --- !u!212 &212000010147291480
 SpriteRenderer:
   m_ObjectHideFlags: 1

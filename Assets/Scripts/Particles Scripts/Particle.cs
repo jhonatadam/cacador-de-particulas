@@ -129,7 +129,8 @@ public class Particle : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player") {
 			if (canDamage) {
-				other.GetComponent<Player> ().DamagePlayer (13f);
+				other.GetComponent<PlayerHealth> ().DamagePlayer (13f);
+				other.GetComponent<PlayerEnergy> ().ChargeEnergy (13f);
 				canDamage = false;
 			}
 			destroyParticle ();
