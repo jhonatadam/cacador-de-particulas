@@ -8,13 +8,20 @@ public class Cutscene_0 : Cutscene {
 
 	private GameObject sleepingMachine;
 
+	private AnimationClip flutuando;
+
 	void FixedUpdate() {
 		if (updateOn == true) {
 			print (getCutsceneTime ());
 
 			if (scope == 0) {
-				if (getCutsceneTime () >= 0f && getCutsceneTime () <= 3f) {
+				if (getCutsceneTime () >= 0f && getCutsceneTime () <= 0.1f) {
 					// Não faz nada, apenas um tempo para o jogador se ambientar
+					animationPl.Play("flutuando");
+				}
+				if (getCutsceneTime () > 0.1f && getCutsceneTime () <= 3f) {
+					// Não faz nada, apenas um tempo para o jogador se ambientar
+
 				}
 				if (getCutsceneTime () > 3f && getCutsceneTime () <= 3.1f) {
 					//Máquina para de funcionar e ALVINN cai de cara no chao.
@@ -94,8 +101,22 @@ public class Cutscene_0 : Cutscene {
 		//grab player reference and move to certain point
 
 		player = GameObject.Find ("Player").GetComponent<Player>();
+		player.GetComponent<Animator> ().enabled = false;
+		animationPl = player.GetComponent<Animation> ();
+
+
+		//Obtendo recursos para a cutscene
 		dialogue1 = gameObject.transform.GetChild (0).gameObject.GetComponent<Dialogue> ();
 		sleepingMachine = GameObject.Find ("Sleeping Machine (Temporary)");
+
+		//Animacoes
+		flutuando = Resources.Load("Anims/Player/Cutscenes/evento 0/Flutuando_Feto") as AnimationClip;
+		print (flutuando);
+
+		animationPl.AddClip(flutuando, "flutuando");
+		print (animationPl.GetClipCount ());
+
+		print(animationPl.GetClip ("flutuando"));
 
 		EventsManager.CutsceneStart();
 		scope = 0;
