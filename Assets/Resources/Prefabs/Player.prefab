@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 95000011723342920}
   - component: {fileID: 70465693025536836}
   - component: {fileID: 81081091692422916}
+  - component: {fileID: 111731539904393436}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -120,7 +121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1548233105954816
 GameObject:
   m_ObjectHideFlags: 1
@@ -436,7 +437,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -483,6 +484,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &111731539904393436
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012884978742}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114000010353727516
 MonoBehaviour:
   m_ObjectHideFlags: 1

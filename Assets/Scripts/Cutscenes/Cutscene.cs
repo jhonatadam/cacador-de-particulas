@@ -6,6 +6,8 @@ public class Cutscene : MonoBehaviour {
 
 	public Animator[] animators;
 	protected Player player;
+	protected Animator playerAn;
+	protected Animation animationPl;
 
 	protected float timer = 0f;
 	protected bool counting = false;
