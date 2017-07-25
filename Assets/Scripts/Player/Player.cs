@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
 	private bool dashing = false;
 	private float dashEnlapsedTime = 0.0f;
 
+	private bool flipX = false;
+
 	private Animator animator;
 	private SpriteRenderer sr;
 	private Rigidbody2D rb2d;
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour {
 	public GameObject pistol;
 	public Transform bulletExit;
 	public GameObject bullet;
+	public float bulletSpeed;
 	public float pistolDamage;
 	public float pistolEnergyCost;
 	public float pistolPushTime;
@@ -59,9 +62,9 @@ public class Player : MonoBehaviour {
 				dashEnlapsedTime += Time.deltaTime;
 
 				// restaurando angulo original do player ao longo do dash
-				transform.Rotate (new Vector3 (0,0, (sr.flipX ? -1 : 1)  * (dashAngle * (Time.deltaTime / dashPushTime))));
+				transform.Rotate (new Vector3 (0,0, (flipX ? 1 : 1)  * (dashAngle * (Time.deltaTime / dashPushTime))));
 			}else if (dashEnlapsedTime < dashTime) { // está parado, faz uma pequena espera pra recuperar os movimentos
-				rb2d.velocity = new Vector2 ((sr.flipX ? -dashEndSpeed : dashEndSpeed) , rb2d.velocity.y);
+				rb2d.velocity = new Vector2 ((flipX ? -dashEndSpeed : dashEndSpeed) , rb2d.velocity.y);
 				animator.SetFloat ("playerXVelocity", Mathf.Abs(rb2d.velocity.x));
 				dashEnlapsedTime += Time.deltaTime;
 
@@ -71,8 +74,10 @@ public class Player : MonoBehaviour {
 				dashing = false;
 				updateOn = true;
 				dashEnlapsedTime = 0.0f;
-				transform.localEulerAngles = new Vector3 (0, 0, 0);
+//				transform.localEulerAngles = new Vector3 (0, 0, 0);
+				transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
 			}
+
 		}
 
 		pistol.SetActive (hasPistol);
@@ -127,14 +132,40 @@ public class Player : MonoBehaviour {
 		if (updateOn && !dashing) {
 			dashing = true;
 			updateOn = false;
-			rb2d.velocity = new Vector2 ((sr.flipX ? -dashStartSpeed : dashStartSpeed) , 0.0f);
-			transform.Rotate (new Vector3 (0, 0, (sr.flipX ? 1 : -1) * dashAngle));
+			rb2d.velocity = new Vector2 ((flipX ? -dashStartSpeed : dashStartSpeed) , 0.0f);
+			transform.Rotate (new Vector3 (0, 0, (flipX ? -1 : -1) * dashAngle));
 		}
 	}
 
 	public void Fire () {
-		if (hasPistol && pistolEnlapsedTime < pistolPushTime) {
-			Instantiate (bullet, bulletExit, bulletExit.rotation);
+		print ("atire");
+		PlayerEnergy energy = gameObject.GetComponent<PlayerEnergy> ();
+		if (energy.energy < pistolEnergyCost)
+			return;
+		
+		if (hasPistol && (Time.time - pistolEnlapsedTime) >= pistolPushTime) {
+			GameObject temp;
+			temp = Instantiate (bullet, bulletExit.position, bulletExit.rotation) as GameObject;
+			temp.GetComponent<Rigidbody2D> ().velocity = temp.transform.right * bulletSpeed; 
+
+			float multiplyer = 1f;
+			float multEnergy = 1f;
+			if (energy.level == EnergyLevel.Verde) {
+				multiplyer = 1f;
+				multEnergy = 1f;
+			} else if (energy.level == EnergyLevel.Amarelo) {
+				multiplyer = 2.4f;
+				multEnergy = 2.5f;
+			} else if (energy.level == EnergyLevel.Vermelho) {
+				multiplyer = 5f;
+				multEnergy = 5f;
+			}
+
+			temp.GetComponent<Bullet> ().setDamage (pistolDamage * multiplyer);
+
+			energy.ConsumeEnergy (pistolEnergyCost * multEnergy);
+			pistolEnlapsedTime = Time.time;
+
 		}
 	}
 
@@ -153,9 +184,13 @@ public class Player : MonoBehaviour {
 
 	public void UpdateSpriteDirection (float horizontalMovement) {
 		if (horizontalMovement < 0.0f) {
-			sr.flipX = true; 
+//			sr.flipX = true; 
+			flipX = true;
+			transform.rotation = new Quaternion(0, 180, 0, 0);
 		} else if (horizontalMovement > 0.0f) {
-			sr.flipX = false;
+//			sr.flipX = false;
+			flipX = false;
+			transform.rotation = new Quaternion(0, 0, 0, 0);
 		} 
 	}
 
@@ -176,6 +211,7 @@ public class Player : MonoBehaviour {
 		EventsManager.onDashBtn += Dash;
 		EventsManager.onMagneticFieldBtn += SwitchMagneticField;
 		EventsManager.onHorizontalBtn += MoveHorizontally;
+		EventsManager.onFireBtn += Fire;
 		EventsManager.onClimbDownCmd += ClimbDown;
 	}
 
@@ -185,6 +221,7 @@ public class Player : MonoBehaviour {
 		EventsManager.onDashBtn -= Dash;
 		EventsManager.onMagneticFieldBtn -= SwitchMagneticField;
 		EventsManager.onHorizontalBtn -= MoveHorizontally;
+		EventsManager.onFireBtn -= Fire;
 		EventsManager.onClimbDownCmd -= ClimbDown;
 	}
 

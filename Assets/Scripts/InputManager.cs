@@ -13,7 +13,8 @@ public class InputManager : MonoBehaviour {
 	void Update () {
 
 		if (canListen) {
-			if (Input.GetButtonDown ("Fire")) {
+			if (Input.GetButton ("Fire")) {
+				
 				EventsManager.FireBtn ();
 			}
 
