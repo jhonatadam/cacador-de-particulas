@@ -138,7 +138,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Fire () {
-		print ("atire");
+//		print ("atire");
 		PlayerEnergy energy = gameObject.GetComponent<PlayerEnergy> ();
 		if (energy.energy < pistolEnergyCost)
 			return;

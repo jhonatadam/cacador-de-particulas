@@ -619,8 +619,8 @@ MonoBehaviour:
   bulletExit: {fileID: 4204380159198416}
   bullet: {fileID: 1740320860022472, guid: f3b6c918f174942129bcb97a83b838a5, type: 2}
   bulletSpeed: 4
-  pistolDamage: 0
-  pistolEnergyCost: 0.5
+  pistolDamage: 5
+  pistolEnergyCost: 2
   pistolPushTime: 0.5
 --- !u!114 &114096391842613232
 MonoBehaviour:

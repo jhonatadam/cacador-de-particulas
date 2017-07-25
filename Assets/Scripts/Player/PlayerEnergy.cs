@@ -33,7 +33,7 @@ public class PlayerEnergy : MonoBehaviour {
 	 * 
 	 **/
 	public void ConsumeEnergy(float cost) {
-
+		print ("consumiu");
 		energy -= cost;
 
 		if (energy < 0) {
@@ -50,7 +50,7 @@ public class PlayerEnergy : MonoBehaviour {
 	 * 
 	 * */
 	public void ChargeEnergy (float charge) {
-
+		print ("carregou");
 		energy += charge;
 
 		if (energy > maxEnergy) {

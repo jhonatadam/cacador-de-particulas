@@ -22,8 +22,13 @@ public class Bullet : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D other) {
 		string tag = other.gameObject.tag;
+		print ("colidiu com " + tag);
 		if (tag == "Ground") {
 			Destroy (this.gameObject);
+		}
+		if (tag == "Enemy") {
+			Destroy (this.gameObject);
+			other.gameObject.GetComponent<EnemyHealth> ().DamageEnemy (damage);
 		}
 	}
 }

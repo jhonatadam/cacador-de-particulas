@@ -35,6 +35,25 @@ public class PlayerHealth : MonoBehaviour {
 		if (damageTime < damageCoolDown)
 			return;
 
+		if (health - damage < 0) {
+			health = 0;
+			damageTime = 0;
+			return;
+		} 
+		health -= damage;
+		damageTime = 0;
+
+	}
+
+	/* Função que particula usa para gerar dano no player.
+	 * 
+	 * 
+	 * 
+	 **/
+	public void ParticleDamagePlayer(float damage) {
+		if (damageTime < damageCoolDown)
+			return;
+
 		GameObject temp = gameObject.transform.GetChild (3).gameObject;
 		PlayerEnergy temp2 = gameObject.GetComponent<PlayerEnergy> ();
 
