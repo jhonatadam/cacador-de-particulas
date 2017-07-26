@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour {
 
 	public PlayerHealth player;
-	public GameObject hpBar;
+	public Image hpBar;
 	private float perCent;
 
 	public PlayerEnergy playerEnergy;
-	public GameObject energyBar;
+	public Image energyBar;
 	private float perCentEnergy;
 
 	// Use this for initialization
@@ -27,7 +27,7 @@ public class HealthBar : MonoBehaviour {
 
 	void CalculateHpBarSize() {
 		perCent = player.health / player.maxHealth;
-		hpBar.transform.localScale = new Vector3(perCent, 1f, 1f);
+		hpBar.fillAmount = perCent;
 		perCent *= 100;
 			
 	}
@@ -35,7 +35,7 @@ public class HealthBar : MonoBehaviour {
 	void CalculateEnergyBarSize() {
 		perCentEnergy = playerEnergy.energy / playerEnergy.maxEnergy;
 		perCentEnergy = 1 - perCentEnergy;
-		energyBar.transform.localScale = new Vector3(perCentEnergy, 1f, 1f);
+		energyBar.fillAmount = perCentEnergy;
 		perCentEnergy *= 100;
 
 	}

@@ -41,6 +41,8 @@ public class Particle : MonoBehaviour {
 
 	public float charge = 0f;
 
+	public float energy = 10f;
+	public float damage = 10f;
 
 	void Start () {
 		initialPosition = transform.position;
@@ -64,6 +66,8 @@ public class Particle : MonoBehaviour {
 		canDecay = true;
 
 		rb.velocity = speed * new Vector2 (Mathf.Cos (rot.z * Mathf.Deg2Rad), Mathf.Sin (rot.z * Mathf.Deg2Rad));
+
+
 	}
 	
 	void FixedUpdate () {
@@ -129,8 +133,8 @@ public class Particle : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player") {
 			if (canDamage) {
-				other.GetComponent<PlayerHealth> ().ParticleDamagePlayer (13f);
-				other.GetComponent<PlayerEnergy> ().ChargeEnergy (13f);
+				other.GetComponent<PlayerHealth> ().ParticleDamagePlayer (damage);
+				other.GetComponent<PlayerEnergy> ().ChargeEnergy (energy);
 				canDamage = false;
 			}
 			destroyParticle ();
