@@ -21,14 +21,16 @@ public class Player : MonoBehaviour {
 	private bool flipX = false;
 
 	private Animator animator;
-	private SpriteRenderer sr;
 	private Rigidbody2D rb2d;
+
+	private PlayerEnergy playerEnergy;
 
 	public Vector3 previousPosition;
 
 	public GroundCheck groundCheck;
 
 	private bool updateOn = true;
+	public bool canJump;
 
 	public GameObject magneticField;
 
@@ -45,12 +47,14 @@ public class Player : MonoBehaviour {
 
 	void Start () {
 		animator = GetComponent <Animator> ();
-		sr = GetComponent <SpriteRenderer> ();
+
 		rb2d = GetComponent<Rigidbody2D> ();
+
+		playerEnergy = gameObject.GetComponent<PlayerEnergy> ();
 
 		previousPosition = transform.position;
 
-
+		canJump = true;
 	}
 
 	void Update () {
@@ -105,7 +109,10 @@ public class Player : MonoBehaviour {
 	} 
 
 	public void Jump () {
-		if (updateOn && (groundCheck.isGrounded () || groundCheck.isPlatformed())) {
+		print (canJump);
+		if (canJump && updateOn && (groundCheck.isGrounded () || groundCheck.isPlatformed())) {
+			
+			//se apertar baixo + pulo em uma plataforma
 			if ((Input.GetAxisRaw ("Vertical") < 0) && groundCheck.isPlatformed()) {
 				return;
 			}
@@ -139,8 +146,8 @@ public class Player : MonoBehaviour {
 
 	public void Fire () {
 //		print ("atire");
-		PlayerEnergy energy = gameObject.GetComponent<PlayerEnergy> ();
-		if (energy.energy < pistolEnergyCost)
+
+		if (playerEnergy.energy < pistolEnergyCost)
 			return;
 		
 		if (hasPistol && (Time.time - pistolEnlapsedTime) >= pistolPushTime) {
@@ -150,20 +157,20 @@ public class Player : MonoBehaviour {
 
 			float multiplyer = 1f;
 			float multEnergy = 1f;
-			if (energy.level == EnergyLevel.Verde) {
+			if (playerEnergy.level == EnergyLevel.Verde) {
 				multiplyer = 1f;
 				multEnergy = 1f;
-			} else if (energy.level == EnergyLevel.Amarelo) {
+			} else if (playerEnergy.level == EnergyLevel.Amarelo) {
 				multiplyer = 2.4f;
 				multEnergy = 2.5f;
-			} else if (energy.level == EnergyLevel.Vermelho) {
+			} else if (playerEnergy.level == EnergyLevel.Vermelho) {
 				multiplyer = 5f;
 				multEnergy = 5f;
 			}
 
 			temp.GetComponent<Bullet> ().setDamage (pistolDamage * multiplyer);
 
-			energy.ConsumeEnergy (pistolEnergyCost * multEnergy);
+			playerEnergy.ConsumeEnergy (pistolEnergyCost * multEnergy);
 			pistolEnlapsedTime = Time.time;
 
 		}
@@ -200,7 +207,7 @@ public class Player : MonoBehaviour {
 	public void SwitchMagneticField() {
 		if (magneticField.activeInHierarchy) {
 			magneticField.SetActive (false);
-		} else {
+		} else if(playerEnergy.energy >= magneticField.GetComponent<MagneticField>().energyUse*Time.deltaTime) {
 			magneticField.SetActive (true);
 		}
 	}

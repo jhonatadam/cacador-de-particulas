@@ -12,6 +12,9 @@ public class EventsManager : MonoBehaviour {
 	 * 
 	 * 3 - Os eventos que terminam com cmd sao eventos de quando se
 	 * 	   acionam comandos;
+	 * 
+	 * 4 - Os eventos que terminam com BtnHold são eventos de quando se
+	 *     seguram algum botão;
 	 * */
 
 	//Delegate que recebe os eventos
@@ -50,6 +53,11 @@ public class EventsManager : MonoBehaviour {
 	public static Event onScreenShown;
 	//Quando se fecha alguma tela (Ex: Interactives)
 	public static Event onScreenDismissed;
+
+	//Quando se segura o botão de pulo
+	public static Event onJumpBtnHold;
+	//Quando se aperta o botão do jetpack
+	public static Event onJetpackBtn;
 
 	public static void Interact() {
 		if (onInteract != null)
@@ -115,6 +123,18 @@ public class EventsManager : MonoBehaviour {
 	public static void DismissScreen() {
 		if (onScreenDismissed != null) {
 			onScreenDismissed ();
+		}
+	}
+
+	public static void JumpBtnHold() {
+		if (onJumpBtnHold != null) {
+			onJumpBtnHold ();
+		}
+	}
+
+	public static void JetpackBtn() {
+		if (onJetpackBtn != null) {
+			onJetpackBtn ();
 		}
 	}
 }

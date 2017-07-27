@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1548233105954816
 GameObject:
   m_ObjectHideFlags: 1
@@ -151,6 +151,22 @@ GameObject:
   - component: {fileID: 114706720487823092}
   m_Layer: 0
   m_Name: PurpleCircle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1873541332755572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4239100449676312}
+  - component: {fileID: 114781052882084408}
+  m_Layer: 0
+  m_Name: Jetpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,6 +246,7 @@ Transform:
   - {fileID: 4000014211792210}
   - {fileID: 4347018092669942}
   - {fileID: 4711338897860438}
+  - {fileID: 4239100449676312}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,7 +271,7 @@ Transform:
   m_GameObject: {fileID: 1548233105954816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.6666667}
+  m_LocalScale: {x: 1.0413227, y: 1.0156939, z: 0.6666667}
   m_Children: []
   m_Father: {fileID: 4347018092669942}
   m_RootOrder: 1
@@ -267,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 1904030997527932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: -1.01, z: 0.6666667}
+  m_LocalScale: {x: 1.0336641, y: -0.9737614, z: 0.6666667}
   m_Children: []
   m_Father: {fileID: 4347018092669942}
   m_RootOrder: 0
@@ -280,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 1010487227730992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.6666667}
+  m_LocalScale: {x: 1.0165317, y: 1.0495276, z: 0.6666667}
   m_Children: []
   m_Father: {fileID: 4347018092669942}
   m_RootOrder: 2
@@ -297,6 +314,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4711338897860438}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4239100449676312
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873541332755572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4000012330738084}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4347018092669942
 Transform:
@@ -611,8 +641,9 @@ MonoBehaviour:
   dashStartSpeed: 4
   dashEndSpeed: 1
   dashAngle: 20
-  previousPosition: {x: 0, y: 0, z: 0}
+  previousPosition: {x: 0.023386456, y: -1.1536696, z: 0}
   groundCheck: {fileID: 114000012518548960}
+  canJump: 0
   magneticField: {fileID: 1511213019771056}
   hasPistol: 1
   pistol: {fileID: 1992876901659246}
@@ -672,6 +703,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleVariation: 20
+--- !u!114 &114781052882084408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873541332755572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c3c366071a343f986b7f65275f8c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propelForce: 500
+  maxUpVelocity: 1
+  activated: 1
 --- !u!114 &114883163869520584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -697,7 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  health: 0
+  health: 100
   damageCoolDown: 10
 --- !u!212 &212000010147291480
 SpriteRenderer:
@@ -730,7 +775,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1883978331
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 97d30b2067a075b4498bdf136aec470a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6d0da5f6ad607c94a8931f7f3e3e4d00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
