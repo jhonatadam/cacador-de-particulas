@@ -22,10 +22,14 @@ public class DoorPanel : MonoBehaviour {
 
 	private AudioSource audioSource;
 
+	private Player player;
+
 	// Use this for initialization
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
 		audioSource = GetComponent <AudioSource> ();
+
+		player = GameObject.Find ("Player").GetComponent<Player> ();
 	}
 	
 	// Update is called once per frame
@@ -50,7 +54,7 @@ public class DoorPanel : MonoBehaviour {
 		if (contactCheck.getIsInContact ()) {
 			if (door.state == DoorState.Locked) {
 				audioSource.PlayOneShot (lockedSound);
-			} else if (door.state == DoorState.Unlocked) {
+			} else if (door.state == DoorState.Unlocked && player.hasCard(door.necessaryCard)) {
 				door.state = DoorState.Opened;
 				audioSource.PlayOneShot (unlockedSound);
 				audioSource.PlayOneShot (doorOpening);

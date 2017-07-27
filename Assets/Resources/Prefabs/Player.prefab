@@ -653,6 +653,7 @@ MonoBehaviour:
   pistolDamage: 5
   pistolEnergyCost: 2
   pistolPushTime: 0.5
+  cards: 00000000
 --- !u!114 &114096391842613232
 MonoBehaviour:
   m_ObjectHideFlags: 1
