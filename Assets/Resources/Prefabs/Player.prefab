@@ -715,8 +715,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propelForce: 500
-  maxUpVelocity: 1
+  maxUpVelocity: 0.8
   activated: 1
+  energyUse: 5
 --- !u!114 &114883163869520584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,6 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 2
+  energyUse: 2
   playerSr: {fileID: 212000010147291480}
 --- !u!114 &114936635614317724
 MonoBehaviour:
