@@ -45,6 +45,9 @@ public class Player : MonoBehaviour {
 
 	private float pistolEnlapsedTime = 0.0f;
 
+	public bool hasJetpack = false;
+	public GameObject jetpack;
+
 	public CardEnum[] cards;
 
 	void Start () {
@@ -87,6 +90,7 @@ public class Player : MonoBehaviour {
 		}
 
 		pistol.SetActive (hasPistol);
+		jetpack.SetActive (hasJetpack);
 	}
 
 	void FixedUpdate() {
