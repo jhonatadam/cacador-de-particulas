@@ -239,6 +239,8 @@ MonoBehaviour:
   - {fileID: 1173641927758544, guid: 7a6d11c8a9dc2dc43a53e0074c165394, type: 2}
   force: {x: 0, y: 0}
   charge: -1
+  energy: 5
+  damage: 1
 --- !u!198 &198870481582048662
 ParticleSystem:
   m_ObjectHideFlags: 1

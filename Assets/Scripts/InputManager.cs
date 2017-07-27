@@ -13,8 +13,9 @@ public class InputManager : MonoBehaviour {
 	void Update () {
 
 		if (canListen) {
-			if (Input.GetButtonDown ("Fire")) {
-
+			if (Input.GetButton ("Fire")) {
+				
+				EventsManager.FireBtn ();
 			}
 
 			if (Input.GetButtonDown ("Jump")){
@@ -45,6 +46,10 @@ public class InputManager : MonoBehaviour {
 				EventsManager.MagneticFieldBtn ();
 			}
 
+			if (Input.GetButtonDown ("Jetpack")) {
+				EventsManager.JetpackBtn ();
+			}
+
 			if (Input.GetAxisRaw ("Vertical") < 0 && Input.GetButtonDown ("Jump")) {
 				EventsManager.ClimbDownCmd ();
 			}
@@ -54,6 +59,12 @@ public class InputManager : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+
+
+		if (Input.GetButton ("Jump")) {
+			EventsManager.JumpBtnHold ();
+		}
+
 
 		if (canListen) {
 			

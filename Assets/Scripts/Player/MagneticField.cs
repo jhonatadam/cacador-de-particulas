@@ -5,19 +5,27 @@ using UnityEngine;
 public class MagneticField : MonoBehaviour {
 
 	public float force;
+	public float energyUse;
 
 	public SpriteRenderer playerSr;
 
 	private Vector2 partVel;
 
+	private PlayerEnergy player;
+
+	void Start() {
+		player = gameObject.GetComponentInParent<PlayerEnergy> ();
+	}
+
+	void Update() {
+		if (player.energy < energyUse * Time.fixedDeltaTime)
+			gameObject.SetActive (false);
+		player.ConsumeEnergy (energyUse * Time.fixedDeltaTime);
+	}
+
 	void OnTriggerStay2D(Collider2D other)
 	{
-		/*
-		 * CONCERTAR A TRAJETORIA DAS PARTICULAS NO CAMPO. NAO ESTA CORRETO!!!!!!
-		 * !
-		 * !
-		 * 
-		 * */
+		
 		if (other.gameObject.tag == "Particle") {
 			Rigidbody2D particleRb2d = other.gameObject.GetComponent<Rigidbody2D> ();
 			Particle particleScript = other.GetComponent<Particle>();

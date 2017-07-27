@@ -236,6 +236,8 @@ MonoBehaviour:
   daughters: []
   force: {x: 0, y: 0}
   charge: 1
+  energy: 2.5
+  damage: 0.5
 --- !u!198 &198080836491675078
 ParticleSystem:
   m_ObjectHideFlags: 1
