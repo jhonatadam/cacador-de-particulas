@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1904030997527932
 GameObject:
   m_ObjectHideFlags: 1
@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000010268703816
 Transform:
   m_ObjectHideFlags: 1
@@ -645,7 +645,7 @@ MonoBehaviour:
   groundCheck: {fileID: 114000012518548960}
   canJump: 0
   magneticField: {fileID: 1511213019771056}
-  hasPistol: 1
+  hasPistol: 0
   pistol: {fileID: 1992876901659246}
   bulletExit: {fileID: 4204380159198416}
   bullet: {fileID: 1740320860022472, guid: f3b6c918f174942129bcb97a83b838a5, type: 2}
@@ -653,6 +653,8 @@ MonoBehaviour:
   pistolDamage: 5
   pistolEnergyCost: 2
   pistolPushTime: 0.5
+  hasJetpack: 0
+  jetpack: {fileID: 1873541332755572}
   cards: 00000000
 --- !u!114 &114096391842613232
 MonoBehaviour:
