@@ -14,6 +14,9 @@ public class Door : MonoBehaviour {
 
 	private Animator animator;
 
+	//Cartão necessário para abrir a porta
+	public CardEnum necessaryCard;
+
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();

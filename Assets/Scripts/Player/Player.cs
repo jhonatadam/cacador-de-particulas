@@ -45,6 +45,8 @@ public class Player : MonoBehaviour {
 
 	private float pistolEnlapsedTime = 0.0f;
 
+	public CardEnum[] cards;
+
 	void Start () {
 		animator = GetComponent <Animator> ();
 
@@ -210,6 +212,15 @@ public class Player : MonoBehaviour {
 		} else if(playerEnergy.energy >= magneticField.GetComponent<MagneticField>().energyUse*Time.deltaTime) {
 			magneticField.SetActive (true);
 		}
+	}
+
+	public bool hasCard(CardEnum card) {
+		foreach ( CardEnum c in cards ) {
+			if (c == card)
+				return true;
+		}
+
+		return false;
 	}
 
 	private void OnEnable() {
