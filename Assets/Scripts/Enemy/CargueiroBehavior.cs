@@ -18,6 +18,12 @@ public class CargueiroBehavior : EnemyBehavior {
 
 	// Update is called once per frame
 	void Update () {
+		// se o cargueiro estiver dando o soco, o seu 
+		// comportamento não é atualizado
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Punch")) {
+			return;
+		}
+
 		Act ();
 	}
 
