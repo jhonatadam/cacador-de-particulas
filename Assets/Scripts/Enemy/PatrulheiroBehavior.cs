@@ -10,28 +10,6 @@ public class PatrulheiroBehavior : EnemyBehavior {
 	public float rightLimit;
 	public float leftLimit;
 
-	// Rigidbody.
-	private Rigidbody2D rb2d;
-
-	// Renderer
-	private Renderer rend;
-
-	// Use this for initialization.
-	void Start () {
-		try {
-			// Buscando referência do Player.
-			player = GameObject.Find ("Player").GetComponent<Player> ();
-		} catch {
-			Debug.Log ("Patrulheiro: não encontrou o objeto Player.");
-			player = null;
-		}
-
-		rb2d = GetComponent<Rigidbody2D> ();
-		rend = GetComponent<Renderer> ();
-
-		moveSpeed = 1.8f;
-		isFacingRight = true;
-	}
 
 	// Update is called once per frame.
 	void Update () {
@@ -75,10 +53,6 @@ public class PatrulheiroBehavior : EnemyBehavior {
 
 		// Atualizando velocidade.
 		rb2d.velocity = new Vector2 (speed, rb2d.velocity.y);
-	}
-
-	public void Stop () {
-		rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
 	}
 
 	public bool IsFacingThePlayer () {
