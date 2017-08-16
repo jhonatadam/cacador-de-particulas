@@ -10,17 +10,33 @@ public class PatrulheiroBehavior : EnemyBehavior {
 	public float rightLimit;
 	public float leftLimit;
 
+	// Referência do animator
+	public Animator animator;
+
+	void Start () {
+		base.Start ();
+		animator = GetComponent <Animator> ();
+	}
 
 	// Update is called once per frame.
 	void Update () {
 		Act ();
 	}
 
+	void LateUpdate () {
+		animator.SetBool ("IsSeeingThePlayer", isSeeingThePlayer);
+	}
+
 	public override void Patrol () {
 		// Atualizando orientação
 		UpdateGuidance ();
-		// Andar
-		Move ();
+
+		// so anda se estiver em modo patrulha na animação
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Patrol")) {
+			// Andar
+			Move ();		
+		}
+
 	}
 
 	public override void Attack () {
