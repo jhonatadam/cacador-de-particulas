@@ -35,13 +35,20 @@ public abstract class EnemyGun : MonoBehaviour {
 	[HideInInspector]
 	public float timeCounter;
 
+	private Animator animator;
+
 	// Use this for initialization
 	void Start () {
+		animator = GetComponent<Animator> ();
 		behavior = GetComponent<PatrulheiroBehavior> ();
 		isLoaded = true;
 	}
 	
 	public void Shoot () {
+		// Precisa estar em modo de ataque (na animação) para atacar
+		if (!animator.GetCurrentAnimatorStateInfo (0).IsName ("AttackMode"))
+			return;
+
 		if (isLoaded) {
 			// atirar
 
@@ -50,6 +57,9 @@ public abstract class EnemyGun : MonoBehaviour {
 
 			bulletTemp.GetComponent<Bullet> ().setDamage (bulletDamage);
 			bulletTemp.GetComponent<Rigidbody2D> ().velocity = shootingDirection * bulletSpeed;
+
+			// Ativando animação de tiro
+			animator.SetTrigger ("Attack");
 
 			isLoaded = false;
 			timeCounter = reloadTime;

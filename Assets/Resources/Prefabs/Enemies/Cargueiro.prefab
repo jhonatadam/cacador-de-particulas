@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 212044594754007046}
   - component: {fileID: 114662291593772750}
   - component: {fileID: 114673879096827180}
-  - component: {fileID: 61616313700918082}
   - component: {fileID: 114537406871478042}
+  - component: {fileID: 61900999456128254}
+  - component: {fileID: 61616313700918082}
   - component: {fileID: 50137792067169878}
   - component: {fileID: 95301405310490286}
   m_Layer: 0
@@ -57,7 +58,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -77,9 +78,23 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.69, y: -0.61}
+  m_Offset: {x: -0.7, y: -0.61}
   serializedVersion: 2
   m_Size: {x: 1.87, y: 3.02}
+--- !u!61 &61900999456128254
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593973479732016}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 1
+  m_Offset: {x: -0.7, y: 0.1}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1}
 --- !u!95 &95301405310490286
 Animator:
   serializedVersion: 3
@@ -176,7 +191,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d554b83d6ae8fd1489ee9df554d807bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9c21f04da36187d4f88e2e71ef574047, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
