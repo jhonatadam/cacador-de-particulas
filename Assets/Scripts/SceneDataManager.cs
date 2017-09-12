@@ -60,6 +60,8 @@ public class SceneDataManager : MonoBehaviour {
 
 	public Door[] doors;
 
+	public MapManager mapManager;
+
 	//Dados do player
 	private PlayerData playerData = new PlayerData();
 
@@ -74,6 +76,7 @@ public class SceneDataManager : MonoBehaviour {
 	void Start () {
 		player = GameObject.Find ("Player");
 		tempData = GameObject.Find ("TempData").GetComponent<TempData> ();
+		mapManager = GameObject.Find ("Map").GetComponent<MapManager>();
 
 		// definindo nome do arquivo da cena
 		sceneName = sceneName + ".json";
@@ -108,6 +111,10 @@ public class SceneDataManager : MonoBehaviour {
 			e.transform.position = 
 				new Vector3 (e.transform.position.x, e.floorsPosition[i], e.transform.position.z);
 		}
+
+		//Informando as áreas descobertas do mapa
+		mapManager.discoveredMapBlockers = tempData.discoveredMapBlockers;
+		mapManager.updateMap ();
 			
 	}
 
@@ -165,6 +172,9 @@ public class SceneDataManager : MonoBehaviour {
 		foreach (Door door in doors) {
 			tempData.doorState [door.id] = door.state; 
 		}
+
+		//Áreas do mapa
+		tempData.discoveredMapBlockers = mapManager.discoveredMapBlockers;
 	}
 
 	public void UpdateSoundtrack () {

@@ -8,6 +8,8 @@ public class TempData : MonoBehaviour {
 
 	public int[] elevatorFloors;
 
+	public List<int> discoveredMapBlockers;
+
 	void Update () {
 		
 	}

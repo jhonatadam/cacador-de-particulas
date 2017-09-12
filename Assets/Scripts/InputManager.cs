@@ -42,6 +42,10 @@ public class InputManager : MonoBehaviour {
 				EventsManager.StartBtn ();
 			}
 
+			if (Input.GetButtonDown ("TotalMap")) {
+				EventsManager.TotalMapBtn ();
+			}
+
 			if (Input.GetButtonDown("MagneticField")) {
 				EventsManager.MagneticFieldBtn ();
 			}
