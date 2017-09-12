@@ -30,6 +30,8 @@ public class EventsManager : MonoBehaviour {
 
 	//Quando se aperta o botao de pausa
 	public static Event onStartBtn;
+	//Quando se aperta o botao que mostra o total map
+	public static Event onTotalMapBtn;
 
 	//Quando se aperta o botao de pulo
 	public static Event onJumpBtn;
@@ -72,6 +74,11 @@ public class EventsManager : MonoBehaviour {
 	public static void StartBtn() {
 		if (onStartBtn != null)
 			onStartBtn ();
+	}
+
+	public static void TotalMapBtn () {
+		if (onTotalMapBtn != null)
+			onTotalMapBtn ();
 	}
 
 	public static void JumpBtn() {

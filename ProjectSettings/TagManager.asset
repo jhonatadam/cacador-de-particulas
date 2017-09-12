@@ -18,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Map
   - 
   - 
   - 
@@ -66,4 +66,7 @@ TagManager:
     locked: 0
   - name: Report
     uniqueID: 1615382953
+    locked: 0
+  - name: MapIcons
+    uniqueID: 2214911331
     locked: 0

@@ -11,7 +11,11 @@ public class PauseMenu : MonoBehaviour {
 	public GameObject bgImage;
 	public GameObject menu;
 	private bool paused = false;
+	//Flag que impede de o jogo ser pausado
 	private bool locked = false;
+
+	public GameObject totalMap;
+	private bool totalMapPaused = false;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +23,8 @@ public class PauseMenu : MonoBehaviour {
 
 		menu.SetActive (false);
 		bgImage.SetActive (false);
+
+		totalMap.SetActive (false);
 		
 	}
 	
@@ -28,7 +34,7 @@ public class PauseMenu : MonoBehaviour {
 	}
 
 	public void ShowPauseMenu() {
-		if (!locked) {
+		if (!locked && !totalMapPaused) {
 			if (!paused) {
 				Pause ();
 			} else {
@@ -77,14 +83,42 @@ public class PauseMenu : MonoBehaviour {
 		locked = false;
 	}
 
+	//=================================================================
+	//==================== Funções do TotalMap ========================
+	//=================================================================
+
+	public void TotalMapShow() {
+		if (!locked && !paused) {
+			if (!totalMapPaused) {
+				ShowMap ();
+			} else {
+				HideMap ();
+			}
+		}
+	}
+
+	private void ShowMap() {
+		totalMap.SetActive (true);
+		Time.timeScale = 0f;
+		totalMapPaused = true;
+	}
+
+	private void HideMap() {
+		totalMap.SetActive (false);
+		Time.timeScale = 1f;
+		totalMapPaused = false;
+	}
+
 	private void OnEnable() {
 		EventsManager.onStartBtn += ShowPauseMenu;
+		EventsManager.onTotalMapBtn += TotalMapShow;
 		EventsManager.onScreenShown += LockPause;
 		EventsManager.onScreenDismissed += UnlockPause;
 	}
 
 	private void OnDisable() {
 		EventsManager.onStartBtn -= ShowPauseMenu;
+		EventsManager.onTotalMapBtn -= TotalMapShow;
 		EventsManager.onScreenShown -= LockPause;
 		EventsManager.onScreenDismissed -= UnlockPause;
 	}
