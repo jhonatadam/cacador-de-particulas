@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventsManager : MonoBehaviour {
 	
-	/* ==================== SISTEM DE EVENTOS =======================
+	/* ==================== SISTEMA DE EVENTOS =======================
 	 * 1 - Os eventos que terminam com btn sao eventos de quando se 
 	 *     apertam botoes;
 	 * 
@@ -12,6 +12,9 @@ public class EventsManager : MonoBehaviour {
 	 * 
 	 * 3 - Os eventos que terminam com cmd sao eventos de quando se
 	 * 	   acionam comandos;
+	 * 
+	 * 4 - Os eventos que terminam com BtnHold são eventos de quando se
+	 *     seguram algum botão;
 	 * */
 
 	//Delegate que recebe os eventos
@@ -27,6 +30,8 @@ public class EventsManager : MonoBehaviour {
 
 	//Quando se aperta o botao de pausa
 	public static Event onStartBtn;
+	//Quando se aperta o botao que mostra o total map
+	public static Event onTotalMapBtn;
 
 	//Quando se aperta o botao de pulo
 	public static Event onJumpBtn;
@@ -36,6 +41,8 @@ public class EventsManager : MonoBehaviour {
 	public static Event onMagneticFieldBtn;
 	//Quando se aperta o eixo horizontal, positivo ou negativo
 	public static MovementEvent onHorizontalBtn;
+	//Quando se aperta o botao de atirar
+	public static Event onFireBtn;
 	//Quando se o comando climbDown
 	public static Event onClimbDownCmd;
 
@@ -48,6 +55,11 @@ public class EventsManager : MonoBehaviour {
 	public static Event onScreenShown;
 	//Quando se fecha alguma tela (Ex: Interactives)
 	public static Event onScreenDismissed;
+
+	//Quando se segura o botão de pulo
+	public static Event onJumpBtnHold;
+	//Quando se aperta o botão do jetpack
+	public static Event onJetpackBtn;
 
 	public static void Interact() {
 		if (onInteract != null)
@@ -62,6 +74,11 @@ public class EventsManager : MonoBehaviour {
 	public static void StartBtn() {
 		if (onStartBtn != null)
 			onStartBtn ();
+	}
+
+	public static void TotalMapBtn () {
+		if (onTotalMapBtn != null)
+			onTotalMapBtn ();
 	}
 
 	public static void JumpBtn() {
@@ -82,6 +99,11 @@ public class EventsManager : MonoBehaviour {
 	public static void HorizontalBtn(float movement) {
 		if (onHorizontalBtn != null)
 			onHorizontalBtn (movement);
+	}
+
+	public static void FireBtn() {
+		if (onFireBtn != null)
+			onFireBtn ();
 	}
 
 	public static void ClimbDownCmd() {
@@ -108,6 +130,18 @@ public class EventsManager : MonoBehaviour {
 	public static void DismissScreen() {
 		if (onScreenDismissed != null) {
 			onScreenDismissed ();
+		}
+	}
+
+	public static void JumpBtnHold() {
+		if (onJumpBtnHold != null) {
+			onJumpBtnHold ();
+		}
+	}
+
+	public static void JetpackBtn() {
+		if (onJetpackBtn != null) {
+			onJetpackBtn ();
 		}
 	}
 }
