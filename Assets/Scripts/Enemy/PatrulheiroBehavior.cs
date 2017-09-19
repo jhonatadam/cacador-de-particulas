@@ -45,7 +45,8 @@ public class PatrulheiroBehavior : EnemyBehavior {
 
 	public override bool Look ()
 	{
-		return (rend.isVisible && IsFacingThePlayer () && player.isActiveAndEnabled);
+		//return (rend.isVisible && IsFacingThePlayer () && player.isActiveAndEnabled);
+		return (EnemyInCamera() && IsFacingThePlayer () && player.isActiveAndEnabled);
 	}
 
 	public void UpdateGuidance () {
@@ -78,4 +79,6 @@ public class PatrulheiroBehavior : EnemyBehavior {
 			return transform.position.x > player.transform.position.x;
 		}
 	}
+
+
 }
