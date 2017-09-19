@@ -35,6 +35,8 @@ public abstract class EnemyGun : MonoBehaviour {
 	[HideInInspector]
 	public float timeCounter;
 
+	public Transform bulletExitPosition;
+
 	private Animator animator;
 
 	// Use this for initialization
@@ -52,8 +54,10 @@ public abstract class EnemyGun : MonoBehaviour {
 		if (isLoaded) {
 			// atirar
 
-			GameObject bulletTemp = Instantiate (bullet, 
-				transform.position + 0.1f * (behavior.isFacingRight ? Vector3.right : Vector3.left), transform.rotation);
+			//GameObject bulletTemp = Instantiate (bullet, 
+			//	transform.position + 0.1f * (behavior.isFacingRight ? Vector3.right : Vector3.left), transform.rotation);
+
+			GameObject bulletTemp = Instantiate (bullet, bulletExitPosition.position, transform.rotation);
 
 			bulletTemp.GetComponent<Bullet> ().setDamage (bulletDamage);
 			bulletTemp.GetComponent<Rigidbody2D> ().velocity = shootingDirection * bulletSpeed;

@@ -22,26 +22,56 @@ GameObject:
   - component: {fileID: 212766053858545964}
   - component: {fileID: 114023685692297364}
   - component: {fileID: 114062646531913266}
-  - component: {fileID: 61945017007423638}
   - component: {fileID: 114411855960975780}
   - component: {fileID: 50514045158242258}
+  - component: {fileID: 95459292544915160}
+  - component: {fileID: 70304155323701752}
   m_Layer: 0
   m_Name: Patrulheiro
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1644557357353604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4250684909828466}
+  m_Layer: 0
+  m_Name: BulletExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4250684909828466
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644557357353604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.45, y: 0.154, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4791522838570808}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4791522838570808
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267100265499930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.79111254, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.8, z: 1}
-  m_Children: []
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.394, y: -11.544, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4250684909828466}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,11 +82,11 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267100265499930}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.28957415
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -65,20 +95,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61945017007423638
-BoxCollider2D:
+--- !u!70 &70304155323701752
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267100265499930}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0190d590ccdb74d4b9e95c185a8740ee, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0.01, y: -0.052342534}
+  m_Size: {x: 0.35046044, y: 0.59883463}
+  m_Direction: 0
+--- !u!95 &95459292544915160
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1267100265499930}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b40c7a4b021237479f6ce1182a8cd70, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114023685692297364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,10 +139,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFacingRight: 1
   isSeeingThePlayer: 0
-  moveSpeed: 1.8
+  moveSpeed: 0.6
   player: {fileID: 0}
-  rightLimit: 2
-  leftLimit: -2
+  rb2d: {fileID: 0}
+  rend: {fileID: 0}
+  mainCamera: {fileID: 0}
+  rightLimit: -6.25
+  leftLimit: -9.7
+  animator: {fileID: 0}
 --- !u!114 &114062646531913266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -128,6 +179,7 @@ MonoBehaviour:
   bulletSpeed: 1
   bulletDamage: 4
   timeCounter: 0
+  bulletExitPosition: {fileID: 4250684909828466}
 --- !u!212 &212766053858545964
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -157,9 +209,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1883978331
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 333678907fcdb7a4387615d71833ae94, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 09c74a7caff794a488f5cc7d78863742, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

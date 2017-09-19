@@ -29,11 +29,17 @@ public abstract class EnemyBehavior : MonoBehaviour {
 	[HideInInspector]
 	public Renderer rend;
 
+	// Renderer
+	[HideInInspector]
+	public Camera mainCamera;
+
+
 	// Use this for initialization.
 	public void Start () {
 		try {
 			// Buscando referência do Player.
 			player = GameObject.Find ("Player").GetComponent<Player> ();
+			mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
 		} catch {
 			Debug.Log ("Patrulheiro: não encontrou o objeto Player.");
 			player = null;
@@ -61,6 +67,18 @@ public abstract class EnemyBehavior : MonoBehaviour {
 
 	public void Stop () {
 		rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
+	}
+
+	public bool EnemyInCamera() {
+		if (mainCamera != null) {
+			Vector3 screenPoint = mainCamera.WorldToViewportPoint (transform.position);
+			bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+			return onScreen;
+		} else {
+			print ("Patrulheiro: Camera não encontrada!");
+			return false;
+		}
+
 	}
 
 	public abstract void Patrol ();
