@@ -15,8 +15,19 @@ public class Player : MonoBehaviour {
 	public float dashEndSpeed;
 	public float dashAngle;
 
+	public float KBTime;
+	public float KBAngle;
+	public float KBPushTime;
+	public float KBStartSpeed;
+	public float KBEndSpeed;
+
 	private bool dashing = false;
 	private float dashEnlapsedTime = 0.0f;
+
+	//KB significa KnockBack
+	private bool knockbacking = false;
+	private float KBElapsedTime = 0.0f;
+	private float KBdirection;
 
 	private bool flipX = false;
 
@@ -63,6 +74,24 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update () {
+		if (knockbacking) {
+			if (KBElapsedTime < KBPushTime) { //está em propulsão para trás kkk
+				rb2d.velocity = new Vector2 (rb2d.velocity.x, 0.0f);
+				animator.SetFloat ("playerXVelocity", Mathf.Abs (rb2d.velocity.x));
+				KBElapsedTime += Time.deltaTime;
+				// restaurando angulo original do player
+				//transform.Rotate (new Vector3 (0, 0, (flipX ? 1 : 1) * (dashAngle * (Time.deltaTime / dashPushTime))));
+			} else if (KBElapsedTime < KBTime) { // está parado, faz uma pequena espera pra recuperar os movimentos
+				rb2d.velocity = new Vector2 ( KBEndSpeed*KBdirection, rb2d.velocity.y);
+				animator.SetFloat ("playerXVelocity", Mathf.Abs (rb2d.velocity.x));
+				KBElapsedTime += Time.deltaTime;
+			} else { //saindo do knockback
+				knockbacking = false;
+				updateOn = true;
+				KBElapsedTime = 0.0f;
+				transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
+			}
+		}
 		if (dashing) {
 			
 			if (dashEnlapsedTime < dashPushTime) { // está em propulsão para frente
@@ -245,6 +274,21 @@ public class Player : MonoBehaviour {
 		EventsManager.onHorizontalBtn -= MoveHorizontally;
 		EventsManager.onFireBtn -= Fire;
 		EventsManager.onClimbDownCmd -= ClimbDown;
+	}
+
+	/* Função que joga o Player para tras ao receber dano
+	 * direction pode ser -1 ou 1
+	 * 
+	 * 
+	 * */
+	public void Knockback(float direction) {
+		if (updateOn && !knockbacking) {
+			knockbacking = true;
+			updateOn = false;
+			KBdirection = direction;
+			rb2d.velocity = new Vector2 (KBStartSpeed*KBdirection, 0.0f);
+			transform.Rotate (new Vector3 (0, 0, -KBAngle));
+		}
 	}
 
 
