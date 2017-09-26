@@ -59,7 +59,7 @@ public abstract class EnemyGun : MonoBehaviour {
 
 			GameObject bulletTemp = Instantiate (bullet, bulletExitPosition.position, transform.rotation);
 
-			bulletTemp.GetComponent<Bullet> ().setDamage (bulletDamage);
+			bulletTemp.GetComponent<EnemyBullet> ().setDamage (bulletDamage);
 			bulletTemp.GetComponent<Rigidbody2D> ().velocity = shootingDirection * bulletSpeed;
 
 			// Ativando animação de tiro

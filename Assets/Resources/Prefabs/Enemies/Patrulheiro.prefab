@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267100265499930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.394, y: -11.544, z: 0}
+  m_LocalPosition: {x: 0.49, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4250684909828466}
@@ -144,8 +144,8 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   rend: {fileID: 0}
   mainCamera: {fileID: 0}
-  rightLimit: -6.25
-  leftLimit: -9.7
+  rightLimit: 4
+  leftLimit: -4
   animator: {fileID: 0}
 --- !u!114 &114062646531913266
 MonoBehaviour:
@@ -175,7 +175,7 @@ MonoBehaviour:
   isLoaded: 0
   reloadTime: 0.6
   shootingDirection: {x: 1, y: 0}
-  bullet: {fileID: 1740320860022472, guid: f3b6c918f174942129bcb97a83b838a5, type: 2}
+  bullet: {fileID: 1854444956916066, guid: ad509dc7dbb034a49af117d164d9aa5a, type: 2}
   bulletSpeed: 1
   bulletDamage: 4
   timeCounter: 0
