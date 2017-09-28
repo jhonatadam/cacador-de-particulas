@@ -34,7 +34,7 @@ public class EnemyMeleeWeapon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		animator = GetComponent<Animator> ();
+		animator = GetComponentInChildren <Animator> ();
 		behavior = GetComponent<EnemyBehavior> ();
 		isLoaded = true;
 	}
@@ -62,6 +62,20 @@ public class EnemyMeleeWeapon : MonoBehaviour {
 			timeCounter -= Time.deltaTime;
 		} else {
 			isLoaded = true;
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D other) {
+		string tag = other.gameObject.tag;
+
+		if (tag == "Player") {
+			//Calcula a direcao que o player esta em relacao ao cargueiro.
+			float direction = other.transform.position.x - transform.position.x;
+			direction = direction / Mathf.Abs (direction);
+			other.gameObject.GetComponent<Player> ().Knockback (direction);
+
+
+			other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer (damage);
 		}
 	}
 }
