@@ -15,10 +15,10 @@ public class Player : MonoBehaviour {
 	public float dashEndSpeed;
 	public float dashAngle;
 
-	public float KBTime;
-	public float KBAngle;
-	public float KBPushTime;
-	public float KBStartSpeed;
+	private float KBTime;
+	private float KBAngle;
+	private float KBPushTime;
+	private float KBStartSpeed;
 	public float KBEndSpeed;
 
 	private bool dashing = false;
@@ -281,8 +281,11 @@ public class Player : MonoBehaviour {
 	 * 
 	 * 
 	 * */
-	public void Knockback(float direction) {
+	public void Knockback(float direction, float time, float pushTime, float speed) {
 		if (updateOn && !knockbacking) {
+			KBTime = time;
+			KBPushTime = pushTime;
+			KBStartSpeed = speed;
 			knockbacking = true;
 			updateOn = false;
 			KBdirection = direction;
