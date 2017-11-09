@@ -48,7 +48,9 @@ public class Player : MonoBehaviour {
 	public bool hasPistol = false;
 	public GameObject pistol;
 	public Transform bulletExit;
-	public GameObject bullet;
+	public GameObject bulletG;
+	public GameObject bulletR;
+	public GameObject bulletY;
 	public float bulletSpeed;
 	public float pistolDamage;
 	public float pistolEnergyCost;
@@ -61,6 +63,11 @@ public class Player : MonoBehaviour {
 
 	public CardEnum[] cards;
 
+	private AudioSource fire1;
+	private AudioSource fire2;
+	private AudioSource fire3;
+
+
 	void Start () {
 		animator = GetComponent <Animator> ();
 
@@ -71,6 +78,9 @@ public class Player : MonoBehaviour {
 		previousPosition = transform.position;
 
 		canJump = true;
+		fire1 = gameObject.GetComponents<AudioSource> () [0];
+		fire2 = gameObject.GetComponents<AudioSource> () [1];
+		fire3 = gameObject.GetComponents<AudioSource> () [2];
 	}
 
 	void Update () {
@@ -187,7 +197,17 @@ public class Player : MonoBehaviour {
 		
 		if (hasPistol && (Time.time - pistolEnlapsedTime) >= pistolPushTime) {
 			GameObject temp;
-			temp = Instantiate (bullet, bulletExit.position, bulletExit.rotation) as GameObject;
+			if (playerEnergy.getLevel () == EnergyLevel.Verde) {
+				temp = Instantiate (bulletG, bulletExit.position, bulletExit.rotation) as GameObject;
+				fire1.Play ();
+			} else if (playerEnergy.getLevel () == EnergyLevel.Amarelo) {
+				temp = Instantiate (bulletY, bulletExit.position, bulletExit.rotation) as GameObject;
+				fire2.Play ();
+			} else {
+				temp = Instantiate (bulletR, bulletExit.position, bulletExit.rotation) as GameObject;
+				fire3.Play ();
+			}
+
 			temp.GetComponent<Rigidbody2D> ().velocity = temp.transform.right * bulletSpeed; 
 
 			float multiplyer = 1f;

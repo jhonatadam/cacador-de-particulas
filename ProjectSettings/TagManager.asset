@@ -9,6 +9,9 @@ TagManager:
   - Particle
   - Platform
   - Enemy
+  - Atrator
+  - Door
+  - Ring
   layers:
   - Default
   - TransparentFX
@@ -48,6 +51,9 @@ TagManager:
     locked: 0
   - name: Background0
     uniqueID: 1555708853
+    locked: 0
+  - name: Background0.5
+    uniqueID: 2125003711
     locked: 0
   - name: Background1
     uniqueID: 648802723

@@ -36,7 +36,9 @@ public class TitleMenu : MonoBehaviour {
 
 		// mantendo instancia de soundtrack na cena carregada
 		GameObject soundtrack = GameObject.Find ("Soundtrack");
-		DontDestroyOnLoad (soundtrack);
+		soundtrack.GetComponent<SoundtrackController> ().FadeOut ();
+		DontDestroyOnLoad(soundtrack);
+		DestroyObject (soundtrack, 1.5f);
 
 		GameObject tempData = GameObject.Find ("TempData");
 		DontDestroyOnLoad (tempData);

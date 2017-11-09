@@ -30,9 +30,9 @@ public class EnemyBullet : MonoBehaviour {
 			Destroy (this.gameObject);
 			other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer(damage);
 			if (other.gameObject.transform.position.x < this.gameObject.transform.position.x) {
-				other.gameObject.GetComponent<Player> ().Knockback (-1);
+				other.gameObject.GetComponent<Player> ().Knockback (-1, 0.5f, 0.1f, 2);
 			} else {
-				other.gameObject.GetComponent<Player> ().Knockback (1);
+				other.gameObject.GetComponent<Player> ().Knockback (1, 0.5f, 0.1f, 2);
 			}
 		}
 	}
