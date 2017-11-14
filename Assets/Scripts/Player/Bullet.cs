@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour {
 	public RingController ring;
 	private ParticleSystem ps;
 	private SpriteRenderer sr;
+	private bool dead = false;
 	// Use this for initialization
 	void Start () {
 		sr = gameObject.GetComponent<SpriteRenderer> ();
@@ -17,7 +18,9 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (dead) {
+			Destroy (this.gameObject, 1.0f);
+		}
 	}
 
 	public void setDamage(float damage) {
@@ -33,6 +36,6 @@ public class Bullet : MonoBehaviour {
 		ring.Stop ();
 		ps.Stop ();
 		sr.color = new Color (0, 0, 0, 0);
-		Destroy (this.gameObject, 0.8f);
+		dead = true;
 	}
 }

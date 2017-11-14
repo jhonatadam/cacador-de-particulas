@@ -24,9 +24,10 @@ public class LightController : MonoBehaviour {
 	public float lastChange = 0;
 	public float changeDelay = 10.0f;
 	private float realChangeDelay = 10.0f;
-
+	private Color originalColor;
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
+		originalColor = sr.color;
 		//audioSource = GetComponent<AudioSource> ();
 		ps = GetComponentInChildren<ParticleSystem> ();
 	}
@@ -56,7 +57,7 @@ public class LightController : MonoBehaviour {
 					main.startColor = new Color (1.0f, 0, 0.2f);
 					ps.Emit (Random.Range (10, 30));
 				} else {
-					sr.color = new Color (1.0f, 1.0f, 1.0f);
+					sr.color = originalColor;
 					color = "white";
 					var main = ps.main;
 					main.startColor = new Color (1.0f, 1.0f, 1.0f);
@@ -70,7 +71,7 @@ public class LightController : MonoBehaviour {
 					main.startColor = new Color (0.2f, 0, 1.0f);
 					ps.Emit (Random.Range (10, 30));
 				} else {
-					sr.color = new Color (1.0f, 1.0f, 1.0f);
+					sr.color = originalColor;
 					color = "white";
 					var main = ps.main;
 					main.startColor = new Color (1.0f, 1.0f, 1.0f);

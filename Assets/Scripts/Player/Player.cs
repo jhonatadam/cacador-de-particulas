@@ -128,8 +128,15 @@ public class Player : MonoBehaviour {
 
 		}
 
-		pistol.SetActive (hasPistol);
-		jetpack.SetActive (hasJetpack);
+
+
+	}
+
+	public void SetPistolActive(bool active){
+		pistol.SetActive (active);
+	}
+	public void SetJetpackActive(bool active){
+		jetpack.SetActive (active);
 	}
 
 	void FixedUpdate() {

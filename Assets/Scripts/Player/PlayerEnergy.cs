@@ -10,18 +10,27 @@ public class PlayerEnergy : MonoBehaviour {
 	public float energy;
 	public EnergyLevel level;
 	private PistolController pc;
+	ParticleSystem pistolGlow;
 
 
 	// Use this for initialization
 	void Start () {
+		
+	}
+
+	public void OnPistolEnable(){ //não é um callback padrão
 		//Inicializa o HP do player
 		//energy = 0;
 		pc = gameObject.GetComponentInChildren<PistolController>();
+		print (pc);
+		pistolGlow = gameObject.GetComponentsInChildren<ParticleSystem>()[0];
 	}
 
 	// Update is called once per frame
 	void Update () {
-		updateLevel ();
+		if (gameObject.GetComponent<Player> ().hasPistol) {
+			updateLevel ();
+		}
 	}
 
 	void FixedUpdate() {
@@ -80,26 +89,30 @@ public class PlayerEnergy : MonoBehaviour {
 
 	private void updateLevel() {
 		float temp = energy / maxEnergy;
-		ParticleSystem red = GameObject.Find("FaiscaVermelha").GetComponent<ParticleSystem>();
-		ParticleSystem green = GameObject.Find("FaiscaVerde").GetComponent<ParticleSystem>();
-		ParticleSystem yellow = GameObject.Find("FaiscaAmarela").GetComponent<ParticleSystem>();
+
 		if (temp <= 0.5f) {
 			if (level != EnergyLevel.Verde) {
-				green.Emit (100);
+				ParticleSystem.MainModule main = pistolGlow.main;
+				main.startColor = new Color (0.1f, 1.0f, 0.2f);
+				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Verde;
 			pc.setAnimation ("Fire1");
 
 		} else if (temp <= 0.8f) {
 			if (level != EnergyLevel.Amarelo) {
-				yellow.Emit (100);
+				ParticleSystem.MainModule main = pistolGlow.main;
+				main.startColor = new Color (1.0f, 1.0f, 0.2f);
+				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Amarelo;
 			pc.setAnimation ("Fire2");
 
 		} else {
 			if (level != EnergyLevel.Vermelho) {
-				red.Emit (100);
+				ParticleSystem.MainModule main = pistolGlow.main;
+				main.startColor = new Color (1.0f, 0.1f, 0.2f);
+				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Vermelho;
 			pc.setAnimation ("Fire3");
