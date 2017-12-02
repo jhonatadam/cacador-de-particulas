@@ -5,6 +5,7 @@ public class Paralax : MonoBehaviour {
 
 	public Player player;
 	public float offset;
+	private float real_offset;
 
 	[HideInInspector]
 	public Camera mainCamera;
@@ -22,11 +23,12 @@ public class Paralax : MonoBehaviour {
 
 	void Update () {
 		if (IsInCamera ()) {
-			offset = 0.1f;
+			real_offset = offset;
 		} else {
-			offset = 0;
+			real_offset = 0;
 		}
-		transform.Translate (new Vector3((offset * player.GetPreviousPositionDifference ()).x, 0, 0));
+
+		transform.Translate (new Vector3((real_offset * player.GetPreviousPositionDifference ()).x, 0, 0));
 	}
 
 	public bool IsInCamera() {

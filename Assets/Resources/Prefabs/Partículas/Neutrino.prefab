@@ -234,8 +234,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   daughters: []
-  linearMovement: 1
+  particleRipple: {fileID: 1503994034131366, guid: ac72b94b0c3128547be639ba1ef0cf72,
+    type: 2}
+  particleRippleD: {fileID: 1505313936373684, guid: 214af4cf1f595ee40b73badab381c66f,
+    type: 2}
   force: {x: 0, y: 0}
+  charge: 0
+  energy: 10
+  damage: 10
 --- !u!198 &198221653321140046
 ParticleSystem:
   m_ObjectHideFlags: 1

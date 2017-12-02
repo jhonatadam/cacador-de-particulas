@@ -67,6 +67,14 @@ public class Player : MonoBehaviour {
 	private AudioSource fire2;
 	private AudioSource fire3;
 
+	public RuntimeAnimatorController jet;
+	public RuntimeAnimatorController jetgun1;
+	public RuntimeAnimatorController jetgun2;
+	public RuntimeAnimatorController jetgun3;
+	public RuntimeAnimatorController gun1;
+	public RuntimeAnimatorController gun2;
+	public RuntimeAnimatorController gun3;
+	public RuntimeAnimatorController naked;
 
 	void Start () {
 		animator = GetComponent <Animator> ();
@@ -158,7 +166,10 @@ public class Player : MonoBehaviour {
 			// atualizando animator
 			UpdateSpriteDirection (horizontalMovement);
 		}	
-	} 
+	}
+	public void SwitchAnimator(string name){
+		return;
+	}
 
 	public void Jump () {
 		print (canJump);

@@ -203,8 +203,14 @@ MonoBehaviour:
   daughters:
   - {fileID: 1636654615016044, guid: 673fe17664df54f6db113b9878670a04, type: 2}
   - {fileID: 1346106613672192, guid: d34380da5dfeb49528ec767294b221ea, type: 2}
-  linearMovement: 1
+  particleRipple: {fileID: 1503994034131366, guid: ac72b94b0c3128547be639ba1ef0cf72,
+    type: 2}
+  particleRippleD: {fileID: 1505313936373684, guid: 214af4cf1f595ee40b73badab381c66f,
+    type: 2}
   force: {x: 0, y: 0}
+  charge: 0
+  energy: 10
+  damage: 10
 --- !u!212 &212011199950313268
 SpriteRenderer:
   m_ObjectHideFlags: 1

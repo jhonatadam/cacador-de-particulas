@@ -26,6 +26,9 @@ public class Particle : MonoBehaviour {
 
 	private bool canDamage = true;
 
+	public GameObject particleRipple;
+	public GameObject particleRippleD;
+
 	//transform
 	Transform trans;
 	//posição
@@ -131,12 +134,17 @@ public class Particle : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other)
 	{
+		GameObject ripple;
 		if (other.gameObject.tag == "Player") {
 			if (canDamage) {
 				other.GetComponent<PlayerHealth> ().ParticleDamagePlayer (damage);
 				other.GetComponent<PlayerEnergy> ().ChargeEnergy (energy);
 				canDamage = false;
+				ripple = Instantiate (particleRippleD, transform);
+			} else {
+				ripple = Instantiate (particleRipple, transform);
 			}
+
 			destroyParticle ();
 		}
 
