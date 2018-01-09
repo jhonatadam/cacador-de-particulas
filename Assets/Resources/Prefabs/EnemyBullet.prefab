@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4540198923392606}
   - component: {fileID: 199709178861168732}
   - component: {fileID: 198275150696630220}
+  - component: {fileID: 114955229318344250}
   m_Layer: 0
   m_Name: BulletRing
   m_TagString: Untagged
@@ -56,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1854444956916066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5563995, y: -10.858224, z: 0}
+  m_LocalPosition: {x: -3.362402, y: -0.21487628, z: 0}
   m_LocalScale: {x: 0.05, y: 0.04, z: 0.05}
   m_Children:
   - {fileID: 4540198923392606}
@@ -121,7 +122,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b0d95adee24cd4fa889360b20ce0f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ring: {fileID: 114955229318344250}
   dead: 0
+--- !u!114 &114955229318344250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683077928465088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca708f6cac47cd4f8d4938fd04c0f0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198275150696630220
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -177,7 +190,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 169863025
+  randomSeed: 729954944
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -656,7 +669,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 6
+      scalar: 12
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2814,7 +2827,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1775291346
+  randomSeed: -53282473
   InitialModule:
     serializedVersion: 3
     enabled: 1

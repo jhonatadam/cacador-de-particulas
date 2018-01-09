@@ -15,7 +15,7 @@ public class PistolController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		pistolAnimator.SetInteger ("energyLevel", pe.getLevelId ());
+		//pistolAnimator.SetInteger ("energyLevel", pe.getLevelId ());
 	}
 	public void setAnimation(string state){
 		pistolAnimator.Play (state);

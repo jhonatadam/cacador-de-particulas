@@ -94,6 +94,7 @@ public class PlayerEnergy : MonoBehaviour {
 			if (level != EnergyLevel.Verde) {
 				ParticleSystem.MainModule main = pistolGlow.main;
 				main.startColor = new Color (0.1f, 1.0f, 0.2f);
+				gameObject.GetComponent<Player> ().SwitchAnimator ("verde");
 				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Verde;
@@ -103,6 +104,7 @@ public class PlayerEnergy : MonoBehaviour {
 			if (level != EnergyLevel.Amarelo) {
 				ParticleSystem.MainModule main = pistolGlow.main;
 				main.startColor = new Color (1.0f, 1.0f, 0.2f);
+				gameObject.GetComponent<Player> ().SwitchAnimator ("amarelo");
 				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Amarelo;
@@ -112,6 +114,7 @@ public class PlayerEnergy : MonoBehaviour {
 			if (level != EnergyLevel.Vermelho) {
 				ParticleSystem.MainModule main = pistolGlow.main;
 				main.startColor = new Color (1.0f, 0.1f, 0.2f);
+				gameObject.GetComponent<Player> ().SwitchAnimator ("vermelho");
 				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Vermelho;
