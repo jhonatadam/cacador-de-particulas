@@ -69,7 +69,7 @@ public class EnemyMeleeWeapon : MonoBehaviour {
 		string tag = other.gameObject.tag;
 
 		if (tag == "Player") {
-			//Calcula a direcao que o player esta em relacao ao cargueiro.
+			//Calcula a direcao que o player esta em relacao ao inimigo para aplicar o knockback.
 			float direction = other.transform.position.x - transform.position.x;
 			direction = direction / Mathf.Abs (direction);
 			other.gameObject.GetComponent<Player> ().Knockback (direction);

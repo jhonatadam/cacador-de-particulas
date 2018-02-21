@@ -20,9 +20,9 @@ public class EnemyBullet : MonoBehaviour {
 		this.damage = damage;
 	}
 
-	private void OnCollisionEnter2D(Collision2D other) {
+	private void OnTriggerEnter2D(Collider2D other) {
 		string tag = other.gameObject.tag;
-		print ("colidiu com " + tag);
+		print ("En emy bullet colidiu com " + tag);
 		if (tag == "Ground") {
 			Destroy (this.gameObject);
 		}
