@@ -11,6 +11,9 @@ public class GroundCheck : MonoBehaviour {
 	//Plataforma em que o player está em cima
 	private GameObject platform;
 
+	//Objeto em que o player está em cima
+	private GameObject groundObject;
+
 	void Start () {
 		groundTag = new ArrayList ();
 
@@ -20,6 +23,8 @@ public class GroundCheck : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other)
 	{
+		groundObject = other.gameObject;
+
 		foreach (string tag in groundTag) {
 			if (other.gameObject.tag == tag) {
 				grounded = true;
@@ -34,6 +39,7 @@ public class GroundCheck : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other)
 	{
+		groundObject = null;
 		foreach (string tag in groundTag) {
 			if (other.gameObject.tag == tag) {
 				grounded = false;
@@ -58,5 +64,9 @@ public class GroundCheck : MonoBehaviour {
 
 	public GameObject getPlatform() {
 		return platform;
+	}
+
+	public GameObject getGroundObject() {
+		return groundObject;
 	}
 }
