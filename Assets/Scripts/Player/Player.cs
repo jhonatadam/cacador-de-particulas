@@ -48,11 +48,14 @@ public class Player : MonoBehaviour {
 	public bool hasPistol = false;
 	public GameObject pistol;
 	public Transform bulletExit;
-	public GameObject bullet;
+	public GameObject bulletG;
+	public GameObject bulletR;
+	public GameObject bulletY;
 	public float bulletSpeed;
 	public float pistolDamage;
 	public float pistolEnergyCost;
 	public float pistolPushTime;
+	public GameObject ondaJetpack;
 
 	private float pistolEnlapsedTime = 0.0f;
 
@@ -60,6 +63,19 @@ public class Player : MonoBehaviour {
 	public GameObject jetpack;
 
 	public CardEnum[] cards;
+
+	private AudioSource fire1;
+	private AudioSource fire2;
+	private AudioSource fire3;
+
+	public RuntimeAnimatorController jet;
+	public RuntimeAnimatorController jetgun1;
+	public RuntimeAnimatorController jetgun2;
+	public RuntimeAnimatorController jetgun3;
+	public RuntimeAnimatorController gun1;
+	public RuntimeAnimatorController gun2;
+	public RuntimeAnimatorController gun3;
+	public RuntimeAnimatorController naked;
 
 	void Start () {
 		animator = GetComponent <Animator> ();
@@ -71,6 +87,9 @@ public class Player : MonoBehaviour {
 		previousPosition = transform.position;
 
 		canJump = true;
+		fire1 = gameObject.GetComponents<AudioSource> () [0];
+		fire2 = gameObject.GetComponents<AudioSource> () [1];
+		fire3 = gameObject.GetComponents<AudioSource> () [2];
 	}
 
 	void Update () {
@@ -118,8 +137,18 @@ public class Player : MonoBehaviour {
 
 		}
 
-		pistol.SetActive (hasPistol);
-		jetpack.SetActive (hasJetpack);
+
+
+	}
+
+	public void SetPistolActive(bool active){
+		pistol.SetActive (active);
+		SwitchAnimator ("gun");
+	}
+	public void SetJetpackActive(bool active){
+		jetpack.SetActive (active);
+		ondaJetpack.SetActive (true);
+		SwitchAnimator ("jet");
 	}
 
 	void FixedUpdate() {
@@ -141,7 +170,71 @@ public class Player : MonoBehaviour {
 			// atualizando animator
 			UpdateSpriteDirection (horizontalMovement);
 		}	
-	} 
+	}
+	public void SwitchAnimator(string name){
+		//esse metodo é complicado
+		//parâmetros válidos são: "gun", "jet", "verde", "amarelo", "vermelho"
+		//eu fiz ele assim porque eu queria que ele fosse o mais facil possivel de entender
+		//esse metodo não é lento, ele é eficiente O(1)
+		//para cada possivel parametro eu busco as possiveis situações
+		//para que seja facil de usar o metodo
+		if(name == "gun"){
+			if (!hasJetpack) {
+				if (playerEnergy.level == EnergyLevel.Verde) {
+					animator.runtimeAnimatorController = gun1;
+				} else if (playerEnergy.level == EnergyLevel.Amarelo) {
+					animator.runtimeAnimatorController = gun2;
+				} else if (playerEnergy.level == EnergyLevel.Vermelho) {
+					animator.runtimeAnimatorController = gun3;
+				}
+			} else {
+				if (playerEnergy.level == EnergyLevel.Verde) {
+					animator.runtimeAnimatorController = jetgun1;
+				} else if (playerEnergy.level == EnergyLevel.Amarelo) {
+					animator.runtimeAnimatorController = jetgun2;
+				} else if (playerEnergy.level == EnergyLevel.Vermelho) {
+					animator.runtimeAnimatorController = jetgun3;
+				}
+			}
+		}
+		if(name == "jet"){
+			if (!hasPistol) {
+				animator.runtimeAnimatorController = jet;
+			} else {
+				if (playerEnergy.level == EnergyLevel.Verde) {
+					animator.runtimeAnimatorController = jetgun1;
+				} else if (playerEnergy.level == EnergyLevel.Amarelo) {
+					animator.runtimeAnimatorController = jetgun2;
+				} else if (playerEnergy.level == EnergyLevel.Vermelho) {
+					animator.runtimeAnimatorController = jetgun3;
+				}
+			}
+		}
+		if (hasPistol) {
+			if (name == "verde") {
+				if (hasJetpack) {
+					animator.runtimeAnimatorController = jetgun1;
+				} else {
+					animator.runtimeAnimatorController = gun1;
+				}
+			}
+			if (name == "amarelo") {
+				if (hasJetpack) {
+					animator.runtimeAnimatorController = jetgun2;
+				} else {
+					animator.runtimeAnimatorController = gun2;
+				}
+			}
+			if (name == "vermelho") {
+				if (hasJetpack) {
+					animator.runtimeAnimatorController = jetgun3;
+				} else {
+					animator.runtimeAnimatorController = gun3;
+				}
+			}
+
+		}
+	}
 
 	public void Jump () {
 		print (canJump);
@@ -187,7 +280,17 @@ public class Player : MonoBehaviour {
 		
 		if (hasPistol && (Time.time - pistolEnlapsedTime) >= pistolPushTime) {
 			GameObject temp;
-			temp = Instantiate (bullet, bulletExit.position, bulletExit.rotation) as GameObject;
+			if (playerEnergy.getLevel () == EnergyLevel.Verde) {
+				temp = Instantiate (bulletG, bulletExit.position, bulletExit.rotation) as GameObject;
+				fire1.Play ();
+			} else if (playerEnergy.getLevel () == EnergyLevel.Amarelo) {
+				temp = Instantiate (bulletY, bulletExit.position, bulletExit.rotation) as GameObject;
+				fire2.Play ();
+			} else {
+				temp = Instantiate (bulletR, bulletExit.position, bulletExit.rotation) as GameObject;
+				fire3.Play ();
+			}
+
 			temp.GetComponent<Rigidbody2D> ().velocity = temp.transform.right * bulletSpeed; 
 
 			float multiplyer = 1f;
@@ -293,10 +396,13 @@ public class Player : MonoBehaviour {
 			transform.Rotate (new Vector3 (0, 0, -KBAngle));
 		}
 	}
-
-
-
-
-
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.tag == "DeathZone") {
+			FakeDeath (coll.GetComponent<DeathZone> ().returnPoint);
+		}
+	}
+	public void FakeDeath(Vector2 returnPoint){
+		transform.position = new Vector3 (returnPoint.x, returnPoint.y, transform.position.z);
+	}
 
 }

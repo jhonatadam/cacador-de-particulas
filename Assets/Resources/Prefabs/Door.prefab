@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 251139061763168696}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,6 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   state: 1
+  necessaryCard: 0
 --- !u!114 &114944468443108678
 MonoBehaviour:
   m_ObjectHideFlags: 1

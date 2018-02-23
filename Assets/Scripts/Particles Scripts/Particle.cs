@@ -25,6 +25,11 @@ public class Particle : MonoBehaviour {
 	private bool canDecay;
 
 	private bool canDamage = true;
+	public float impulseFrequence = 1;
+	private float lastImpulse = 0;
+
+	public GameObject particleRipple;
+	public GameObject particleRippleD;
 
 	//transform
 	Transform trans;
@@ -43,6 +48,7 @@ public class Particle : MonoBehaviour {
 
 	public float energy = 10f;
 	public float damage = 10f;
+	public bool isInFlask = false;
 
 	void Start () {
 		initialPosition = transform.position;
@@ -81,6 +87,10 @@ public class Particle : MonoBehaviour {
 	}
 
 	void Update() {
+		if (isInFlask && Time.time - lastImpulse > impulseFrequence ) {
+			rb.AddForce( new Vector2 (Random.Range (10, 100)*Random.Range (-1.0f, 1.0f), Random.Range (10, 100)*Random.Range (-1.0f, 1.0f)));
+			lastImpulse = Time.time;
+		}
 		
 	}
 
@@ -131,12 +141,17 @@ public class Particle : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other)
 	{
+		GameObject ripple;
 		if (other.gameObject.tag == "Player") {
 			if (canDamage) {
 				other.GetComponent<PlayerHealth> ().ParticleDamagePlayer (damage);
 				other.GetComponent<PlayerEnergy> ().ChargeEnergy (energy);
 				canDamage = false;
+				ripple = Instantiate (particleRippleD, transform);
+			} else {
+				ripple = Instantiate (particleRipple, transform);
 			}
+
 			destroyParticle ();
 		}
 
