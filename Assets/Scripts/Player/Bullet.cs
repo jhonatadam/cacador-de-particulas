@@ -9,11 +9,13 @@ public class Bullet : MonoBehaviour {
 	private ParticleSystem ps;
 	private SpriteRenderer sr;
 	private bool dead = false;
+	private CircleCollider2D cl;
 	// Use this for initialization
 	void Start () {
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 		ps = gameObject.GetComponent<ParticleSystem> ();
-		ring.Emit (3);
+		ring.Emit (30);
+		cl = gameObject.GetComponent<CircleCollider2D> ();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +38,7 @@ public class Bullet : MonoBehaviour {
 		ring.Stop ();
 		ps.Stop ();
 		sr.color = new Color (0, 0, 0, 0);
+		cl.enabled = false;
 		dead = true;
 	}
 }

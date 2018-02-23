@@ -396,10 +396,13 @@ public class Player : MonoBehaviour {
 			transform.Rotate (new Vector3 (0, 0, -KBAngle));
 		}
 	}
-
-
-
-
-
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.tag == "DeathZone") {
+			FakeDeath (coll.GetComponent<DeathZone> ().returnPoint);
+		}
+	}
+	public void FakeDeath(Vector2 returnPoint){
+		transform.position = new Vector3 (returnPoint.x, returnPoint.y, transform.position.z);
+	}
 
 }

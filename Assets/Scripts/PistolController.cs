@@ -6,10 +6,8 @@ public class PistolController : MonoBehaviour {
 
 	// Use this for initialization
 	private PlayerEnergy pe;
-	private Animator pistolAnimator;
 	void Start () {
 		pe = gameObject.GetComponentInParent<PlayerEnergy> ();
-		pistolAnimator = gameObject.GetComponentInChildren<Animator>();
 
 	}
 	
@@ -18,6 +16,5 @@ public class PistolController : MonoBehaviour {
 		//pistolAnimator.SetInteger ("energyLevel", pe.getLevelId ());
 	}
 	public void setAnimation(string state){
-		pistolAnimator.Play (state);
 	}
 }

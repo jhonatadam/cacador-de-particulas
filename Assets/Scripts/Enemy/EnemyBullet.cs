@@ -8,6 +8,7 @@ public class EnemyBullet : MonoBehaviour {
 	private SpriteRenderer sr;
 	public RingController ring;
 	private ParticleSystem ps;
+	private CircleCollider2D cl;
 
 	public bool dead = false;
 
@@ -15,7 +16,8 @@ public class EnemyBullet : MonoBehaviour {
 	void Start () {
 		ps = gameObject.GetComponent<ParticleSystem> ();
 		sr = gameObject.GetComponent<SpriteRenderer> ();
-		ring.Emit (3);
+
+		cl = gameObject.GetComponent<CircleCollider2D> ();
 	}
 
 	// Update is called once per frame
@@ -43,6 +45,7 @@ public class EnemyBullet : MonoBehaviour {
 		sr.color = new Color (0, 0, 0, 0);
 		ring.Emit (3);
 		ring.Stop ();
+		cl.enabled = false;
 		ps.Stop ();
 		dead = true;
 	}

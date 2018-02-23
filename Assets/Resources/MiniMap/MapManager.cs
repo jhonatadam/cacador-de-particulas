@@ -24,7 +24,7 @@ public class MapManager : MonoBehaviour {
 		foreach (Transform mp in transform.GetChild(0)) {
 			
 			MapBlocker mb = mp.gameObject.GetComponent<MapBlocker> ();
-			print (discoveredMapBlockers);
+
 			if (discoveredMapBlockers.Contains (mb.id)) {
 				print ("tem o id");
 				Destroy(mb.gameObject);
