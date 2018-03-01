@@ -72,7 +72,7 @@ public class EnemyMeleeWeapon : MonoBehaviour {
 			//Calcula a direcao que o player esta em relacao ao inimigo para aplicar o knockback.
 			float direction = other.transform.position.x - transform.position.x;
 			direction = direction / Mathf.Abs (direction);
-			other.gameObject.GetComponent<Player> ().Knockback (direction);
+			other.gameObject.GetComponent<Player> ().Knockback (direction, 0.5f, 0.1f, 2);
 
 
 			other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer (damage);

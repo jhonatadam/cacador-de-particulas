@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4348336619088346}
   - component: {fileID: 114109670634443178}
   - component: {fileID: 61732655065896588}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ContactCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
