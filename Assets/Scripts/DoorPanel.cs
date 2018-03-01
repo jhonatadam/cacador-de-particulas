@@ -37,16 +37,16 @@ public class DoorPanel : MonoBehaviour {
 		
 		if (door.state == DoorState.Locked) {
 			ledSr.color = new Color (1, 0, 0, 1);
-			panelColor = new Color (1, 0, 0, 1);
+			panelColor = new Color (1, 1, 1, 1);
 		} else if (door.state == DoorState.Unlocked) {
-			ledSr.color = new Color (1, 0, 0, 1);
-			panelColor = new Color (0, 1, 1, 1);
+			ledSr.color = new Color (0, 0.7f, 1, 1);
+			panelColor = new Color (1, 1, 1, 1);
 		} else {
-			ledSr.color = new Color (0, 1, 0, 1);
-			panelColor = new Color (0, 1, 1, 1);
+			ledSr.color = new Color (0, 0.8f, 0, 1);
+			panelColor = new Color (1, 1, 1, 1);
 		}
 
-		sr.color = panelColor * VariationValue ();
+		//sr.color = panelColor * VariationValue ();
 		lightSr.color = LightColor ();
 	}
 

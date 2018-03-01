@@ -10,6 +10,7 @@ public class CameraLimits {
 public class CameraController : MonoBehaviour {
 
 	public Player player;
+	public Vector3 previousPosition;
 
 	// x se estiver se aproximando da camera (camera espera o player)
 	// x+2 se estiver se distanciando (camera acompanha o player)
@@ -41,7 +42,7 @@ public class CameraController : MonoBehaviour {
 		//print (JsonUtility.ToJson(cl));
 
 		cameraPosition = transform.position;
-
+		previousPosition = transform.position;
 		//These are the root x/y coordinates that we will use to create our boundary rectangle.
 		//Starts at the lower left, and takes the offset into account.
 		float windowAnchorX = cameraPosition.x - movementWindowSize.x/2 + windowOffset.x;
@@ -105,6 +106,10 @@ public class CameraController : MonoBehaviour {
 		}
 	}
 
+	void LateUpdate() {
+		previousPosition = transform.position;
+	}
+		
 	private Vector3 defineScrollValue () {
 
 		Vector3 difference = player.GetPreviousPositionDifference ();
@@ -182,5 +187,7 @@ public class CameraController : MonoBehaviour {
 
 		return currentFloor;
 	}
-
+	public Vector3 GetPreviousPositionDifference () {
+		return transform.position - previousPosition;
+	}
 }

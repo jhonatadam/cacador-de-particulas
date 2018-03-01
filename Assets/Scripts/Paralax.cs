@@ -4,6 +4,7 @@ using System.Collections;
 public class Paralax : MonoBehaviour {
 
 	public Player player;
+	public CameraController camera;
 	public float offset;
 	private float real_offset;
 
@@ -12,12 +13,12 @@ public class Paralax : MonoBehaviour {
 
 	void Start () {
 		try {
-			// Buscando referência do Player.
-			player = GameObject.Find ("Player").GetComponent<Player> ();
+			// Buscando referência da Camera.
+			camera = GameObject.Find ("MainCamera").GetComponent<CameraController> ();
 			mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
 		} catch {
-			Debug.Log ("Patrulheiro: não encontrou o objeto Player.");
-			player = null;
+			Debug.Log ("não encontrou o objeto Camera");
+			camera = null;
 		}
 	}
 
@@ -28,7 +29,7 @@ public class Paralax : MonoBehaviour {
 			real_offset = 0;
 		}
 
-		transform.Translate (new Vector3((real_offset * player.GetPreviousPositionDifference ()).x, 0, 0));
+		transform.Translate (new Vector3((real_offset * camera.GetPreviousPositionDifference ()).x, 0, 0));
 	}
 
 	public bool IsInCamera() {
