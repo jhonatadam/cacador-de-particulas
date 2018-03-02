@@ -56,6 +56,7 @@ public class Dialogue : MonoBehaviour {
 				if (over) {
 					DeActivate ();
 					canvas.SetActive (false);
+					return;
 				}
 			}
 //			if (over && Input.GetButtonDown ("Jump")) {
@@ -77,24 +78,26 @@ public class Dialogue : MonoBehaviour {
 	}
 
 	private IEnumerator ShowMessage(string message) {
-		canContinue = false;
-		//Texto do autor (linhas pares)
-		CampoDeTextoAutor.text = dialogo [textoAtual++];
-		//Texto do diálogo (linhas ímpares
-		message = dialogo [textoAtual];
-		foreach (char c in message) {
-			if (c.ToString() != " ") {
-				audioSource.Play ();
+		if (textoAtual + 1 < dialogo.Length) {
+			canContinue = false;
+			//Texto do autor (linhas pares)
+			CampoDeTextoAutor.text = dialogo [textoAtual++];
+			//Texto do diálogo (linhas ímpares
+			message = dialogo [textoAtual];
+			foreach (char c in message) {
+				if (c.ToString () != " ") {
+					audioSource.Play ();
+				}
+				CampoDeTexto.text += c;
+				yield return new WaitForSeconds (0.080f); 
 			}
-			CampoDeTexto.text += c;
-			yield return new WaitForSeconds(0.080f); 
+			canContinue = true;
 		}
-		canContinue = true;
 
 	}
 
 	private void ShowDialogue() {
-		if (textoAtual == dialogo.Length) {
+		if (textoAtual >= dialogo.Length) {
 			over = true;
 			print ("CABOU");
 		} else if(continua) {

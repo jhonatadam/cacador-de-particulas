@@ -1,0 +1,12 @@
+Alvinn: 
+O que foi isso ARI?
+ARI: 
+Hum, pensei que nunca iriamos esbarrar com um Zevatron.
+Alvinn: 
+E o que é um Zevatron?
+ARI: 
+É um raio cósmico raro por possuir bastante energia em comparação com os demais observados. Sua energia é da ordem de 10²¹eV (1ZeV). Tais partículas na verdade são prótons ou nêutrons altamente energéticos. A maior dúvida que paira sobre esse raio cósmico é a de como ele atingiu tamanha energia.
+Alvinn: 
+Caso uma partícula dessa me atinja, eu morrerei?
+ARI: 
+De certo que sim, então, evite-as.
