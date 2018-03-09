@@ -18,7 +18,10 @@ public class DialogueTrigger : MonoBehaviour {
 
 	public void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
-			dialogue.Activate ();
+			if (!dialogue.over) {
+				dialogue.Activate ();
+				EventsManager.DialogueStart ();
+			}
 			Destroy (this);
 		}
 

@@ -275,7 +275,7 @@ public class Player : MonoBehaviour {
 	public void Fire () {
 //		print ("atire");
 
-		if (playerEnergy.energy < pistolEnergyCost)
+		if (playerEnergy.energy < pistolEnergyCost || !updateOn)
 			return;
 		
 		if (hasPistol && (Time.time - pistolEnlapsedTime) >= pistolPushTime) {
@@ -323,6 +323,14 @@ public class Player : MonoBehaviour {
 		rb2d.velocity = new Vector2 (0, 0);
 	}
 
+	public void SetUpdateFalse() {
+		SetUpdateOn (false);
+	}
+
+	public void SetUpdateTrue() {
+		SetUpdateOn (true);
+	}
+
 	public bool GetUpdateOn() {
 		return updateOn;
 	}
@@ -343,6 +351,8 @@ public class Player : MonoBehaviour {
 	 * 
 	 * */
 	public void SwitchMagneticField() {
+		if (!updateOn)
+			return;
 		if (magneticField.activeInHierarchy) {
 			magneticField.SetActive (false);
 		} else if(playerEnergy.energy >= magneticField.GetComponent<MagneticField>().energyUse*Time.deltaTime) {
@@ -367,6 +377,8 @@ public class Player : MonoBehaviour {
 		EventsManager.onHorizontalBtn += MoveHorizontally;
 		EventsManager.onFireBtn += Fire;
 		EventsManager.onClimbDownCmd += ClimbDown;
+		EventsManager.onDialogueStart += SetUpdateFalse;
+		EventsManager.onDialogueEnd += SetUpdateTrue;
 	}
 
 	private void OnDisable() {
@@ -377,6 +389,8 @@ public class Player : MonoBehaviour {
 		EventsManager.onHorizontalBtn -= MoveHorizontally;
 		EventsManager.onFireBtn -= Fire;
 		EventsManager.onClimbDownCmd -= ClimbDown;
+		EventsManager.onDialogueStart -= SetUpdateFalse;
+		EventsManager.onDialogueEnd -= SetUpdateTrue;
 	}
 
 	/* Função que joga o Player para tras ao receber dano

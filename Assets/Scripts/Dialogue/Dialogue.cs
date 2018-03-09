@@ -38,8 +38,12 @@ public class Dialogue : MonoBehaviour {
 	//Indica qual a fala atual.
 	private int textoAtual = 0;
 
+	//id do diálogo. Envolve todos os diálogos do jogo
+	public int id;
+
 	//Flag que indica se o dialogo acabou
-	private bool over = false;
+
+	public bool over = false;
 
 	void Start () {
 		canvas.SetActive (false);
@@ -59,6 +63,7 @@ public class Dialogue : MonoBehaviour {
 				if (over) {
 					DeActivate ();
 					canvas.SetActive (false);
+					EventsManager.DialogueEnd ();
 					return;
 				}
 			}

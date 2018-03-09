@@ -12,10 +12,12 @@ public class PlayerEnergy : MonoBehaviour {
 	private PistolController pc;
 	ParticleSystem pistolGlow;
 
+	private Player player;
+
 
 	// Use this for initialization
 	void Start () {
-		
+		player = GetComponent<Player> ();
 	}
 
 	public void OnPistolEnable(){ //não é um callback padrão
@@ -60,6 +62,8 @@ public class PlayerEnergy : MonoBehaviour {
 	 * 
 	 * */
 	public void ChargeEnergy (float charge) {
+		if (!player.GetUpdateOn())
+			return;
 		print ("carregou");
 		energy += charge;
 
