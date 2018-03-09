@@ -10,6 +10,9 @@ public class TempData : MonoBehaviour {
 
 	public List<int> discoveredMapBlockers;
 
+	//Lista de todos os diálogos. True para diálogo que não será mais exibido, false c.c.;
+	public List<bool> dialoguesOver;
+
 	void Update () {
 		
 	}

@@ -15760,6 +15760,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
         type: 2}
+      propertyPath: dialoguesOver.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
       propertyPath: elevatorFloors.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -15804,6 +15809,31 @@ Prefab:
         type: 2}
       propertyPath: doorState.Array.data[7]
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[4]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecb6d6fe02787fd44be92316cb2fab46, type: 2}

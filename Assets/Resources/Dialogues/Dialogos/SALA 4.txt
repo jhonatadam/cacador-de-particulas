@@ -1,0 +1,10 @@
+ARI: 
+Esse é o LHC, o Grande Colisor de Hadrons. São máquinas construídas para se estudar as componentes fundamentais da matéria. Em essência, os aceleradores fornecem energia à um grupo de partículas carregadas para quando atingido um valor específico, jogá-las contra um alvo.
+Alvinn: 
+E qual o motivo de chocar uma particula com algo?
+ARI: 
+O objetivo é analisar os resultados das colisões com este alvo e partir disso, estudar essa reação.
+Alvinn: 
+Onde a gente ta ARI? Olha o tamanho disso, não é algo natural, é preciso muito espaço para se construir algo deste tamanho.
+ARI: 
+Estamos na fronteira entre a França e a Suiça, e esse é o maior acelerado existente. Realmente é necessário muito maquinário operar isso, e principalmente, muita energia para energizar as partículas.

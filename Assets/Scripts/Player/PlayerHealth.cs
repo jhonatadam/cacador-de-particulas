@@ -10,11 +10,13 @@ public class PlayerHealth : MonoBehaviour {
 	public float damageCoolDown = 10f;
 	private float damageTime = 0f;
 
+	private Player player;
 
 	// Use this for initialization
 	void Start () {
 		//Inicializa o HP do player
 		health = maxHealth;
+		player = GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
@@ -32,7 +34,7 @@ public class PlayerHealth : MonoBehaviour {
 	 * 
 	 **/
 	public void DamagePlayer(float damage) {
-		if (damageTime < damageCoolDown)
+		if (damageTime < damageCoolDown || !player.GetUpdateOn())
 			return;
 
 		if (health - damage < 0) {
@@ -51,7 +53,7 @@ public class PlayerHealth : MonoBehaviour {
 	 * 
 	 **/
 	public void ParticleDamagePlayer(float damage) {
-		if (damageTime < damageCoolDown)
+		if (damageTime < damageCoolDown || !player.GetUpdateOn())
 			return;
 
 		GameObject temp = gameObject.transform.GetChild (3).gameObject;

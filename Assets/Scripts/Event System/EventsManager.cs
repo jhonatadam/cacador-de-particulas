@@ -51,6 +51,11 @@ public class EventsManager : MonoBehaviour {
 	//Quando uma cutscene termina
 	public static Event onCutsceneEnd;
 
+	//Quando uma cutscene inicia
+	public static Event onDialogueStart;
+	//Quando uma cutscene termina
+	public static Event onDialogueEnd;
+
 	//Quando se abre alguma tela (Ex: Interactives)
 	public static Event onScreenShown;
 	//Quando se fecha alguma tela (Ex: Interactives)
@@ -119,6 +124,16 @@ public class EventsManager : MonoBehaviour {
 	public static void CutsceneEnd() {
 		if (onCutsceneEnd != null)
 			onCutsceneEnd ();
+	}
+
+	public static void DialogueStart() {
+		if (onDialogueStart != null)
+			onDialogueStart ();
+	}
+
+	public static void DialogueEnd() {
+		if (onDialogueEnd != null)
+			onDialogueEnd ();
 	}
 
 	public static void ShowScreen() {
