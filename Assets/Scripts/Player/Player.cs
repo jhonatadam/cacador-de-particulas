@@ -398,7 +398,9 @@ public class Player : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D coll){
 		if (coll.gameObject.tag == "DeathZone") {
-			FakeDeath (coll.GetComponent<DeathZone> ().returnPoint);
+			print ("Death");
+			rb2d.velocity = new Vector2 (0, 0);
+			FakeDeath (coll.gameObject.GetComponent<DeathZone> ().returnPoint);
 		}
 	}
 	public void FakeDeath(Vector2 returnPoint){
