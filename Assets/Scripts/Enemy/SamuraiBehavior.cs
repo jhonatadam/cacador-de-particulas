@@ -82,6 +82,9 @@ public class SamuraiBehavior : EnemyBehavior {
 		} else {
 			Stop ();
 		}
+
+		if (!EnemyInCamera () && player.isActiveAndEnabled)
+			sawPlayer = false;
 	}
 
 	public void UpdateGuidanceFollowPlayer () {
@@ -119,6 +122,6 @@ public class SamuraiBehavior : EnemyBehavior {
 	{
 		bool ret = (EnemyInCamera () && IsFacingThePlayer () && player.isActiveAndEnabled);
 		sawPlayer = ret ? ret : sawPlayer;
-		return ret;
+		return sawPlayer;
 	}
 }

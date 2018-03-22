@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerHealth : MonoBehaviour {
 
@@ -30,9 +31,10 @@ public class PlayerHealth : MonoBehaviour {
 
 	/* Função que gera dano no player.
 	 * 
-	 * 
+	 * USAR SEMPRE ANTES DO KNOCBACK!
 	 * 
 	 **/
+	[Obsolete ("USAR SEMPRE ANTES DO KNOCBACK!")]
 	public void DamagePlayer(float damage) {
 		if (damageTime < damageCoolDown || !player.GetUpdateOn())
 			return;
