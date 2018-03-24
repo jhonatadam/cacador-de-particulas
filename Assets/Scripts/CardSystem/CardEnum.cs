@@ -1,1 +1,1 @@
-﻿public enum CardEnum {Roxo, Vermelho, Verde};
+﻿public enum CardEnum {None, Roxo, Vermelho, Verde};

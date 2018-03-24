@@ -22,7 +22,7 @@ public class DialogueTrigger : MonoBehaviour {
 				dialogue.Activate ();
 				EventsManager.DialogueStart ();
 			}
-			Destroy (this);
+			Destroy (this.gameObject);
 		}
 
 	}
