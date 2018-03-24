@@ -1058,22 +1058,22 @@ Prefab:
         type: 2}
       propertyPath: canvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 338855573}
     - target: {fileID: 114993498769047168, guid: a828a8e77662b4ea3838d855972a9219,
         type: 2}
       propertyPath: CampoDeTextoAutor
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509184315}
     - target: {fileID: 114993498769047168, guid: a828a8e77662b4ea3838d855972a9219,
         type: 2}
       propertyPath: CampoDeTexto
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 725234909}
     - target: {fileID: 114993498769047168, guid: a828a8e77662b4ea3838d855972a9219,
         type: 2}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1449056722}
     - target: {fileID: 114993498769047168, guid: a828a8e77662b4ea3838d855972a9219,
         type: 2}
       propertyPath: n_caractere
@@ -1087,6 +1087,10 @@ Prefab:
     - target: {fileID: 1588009819053254, guid: a828a8e77662b4ea3838d855972a9219, type: 2}
       propertyPath: m_Name
       value: Sala 18 Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588009819053254, guid: a828a8e77662b4ea3838d855972a9219, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a828a8e77662b4ea3838d855972a9219, type: 2}
@@ -1348,6 +1352,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &338855573 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1495903286252954, guid: a828a8e77662b4ea3838d855972a9219,
+    type: 2}
+  m_PrefabInternal: {fileID: 278869509}
 --- !u!1001 &350279210
 Prefab:
   m_ObjectHideFlags: 0
@@ -1412,6 +1421,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4134726421046032, guid: 987fc6fe8928629488ebcdcfe0f41a8d,
     type: 2}
   m_PrefabInternal: {fileID: 350279210}
+--- !u!1 &464890429 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1495903286252954, guid: a828a8e77662b4ea3838d855972a9219,
+    type: 2}
+  m_PrefabInternal: {fileID: 1649495787}
 --- !u!1 &493993886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2156,6 +2170,12 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &725234909 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114390335088940540, guid: a828a8e77662b4ea3838d855972a9219,
+    type: 2}
+  m_PrefabInternal: {fileID: 278869509}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &728733833
 Prefab:
   m_ObjectHideFlags: 0
@@ -2589,6 +2609,17 @@ Transform:
   m_PrefabParentObject: {fileID: 4682346689304732, guid: c69d2e001d71ba94782b4ee9d8fd1d84,
     type: 2}
   m_PrefabInternal: {fileID: 851303734}
+--- !u!82 &866843347 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82970164926312328, guid: a828a8e77662b4ea3838d855972a9219,
+    type: 2}
+  m_PrefabInternal: {fileID: 1649495787}
+--- !u!114 &866960417 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114390335088940540, guid: a828a8e77662b4ea3838d855972a9219,
+    type: 2}
+  m_PrefabInternal: {fileID: 1649495787}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &868365001
 Prefab:
   m_ObjectHideFlags: 0
@@ -3824,6 +3855,11 @@ Prefab:
       propertyPath: state
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114720279575849958, guid: 7448f39e6204b4316bb29b7bf340ee7c,
+        type: 2}
+      propertyPath: necessaryCard
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7448f39e6204b4316bb29b7bf340ee7c, type: 2}
   m_IsPrefabParent: 0
@@ -4819,6 +4855,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &1449056722 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82970164926312328, guid: a828a8e77662b4ea3838d855972a9219,
+    type: 2}
+  m_PrefabInternal: {fileID: 278869509}
 --- !u!1001 &1452580429
 Prefab:
   m_ObjectHideFlags: 0
@@ -5143,6 +5184,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1509184315 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114020735718315952, guid: a828a8e77662b4ea3838d855972a9219,
+    type: 2}
+  m_PrefabInternal: {fileID: 278869509}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1518235399
 Prefab:
   m_ObjectHideFlags: 0
@@ -6123,22 +6170,22 @@ Prefab:
         type: 2}
       propertyPath: canvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 464890429}
     - target: {fileID: 114993498769047168, guid: a828a8e77662b4ea3838d855972a9219,
         type: 2}
       propertyPath: CampoDeTextoAutor
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2047927180}
     - target: {fileID: 114993498769047168, guid: a828a8e77662b4ea3838d855972a9219,
         type: 2}
       propertyPath: CampoDeTexto
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 866960417}
     - target: {fileID: 114993498769047168, guid: a828a8e77662b4ea3838d855972a9219,
         type: 2}
       propertyPath: audioSource
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 866843347}
     - target: {fileID: 114993498769047168, guid: a828a8e77662b4ea3838d855972a9219,
         type: 2}
       propertyPath: n_caractere
@@ -6148,6 +6195,10 @@ Prefab:
         type: 2}
       propertyPath: id
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1588009819053254, guid: a828a8e77662b4ea3838d855972a9219, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a828a8e77662b4ea3838d855972a9219, type: 2}
@@ -7441,6 +7492,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc3ca840e4a8d4233a32866199195ed3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2047927180 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114020735718315952, guid: a828a8e77662b4ea3838d855972a9219,
+    type: 2}
+  m_PrefabInternal: {fileID: 1649495787}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &2074528212 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114659929428513642, guid: aa5eab50318c9b44cb495dba0c49f4a3,
