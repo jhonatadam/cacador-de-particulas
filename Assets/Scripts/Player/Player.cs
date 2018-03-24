@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using System;
 using System.IO;
 using System.Collections;
@@ -62,7 +64,7 @@ public class Player : MonoBehaviour {
 	public bool hasJetpack = false;
 	public GameObject jetpack;
 
-	public CardEnum[] cards;
+	public List<CardEnum> cards;
 
 	private AudioSource fire1;
 	private AudioSource fire2;
@@ -90,6 +92,8 @@ public class Player : MonoBehaviour {
 		fire1 = gameObject.GetComponents<AudioSource> () [0];
 		fire2 = gameObject.GetComponents<AudioSource> () [1];
 		fire3 = gameObject.GetComponents<AudioSource> () [2];
+
+		cards = new List<CardEnum> ();
 	}
 
 	void Update () {
@@ -237,7 +241,6 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Jump () {
-		print (canJump);
 		if (canJump && updateOn && (groundCheck.isGrounded () || groundCheck.isPlatformed())) {
 			
 			//se apertar baixo + pulo em uma plataforma
@@ -361,12 +364,7 @@ public class Player : MonoBehaviour {
 	}
 
 	public bool hasCard(CardEnum card) {
-		foreach ( CardEnum c in cards ) {
-			if (c == card)
-				return true;
-		}
-
-		return false;
+		return cards.Contains (card);
 	}
 
 	private void OnEnable() {
