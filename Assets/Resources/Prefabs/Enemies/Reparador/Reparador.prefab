@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1836453431819800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: -0.902, y: 0.346, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4893990915076748}
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484319406859156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4245975988818780}
@@ -90,7 +90,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -105,7 +105,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -121,9 +121,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.11193846, y: 0.031944506}
+  m_Offset: {x: 0.023472607, y: 0.031944513}
   serializedVersion: 2
-  m_Size: {x: 0.11968924, y: 0.057465553}
+  m_Size: {x: 0.14344594, y: 0.057465553}
 --- !u!95 &95734899825866002
 Animator:
   serializedVersion: 3
@@ -154,6 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 10
+  piscar: 0
+  piscarTempo: 0.1
+  rb2d: {fileID: 0}
 --- !u!114 &114708866527460260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,6 +178,8 @@ MonoBehaviour:
   rightLimit: -2.5
   leftLimit: 4.7
   turningDelay: 1
+  PointsController: {fileID: 0}
+  reparingTime: 1
 --- !u!114 &114816299044053788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior: {fileID: 0}
   isLoaded: 0
-  reloadTime: 2
+  reloadTime: 1
   damage: 1
   timeCounter: 0
   range: 0.3

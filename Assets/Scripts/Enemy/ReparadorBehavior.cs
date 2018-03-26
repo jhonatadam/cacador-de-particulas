@@ -10,37 +10,50 @@ public class ReparadorBehavior : EnemyBehavior {
 	public float leftLimit;
 	public float turningDelay = 1;
 	private float lastTurning = 0;
-	private GameObject Atratores;
 	// Arma corpo a corpo
 	private ReparadorMeleeWeapon weapon;
-
+	public GameObject PointsController;
+	private List<GameObject> PointsList;
+	private bool FoundPoint = false;
+	private int following = 0;
+	private bool isReparing = false;
+	public float reparingTime = 1;
+	private float reparingElapsed = 0;
 	// Referência do animator
 	private Animator animator;
 	private bool sawPlayer;
 	private GameObject reparando;
 	private bool lookingForAtrator = true;
+	private SpriteRenderer sr;
+
 	void Start () {
-		Atratores = GameObject.Find ("Atratores");
 		base.Start ();
 		weapon = GetComponent <ReparadorMeleeWeapon> ();
 		animator = GetComponentInChildren <Animator> ();
-		print (animator);
+
+		sr = GetComponentInChildren<SpriteRenderer> ();
 	}
 
 	void Update () {
 		// se o samurai estiver atacando, o seu 
 		// comportamento não é atualizado
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Attack1") || 
-			animator.GetCurrentAnimatorStateInfo (0).IsName ("Attack2")) {
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Attack1") ||
+		    animator.GetCurrentAnimatorStateInfo (0).IsName ("Attack2")) {
+			Stop2 ();
 			return;
 		}
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Voando")) {
 			// Andar
 			Move ();
 		} else {
-			Stop ();
+			Stop2 ();
 		}
 		Act ();
+		if (rb2d.velocity.x > 0) {
+			sr.flipX = true;
+		} else if(rb2d.velocity.x < 0) {
+			sr.flipX = false;
+		}
 	}
 	void LateUpdate () {
 		animator.SetBool ("isSeeingThePlayer", isSeeingThePlayer);
@@ -55,62 +68,33 @@ public class ReparadorBehavior : EnemyBehavior {
 		}
 	}
 		
-	public void StopLookingForAtrator(GameObject atrator){
-		lookingForAtrator = false;
-		reparando = atrator;
-	}
-	public void StartLookingForAtrator(){
-		lookingForAtrator = true;
+	public void Stop2 () {
+		rb2d.velocity = new Vector2 (0, 0);
 	}
 
 	public void UpdateGuidancePatrol () {
-		if (lookingForAtrator) { //se está procurando por atrator
-			int followAtrator = 0;
-			bool foundAtrator = false;
-			int nearest = 0;
-			for (int i = 0; i <	Atratores.transform.childCount; i++) {
-				GameObject atrator = Atratores.transform.GetChild (i).gameObject;
-				if (distanceTo (atrator) < distanceTo (Atratores.transform.GetChild (nearest).gameObject )) {
-					if ((!atrator.GetComponent<Atrator> ().IsFull ()) && (!atrator.GetComponent<Atrator> ().IsDone ())) {
-						foundAtrator = true;
-						i = nearest;
-					}
+		
+	}
+	void OnTriggerEnter2D(Collider2D other){
+		if (PointsController.GetComponent<ReparadorPoints> ().Size () > 0) {
+			if (other.gameObject.tag == "ReparerPoint") {
+				if (other.gameObject.Equals (GetPoints()[following])) {
+					FoundPoint = true;
+					following = (following + 1) % PointsController.GetComponent<ReparadorPoints> ().Size ();
+					reparingElapsed = 0.0f;
+					rb2d.velocity = new Vector2 (0, 0);
+					print ("FOUND YOU");
 				}
-			}
-			if (foundAtrator) { //se achou um atrator
-				GameObject atrator = Atratores.transform.GetChild (nearest).gameObject;
-				float deltaX = transform.position.x - atrator.transform.position.x;
-				float deltaY = transform.position.y - atrator.transform.position.y;
-				float angle = Mathf.Atan2 (deltaY, deltaX);
-				Rigidbody2D rgd = GetComponent<Rigidbody2D> ();
-				rgd.velocity = new Vector2 (moveSpeed * Mathf.Cos (angle), moveSpeed * Mathf.Sin (angle));
-			} else { //se não existe nenhum atrator disponível
-				if (isFacingRight) {
-					if (transform.position.x >= rightLimit) {
-						isFacingRight = false;
-						transform.rotation = new Quaternion (0, 180, 0, 0);
-					}
-				} else {
-					if (transform.position.x <= leftLimit) {
-						isFacingRight = true;
-						transform.rotation = new Quaternion (0, 0, 0, 0);
-					}
-				}
-			}
-		} else { //else if(!lookingForAtrator) //se não está procurando por atrator
-			if (!reparando.GetComponent<Atrator> ().IsDone()) {
-				StartLookingForAtrator ();
 			}
 		}
 	}
-
 	private float distanceTo(GameObject go){
 		return Vector2.Distance (transform.position, go.transform.position);
 	}
 	public override void Attack ()
 	{
 		if (Time.time - lastTurning > turningDelay) {
-			UpdateGuidanceFollowPlayer ();
+			//UpdateGuidanceFollowPlayer ();
 			lastTurning = Time.time;
 		}
 		float playerDistance = Vector3.Distance (transform.position, player.transform.position);
@@ -140,11 +124,36 @@ public class ReparadorBehavior : EnemyBehavior {
 
 	public void Move () {
 
-		// Determinando velocidade.
-		float playerSpeed = (player != null ? player.speed :  1);
-		float speed = (isFacingRight ? moveSpeed * playerSpeed : -moveSpeed * playerSpeed);
-		// Atualizando velocidade.
-		rb2d.velocity = new Vector2 (speed, rb2d.velocity.y);
+		if (PointsController.GetComponent<ReparadorPoints>().Size() > 0) { 
+
+
+			if (FoundPoint) {
+				reparingElapsed += Time.deltaTime;
+				if (reparingElapsed >= reparingTime) {
+					FoundPoint = false;
+				}
+			} else {
+				if (isSeeingThePlayer) {
+					float dy = player.transform.localPosition.y - transform.position.y;
+					float dx = player.transform.localPosition.x - transform.position.x;
+					float angle = Mathf.Atan2 (dy, dx);
+					float vx = Mathf.Cos (angle) * moveSpeed;
+					float vy = Mathf.Sin (angle) * moveSpeed;
+
+					rb2d.velocity = new Vector2 (vx, vy);
+				} else {
+					following = following % PointsController.GetComponent<ReparadorPoints> ().Size ();
+
+					float dy = GetPoints () [following].transform.localPosition.y - transform.position.y;
+					float dx = GetPoints () [following].transform.localPosition.x - transform.position.x;
+					float angle = Mathf.Atan2 (dy, dx);
+					float vx = Mathf.Cos (angle) * moveSpeed;
+					float vy = Mathf.Sin (angle) * moveSpeed;
+
+					rb2d.velocity = new Vector2 (vx, vy);
+				}
+			}
+		}
 	}
 
 	public bool IsFacingThePlayer () {
@@ -156,8 +165,11 @@ public class ReparadorBehavior : EnemyBehavior {
 	}
 	public override bool Look ()
 	{
-		bool ret = (EnemyInCamera () && IsFacingThePlayer () && player.isActiveAndEnabled);
+		bool ret = (EnemyInCamera () && player.isActiveAndEnabled);
 		sawPlayer = ret ? ret : sawPlayer;
 		return ret;
+	}
+	public List<GameObject> GetPoints(){
+		return PointsController.GetComponent<ReparadorPoints> ().GetPoints ();
 	}
 }

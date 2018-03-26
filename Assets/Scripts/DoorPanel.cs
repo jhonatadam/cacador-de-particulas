@@ -9,6 +9,8 @@ public class DoorPanel : MonoBehaviour {
 	public SpriteRenderer ledSr;
 	public SpriteRenderer lightSr;
 	private SpriteRenderer sr;
+	private SpriteRenderer ledPorta;
+	private SpriteRenderer LightPorta;
 
 	// cor fixa do painel (essa cor varia de intensidade)
 	private Color panelColor;
@@ -28,7 +30,8 @@ public class DoorPanel : MonoBehaviour {
 	void Start () {
 		sr = GetComponent<SpriteRenderer> ();
 		audioSource = GetComponent <AudioSource> ();
-
+		ledPorta = GameObject.Find ("LedPorta").GetComponent<SpriteRenderer> ();
+		LightPorta = GameObject.Find ("LightPorta").GetComponent<SpriteRenderer> ();
 		player = GameObject.Find ("Player").GetComponent<Player> ();
 	}
 	
@@ -46,8 +49,10 @@ public class DoorPanel : MonoBehaviour {
 			panelColor = new Color (1, 1, 1, 1);
 		}
 
-		//sr.color = panelColor * VariationValue ();
+		// sr.color = panelColor * VariationValue ();
 		lightSr.color = LightColor ();
+		ledPorta.color = ledSr.color;
+		LightPorta.color = LightColor ();
 	}
 
 	public void Push () {
