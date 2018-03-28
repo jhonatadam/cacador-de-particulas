@@ -1804,7 +1804,7 @@ Prefab:
     - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
         type: 2}
       propertyPath: randomSeed
-      value: -1168409119
+      value: -1586728738
       objectReference: {fileID: 0}
     - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
         type: 2}
@@ -1892,6 +1892,41 @@ Prefab:
         type: 2}
       propertyPath: LightsModule.ratio
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key2.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 13300
+      objectReference: {fileID: 0}
+    - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 56283
+      objectReference: {fileID: 0}
+    - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key3.rgba
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.atime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 198694971661354006, guid: a05db5c95f1a2e54b93c393548176ff4,
+        type: 2}
+      propertyPath: ColorModule.gradient.maxGradient.key0.rgba
+      value: 16777215
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a05db5c95f1a2e54b93c393548176ff4, type: 2}
@@ -2894,7 +2929,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 887563241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1, y: 194.4, z: -10}
+  m_LocalPosition: {x: 5.1, y: 51.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
