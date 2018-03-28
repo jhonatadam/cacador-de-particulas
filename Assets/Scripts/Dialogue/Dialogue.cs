@@ -20,6 +20,9 @@ public class Dialogue : MonoBehaviour {
 	public AudioSource audioSource;
 	public AudioClip audioClip;
 
+	//numero de caracteres por fala
+	public int n_caractere = 100;
+
 	//Flag que indica se a caixa de texto está ativa ou não.
 	//Serve para iniciar e parar a conversa.
 	[SerializeField]
@@ -35,8 +38,12 @@ public class Dialogue : MonoBehaviour {
 	//Indica qual a fala atual.
 	private int textoAtual = 0;
 
+	//id do diálogo. Envolve todos os diálogos do jogo
+	public int id;
+
 	//Flag que indica se o dialogo acabou
-	private bool over = false;
+
+	public bool over = false;
 
 	void Start () {
 		canvas.SetActive (false);
@@ -56,6 +63,8 @@ public class Dialogue : MonoBehaviour {
 				if (over) {
 					DeActivate ();
 					canvas.SetActive (false);
+					EventsManager.DialogueEnd ();
+					return;
 				}
 			}
 //			if (over && Input.GetButtonDown ("Jump")) {
@@ -77,24 +86,28 @@ public class Dialogue : MonoBehaviour {
 	}
 
 	private IEnumerator ShowMessage(string message) {
-		canContinue = false;
-		//Texto do autor (linhas pares)
-		CampoDeTextoAutor.text = dialogo [textoAtual++];
-		//Texto do diálogo (linhas ímpares
-		message = dialogo [textoAtual];
-		foreach (char c in message) {
-			if (c.ToString() != " ") {
-				audioSource.Play ();
+		if (textoAtual + 1 < dialogo.Length) {
+			canContinue = false;
+			//Texto do autor (linhas pares)
+			CampoDeTextoAutor.text = dialogo [textoAtual++];
+			//Texto do diálogo (linhas ímpares
+			message = dialogo [textoAtual];
+			foreach (char c in message) {
+				if (c.ToString () != " ") {
+					audioSource.Play ();
+				}
+				CampoDeTexto.text += c;
+				yield return new WaitForSeconds (0.080f); 
 			}
-			CampoDeTexto.text += c;
-			yield return new WaitForSeconds(0.080f); 
+			canContinue = true;
 		}
-		canContinue = true;
 
 	}
 
 	private void ShowDialogue() {
-		if (textoAtual == dialogo.Length) {
+		if (dialogo == null)
+			return;
+		if (textoAtual >= dialogo.Length) {
 			over = true;
 			print ("CABOU");
 		} else if(continua) {
@@ -118,7 +131,49 @@ public class Dialogue : MonoBehaviour {
 	}
 
 	private void LerTexto() {
-		dialogo = arquivoTexto.text.Split ('\n');
+		//string[] temp = arquivoTexto.text.Split ('\n');
+		dialogo = ProcessText (arquivoTexto.text.Split ('\n'));
+		//dialogo = new string[] {"pato", "quen"};
+	}
+
+	//Função que processa os textos, dividindo as falas para caberem na caixa de dialogo
+	private string[] ProcessText(string[] dialogues) {
+		List<string> dialogues_temp = new List<string> ();
+		string autor_temp;
+		int j = 0, k = 0;
+		Queue words_queue = new Queue ();
+
+		for (int i = 0; i < dialogues.Length; i++) {
+			print ("Lendo texto: " +i);
+			//i -> autor
+			autor_temp = dialogues [i++];
+			//i -> fala do autor
+			j++;
+			dialogues_temp.Add(autor_temp);
+			dialogues_temp.Add("");
+
+			foreach (string s in dialogues[i].Split(' ')) {
+				words_queue.Enqueue (s);
+			}
+			int temp_size = 0;
+			while (words_queue.Count != 0) {
+				if (((string)words_queue.Peek ()).Length + temp_size <= n_caractere) {
+					temp_size += ((string)words_queue.Peek ()).Length + 1;
+					dialogues_temp [j] += words_queue.Dequeue () + " ";
+				} else {
+					temp_size = 0;
+					j++;
+					j++;
+					dialogues_temp.Add(autor_temp);
+					dialogues_temp.Add("");
+				}
+			}
+			j++;
+		}
+
+		return dialogues_temp.ToArray ();
+
+
 	}
 
 	public bool isActive() {

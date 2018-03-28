@@ -106,7 +106,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -124,6 +124,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ring: {fileID: 114955229318344250}
   dead: 0
+  collisionMask:
+  - Ground
+  - Player
+  - Door
 --- !u!114 &114955229318344250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +194,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 729954944
+  randomSeed: -1042235411
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2827,7 +2831,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -53282473
+  randomSeed: -987912264
   InitialModule:
     serializedVersion: 3
     enabled: 1

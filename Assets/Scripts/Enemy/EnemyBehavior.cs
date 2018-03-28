@@ -41,7 +41,7 @@ public abstract class EnemyBehavior : MonoBehaviour {
 			player = GameObject.Find ("Player").GetComponent<Player> ();
 			mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
 		} catch {
-			Debug.Log ("Patrulheiro: não encontrou o objeto Player.");
+			Debug.Log ("EnemyBehaviour: não encontrou o objeto Player.");
 			player = null;
 		}
 
@@ -75,7 +75,7 @@ public abstract class EnemyBehavior : MonoBehaviour {
 			bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
 			return onScreen;
 		} else {
-			print ("Patrulheiro: Camera não encontrada!");
+			print ("EnemyBehaviour: Camera não encontrada!");
 			return false;
 		}
 

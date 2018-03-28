@@ -22,9 +22,7 @@ public class EnemyBullet : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (dead) {
-			Destroy (this.gameObject, 1.0f);
-		}
+
 	}
 
 	public void setDamage(float damage) {
@@ -35,9 +33,7 @@ public class EnemyBullet : MonoBehaviour {
 		string tag = other.gameObject.tag;
 
 		print ("En emy bullet colidiu com " + tag);
-		if (tag == "Ground") {
-			Destroy (this.gameObject);
-		}
+	
 		if (tag == "Player") {
 			other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer(damage);
 			if (other.gameObject.transform.position.x < this.gameObject.transform.position.x) {
@@ -46,11 +42,15 @@ public class EnemyBullet : MonoBehaviour {
 				other.gameObject.GetComponent<Player> ().Knockback (1, 0.5f, 0.1f, 2);
 			}
 		}
-		sr.color = new Color (0, 0, 0, 0);
-		ring.Emit (3);
-		ring.Stop ();
-		cl.enabled = false;
-		ps.Stop ();
-		dead = true;
+
+		//É uma lista stática da classe BullerCollisionMask
+		if (BulletCollisionMask.canCollide(tag)) {
+			sr.color = new Color (0, 0, 0, 0);
+			ring.Emit (3);
+			ring.Stop ();
+			cl.enabled = false;
+			ps.Stop ();
+			Destroy (this.gameObject, 1.0f);
+		}
 	}
 }
