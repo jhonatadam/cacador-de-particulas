@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class DialogueText : ScriptableObject {
+[System.Serializable]
+public class DialogueText {
 
 	public string autor;
-	public string texto;
+	public string[] texto;
 
 }

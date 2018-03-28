@@ -13,6 +13,8 @@ public class PatrulheiroBehavior : EnemyBehavior {
 	// Referência do animator
 	public Animator animator;
 
+	private bool sawPlayer = false;
+
 	void Start () {
 		base.Start ();
 		animator = GetComponent <Animator> ();
@@ -29,13 +31,25 @@ public class PatrulheiroBehavior : EnemyBehavior {
 
 	public override void Patrol () {
 		// Atualizando orientação
-		UpdateGuidance ();
+		//UpdateGuidance ();
+
+		// Atualizando orientação
+		//Se o player não foi visto, permanece na patrulha, se foi, persegue-o até sair do andar.
+		if (!sawPlayer)
+			UpdateGuidance ();
+		else {
+			UpdateGuidanceLookPlayer ();
+			if (EnemyInCamera () && player.isActiveAndEnabled)
+				sawPlayer = false;
+		}
 
 		// so anda se estiver em modo patrulha na animação
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Patrol")) {
 			// Andar
 			Move ();		
 		}
+
+
 
 	}
 
@@ -46,7 +60,9 @@ public class PatrulheiroBehavior : EnemyBehavior {
 	public override bool Look ()
 	{
 		//return (rend.isVisible && IsFacingThePlayer () && player.isActiveAndEnabled);
-		return (EnemyInCamera() && IsFacingThePlayer () && player.isActiveAndEnabled);
+		bool ret = (EnemyInCamera () && IsFacingThePlayer () && player.isActiveAndEnabled);
+		sawPlayer = ret ? ret : sawPlayer;
+		return ret;
 	}
 
 	public void UpdateGuidance () {
@@ -57,6 +73,21 @@ public class PatrulheiroBehavior : EnemyBehavior {
 			}
 		} else {
 			if (transform.position.x <= leftLimit) {
+				isFacingRight = true;
+				transform.rotation = new Quaternion (0, 0, 0, 0);
+			}
+		}
+	}
+
+	public void UpdateGuidanceLookPlayer() {
+
+		if (isFacingRight) {
+			if (transform.position.x > player.transform.position.x) {
+				isFacingRight = false;
+				transform.rotation = new Quaternion (0, 180, 0, 0);
+			}
+		} else {
+			if (transform.position.x < player.transform.position.x) {
 				isFacingRight = true;
 				transform.rotation = new Quaternion (0, 0, 0, 0);
 			}

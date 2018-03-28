@@ -67,11 +67,11 @@ public class SamuraiMeleeWeapon : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Player") {
+			other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer (damage);
+
 			float direction = other.transform.position.x - transform.position.x;
 			direction = direction / Mathf.Abs (direction);
 			other.gameObject.GetComponent<Player> ().Knockback (direction, 0.5f, 0.1f, 3);
-
-			other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer (damage);
 		}
 	}
 

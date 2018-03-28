@@ -60,6 +60,8 @@ public class SceneDataManager : MonoBehaviour {
 
 	public Door[] doors;
 
+	public Dialogue[] dialogues;
+
 	public MapManager mapManager;
 
 	//Dados do player
@@ -98,6 +100,10 @@ public class SceneDataManager : MonoBehaviour {
 		}
 		*/
 
+		//======================================================================\\
+		//=============== ATUALIZANDO AS INFORMAÇÕES DA CENA ===================\\
+		//======================================================================\\
+
 		foreach (Door door in doors) {
 			door.state = tempData.doorState [door.id];
 		}
@@ -115,6 +121,14 @@ public class SceneDataManager : MonoBehaviour {
 		//Informando as áreas descobertas do mapa
 		mapManager.discoveredMapBlockers = tempData.discoveredMapBlockers;
 		mapManager.updateMap ();
+
+		//diálogos
+		foreach (Dialogue dialogue in dialogues) {
+			dialogue.over = tempData.dialoguesOver [dialogue.id];
+		}
+
+		//======================================================================\\
+		//======================================================================\\
 			
 	}
 
@@ -175,6 +189,11 @@ public class SceneDataManager : MonoBehaviour {
 
 		//Áreas do mapa
 		tempData.discoveredMapBlockers = mapManager.discoveredMapBlockers;
+
+		//diálogos
+		foreach (Dialogue dialogue in dialogues) {
+			tempData.dialoguesOver [dialogue.id] = dialogue.over; 
+		}
 	}
 
 	public void UpdateSoundtrack () {
