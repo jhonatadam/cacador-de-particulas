@@ -59,7 +59,7 @@ public class DoorPanel : MonoBehaviour {
 		if (contactCheck.getIsInContact ()) {
 			if (door.state == DoorState.Locked) {
 				audioSource.PlayOneShot (lockedSound);
-			} else if (door.state == DoorState.Unlocked && player.hasCard(door.necessaryCard)) {
+			} else if (door.state == DoorState.Unlocked && (door.necessaryCard == CardEnum.None ? true : player.hasCard(door.necessaryCard))) {
 				door.state = DoorState.Opened;
 				audioSource.PlayOneShot (unlockedSound);
 				audioSource.PlayOneShot (doorOpening);

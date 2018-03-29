@@ -44,7 +44,7 @@ public class Jetpack : MonoBehaviour {
 	}
 
 	public void Propel() {
-		if (activated) {
+		if (activated && player.GetComponent<Player>().GetUpdateOn()) {
 			if (player.energy < energyUse * Time.fixedDeltaTime)
 				return;
 			player.ConsumeEnergy (energyUse * Time.fixedDeltaTime);
