@@ -78,15 +78,15 @@ public class ZangoBehavior : MonoBehaviour {
 			animator.GetCurrentAnimatorStateInfo (0).IsName ("Ataque1-back")  ||
 			animator.GetCurrentAnimatorStateInfo (0).IsName ("Ataque2-start") ||
 			animator.GetCurrentAnimatorStateInfo (0).IsName ("Ataque2") ||
-			animator.GetCurrentAnimatorStateInfo (0).IsName ("Ataque2-end")){
+			animator.GetCurrentAnimatorStateInfo (0).IsName ("Ataque2-end") ||
+			animator.GetCurrentAnimatorStateInfo (0).IsName ("EnergyBallShoot")){
 			if(!jumping)
 				Stop ();
 			return;
 			
 		}
-		//ATENÇÃO: GAMBIARRA ENQUANTO NÃO TEM A ANIMAÇÃO DA BOLA DE ENERGIA (ATIRANDO)
-		if (!weapon.isLoaded && (weapon.actualAttack == "EnergyBall" ||
-			weapon.actualAttack == "Cure")) {
+		//ATENÇÃO: GAMBIARRA ENQUANTO NÃO TEM A ANIMAÇÃO DA CURA
+		if (!weapon.isLoaded && (weapon.actualAttack == "Cure")) {
 			Stop ();
 			return;
 		}

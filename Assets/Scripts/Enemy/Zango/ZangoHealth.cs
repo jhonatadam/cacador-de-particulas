@@ -19,7 +19,7 @@ public class ZangoHealth : EnemyHealth {
 		}
 	}
 
-	public void DamageEnemy(float damage) {
+	public override void DamageEnemy(float damage) {
 
 		if (health - damage < 0) {
 			health = 0;
@@ -49,7 +49,6 @@ public class ZangoHealth : EnemyHealth {
 
 	public void KillEnemy() {
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
-
 		Destroy (this.gameObject);
 	}
 }

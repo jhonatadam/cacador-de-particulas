@@ -53,7 +53,7 @@ public class EnemyHealth : MonoBehaviour {
 		}
 	}
 
-	public void DamageEnemy(float damage) {
+	public virtual void DamageEnemy(float damage) {
 
 		if (health - damage < 0) {
 			health = 0;
