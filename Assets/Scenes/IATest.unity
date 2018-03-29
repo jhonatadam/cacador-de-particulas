@@ -1970,6 +1970,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 400
   health: 400
+  piscar: 0
+  piscarTempo: 0.1
+  rb2d: {fileID: 0}
 --- !u!4 &1835866122
 Transform:
   m_ObjectHideFlags: 0
@@ -2163,7 +2166,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2051399956}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -2.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1835866122}
