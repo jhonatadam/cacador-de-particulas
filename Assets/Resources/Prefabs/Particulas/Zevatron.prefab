@@ -85,6 +85,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+
 --- !u!4 &4009031172162258
 Transform:
   m_ObjectHideFlags: 1
@@ -3347,7 +3348,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
-      minMaxState: 3
+      minMaxState: 3 
     randomizeRotationDirection: 0
     maxNumParticles: 1000
     size3D: 0

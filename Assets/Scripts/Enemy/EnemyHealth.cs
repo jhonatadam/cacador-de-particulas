@@ -25,8 +25,7 @@ public class EnemyHealth : MonoBehaviour {
 		if (sr == null) {
 			sr = gameObject.GetComponentInChildren<SpriteRenderer> ();
 		}
-		sound1 = gameObject.GetComponents<AudioSource> ()[0];
-		deathSound = gameObject.GetComponents<AudioSource> () [1];
+
 	}
 	
 	// Update is called once per frame
