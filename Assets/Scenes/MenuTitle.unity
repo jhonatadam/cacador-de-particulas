@@ -15766,7 +15766,7 @@ Prefab:
     - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
         type: 2}
       propertyPath: dialoguesOver.Array.size
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
         type: 2}
@@ -15838,6 +15838,41 @@ Prefab:
     - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
         type: 2}
       propertyPath: dialoguesOver.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[7]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[9]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[10]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[11]
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

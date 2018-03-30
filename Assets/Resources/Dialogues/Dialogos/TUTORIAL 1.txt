@@ -1,0 +1,20 @@
+ARI: 
+Alvinn, você está bem?
+Alvinn: 
+Quem tá falando?
+ARI: 
+Eu sou ARI, e fui projetada para ajudar você?.
+Alvinn: 
+E quem lhe projetou?
+ARI: 
+Seu pai…
+Alvinn: 
+Onde ele está, e porquê eu estou aqui?
+ARI: 
+Venha até mim, e conversaremos melhor.
+Alvinn: 
+Não, eu preciso de respostas agora. Onde estou? Como vim parar aqui? O que  são essas bolas de energia caindo? 
+Alvinn: 
+ARI?... ARI?... 
+
+
