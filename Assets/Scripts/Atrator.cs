@@ -31,7 +31,7 @@ public class Atrator : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.name == "Reparador") {
-			other.gameObject.GetComponent<ReparadorBehavior> ().StopLookingForAtrator (gameObject);
+//			other.gameObject.GetComponent<ReparadorBehavior> ().StopLookingForAtrator (gameObject);
 			qtd += 1;
 		}
 	}

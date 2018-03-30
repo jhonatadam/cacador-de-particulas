@@ -10,7 +10,6 @@ public abstract class EnemyBehavior : MonoBehaviour {
 
 	// true se o inimigo está vendo o
 	// player, false caso contrário.
-	[HideInInspector]
 	public bool isSeeingThePlayer;
 
 	// Velocidade em que o inimigo

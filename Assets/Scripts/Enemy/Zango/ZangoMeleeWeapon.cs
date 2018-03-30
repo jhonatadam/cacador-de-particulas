@@ -148,10 +148,11 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 			if (Time.time - axeChronometerInit >= axeInFloorTime) {
 				//liberar machado do chao
 				axeChronometer = false;
-				if (actualAttack == "upToDown")
-					animator.SetTrigger ("AxeFree");
 				if (actualAttack == "Cure")
 					zangoCure ();
+				else
+					animator.SetTrigger ("AxeFree");
+				
 				//Tirar isso quando tiver a animação
 				isLoaded = true;
 				actualAttack = "none";
@@ -182,12 +183,18 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 			//a cada 40
 			if (energyBallCounter >= 40.0f) {
 				energyBallCounter = 40.0f - energyBallCounter;
-				shootEnergyBall ();
-			}
 
+				isLoaded = false;
+				actualAttack = "EnergyBall";
+				animator.SetTrigger ("ShootEnergyBall");
+			}
+			//Lançar a bola a cada n pulos
 			if (behavior.jumpsNumber >= jumpsToEnergyBall) {
 				behavior.jumpsNumber = 0;
-				shootEnergyBall ();
+
+				isLoaded = false;
+				actualAttack = "EnergyBall";
+				animator.SetTrigger ("ShootEnergyBall");
 				return;
 			}
 
@@ -279,13 +286,7 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 	}
 
 	//funcao que atira a bola de energia de particulas
-	private void shootEnergyBall() {
-		isLoaded = false;
-		actualAttack = "EnergyBall";
-		//ATENÇÃO: GAMBIARRA ENQUANTO NÃO TEM A ANIMAÇÃO DA BOLA DE ENERGIA (ATIRANDO)
-		axeChronometer = false;
-		onStuckStart ();
-		//FIM DA GAMBIARRA
+	public void shootEnergyBall() {
 		GameObject temp;
 
 		float ang = Vector2.Angle (energyBallExit.position, player.transform.transform.position);
@@ -298,6 +299,8 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 		temp.GetComponent<Rigidbody2D> ().velocity = temp.transform.right * energyBallSpeed; 
 
 		temp.GetComponent<EnemyBullet> ().setDamage (energyBallDamage);
+
+		isLoaded = true;
 	}
 
 	public void startRotatingChronometer() {
