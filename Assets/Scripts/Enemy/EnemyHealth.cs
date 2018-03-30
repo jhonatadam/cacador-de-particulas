@@ -13,8 +13,6 @@ public class EnemyHealth : MonoBehaviour {
 	private float alpha = 1;
 	[HideInInspector]
 	public Rigidbody2D rb2d;
-	private AudioSource sound1;
-	private AudioSource deathSound;
 	private bool dead = false;
 
 	// Use this for initialization
@@ -25,8 +23,7 @@ public class EnemyHealth : MonoBehaviour {
 		if (sr == null) {
 			sr = gameObject.GetComponentInChildren<SpriteRenderer> ();
 		}
-		sound1 = gameObject.GetComponents<AudioSource> ()[0];
-		deathSound = gameObject.GetComponents<AudioSource> () [1];
+
 	}
 	
 	// Update is called once per frame
@@ -54,13 +51,12 @@ public class EnemyHealth : MonoBehaviour {
 		}
 	}
 
-	public void DamageEnemy(float damage) {
+	public virtual void DamageEnemy(float damage) {
 
 		if (health - damage < 0) {
 			health = 0;
 			return;
 		}
-		sound1.Play ();
 		piscar = piscarTempo;
 		health -= damage;
 
@@ -85,7 +81,6 @@ public class EnemyHealth : MonoBehaviour {
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		fadeOut = true;
 		dead = true;
-		deathSound.Play ();
 		rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
 		Destroy (this.gameObject, 1.0f);
 	}

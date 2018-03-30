@@ -19,4 +19,9 @@ public class ZangoAnimationHelper : MonoBehaviour {
 	public void startRotatingChronometer() {
 		weapon.startRotatingChronometer ();
 	}
+
+	//chamada na animação de atirar bola de energia
+	public void shootEnergyBall() {
+		weapon.shootEnergyBall ();
+	}
 }

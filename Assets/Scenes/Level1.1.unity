@@ -11488,5 +11488,10 @@ Transform:
   m_LocalScale: {x: 0.8211168, y: 0.8211168, z: 0.8211168}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 56e386374dab2cf001b3ad77e499b49738ae1a30

@@ -46,6 +46,7 @@ public class ReparadorMeleeWeapon : MonoBehaviour {
 	}
 
 	public void Hit () {
+
 		float strongAttack = Random.Range (0.0f, 1.0f);
 		if (isLoaded) {
 			if (Vector3.Distance(behavior.player.transform.position, transform.position) < range) {
