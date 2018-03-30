@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Logo : MonoBehaviour {
 	private GradientColorChanger gcc;
+	private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
+		audioManager = AudioManager.instance;
+		audioManager.PlaySound ("Logo");
 		gcc = GetComponent<GradientColorChanger> ();
 	}
 	

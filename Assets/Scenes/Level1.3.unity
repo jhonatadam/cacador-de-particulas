@@ -792,7 +792,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f105008a9b6c614495b1aeae816c9db, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!1 &279582410
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,8 +856,6 @@ SpriteRenderer:
   m_Color: {r: 0.19117647, g: 0.15743946, b: 0.15743946, a: 1}
   m_FlipX: 0
   m_FlipY: 1
-=======
->>>>>>> d81a9c7a06da351720ac1acc4fe129a634d1ab68
 --- !u!1 &280095781
 GameObject:
   m_ObjectHideFlags: 0
@@ -4359,7 +4356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1866189749919530, guid: 9ffc02b1613f54c24b8dbcd6e901948e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ffc02b1613f54c24b8dbcd6e901948e, type: 2}
@@ -5021,7 +5018,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4315933041677754, guid: a828a8e77662b4ea3838d855972a9219,
     type: 2}
   m_PrefabInternal: {fileID: 1836238562}
-<<<<<<< HEAD
 --- !u!1 &1840440407
 GameObject:
   m_ObjectHideFlags: 0
@@ -5086,8 +5082,6 @@ SpriteRenderer:
   m_Color: {r: 0.19117647, g: 0.15743946, b: 0.15743946, a: 1}
   m_FlipX: 1
   m_FlipY: 1
-=======
->>>>>>> d81a9c7a06da351720ac1acc4fe129a634d1ab68
 --- !u!1001 &1849654173
 Prefab:
   m_ObjectHideFlags: 0
@@ -6292,21 +6286,6 @@ Prefab:
     - target: {fileID: 1033033765392546, guid: 7448f39e6204b4316bb29b7bf340ee7c, type: 2}
       propertyPath: m_Name
       value: Door (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114720279575849958, guid: 7448f39e6204b4316bb29b7bf340ee7c,
-        type: 2}
-      propertyPath: id
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114720279575849958, guid: 7448f39e6204b4316bb29b7bf340ee7c,
-        type: 2}
-      propertyPath: state
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114720279575849958, guid: 7448f39e6204b4316bb29b7bf340ee7c,
-        type: 2}
-      propertyPath: necessaryCard
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7448f39e6204b4316bb29b7bf340ee7c, type: 2}
