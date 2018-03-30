@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 199767087845170688}
   - component: {fileID: 58687816107230156}
   - component: {fileID: 50931570839819262}
+  - component: {fileID: 114139861001297574}
   m_Layer: 0
   m_Name: Zevatron
   m_TagString: Particle
@@ -85,7 +86,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-
 --- !u!4 &4009031172162258
 Transform:
   m_ObjectHideFlags: 1
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817123890761592}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: -3.111194, y: 2.101194, z: 0}
+  m_LocalPosition: {x: -0.7717123, y: 0.61797976, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 4268648324246008}
@@ -174,7 +174,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.24558102
 --- !u!96 &96074281568721306
 TrailRenderer:
   serializedVersion: 2
@@ -285,6 +285,18 @@ TrailRenderer:
     textureMode: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
+--- !u!114 &114139861001297574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817123890761592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bddd0cc2a4e6fc14b9bb601813da40a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 1853662955672286, guid: 0e6e94d7b7c8c8c47897c82791194d90, type: 2}
 --- !u!114 &114145511050795994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -375,7 +387,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2058462007
+  randomSeed: 1794077561
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2976,7 +2988,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 952680720
+  randomSeed: -2141511304
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3348,7 +3360,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
-      minMaxState: 3 
+      minMaxState: 3
     randomizeRotationDirection: 0
     maxNumParticles: 1000
     size3D: 0
@@ -5577,7 +5589,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1862811329
+  randomSeed: 267200241
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8154,7 +8166,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1507439858
+  randomSeed: 390172610
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -8169,34 +8181,22 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        - serializedVersion: 2
-          time: 1
-          value: 0
+          value: 0.85714287
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
-      minMaxState: 0
+        m_RotationOrder: 0
+      minMaxState: 3
     startSpeed:
       scalar: 0
       maxCurve:
