@@ -20,6 +20,7 @@ public class Sound{
 	private AudioSource source;
 	public void SetSource(AudioSource _source){
 		source = _source;
+		source.volume = volume;
 		source.clip = clip;
 		source.loop = loop;
 	}
@@ -31,7 +32,9 @@ public class Sound{
 	public void Stop(){
 		source.Stop ();
 	}
-
+	public AudioSource GetSource(){
+		return source;
+	}
 }
 
 public class AudioManager : MonoBehaviour {
@@ -49,10 +52,6 @@ public class AudioManager : MonoBehaviour {
 			instance = this;
 			DontDestroyOnLoad (this);
 		}
-
-	}
-
-	void Start(){
 		for (int i = 0; i < sounds.Length; i++) {
 			GameObject _go = new GameObject ("Sound_"+i+"_"+sounds[i].name);
 			_go.transform.SetParent (this.transform);
@@ -60,6 +59,7 @@ public class AudioManager : MonoBehaviour {
 		}
 	}
 	public void PlaySound(string _name){
+		
 		for (int i = 0; i < sounds.Length; i++) {
 			if (sounds [i].name == _name) {
 				sounds [i].Play ();

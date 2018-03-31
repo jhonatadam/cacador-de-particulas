@@ -54,35 +54,35 @@ MonoBehaviour:
   sounds:
   - name: Logo
     clip: {fileID: 8300000, guid: a6640ef32ff14114f9d1c8151c8947db, type: 3}
-    volume: 0.721
+    volume: 0.7
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 0
-  - name: Majestic Aurora
-    clip: {fileID: 8300000, guid: cb12f3e25e65e0a4d9e55054a5eb449f, type: 3}
-    volume: 0.6
-    pitch: 1
-    randomVolume: 0
-    randomPitch: 0
-    loop: 1
   - name: Titulo
     clip: {fileID: 8300000, guid: 88487e9abc542ef4392ea44f1f1d2e5d, type: 3}
-    volume: 0.6
+    volume: 0.7
     pitch: 1
     randomVolume: 0
     randomPitch: 0
     loop: 1
-  - name: Zevatron Falling
-    clip: {fileID: 8300000, guid: 22056a86e17de7b4b80358a97fc215fb, type: 3}
-    volume: 1
+  - name: Masjetic Aurora
+    clip: {fileID: 8300000, guid: cb12f3e25e65e0a4d9e55054a5eb449f, type: 3}
+    volume: 0.7
     pitch: 1
     randomVolume: 0
-    randomPitch: 0.2
+    randomPitch: 0
+    loop: 1
+  - name: Zavatron Falling
+    clip: {fileID: 8300000, guid: 22056a86e17de7b4b80358a97fc215fb, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
     loop: 0
-  - name: Zevatron Explosion
+  - name: Zavatron Explosion
     clip: {fileID: 8300000, guid: eb47d13410c2b404a814bd304e47adfe, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1

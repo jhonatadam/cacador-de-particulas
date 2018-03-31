@@ -8,7 +8,6 @@ public class DoorPanel : MonoBehaviour {
 
 	public SpriteRenderer ledSr;
 	public SpriteRenderer lightSr;
-	private SpriteRenderer sr;
 	private SpriteRenderer ledPorta;
 	private SpriteRenderer LightPorta;
 
@@ -28,7 +27,6 @@ public class DoorPanel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		sr = GetComponent<SpriteRenderer> ();
 		audioSource = GetComponent <AudioSource> ();
 		ledPorta = GameObject.Find ("LedPorta").GetComponent<SpriteRenderer> ();
 		LightPorta = GameObject.Find ("LightPorta").GetComponent<SpriteRenderer> ();
@@ -70,9 +68,9 @@ public class DoorPanel : MonoBehaviour {
 	private Color LightColor () {
 		Color color = new Color ();
 
-		color.r = Mathf.Max(ledSr.color.r, sr.color.r);
-		color.g = Mathf.Max(ledSr.color.g, sr.color.g);
-		color.b = Mathf.Max(ledSr.color.b, sr.color.b);
+		color.r = ledSr.color.r;
+		color.g = ledSr.color.g;
+		color.b = ledSr.color.b;
 		color.a = 0.20f;
 
 		return color;
