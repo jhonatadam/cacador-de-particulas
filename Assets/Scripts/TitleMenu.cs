@@ -10,9 +10,11 @@ public class TitleMenu : MonoBehaviour {
 
 	public Button continuar;
 	public GameObject loadingImg;
-
+	private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
+		audioManager = AudioManager.instance;
+		audioManager.PlaySound ("Titulo");
 		continuar.interactable = false;
 	}
 	
@@ -34,11 +36,8 @@ public class TitleMenu : MonoBehaviour {
 			DontDestroyOnLoad (player);
 		}
 
-		// mantendo instancia de soundtrack na cena carregada
-		GameObject soundtrack = GameObject.Find ("Soundtrack");
-		soundtrack.GetComponent<SoundtrackController> ().FadeOut ();
-		DontDestroyOnLoad(soundtrack);
-		DestroyObject (soundtrack, 1.5f);
+		audioManager.StopSound ("Titulo");
+
 
 		GameObject tempData = GameObject.Find ("TempData");
 		DontDestroyOnLoad (tempData);

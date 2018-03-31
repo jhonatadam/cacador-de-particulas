@@ -5,8 +5,12 @@ using UnityEngine;
 public class Zevatron : MonoBehaviour {
 	public GameObject explosion;
 	private ParticleSystem[] ps;
+
+	private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
+		audioManager = AudioManager.instance;
+		audioManager.PlaySound ("Zevatron Falling");
 		ps = GetComponentsInChildren<ParticleSystem> ();
 	}
 	
@@ -23,6 +27,7 @@ public class Zevatron : MonoBehaviour {
 		}
 	}
 	void AutoDestroy(){
+		audioManager.PlaySound ("Zevatron Explosion");
 		ps [0].Stop ();
 		ps [1].Stop ();
 		ps [2].Stop ();
