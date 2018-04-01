@@ -11,6 +11,7 @@ public class TitleMenu : MonoBehaviour {
 	public Button continuar;
 	public GameObject loadingImg;
 	private AudioManager audioManager;
+	public Slider slider;
 	// Use this for initialization
 	void Start () {
 		audioManager = AudioManager.instance;
@@ -22,6 +23,8 @@ public class TitleMenu : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 
 	public void NovoJogo() {
 		loadingImg.SetActive (true);
@@ -42,7 +45,18 @@ public class TitleMenu : MonoBehaviour {
 		GameObject tempData = GameObject.Find ("TempData");
 		DontDestroyOnLoad (tempData);
 
-		SceneManager.LoadScene (firstSceneName);
+		StartCoroutine(LoadAsynchronously (firstSceneName));
+
+	}
+
+	IEnumerator LoadAsynchronously(string sceneName){
+		
+		AsyncOperation operation = SceneManager.LoadSceneAsync (sceneName);
+		while (!operation.isDone) {
+			float progress = Mathf.Clamp01 (operation.progress / 0.9f);
+			slider.value = progress;
+			yield return null;
+		}
 	}
 
 	public void Sair() {
