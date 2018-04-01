@@ -35,7 +35,6 @@ public class CameraController : MonoBehaviour {
 
 
 	void Start () {
-		player = GameObject.Find ("Player").GetComponent<Player> ();
 		// salvando limites da camera
 		//CameraLimits cl = new CameraLimits ();
 		//cl.floorsLimits = floorsLimits;
@@ -54,6 +53,9 @@ public class CameraController : MonoBehaviour {
 
 
 	void Update() {
+		if (player == null) {
+			player = GameObject.Find ("Player").GetComponent<Player> ();
+		}
 		
 		//Only worry about updating the camera based on player position if the player has actually moved.
 		//If the tracking isn't active at all, we don't bother with any of this crap.

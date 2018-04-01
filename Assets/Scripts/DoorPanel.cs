@@ -30,12 +30,13 @@ public class DoorPanel : MonoBehaviour {
 		audioSource = GetComponent <AudioSource> ();
 		ledPorta = GameObject.Find ("LedPorta").GetComponent<SpriteRenderer> ();
 		LightPorta = GameObject.Find ("LightPorta").GetComponent<SpriteRenderer> ();
-		player = GameObject.Find ("Player").GetComponent<Player> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (player == null) {
+			player = GameObject.Find ("Player").GetComponent<Player> ();
+		}
 		if (door.state == DoorState.Locked) {
 			ledSr.color = new Color (1, 0, 0, 1);
 			panelColor = new Color (1, 1, 1, 1);

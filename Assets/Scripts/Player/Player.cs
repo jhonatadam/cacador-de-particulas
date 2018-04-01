@@ -70,6 +70,8 @@ public class Player : MonoBehaviour {
 	private AudioSource fire2;
 	private AudioSource fire3;
 
+	private float stun = 0;
+
 	public RuntimeAnimatorController jet;
 	public RuntimeAnimatorController jetgun1;
 	public RuntimeAnimatorController jetgun2;
@@ -79,7 +81,9 @@ public class Player : MonoBehaviour {
 	public RuntimeAnimatorController gun3;
 	public RuntimeAnimatorController naked;
 
+	private InputManager inputManager;
 	void Start () {
+		inputManager = GameObject.Find ("InputManager").GetComponent<InputManager> ();
 		animator = GetComponent <Animator> ();
 
 		rb2d = GetComponent<Rigidbody2D> ();
@@ -97,6 +101,12 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update () {
+		if (stun > 0) {
+			stun -= Time.deltaTime;
+			inputManager.StopListening ();
+		} else {
+			inputManager.StartListening ();
+		}
 		if (knockbacking) {
 			if (KBElapsedTime < KBPushTime) { //está em propulsão para trás kkk
 				rb2d.velocity = new Vector2 (rb2d.velocity.x, 0.0f);
@@ -170,7 +180,6 @@ public class Player : MonoBehaviour {
 		if (updateOn) {
 			// atualizando velocidade
 			rb2d.velocity = new Vector2 (horizontalMovement * speed, rb2d.velocity.y);
-
 			// atualizando animator
 			UpdateSpriteDirection (horizontalMovement);
 		}	
@@ -411,6 +420,8 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D coll){
 		if (coll.gameObject.tag == "DeathZone") {
 			print ("Death");
+			stun = 0.5f;
+			inputManager.StopListening ();
 			rb2d.velocity = new Vector2 (0, 0);
 			FakeDeath (coll.gameObject.GetComponent<DeathZone> ().returnPoint);
 		}
