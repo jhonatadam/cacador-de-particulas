@@ -53,8 +53,6 @@ public class SceneDataManager : MonoBehaviour {
 	private TempData tempData;
 
 	public GameObject camera;
-
-	public AudioSource music;
 	
 	public Elevator[] elevators;
 
@@ -70,16 +68,15 @@ public class SceneDataManager : MonoBehaviour {
 	// Dados da cena
 	private SceneData sceneData = new SceneData();
 
-	// Dados da trilha sonora
-	private Soundtrack soundtrack = new Soundtrack ();
-
 	private string playerName = "Player.json";
+	public bool searchForMap = true;
 
 	void Start () {
 		player = GameObject.Find ("Player");
 		tempData = GameObject.Find ("TempData").GetComponent<TempData> ();
-		mapManager = GameObject.Find ("Map").GetComponent<MapManager>();
-
+		if (searchForMap) {
+			mapManager = GameObject.Find ("Map").GetComponent<MapManager> ();
+		}
 		// definindo nome do arquivo da cena
 		sceneName = sceneName + ".json";
 
@@ -118,10 +115,11 @@ public class SceneDataManager : MonoBehaviour {
 				new Vector3 (e.transform.position.x, e.floorsPosition[i], e.transform.position.z);
 		}
 
-		//Informando as áreas descobertas do mapa
-		mapManager.discoveredMapBlockers = tempData.discoveredMapBlockers;
-		mapManager.updateMap ();
-
+		if (searchForMap) {
+			//Informando as áreas descobertas do mapa
+			mapManager.discoveredMapBlockers = tempData.discoveredMapBlockers;
+			mapManager.updateMap ();
+		}
 		//diálogos
 		foreach (Dialogue dialogue in dialogues) {
 			dialogue.over = tempData.dialoguesOver [dialogue.id];
@@ -187,17 +185,14 @@ public class SceneDataManager : MonoBehaviour {
 			tempData.doorState [door.id] = door.state; 
 		}
 
-		//Áreas do mapa
-		tempData.discoveredMapBlockers = mapManager.discoveredMapBlockers;
-
+		if (searchForMap) {
+			//Áreas do mapa
+			tempData.discoveredMapBlockers = mapManager.discoveredMapBlockers;
+		}
 		//diálogos
 		foreach (Dialogue dialogue in dialogues) {
 			tempData.dialoguesOver [dialogue.id] = dialogue.over; 
 		}
-	}
-
-	public void UpdateSoundtrack () {
-		//soundtrack.currentTime = music.time;
 	}
 
 }

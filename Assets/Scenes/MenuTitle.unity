@@ -3685,7 +3685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbcd3670813bd48ef86077e38c00573c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSceneName: Level1.1
+  firstSceneName: FaseTutorial
   continuar: {fileID: 1204409120}
   loadingImg: {fileID: 985294773}
   slider: {fileID: 1426582225}

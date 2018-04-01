@@ -35,7 +35,8 @@ public class TitleMenu : MonoBehaviour {
 		if (player != null) {
 			player = Instantiate (player);
 			player.name = "Player";
-			player.transform.position = new Vector3 (-16.5f, -13f, player.transform.position.z);
+			player.transform.position = new Vector3 (-54.6f, -13.5f, 0);
+			player.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
 			DontDestroyOnLoad (player);
 		}
 
