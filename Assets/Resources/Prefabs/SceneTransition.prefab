@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1249810592231886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5, y: -11, z: 0}
+  m_LocalPosition: {x: 23.58199, y: -3.0045967, z: 0}
   m_LocalScale: {x: 0.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4400802892395030}
@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cc: {fileID: 114416022532930244}
-  nextSceneName: Scenes/Level1.3
+  nextSceneName: Scenes/Level1.1
+  sdm: {fileID: 0}
 --- !u!114 &114416022532930244
 MonoBehaviour:
   m_ObjectHideFlags: 1

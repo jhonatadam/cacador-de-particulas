@@ -1,4 +1,4 @@
-Alvinn:
+﻿Alvinn:
 ARI, as particulas estão ficando cada vez mais constantes...
 Alvinn: 
 ARI? Ah, de novo não..
@@ -17,4 +17,4 @@ Esse é o único caminho que existe?
 ARI: 
 Infelizmente sim. Você deve ter cuidado, algo está matando o que sobe por ali.
 Alvinn: 
-Muito motivador…
+Muito motivador...

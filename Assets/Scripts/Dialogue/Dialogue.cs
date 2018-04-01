@@ -40,7 +40,7 @@ public class Dialogue : MonoBehaviour {
 
 	//id do diálogo. Envolve todos os diálogos do jogo
 	public int id;
-
+	public float delay = 0.08f;
 	//Flag que indica se o dialogo acabou
 
 	public bool over = false;
@@ -67,6 +67,12 @@ public class Dialogue : MonoBehaviour {
 					return;
 				}
 			}
+			if (Input.GetAxis("Vertical") < 0) {
+				delay = 0;
+			} else {
+				delay = 0.08f;
+			}
+
 //			if (over && Input.GetButtonDown ("Jump")) {
 //				DeActivate ();
 //			}
@@ -97,7 +103,7 @@ public class Dialogue : MonoBehaviour {
 					audioSource.Play ();
 				}
 				CampoDeTexto.text += c;
-				yield return new WaitForSeconds (0.080f); 
+				yield return new WaitForSeconds (delay); 
 			}
 			canContinue = true;
 		}
