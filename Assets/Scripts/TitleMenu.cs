@@ -29,19 +29,7 @@ public class TitleMenu : MonoBehaviour {
 	public void NovoJogo() {
 		loadingImg.SetActive (true);
 
-		// carregando player
-		GameObject player = Resources.Load<GameObject>("Prefabs/Player");
-
-		if (player != null) {
-			player = Instantiate (player);
-			player.name = "Player";
-			player.transform.position = new Vector3 (-54.6f, -13.5f, 0);
-			player.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
-			DontDestroyOnLoad (player);
-		}
-
 		audioManager.StopSound ("Titulo");
-
 
 		GameObject tempData = GameObject.Find ("TempData");
 		DontDestroyOnLoad (tempData);
@@ -58,6 +46,7 @@ public class TitleMenu : MonoBehaviour {
 			slider.value = progress;
 			yield return null;
 		}
+
 	}
 
 	public void Sair() {
