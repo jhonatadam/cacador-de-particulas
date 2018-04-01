@@ -180,6 +180,7 @@ public class Player : MonoBehaviour {
 		if (updateOn) {
 			// atualizando velocidade
 			rb2d.velocity = new Vector2 (horizontalMovement * speed, rb2d.velocity.y);
+
 			// atualizando animator
 			UpdateSpriteDirection (horizontalMovement);
 		}	
@@ -370,6 +371,7 @@ public class Player : MonoBehaviour {
 		} else if(playerEnergy.energy >= magneticField.GetComponent<MagneticField>().energyUse*Time.deltaTime) {
 			magneticField.SetActive (true);
 		}
+		System.GC.Collect ();
 	}
 
 	public bool hasCard(CardEnum card) {
@@ -430,6 +432,8 @@ public class Player : MonoBehaviour {
 		transform.position = new Vector3 (returnPoint.x, returnPoint.y, transform.position.z);
 		GameObject mc = GameObject.Find ("MainCamera");
 		mc.GetComponent<CameraController> ().SetPosition (new Vector3(transform.position.x, mc.transform.position.y, mc.transform.position.z));
+		mc = null;
+		System.GC.Collect ();
 	}
 
 }
