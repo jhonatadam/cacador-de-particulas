@@ -428,6 +428,8 @@ public class Player : MonoBehaviour {
 	}
 	public void FakeDeath(Vector2 returnPoint){
 		transform.position = new Vector3 (returnPoint.x, returnPoint.y, transform.position.z);
+		GameObject mc = GameObject.Find ("MainCamera");
+		mc.GetComponent<CameraController> ().SetPosition (new Vector3(transform.position.x, mc.transform.position.y, mc.transform.position.z));
 	}
 
 }
