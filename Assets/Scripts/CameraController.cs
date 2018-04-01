@@ -149,6 +149,9 @@ public class CameraController : MonoBehaviour {
 
 		return 1;
 	}
+	public void SetPosition(Vector3 position){
+		transform.position = new Vector3 (position.x, position.y, transform.position.z);
+	}
 
 	static float DifferenceOutOfBounds ( float differenceAxis, float windowAxis ) {
 		float difference;
