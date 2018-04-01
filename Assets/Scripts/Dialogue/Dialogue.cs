@@ -111,11 +111,10 @@ public class Dialogue : MonoBehaviour {
 	}
 
 	private void ShowDialogue() {
-		if (dialogo == null)
+		if (System.Object.ReferenceEquals(dialogo, null))
 			return;
 		if (textoAtual >= dialogo.Length) {
 			over = true;
-			print ("CABOU");
 		} else if(continua) {
 			StartCoroutine(ShowMessage(dialogo [textoAtual]));
 			//StartCoroutine(ShowMessage(dialogo [textoAtual]));
@@ -150,7 +149,7 @@ public class Dialogue : MonoBehaviour {
 		Queue words_queue = new Queue ();
 
 		for (int i = 0; i < dialogues.Length; i++) {
-			print ("Lendo texto: " +i);
+			//print ("Lendo texto: " +i);
 			//i -> autor
 			autor_temp = dialogues [i++];
 			//i -> fala do autor

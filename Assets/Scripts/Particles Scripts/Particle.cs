@@ -121,7 +121,7 @@ public class Particle : MonoBehaviour {
 			size--;
 
 		}
-			
+		System.GC.Collect ();
 		destroyParticle ();
 	}
 
@@ -148,13 +148,15 @@ public class Particle : MonoBehaviour {
 				other.GetComponent<PlayerEnergy> ().ChargeEnergy (energy);
 				canDamage = false;
 				ripple = Instantiate (particleRippleD, transform);
+				Destroy (ripple, ripple.GetComponent<ParticleSystem> ().main.startLifetime.constantMax);
 			} else {
 				ripple = Instantiate (particleRipple, transform);
+				Destroy (ripple, ripple.GetComponent<ParticleSystem> ().main.startLifetime.constantMax);
 			}
 
 			destroyParticle ();
 		}
-
+		ripple = null;
 		if (other.gameObject.tag == "Elevator") {
 			destroyParticle ();
 		}

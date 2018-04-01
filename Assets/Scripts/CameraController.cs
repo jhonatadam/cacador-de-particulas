@@ -10,6 +10,7 @@ public class CameraLimits {
 public class CameraController : MonoBehaviour {
 
 	public Player player;
+	private bool hasFoundPlayer = false;
 	public Vector3 previousPosition;
 
 	// x se estiver se aproximando da camera (camera espera o player)
@@ -33,6 +34,8 @@ public class CameraController : MonoBehaviour {
 	private Vector3 cameraPosition;
 	private Rect windowRect;
 
+	private float collect = 0;
+	private float collectDelay = 30;
 
 	void Start () {
 		// salvando limites da camera
@@ -53,8 +56,14 @@ public class CameraController : MonoBehaviour {
 
 
 	void Update() {
-		if (player == null) {
+		collect += Time.deltaTime;
+		if (collect >= collectDelay) {
+			System.GC.Collect ();
+			collect = 0;
+		}
+		if (!hasFoundPlayer) {
 			player = GameObject.Find ("Player").GetComponent<Player> ();
+			hasFoundPlayer = true;
 		}
 		
 		//Only worry about updating the camera based on player position if the player has actually moved.

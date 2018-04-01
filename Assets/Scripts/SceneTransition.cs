@@ -18,7 +18,6 @@ public class SceneTransition : MonoBehaviour {
 		if (cc.getIsInContact ()) {
 			sdm.UpdatePlayerData ();
 			sdm.UpdateSceneData ();
-
 			SceneManager.LoadScene (nextSceneName);
 		}
 	}
