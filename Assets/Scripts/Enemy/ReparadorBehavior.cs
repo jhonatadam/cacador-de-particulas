@@ -25,7 +25,13 @@ public class ReparadorBehavior : EnemyBehavior {
 	private GameObject reparando;
 	private bool lookingForAtrator = true;
 	private SpriteRenderer sr;
-
+	void OnDestroy(){
+		weapon = null;
+		PointsController = null;
+		animator = null;
+		reparando = null;
+		sr = null;
+	}
 	void Start () {
 		base.Start ();
 		weapon = GetComponent <ReparadorMeleeWeapon> ();

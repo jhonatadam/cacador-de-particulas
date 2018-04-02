@@ -53,4 +53,10 @@ public class EnemyBullet : MonoBehaviour {
 			Destroy (this.gameObject, 1.0f);
 		}
 	}
+	void OnDestroy(){
+		sr = null;
+		ring = null;
+		ps = null;
+		cl = null;
+	}
 }
