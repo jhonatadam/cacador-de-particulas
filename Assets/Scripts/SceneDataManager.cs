@@ -156,6 +156,8 @@ public class SceneDataManager : MonoBehaviour {
 			doors [i] = null;
 		}
 		doors = null;
+		mapManager = null;
+		sceneData = null;
 	}
 
 	public void Save () {

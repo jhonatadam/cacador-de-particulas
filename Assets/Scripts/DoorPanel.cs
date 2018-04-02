@@ -25,7 +25,20 @@ public class DoorPanel : MonoBehaviour {
 
 	private Player player;
 	private bool hasFoundPlayer = false;
-
+	void OnDestroy(){
+		contactCheck = null;
+		ledSr = null;
+		lightSr = null;
+		ledPorta = null;
+		LightPorta = null;
+		door = null;
+		lockedSound = null;
+		unlockedSound = null;
+		doorOpening = null;
+		audioSource = null;
+		player = null;
+		System.GC.Collect ();
+	}
 	// Use this for initialization
 	void Start () {
 		audioSource = GetComponent <AudioSource> ();

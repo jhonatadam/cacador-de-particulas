@@ -60,6 +60,7 @@ public class ParticleGenerator : MonoBehaviour {
 
 			if (particle != null) {
 				GameObject part = Instantiate (particle, generatePoint.position, Quaternion.Euler (0, 0, Random.Range (minAngle, maxAngle) + generatePoint.eulerAngles.z));
+				part = null;
 			}
 			//part.GetComponent<Particle> ().step = particleStep;
 			//part.transform.localScale = new Vector3 (particleScale, particleScale, particleScale);

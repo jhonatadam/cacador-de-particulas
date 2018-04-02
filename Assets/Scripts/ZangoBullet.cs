@@ -16,5 +16,7 @@ public class ZangoBullet : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll){
 		GameObject exp = Instantiate (explosion);
 		exp.transform.position = transform.position;
+		explosion = null;
+		exp = null;
 	}
 }

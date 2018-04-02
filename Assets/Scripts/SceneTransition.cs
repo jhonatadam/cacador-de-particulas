@@ -21,4 +21,9 @@ public class SceneTransition : MonoBehaviour {
 			SceneManager.LoadScene (nextSceneName);
 		}
 	}
+	void OnDestroy(){
+		cc = null;
+		nextSceneName = null;
+		sdm = null;
+	}
 }
