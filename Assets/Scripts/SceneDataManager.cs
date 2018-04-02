@@ -139,6 +139,7 @@ public class SceneDataManager : MonoBehaviour {
 	}
 	void OnApplicationQuit () {
 		PlayerPrefs.DeleteAll ();
+		Resources.UnloadUnusedAssets ();
 	}
 
 	void OnDestroy () {
@@ -155,7 +156,6 @@ public class SceneDataManager : MonoBehaviour {
 			doors [i] = null;
 		}
 		doors = null;
-
 	}
 
 	public void Save () {

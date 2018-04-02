@@ -52,15 +52,14 @@ public class Particle : MonoBehaviour {
 
 	void Start () {
 		initialPosition = transform.position;
-		TrailRenderer tr = GetComponent<TrailRenderer> ();
-		tr.sortingLayerName = TrSortingLayer;
+		tail = GetComponent<TrailRenderer> ();
+		tail.sortingLayerName = TrSortingLayer;
 
 		trans = transform;
 		pos = trans.position;
 		rot = trans.rotation.eulerAngles;
 
 		sr = GetComponent<SpriteRenderer> ();
-		tail = GetComponent<TrailRenderer> ();
 
 		if (GetComponent<ParticleSystem> () != null) {
 			ps = GetComponent<ParticleSystem> ();
@@ -161,5 +160,17 @@ public class Particle : MonoBehaviour {
 			destroyParticle ();
 		}
 	}
-
+	void OnDestroy(){
+		tail = null;
+		for (int i = 0; i < daughters.Length; i++) {
+			daughters [i] = null;
+		}
+		daughters = null;
+		ps = null;
+		sr = null;
+		particleRipple = null;
+		particleRippleD = null;
+		trans = null;
+		rb = null;
+	}
 }
