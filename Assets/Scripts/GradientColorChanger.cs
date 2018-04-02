@@ -24,4 +24,8 @@ public class GradientColorChanger : MonoBehaviour {
 			sr.color = color.Evaluate (p);
 		}
 	}
+	void OnDestroy(){
+		color = null;
+		sr = null;
+	}
 }

@@ -35,7 +35,7 @@ public class TitleMenu : MonoBehaviour {
 		DontDestroyOnLoad (tempData);
 
 		StartCoroutine(LoadAsynchronously (firstSceneName));
-
+		tempData = null;
 	}
 
 	IEnumerator LoadAsynchronously(string sceneName){
@@ -55,6 +55,13 @@ public class TitleMenu : MonoBehaviour {
 		#else
 		Application.Quit();
 		#endif
+	}
+	void OnDestroy(){
+		firstSceneName = null;
+		continuar = null;
+		loadingImg = null;
+		audioManager = null;
+		slider = null;
 	}
 
 }
