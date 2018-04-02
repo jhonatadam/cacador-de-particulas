@@ -10,6 +10,7 @@ public class Instanciador : MonoBehaviour {
 	public int maxRespawn;
 	private int count = 0;
 	private SpriteRenderer sr;
+	private bool active = false;
 	// Use this for initialization
 	void Start () {
 
@@ -21,17 +22,24 @@ public class Instanciador : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		interval -= Time.deltaTime;
-		if (interval <= 0) {
-			if (!limitRespawn || count < maxRespawn) {
-				GameObject inm = Instantiate (inimigo);
-				inm.transform.position = transform.position;
-				interval = delay;
-				count++;
+		if (active) {
+			interval -= Time.deltaTime;
+			if (interval <= 0) {
+				if (!limitRespawn || count < maxRespawn) {
+					GameObject inm = Instantiate (inimigo);
+					inm.transform.position = transform.position;
+					interval = delay;
+					count++;
+				}
+			}
+		} else {
+			if (GameObject.Find ("Player") != null && GameObject.Find ("Player").GetComponent<Player> ().hasPistol) {
+				active = true;
 			}
 		}
 	}
 	void OnDestroy(){
 		inimigo = null;
+		sr = null;
 	}
 }
