@@ -52,15 +52,14 @@ public class Particle : MonoBehaviour {
 
 	void Start () {
 		initialPosition = transform.position;
-		TrailRenderer tr = GetComponent<TrailRenderer> ();
-		tr.sortingLayerName = TrSortingLayer;
+		tail = GetComponent<TrailRenderer> ();
+		tail.sortingLayerName = TrSortingLayer;
 
 		trans = transform;
 		pos = trans.position;
 		rot = trans.rotation.eulerAngles;
 
 		sr = GetComponent<SpriteRenderer> ();
-		tail = GetComponent<TrailRenderer> ();
 
 		if (GetComponent<ParticleSystem> () != null) {
 			ps = GetComponent<ParticleSystem> ();
@@ -121,7 +120,7 @@ public class Particle : MonoBehaviour {
 			size--;
 
 		}
-			
+		System.GC.Collect ();
 		destroyParticle ();
 	}
 
@@ -148,16 +147,30 @@ public class Particle : MonoBehaviour {
 				other.GetComponent<PlayerEnergy> ().ChargeEnergy (energy);
 				canDamage = false;
 				ripple = Instantiate (particleRippleD, transform);
+				Destroy (ripple, ripple.GetComponent<ParticleSystem> ().main.startLifetime.constantMax);
 			} else {
 				ripple = Instantiate (particleRipple, transform);
+				Destroy (ripple, ripple.GetComponent<ParticleSystem> ().main.startLifetime.constantMax);
 			}
 
 			destroyParticle ();
 		}
-
+		ripple = null;
 		if (other.gameObject.tag == "Elevator") {
 			destroyParticle ();
 		}
 	}
-
+	void OnDestroy(){
+		tail = null;
+		for (int i = 0; i < daughters.Length; i++) {
+			daughters [i] = null;
+		}
+		daughters = null;
+		ps = null;
+		sr = null;
+		particleRipple = null;
+		particleRippleD = null;
+		trans = null;
+		rb = null;
+	}
 }

@@ -24,6 +24,7 @@ public class DoorPanel : MonoBehaviour {
 	private AudioSource audioSource;
 
 	private Player player;
+	private bool hasFoundPlayer = false;
 
 	// Use this for initialization
 	void Start () {
@@ -34,8 +35,9 @@ public class DoorPanel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (player == null) {
+		if (!hasFoundPlayer) {
 			player = GameObject.Find ("Player").GetComponent<Player> ();
+			hasFoundPlayer = true;
 		}
 		if (door.state == DoorState.Locked) {
 			ledSr.color = new Color (1, 0, 0, 1);

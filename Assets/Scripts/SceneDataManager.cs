@@ -62,6 +62,8 @@ public class SceneDataManager : MonoBehaviour {
 
 	public MapManager mapManager;
 
+	private bool hasFoundPlayer = false;
+
 	//Dados do player
 	private PlayerData playerData = new PlayerData();
 
@@ -72,7 +74,6 @@ public class SceneDataManager : MonoBehaviour {
 	public bool searchForMap = true;
 
 	void Start () {
-		player = GameObject.Find ("Player");
 		tempData = GameObject.Find ("TempData").GetComponent<TempData> ();
 		if (searchForMap) {
 			mapManager = GameObject.Find ("Map").GetComponent<MapManager> ();
@@ -121,6 +122,7 @@ public class SceneDataManager : MonoBehaviour {
 			mapManager.updateMap ();
 		}
 		//diálogos
+		print(dialogues.Length);
 		foreach (Dialogue dialogue in dialogues) {
 			dialogue.over = tempData.dialoguesOver [dialogue.id];
 		}
@@ -129,9 +131,15 @@ public class SceneDataManager : MonoBehaviour {
 		//======================================================================\\
 			
 	}
-
+	void Update(){
+		if (!hasFoundPlayer) {
+			player = GameObject.Find ("Player");
+			hasFoundPlayer = true;
+		}
+	}
 	void OnApplicationQuit () {
 		PlayerPrefs.DeleteAll ();
+		Resources.UnloadUnusedAssets ();
 	}
 
 	void OnDestroy () {
@@ -139,6 +147,15 @@ public class SceneDataManager : MonoBehaviour {
 		// e das porta)
 		//string sceneJson = JsonUtility.ToJson (sceneData);
 		//PlayerPrefs.SetString (sceneName, sceneJson);
+		player = null;
+		for (int i = 0; i < dialogues.Length; i++) {
+			dialogues [i] = null;
+		}
+		dialogues = null;
+		for (int i = 0; i < doors.Length; i++) {
+			doors [i] = null;
+		}
+		doors = null;
 	}
 
 	public void Save () {
