@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
 
 	private bool flipX = false;
 
-	private Animator animator;
+	public Animator animator;
 	private Rigidbody2D rb2d;
 
 	private PlayerEnergy playerEnergy;

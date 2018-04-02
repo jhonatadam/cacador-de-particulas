@@ -100,7 +100,6 @@ public class PlayerEnergy : MonoBehaviour {
 				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Verde;
-			pc.setAnimation ("Fire1");
 
 		} else if (temp <= 0.8f) {
 			if (level != EnergyLevel.Amarelo) {
@@ -110,7 +109,6 @@ public class PlayerEnergy : MonoBehaviour {
 				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Amarelo;
-			pc.setAnimation ("Fire2");
 
 		} else {
 			if (level != EnergyLevel.Vermelho) {
@@ -120,7 +118,6 @@ public class PlayerEnergy : MonoBehaviour {
 				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Vermelho;
-			pc.setAnimation ("Fire3");
 		}
 	}
 }

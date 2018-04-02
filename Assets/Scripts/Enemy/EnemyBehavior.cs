@@ -80,7 +80,6 @@ public abstract class EnemyBehavior : MonoBehaviour {
 	}
 	//funcao para virar para o outro lado
 	public void TurnAround(){
-		print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
 		if (isFacingRight) {
 			isFacingRight = false;
 			transform.rotation = new Quaternion (0, 180, 0, 0);
