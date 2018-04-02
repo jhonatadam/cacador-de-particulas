@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 70304155323701752}
   - component: {fileID: 82546303560127612}
   - component: {fileID: 82729818759576000}
+  - component: {fileID: 70776468507733348}
   m_Layer: 0
   m_Name: Patrulheiro
   m_TagString: Enemy
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267100265499930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.088, y: -1.059, z: 0}
+  m_LocalPosition: {x: 2.677253, y: -1.0349194, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4250684909828466}
@@ -110,6 +111,20 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0.01, y: -0.052342534}
   m_Size: {x: 0.35046044, y: 0.59883463}
+  m_Direction: 0
+--- !u!70 &70776468507733348
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1267100265499930}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 0190d590ccdb74d4b9e95c185a8740ee, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.007901669, y: -0.052342534}
+  m_Size: {x: 0.41340923, y: 0.59883463}
   m_Direction: 0
 --- !u!82 &82546303560127612
 AudioSource:

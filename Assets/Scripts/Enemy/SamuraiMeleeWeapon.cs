@@ -50,7 +50,7 @@ public class SamuraiMeleeWeapon : MonoBehaviour {
 		if (isLoaded) {
 			if (Vector3.Distance(behavior.player.transform.position, transform.position) < range) {
 				// bater
-
+				behavior.rb2d.velocity = new Vector2(0, behavior.rb2d.velocity.y);
 				if (strongAttack > 0.5f) {
 					animator.SetTrigger ("StrongAttack");
 				} else {
@@ -81,5 +81,10 @@ public class SamuraiMeleeWeapon : MonoBehaviour {
 		} else {
 			isLoaded = true;
 		}
+	}
+	void OnDestroy(){
+		behavior = null;
+		animator = null;
+		attack = null;
 	}
 }

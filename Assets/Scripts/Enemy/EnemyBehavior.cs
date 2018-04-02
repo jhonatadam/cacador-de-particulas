@@ -77,7 +77,23 @@ public abstract class EnemyBehavior : MonoBehaviour {
 			print ("EnemyBehaviour: Camera não encontrada!");
 			return false;
 		}
+	}
+	//funcao para virar para o outro lado
+	public void TurnAround(){
+		print ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa");
+		if (isFacingRight) {
+			isFacingRight = false;
+			transform.rotation = new Quaternion (0, 180, 0, 0);
+		} else {
+			isFacingRight = true;
+			transform.rotation = new Quaternion (0, 0, 0, 0);
+		}
+	}
 
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag == "IALimite" || other.tag == "Enemy") {
+			TurnAround ();
+		}
 	}
 
 	public abstract void Patrol ();

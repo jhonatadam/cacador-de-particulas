@@ -15,6 +15,7 @@ TagManager:
   - Scenic
   - DeathZone
   - ReparerPoint
+  - IALimite
   layers:
   - Default
   - TransparentFX

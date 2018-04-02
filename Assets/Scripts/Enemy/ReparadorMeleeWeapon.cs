@@ -83,4 +83,9 @@ public class ReparadorMeleeWeapon : MonoBehaviour {
 			isLoaded = true;
 		}
 	}
+	void OnDestroy(){
+		behavior = null;
+		animator = null;
+		attack = null;
+	}
 }

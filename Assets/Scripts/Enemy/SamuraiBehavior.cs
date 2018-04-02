@@ -45,11 +45,6 @@ public class SamuraiBehavior : EnemyBehavior {
 	}
 
 	public override void Patrol () {
-		// Atualizando orientação
-		if (Time.time - lastTurning > turningDelay) {
-			UpdateGuidancePatrol ();
-			lastTurning = Time.time;
-		}
 			
 
 	}
@@ -123,5 +118,9 @@ public class SamuraiBehavior : EnemyBehavior {
 		bool ret = (EnemyInCamera () && IsFacingThePlayer () && player.isActiveAndEnabled);
 		sawPlayer = ret ? ret : sawPlayer;
 		return sawPlayer;
+	}
+	void OnDestroy(){
+		animator = null;
+		weapon = null;
 	}
 }

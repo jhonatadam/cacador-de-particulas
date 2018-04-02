@@ -58,9 +58,12 @@ public class CargueiroBehavior : EnemyBehavior {
 		
 		// Atualizando orientação
 		//Se o player não foi visto, permanece na patrulha, se foi, persegue-o até sair do andar.
-		if (!sawPlayer)
-			UpdateGuidancePatrol ();
-		else {
+		//if (!sawPlayer)
+			//UpdateGuidancePatrol ();
+		//comentado pois agora o inimigo se vira ao entrar de encontro com o IALimite ou com outro inimigo.
+
+		//se o player foi visto:
+		if(sawPlayer){
 			UpdateGuidanceFollowPlayer ();
 			trackPlayer ();
 		}
@@ -148,5 +151,8 @@ public class CargueiroBehavior : EnemyBehavior {
 			return transform.position.x > player.transform.position.x;
 		}
 	}
-
+	void OnDestroy(){
+		animator = null;
+		weapon = null;
+	}
 }

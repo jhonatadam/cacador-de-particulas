@@ -33,8 +33,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685201115798346}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.7087207, y: 1.0939826, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,14 +73,14 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
     loop: 1
-  - name: Zavatron Falling
+  - name: Zevatron Falling
     clip: {fileID: 8300000, guid: 22056a86e17de7b4b80358a97fc215fb, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0.1
     randomPitch: 0.1
     loop: 0
-  - name: Zavatron Explosion
+  - name: Zevatron Explosion
     clip: {fileID: 8300000, guid: eb47d13410c2b404a814bd304e47adfe, type: 3}
     volume: 0.7
     pitch: 1
