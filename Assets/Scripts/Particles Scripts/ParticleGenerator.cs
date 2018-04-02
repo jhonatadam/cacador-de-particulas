@@ -82,4 +82,11 @@ public class ParticleGenerator : MonoBehaviour {
 	void RandomPosition () {
 		generatePoint.position = new Vector3 (Random.Range (minPosition, maxPosition), generatePoint.position.y, generatePoint.position.z);
 	}
+	void OnDestroy(){
+		generatePoint = null;
+		for (int i = 0; i < particles.Length; i++) {
+			particles [i] = null;
+		}
+		particles = null;
+	}
 }
