@@ -35,9 +35,10 @@ public class PatrulheiroBehavior : EnemyBehavior {
 
 		// Atualizando orientação
 		//Se o player não foi visto, permanece na patrulha, se foi, persegue-o até sair do andar.
-		if (!sawPlayer)
-			UpdateGuidance ();
-		else {
+		//if (!sawPlayer)
+		//	UpdateGuidance ();
+		//else 
+		if(sawPlayer){
 			UpdateGuidanceLookPlayer ();
 			if (EnemyInCamera () && player.isActiveAndEnabled)
 				sawPlayer = false;
