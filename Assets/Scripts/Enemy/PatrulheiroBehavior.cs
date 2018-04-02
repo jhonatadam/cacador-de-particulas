@@ -14,7 +14,10 @@ public class PatrulheiroBehavior : EnemyBehavior {
 	public Animator animator;
 
 	private bool sawPlayer = false;
-
+	void OnDestroy(){
+		animator = null;
+		Resources.UnloadUnusedAssets ();
+	}
 	void Start () {
 		base.Start ();
 		animator = GetComponent <Animator> ();

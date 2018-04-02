@@ -84,4 +84,9 @@ public class EnemyHealth : MonoBehaviour {
 		rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
 		Destroy (this.gameObject, 1.0f);
 	}
+	void OnDestroy(){
+		sr = null;
+		rb2d = null;
+		Resources.UnloadUnusedAssets ();
+	}
 }

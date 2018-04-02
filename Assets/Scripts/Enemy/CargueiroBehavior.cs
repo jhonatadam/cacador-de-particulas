@@ -154,5 +154,6 @@ public class CargueiroBehavior : EnemyBehavior {
 	void OnDestroy(){
 		animator = null;
 		weapon = null;
+		Resources.UnloadUnusedAssets ();
 	}
 }

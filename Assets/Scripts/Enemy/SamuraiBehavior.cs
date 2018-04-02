@@ -122,5 +122,6 @@ public class SamuraiBehavior : EnemyBehavior {
 	void OnDestroy(){
 		animator = null;
 		weapon = null;
+		Resources.UnloadUnusedAssets ();
 	}
 }
