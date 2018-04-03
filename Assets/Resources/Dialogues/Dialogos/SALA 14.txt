@@ -1,5 +1,7 @@
-Alvinn: 
-O que foi isso ARI?
+﻿Alvinn: 
+'-'... '-'...
+Alvinn:
+O que foi isso ARI? '-'
 ARI: 
 Hum, pensei que nunca iriamos esbarrar com um Zevatron.
 Alvinn: 
