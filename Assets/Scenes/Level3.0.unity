@@ -834,7 +834,7 @@ Prefab:
     - target: {fileID: 212995810890242118, guid: e9ba4b12bcabbdf43b67d1a97d2c2a41,
         type: 2}
       propertyPath: m_Color.a
-      value: 0.278
+      value: 0.291
       objectReference: {fileID: 0}
     - target: {fileID: 212995810890242118, guid: e9ba4b12bcabbdf43b67d1a97d2c2a41,
         type: 2}
