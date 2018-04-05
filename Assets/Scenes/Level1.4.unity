@@ -2300,7 +2300,7 @@ Prefab:
     - target: {fileID: 114662786827654454, guid: 0c2d6716c430f45ad897f09e715958bc,
         type: 2}
       propertyPath: doors.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114662786827654454, guid: 0c2d6716c430f45ad897f09e715958bc,
         type: 2}
@@ -2672,7 +2672,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4606854096580624, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 8.564
+      value: 8.671
       objectReference: {fileID: 0}
     - target: {fileID: 4606854096580624, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
       propertyPath: m_LocalPosition.y

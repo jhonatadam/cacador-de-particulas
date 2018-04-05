@@ -66,7 +66,7 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
     loop: 1
-  - name: Masjetic Aurora
+  - name: Majestic Aurora
     clip: {fileID: 8300000, guid: cb12f3e25e65e0a4d9e55054a5eb449f, type: 3}
     volume: 0.7
     pitch: 1
@@ -96,6 +96,13 @@ MonoBehaviour:
     loop: 0
   - name: Tutorial
     clip: {fileID: 8300000, guid: eeef72bfad0eb42439c55b7cb851b24e, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+  - name: Fly
+    clip: {fileID: 8300000, guid: ba1147f3c85a74244b6ee843ab6a736a, type: 3}
     volume: 0.7
     pitch: 1
     randomVolume: 0
