@@ -1480,6 +1480,11 @@ Prefab:
       propertyPath: sdm
       value: 
       objectReference: {fileID: 627826173}
+    - target: {fileID: 212550089175717278, guid: 8a530a88be6e53a4682437e8bd1555b4,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a530a88be6e53a4682437e8bd1555b4, type: 2}
   m_IsPrefabParent: 0
