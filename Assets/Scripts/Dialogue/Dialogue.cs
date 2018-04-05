@@ -16,10 +16,6 @@ public class Dialogue : MonoBehaviour {
 	public Text CampoDeTextoAutor;
 	public Text CampoDeTexto;
 
-
-	public AudioSource audioSource;
-	public AudioClip audioClip;
-
 	//numero de caracteres por fala
 	public int n_caractere = 100;
 
@@ -44,12 +40,11 @@ public class Dialogue : MonoBehaviour {
 	//Flag que indica se o dialogo acabou
 
 	public bool over = false;
+	private AudioManager audioManager;
 
 	void Start () {
 		canvas.SetActive (false);
-
-		audioSource.clip = audioClip;
-
+		audioManager = AudioManager.instance;
 		LerTexto ();
 	}
 
@@ -100,7 +95,7 @@ public class Dialogue : MonoBehaviour {
 			message = dialogo [textoAtual];
 			foreach (char c in message) {
 				if (c.ToString () != " ") {
-					audioSource.Play ();
+					audioManager.PlaySound("Voice Beep");
 				}
 				CampoDeTexto.text += c;
 				yield return new WaitForSeconds (delay); 

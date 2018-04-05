@@ -16,7 +16,7 @@ public class GetJetpack : MonoBehaviour {
 			other.gameObject.GetComponent<Player> ().hasJetpack = true;
 			other.gameObject.GetComponent<Player> ().SetJetpackActive (true);
 			//Adiciona cartão vermelho
-			other.gameObject.GetComponent<Player> ().cards.Add (CardEnum.Vermelho);
+			other.gameObject.GetComponent<Player> ().cards.Add (CardEnum.Roxo);
 			Destroy (this.gameObject);
 		}
 	}

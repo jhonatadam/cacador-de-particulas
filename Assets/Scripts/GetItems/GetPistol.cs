@@ -10,7 +10,7 @@ public class GetPistol : MonoBehaviour {
 			other.gameObject.GetComponent<Player> ().SetPistolActive (true);
 			other.gameObject.GetComponent<PlayerEnergy> ().OnPistolEnable ();
 			//Adiciona cartão vermelho
-			other.gameObject.GetComponent<Player> ().cards.Add (CardEnum.Roxo);
+			other.gameObject.GetComponent<Player> ().cards.Add (CardEnum.Vermelho);
 			Destroy (this.gameObject);
 		}
 	}

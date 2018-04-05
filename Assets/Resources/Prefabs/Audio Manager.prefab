@@ -87,3 +87,17 @@ MonoBehaviour:
     randomVolume: 0.1
     randomPitch: 0.1
     loop: 0
+  - name: Voice Beep
+    clip: {fileID: 8300000, guid: 311775a0ec7a04de3a3728920f767221, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+  - name: Tutorial
+    clip: {fileID: 8300000, guid: eeef72bfad0eb42439c55b7cb851b24e, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1

@@ -9,9 +9,9 @@ public class SceneTransition : MonoBehaviour {
 	public string nextSceneName;
 
 	public SceneDataManager sdm;
-
+	private AudioManager audioManager;
 	void Start () {
-		
+		audioManager = AudioManager.instance;		
 	}
 
 	void Update () {
@@ -19,6 +19,9 @@ public class SceneTransition : MonoBehaviour {
 			sdm.UpdatePlayerData ();
 			sdm.UpdateSceneData ();
 			SceneManager.LoadScene (nextSceneName);
+			if (nextSceneName == "Scenes/Level1.1") {
+				audioManager.StopSound ("Tutorial");
+			}
 		}
 	}
 	void OnDestroy(){
