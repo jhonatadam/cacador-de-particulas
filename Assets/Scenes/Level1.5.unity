@@ -6047,12 +6047,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4775604416364526, guid: 7448f39e6204b4316bb29b7bf340ee7c,
     type: 2}
   m_PrefabInternal: {fileID: 1239610265}
---- !u!114 &1239610267 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114720279575849958, guid: 7448f39e6204b4316bb29b7bf340ee7c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1239610265}
-  m_Script: {fileID: 11500000, guid: 3c8f32433037d4226b7440f2f5ffb1ad, type: 3}
 --- !u!1 &1248149529
 GameObject:
   m_ObjectHideFlags: 0
@@ -8969,7 +8963,7 @@ Prefab:
     - target: {fileID: 114662786827654454, guid: 0c2d6716c430f45ad897f09e715958bc,
         type: 2}
       propertyPath: doors.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114662786827654454, guid: 0c2d6716c430f45ad897f09e715958bc,
         type: 2}
@@ -9027,7 +9021,7 @@ Prefab:
         type: 2}
       propertyPath: doors.Array.data[0]
       value: 
-      objectReference: {fileID: 1239610267}
+      objectReference: {fileID: 1709482555}
     - target: {fileID: 114662786827654454, guid: 0c2d6716c430f45ad897f09e715958bc,
         type: 2}
       propertyPath: music
@@ -9037,7 +9031,7 @@ Prefab:
         type: 2}
       propertyPath: doors.Array.data[1]
       value: 
-      objectReference: {fileID: 1709482555}
+      objectReference: {fileID: 135386049}
     - target: {fileID: 114662786827654454, guid: 0c2d6716c430f45ad897f09e715958bc,
         type: 2}
       propertyPath: doors.Array.data[2]
