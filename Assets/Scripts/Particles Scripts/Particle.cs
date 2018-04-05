@@ -50,6 +50,8 @@ public class Particle : MonoBehaviour {
 	public float damage = 10f;
 	public bool isInFlask = false;
 
+	public float probability = 0.005f;
+
 	void Start () {
 		initialPosition = transform.position;
 		tail = GetComponent<TrailRenderer> ();

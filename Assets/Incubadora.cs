@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Incubadora : MonoBehaviour {
 	private GameObject player;
+	private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
 		GameObject player = Resources.Load<GameObject>("Prefabs/Player");
-
+		audioManager = AudioManager.instance;
 		if (player != null) {
+			audioManager.PlaySound ("Tutorial");
 			player = Instantiate (player);
 			player.name = "Player";
 			player.transform.position = transform.position;

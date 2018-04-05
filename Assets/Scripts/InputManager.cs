@@ -64,9 +64,9 @@ public class InputManager : MonoBehaviour {
 
 	void FixedUpdate () {
 
-
+		//porque isso ta aqui?
 		if (Input.GetButton ("Jump")) {
-			EventsManager.JumpBtnHold ();
+		    EventsManager.JumpBtnHold ();
 		}
 
 

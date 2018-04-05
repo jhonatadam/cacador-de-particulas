@@ -6431,16 +6431,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
-        type: 2}
-      propertyPath: doorState.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
-        type: 2}
-      propertyPath: dialoguesOver.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4726961841521968, guid: ecb6d6fe02787fd44be92316cb2fab46, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2.008273
@@ -6472,21 +6462,6 @@ Prefab:
     - target: {fileID: 4726961841521968, guid: ecb6d6fe02787fd44be92316cb2fab46, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
-        type: 2}
-      propertyPath: doorState.Array.data[4]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
-        type: 2}
-      propertyPath: doorState.Array.data[5]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
-        type: 2}
-      propertyPath: doorState.Array.data[6]
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ecb6d6fe02787fd44be92316cb2fab46, type: 2}
