@@ -1,0 +1,12 @@
+﻿ARI:
+Alvinn...
+ARI:
+Esqueci de lhe dizer algo importante.
+Alvinn:
+Huummm... Importante quanto?
+ARI:
+Existem alguns equipamentos espalhados pelo laboratório. Você deve coletá-los para que sua jornada seja mais "fácil"... Sendo assim, você deve explorar bem todas as áreas que você encontrar.
+Alvinn:
+"Fácil"?!?
+ARI:
+Você me entendeu...
