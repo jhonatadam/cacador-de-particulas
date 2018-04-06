@@ -1,7 +1,7 @@
 ﻿Alvinn: 
 O que é isso ARI? 
 ARI: 
-É uma informação bem util, sobre como funciona a energia das partículas. 
+É uma informação bem útil, sobre como funciona a energia das partículas. 
 ARI: 
 A energia das partículas elementares é medida em elétrons-volt (eV). A quantidade de 1eV é a energia que um elétron possui quando está sujeito a uma diferença de potencial de 1 volt.
 ARI: 
