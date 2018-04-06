@@ -13,10 +13,11 @@ public class ZangoBullet : MonoBehaviour {
 	void Update () {
 		
 	}
-	void OnCollisionEnter2D(Collision2D coll){
-		GameObject exp = Instantiate (explosion);
-		exp.transform.position = transform.position;
-		explosion = null;
-		exp = null;
+	void OnTriggerEnter2D(Collider2D other){
+		if (other.tag != "Enemy") {
+			print ("explosão");
+			GameObject exp = Instantiate (explosion);
+			exp.transform.position = transform.position;
+		}
 	}
 }
