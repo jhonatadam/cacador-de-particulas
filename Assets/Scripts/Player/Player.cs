@@ -82,11 +82,12 @@ public class Player : MonoBehaviour {
 	public RuntimeAnimatorController naked;
 
 	private InputManager inputManager;
+	void Awake() {
+		rb2d = GetComponent<Rigidbody2D> ();
+	}
 	void Start () {
 		inputManager = GameObject.Find ("InputManager").GetComponent<InputManager> ();
 		animator = GetComponent <Animator> ();
-
-		rb2d = GetComponent<Rigidbody2D> ();
 
 		playerEnergy = gameObject.GetComponent<PlayerEnergy> ();
 

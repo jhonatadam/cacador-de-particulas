@@ -86,7 +86,7 @@ public class EnemyHealth : MonoBehaviour {
 	}
 	void OnDestroy(){
 		sr = null;
-		rb2d = null;
+		//rb2d = null;
 		Resources.UnloadUnusedAssets ();
 	}
 }
