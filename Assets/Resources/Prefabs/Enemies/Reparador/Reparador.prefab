@@ -157,6 +157,13 @@ MonoBehaviour:
   piscar: 0
   piscarTempo: 0.1
   rb2d: {fileID: 0}
+  animator: {fileID: 0}
+  dyingTime: 0.4
+  sparkleAmount: 3
+  sparkleInterval: 0.1
+  shortSparkle: {fileID: 1770965635173170, guid: a76ea2bfbd4a7b94f94c5b6a9aca5e17,
+    type: 2}
+  sparkleRadius: 0.3
 --- !u!114 &114708866527460260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,6 +182,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   rend: {fileID: 0}
   mainCamera: {fileID: 0}
+  dead: 0
   rightLimit: -2.5
   leftLimit: 4.7
   turningDelay: 1

@@ -17,7 +17,6 @@ public class ReparadorBehavior : EnemyBehavior {
 	private bool FoundPoint = false;
 	private int following = 0;
 	private bool isReparing = false;
-	public float reparingTime = 1;
 	private float reparingElapsed = 0;
 	// Referência do animator
 	private Animator animator;
@@ -41,6 +40,9 @@ public class ReparadorBehavior : EnemyBehavior {
 	}
 
 	void Update () {
+		if (dead) {
+			return;
+		}
 		// se o samurai estiver atacando, o seu 
 		// comportamento não é atualizado
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Attack1") ||
@@ -62,11 +64,17 @@ public class ReparadorBehavior : EnemyBehavior {
 		}
 	}
 	void LateUpdate () {
+		if (dead) {
+			return;
+		}
 		animator.SetBool ("isSeeingThePlayer", isSeeingThePlayer);
 		animator.SetBool ("sawPlayer", sawPlayer);
 	}
 
 	public override void Patrol () {
+		if (dead) {
+			return;
+		}
 		// Atualizando orientação
 		if (Time.time - lastTurning > turningDelay) {
 			UpdateGuidancePatrol ();
@@ -129,13 +137,15 @@ public class ReparadorBehavior : EnemyBehavior {
 	}
 
 	public void Move () {
-
+		if (dead) {
+			return;
+		}
 		if (PointsController.GetComponent<ReparadorPoints>().Size() > 0) { 
 
 
 			if (FoundPoint) {
 				reparingElapsed += Time.deltaTime;
-				if (reparingElapsed >= reparingTime) {
+				if (reparingElapsed >=  GetPoints () [following].GetComponent<ReparadorPoint>().reparingTime) {
 					FoundPoint = false;
 				}
 			} else {

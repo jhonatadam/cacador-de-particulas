@@ -321,6 +321,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   rend: {fileID: 0}
   mainCamera: {fileID: 0}
+  dead: 0
   rightLimit: 4
   leftLimit: -4
   animator: {fileID: 0}
@@ -335,11 +336,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b97359ce08f34b9e9932ae080704a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
-  health: 40
+  maxHealth: 20
+  health: 20
   piscar: 0
   piscarTempo: 0.1
   rb2d: {fileID: 0}
+  animator: {fileID: 0}
+  dyingTime: 0.5
+  sparkleAmount: 4
+  sparkleInterval: 0.1
+  shortSparkle: {fileID: 1770965635173170, guid: a76ea2bfbd4a7b94f94c5b6a9aca5e17,
+    type: 2}
+  sparkleRadius: 1
 --- !u!114 &114411855960975780
 MonoBehaviour:
   m_ObjectHideFlags: 1

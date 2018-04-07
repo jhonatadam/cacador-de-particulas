@@ -66,6 +66,9 @@ public class EnemyMeleeWeapon : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
+		if (GetComponent<EnemyBehavior> ().dead) {
+			return;
+		}
 		string tag = other.gameObject.tag;
 
 		if (tag == "Player") {

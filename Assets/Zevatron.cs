@@ -25,6 +25,11 @@ public class Zevatron : MonoBehaviour {
 			exp.transform.position = transform.position;
 			AutoDestroy ();
 		}
+		if (other.tag == "Player") {
+			GameObject exp = Instantiate (explosion);
+			exp.transform.position = transform.position;
+			AutoDestroy ();
+		}
 	}
 	void AutoDestroy(){
 		audioManager.PlaySound ("Zevatron Explosion");

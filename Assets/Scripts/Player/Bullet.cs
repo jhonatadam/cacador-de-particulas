@@ -30,15 +30,31 @@ public class Bullet : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {
-		string tag = other.gameObject.tag;
-		if (tag == "Enemy") {
-			other.gameObject.GetComponent<EnemyHealth> ().DamageEnemy (damage);
+		if (!dead) {
+			string tag = other.gameObject.tag;
+			if (tag == "Enemy") {
+				other.gameObject.GetComponent<EnemyHealth> ().DamageEnemy (damage);
+			}
+			ring.Emit (3);
+			ring.Stop ();
+			ps.Stop ();
+			sr.color = new Color (0, 0, 0, 0);
+			cl.enabled = false;
+			dead = true;
 		}
-		ring.Emit (3);
-		ring.Stop ();
-		ps.Stop ();
-		sr.color = new Color (0, 0, 0, 0);
-		cl.enabled = false;
-		dead = true;
+	}
+	private void OnTriggerEnter2D(Collider2D other) {
+		if (!dead) {
+			string tag = other.gameObject.tag;
+			if (tag == "Enemy") {
+				other.gameObject.GetComponent<EnemyHealth> ().DamageEnemy (damage);
+			}
+			ring.Emit (3);
+			ring.Stop ();
+			ps.Stop ();
+			sr.color = new Color (0, 0, 0, 0);
+			cl.enabled = false;
+			dead = true;
+		}
 	}
 }

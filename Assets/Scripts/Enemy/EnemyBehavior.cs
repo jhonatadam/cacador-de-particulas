@@ -32,6 +32,7 @@ public abstract class EnemyBehavior : MonoBehaviour {
 	[HideInInspector]
 	public Camera mainCamera;
 
+	public bool dead = false;
 
 	// Use this for initialization.
 	public void Start () {
@@ -53,6 +54,9 @@ public abstract class EnemyBehavior : MonoBehaviour {
 
 	// Ação do inimigo
 	public void Act () {
+		if (dead) {
+			return;
+		}
 		// Olhando
 		isSeeingThePlayer = Look ();
 
@@ -80,6 +84,9 @@ public abstract class EnemyBehavior : MonoBehaviour {
 	}
 	//funcao para virar para o outro lado
 	public void TurnAround(){
+		if (dead) {
+			return;
+		}
 		if (isFacingRight) {
 			isFacingRight = false;
 			transform.rotation = new Quaternion (0, 180, 0, 0);

@@ -25,6 +25,9 @@ public class SamuraiBehavior : EnemyBehavior {
 	}
 
 	void Update () {
+		if (dead) {
+			return;
+		}
 		// se o samurai estiver atacando, o seu 
 		// comportamento não é atualizado
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("WeakAttack") || 
@@ -40,6 +43,9 @@ public class SamuraiBehavior : EnemyBehavior {
 		Act ();
 	}
 	void LateUpdate () {
+		if (dead) {
+			return;
+		}
 		animator.SetBool ("isSeeingThePlayer", isSeeingThePlayer);
 		animator.SetBool ("sawPlayer", sawPlayer);
 	}
@@ -49,7 +55,9 @@ public class SamuraiBehavior : EnemyBehavior {
 
 	}
 	public void UpdateGuidancePatrol () {
-		
+		if (dead) {
+			return;
+		}
 		if (isFacingRight) {
 			if (transform.position.x >= rightLimit) {
 				isFacingRight = false;
@@ -64,6 +72,9 @@ public class SamuraiBehavior : EnemyBehavior {
 	}
 	public override void Attack ()
 	{
+		if (dead) {
+			return;
+		}
 		if (Time.time - lastTurning > turningDelay) {
 			UpdateGuidanceFollowPlayer ();
 			lastTurning = Time.time;

@@ -42,6 +42,9 @@ public class SamuraiMeleeWeapon : MonoBehaviour {
 	}
 
 	void Update () {
+		if (GetComponent<EnemyBehavior> ().dead) {
+			return;
+		}
 		Hit ();
 	}
 
@@ -66,6 +69,9 @@ public class SamuraiMeleeWeapon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		if (GetComponent<EnemyBehavior> ().dead) {
+			return;
+		}
 		if (other.gameObject.tag == "Player") {
 			other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer (damage);
 
