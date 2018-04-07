@@ -16,7 +16,7 @@ public class EffectDestroy : MonoBehaviour {
 		for (int i = 0; i < ps.Length; i++) {
 			count += ps [i].particleCount;
 		}
-		if (count == 0) {
+		if (count == 0 && ps[0].time > 0.1f) {
 			Destroy (gameObject);
 		}
 	}
