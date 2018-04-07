@@ -34,7 +34,6 @@ public class HealthBar : MonoBehaviour {
 
 	void CalculateEnergyBarSize() {
 		perCentEnergy = playerEnergy.energy / playerEnergy.maxEnergy;
-		perCentEnergy = 1 - perCentEnergy;
 		energyBar.fillAmount = perCentEnergy;
 		perCentEnergy *= 100;
 
