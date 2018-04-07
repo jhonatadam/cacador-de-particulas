@@ -7121,6 +7121,11 @@ Prefab:
       propertyPath: m_Name
       value: Particle Destroyer (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
   m_IsPrefabParent: 0
