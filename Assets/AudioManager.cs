@@ -18,6 +18,7 @@ public class Sound{
 	public bool loop = false;
 
 	private AudioSource source;
+	public bool isTrack = false;
 	public void SetSource(AudioSource _source){
 		source = _source;
 		source.volume = volume;
@@ -42,7 +43,7 @@ public class AudioManager : MonoBehaviour {
 
 	[SerializeField]
 	Sound[] sounds;
-
+	private string isPlaying;
 	void Awake(){
 		if (instance != null) {
 			if (instance != this) {
@@ -62,6 +63,9 @@ public class AudioManager : MonoBehaviour {
 		
 		for (int i = 0; i < sounds.Length; i++) {
 			if (sounds [i].name == _name) {
+				if (sounds [i].isTrack) {
+					isPlaying = _name;
+				}
 				sounds [i].Play ();
 				return;
 			}
@@ -72,11 +76,17 @@ public class AudioManager : MonoBehaviour {
 	public void StopSound(string _name){
 		for (int i = 0; i < sounds.Length; i++) {
 			if (sounds [i].name == _name) {
+				if (sounds [i].isTrack) {
+					isPlaying = "";
+				}
 				sounds [i].Stop();
 				return;
 			}
 		}
 		//não achou nenhum som
 		Debug.Log("não existe som chamado " + _name + " na lista. Confira o som no AudioManager ou adicione.");
+	}
+	public bool IsPlaying(string _name){
+		return _name == isPlaying;
 	}
 }
