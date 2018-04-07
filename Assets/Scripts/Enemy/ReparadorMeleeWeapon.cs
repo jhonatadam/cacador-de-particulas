@@ -42,6 +42,9 @@ public class ReparadorMeleeWeapon : MonoBehaviour {
 	}
 
 	void Update () {
+		if (GetComponent<EnemyBehavior> ().dead) {
+			return;
+		}
 		Hit ();
 	}
 
@@ -67,6 +70,9 @@ public class ReparadorMeleeWeapon : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
+		if (GetComponent<EnemyBehavior> ().dead) {
+			return;
+		}
 		if (other.gameObject.tag == "Player") {
 			float direction = other.transform.position.x - transform.position.x;
 			direction = direction / Mathf.Abs (direction);

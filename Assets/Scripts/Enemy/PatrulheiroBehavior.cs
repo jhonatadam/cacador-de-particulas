@@ -29,10 +29,17 @@ public class PatrulheiroBehavior : EnemyBehavior {
 	}
 
 	void LateUpdate () {
+		if (dead) {
+			return;
+		}
 		animator.SetBool ("IsSeeingThePlayer", isSeeingThePlayer);
+
 	}
 
 	public override void Patrol () {
+		if (dead) {
+			return;
+		}
 		// Atualizando orientação
 		//UpdateGuidance ();
 
@@ -84,7 +91,9 @@ public class PatrulheiroBehavior : EnemyBehavior {
 	}
 
 	public void UpdateGuidanceLookPlayer() {
-
+		if (dead) {
+			return;
+		}
 		if (isFacingRight) {
 			if (transform.position.x > player.transform.position.x) {
 				isFacingRight = false;
@@ -99,6 +108,9 @@ public class PatrulheiroBehavior : EnemyBehavior {
 	}
 
 	public void Move () {
+		if (dead) {
+			return;
+		}
 		// Determinando velocidade.
 		float playerSpeed = (player != null ? player.speed :  1); 
 		float speed = (isFacingRight ? moveSpeed * playerSpeed : -moveSpeed * playerSpeed);

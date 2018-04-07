@@ -27,6 +27,9 @@ public class CargueiroBehavior : EnemyBehavior {
 
 	// Update is called once per frame
 	void Update () {
+		if (dead) {
+			return;
+		}
 		// se o cargueiro estiver dando o soco, o seu 
 		// comportamento não é atualizado
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Punch")) {
@@ -37,12 +40,19 @@ public class CargueiroBehavior : EnemyBehavior {
 	}
 
 	void LateUpdate () {
+		if (dead) {
+			return;
+		}
 		animator.SetBool ("isSeeingThePlayer", isSeeingThePlayer);
 		animator.SetBool ("sawPlayer", sawPlayer);
 	}
 
 	public override void Attack ()
 	{
+		if (dead) {
+			return;
+		}
+
 		UpdateGuidanceFollowPlayer ();
 		float playerDistance = Vector3.Distance (transform.position, player.transform.position);
 
@@ -55,7 +65,9 @@ public class CargueiroBehavior : EnemyBehavior {
 
 	public override void Patrol ()
 	{
-		
+		if (dead) {
+			return;
+		}
 		// Atualizando orientação
 		//Se o player não foi visto, permanece na patrulha, se foi, persegue-o até sair do andar.
 		//if (!sawPlayer)
