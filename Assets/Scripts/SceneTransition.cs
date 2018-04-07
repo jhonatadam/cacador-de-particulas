@@ -21,11 +21,15 @@ public class SceneTransition : MonoBehaviour {
 			SceneManager.LoadScene (nextSceneName);
 			if (nextSceneName == "Scenes/Level1.1") {
 				audioManager.StopSound ("Tutorial");
-				audioManager.PlaySound ("Majestic Aurora");
+				if (!audioManager.IsPlaying ("Majestic Aurora")) {
+					audioManager.PlaySound ("Majestic Aurora");
+				}
 			}
 			if (nextSceneName == "Scenes/Level1.5") {
 				audioManager.StopSound ("Majestic Aurora");
-				audioManager.PlaySound ("Fly");
+				if (!audioManager.IsPlaying ("Fly")) {
+					audioManager.PlaySound ("Fly");
+				}
 			}
 		}
 	}
