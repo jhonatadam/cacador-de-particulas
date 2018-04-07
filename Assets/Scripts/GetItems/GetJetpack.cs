@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class GetJetpack : MonoBehaviour {
 
-
-
-	// Use this for initialization
 	void Start () {
-		
+		if (GameObject.Find ("Player").GetComponent<Player> ().hasJetpack)
+			Destroy (gameObject.GetComponentInParent<Transform> ().gameObject);
 	}
 	
 	void OnTriggerEnter2D(Collider2D other) {

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GetPistol : MonoBehaviour {
+	
+	void Start () {
+		if (GameObject.Find ("Player").GetComponent<Player> ().hasPistol)
+			Destroy (gameObject.GetComponentInParent<Transform> ().gameObject);
+	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {

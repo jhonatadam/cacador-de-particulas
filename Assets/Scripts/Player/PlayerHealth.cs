@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour {
 	public float damageCoolDown = 10f;
 	private float damageTime = 0f;
 
+	public bool dead = false;
+
 	private Player player;
 
 	// Use this for initialization
@@ -29,19 +31,20 @@ public class PlayerHealth : MonoBehaviour {
 		UpdateDamageTime ();
 	}
 
-	/* Função que gera dano no player.
-	 * 
-	 * USAR SEMPRE ANTES DO KNOCBACK!
-	 * 
-	 **/
-	[Obsolete ("USAR SEMPRE ANTES DO KNOCBACK!")]
+	///<summary>
+	///Função que gera dano no player.
+	///!!!USAR SEMPRE ANTES DO KNOCBACK!!!
+	///</summary>
+	/// <param name="damage">Dano que o player recebe</param>
 	public void DamagePlayer(float damage) {
-		if (damageTime < damageCoolDown || !player.GetUpdateOn())
+		if (damageTime < damageCoolDown || !player.GetUpdateOn() || dead)
 			return;
 
-		if (health - damage < 0) {
+		if (health - damage <= 0) {
 			health = 0;
 			damageTime = 0;
+			dead = true;
+			player.Death ();
 			return;
 		} 
 		health -= damage;
@@ -55,7 +58,8 @@ public class PlayerHealth : MonoBehaviour {
 	 * 
 	 **/
 	public void ParticleDamagePlayer(float damage) {
-		if (damageTime < damageCoolDown || !player.GetUpdateOn())
+		
+		if (damageTime < damageCoolDown || !player.GetUpdateOn() || dead)
 			return;
 
 		GameObject temp = gameObject.transform.GetChild (3).gameObject;
@@ -65,9 +69,11 @@ public class PlayerHealth : MonoBehaviour {
 		if (temp.activeInHierarchy && temp2.level != EnergyLevel.Vermelho)
 			damage = 0;
 
-		if (health - damage < 0) {
+		if (health - damage <= 0) {
 			health = 0;
 			damageTime = 0;
+			dead = true;
+			player.Death ();
 			return;
 		} 
 		health -= damage;
