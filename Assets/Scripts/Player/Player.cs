@@ -439,6 +439,7 @@ public class Player : MonoBehaviour {
 		cards = savePtsData.cards;
 		hasPistol = savePtsData.hasPistol;
 		hasJetpack = savePtsData.hasJetpack;
+		SetUpdateTrue ();
 	}
 
 	void OnSceneLoaded(Scene scene, LoadSceneMode mode) {

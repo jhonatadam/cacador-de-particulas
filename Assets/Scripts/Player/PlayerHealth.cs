@@ -45,6 +45,7 @@ public class PlayerHealth : MonoBehaviour {
 			damageTime = 0;
 			dead = true;
 			player.Death ();
+			player.SetUpdateFalse ();
 			return;
 		} 
 		health -= damage;
