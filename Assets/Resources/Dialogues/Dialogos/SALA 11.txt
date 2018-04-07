@@ -5,16 +5,40 @@ O s    l e  t   alh   o…
 Alvinn: 
 ARI?
 Alvinn: 
-Que estranho. O sinal parece está falhando. ARI? 
+Que estranho. O sinal parece está falhando. 
+Alvinn:
+ARI? 
 Alvinn: 
 ARI??????!
 ARI: 
 Algo está atrapalhando o nosso sinal. Mas agora está tudo bem.
 ARI: 
-Bem, detectores de partículas são máquinas destinadas para detectar, fotografar os rastros deixados por partículas elementares. Somente partículas com carga elétrica podem ser fotografadas por conta de seu poder ionizante, no caso, o poder de retirar ou adicionar elétrons aos átomos. Em suma partículas que têm suas trajetórias encurvadas em sentidos opostos, têm cargas opostas. A análise da curvatura das trajetórias também informa as massas das partículas envolvidas no processos.
+Bem, detectores de partículas são máquinas destinadas para detectar, fotografar os rastros deixados por partículas elementares. 
+ARI:
+Somente partículas com carga elétrica podem ser fotografadas por conta de seu poder ionizante, no caso, o poder de retirar ou adicionar elétrons aos átomos. 
+ARI:
+Em suma partículas que têm suas trajetórias encurvadas em sentidos opostos, têm cargas opostas. 
+ARI:
+A análise da curvatura das trajetórias também informa as massas das partículas envolvidas no processos.
 Alvinn:
-Hum... Eu consigo fazer a mesma coisa que essa máquina... Que estranho...
+Hum... Eu consigo fazer a mesma coisa que essa máquina... 
+Alvinn:
+Que estranho '-'
 ARI: 
-Como já havia dito, seu pai teve que implantar certos dispositivos para que sua vida fosse salva. Você deveria ver isso com bons olhos. Deve ser lindo ter a capacidade de acompanhar o rastro das partículas.
+Como já havia dito, seu pai teve que implantar certos dispositivos para que sua vida fosse salva. 
+ARI:
+Você deveria ver isso com bons olhos. Deve ser lindo ter a capacidade de acompanhar o rastro das partículas.
 Alvinn:
-Lindas elas são, muito. Pena que me machucam caso eu não ative meu campo de força. E sempre me sinto enfraquecendo ao ativar minhas habilidades... Enfim...
+Lindas elas são, muito. Pena que me machucam caso eu não ative meu campo de força.
+Alvinn:
+Mas em compensação... hahahaha...
+ARI:
+O que foi Alvinn?
+Alvinn:
+Os robôs daqui, ao serem destruidos, eles deixa cair um fluído verde. Esse fluído, de alguma forma, cura o da no causado pelas partículas e pelos robôs. 
+ALvinn:
+Isso é bom. Algo bom no meio desse caos.
+ARI:
+Isso é interessante. Vou pesquisar sobre!
+Alvinn:
+Enfim. De volta a nossa jornada!

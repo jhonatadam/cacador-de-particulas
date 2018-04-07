@@ -35,6 +35,8 @@ public class Instanciador : MonoBehaviour {
 		} else {
 			if (GameObject.Find ("Player") != null && GameObject.Find ("Player").GetComponent<Player> ().hasPistol) {
 				active = true;
+			} else {
+				active = false;
 			}
 		}
 	}

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.IO;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 
@@ -82,6 +83,20 @@ public class Player : MonoBehaviour {
 	public RuntimeAnimatorController naked;
 
 	private InputManager inputManager;
+
+	private class PlayerSavePtsData
+	{
+		public Vector3 resetPt;
+		public float health;
+		public float energy;
+		public Quaternion angle;
+		public bool hasPistol;
+		public bool hasJetpack;
+		public List<CardEnum> cards;
+	}
+
+	private PlayerSavePtsData savePtsData = new PlayerSavePtsData();
+
 	void Awake() {
 		rb2d = GetComponent<Rigidbody2D> ();
 	}
@@ -379,30 +394,6 @@ public class Player : MonoBehaviour {
 		return cards.Contains (card);
 	}
 
-	private void OnEnable() {
-		//Configurando listeners de eventos
-		EventsManager.onJumpBtn += Jump;
-		EventsManager.onDashBtn += Dash;
-		EventsManager.onMagneticFieldBtn += SwitchMagneticField;
-		EventsManager.onHorizontalBtn += MoveHorizontally;
-		EventsManager.onFireBtn += Fire;
-		EventsManager.onClimbDownCmd += ClimbDown;
-		EventsManager.onDialogueStart += SetUpdateFalse;
-		EventsManager.onDialogueEnd += SetUpdateTrue;
-	}
-
-	private void OnDisable() {
-		//Configurando listeners de eventos
-		EventsManager.onJumpBtn -= Jump;
-		EventsManager.onDashBtn -= Dash;
-		EventsManager.onMagneticFieldBtn -= SwitchMagneticField;
-		EventsManager.onHorizontalBtn -= MoveHorizontally;
-		EventsManager.onFireBtn -= Fire;
-		EventsManager.onClimbDownCmd -= ClimbDown;
-		EventsManager.onDialogueStart -= SetUpdateFalse;
-		EventsManager.onDialogueEnd -= SetUpdateTrue;
-	}
-
 	/* Função que joga o Player para tras ao receber dano
 	 * direction pode ser -1 ou 1
 	 * 
@@ -437,4 +428,57 @@ public class Player : MonoBehaviour {
 		System.GC.Collect ();
 	}
 
+	public void Death() {
+		//carrega os dados salvos quando a cena foi carregada
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+		transform.position = savePtsData.resetPt;
+		GetComponent<PlayerHealth> ().health = savePtsData.health;
+		GetComponent<PlayerHealth> ().dead = false;
+		GetComponent<PlayerEnergy> ().energy = savePtsData.energy;
+		transform.rotation = savePtsData.angle;
+		cards = savePtsData.cards;
+		hasPistol = savePtsData.hasPistol;
+		hasJetpack = savePtsData.hasJetpack;
+		SetUpdateTrue ();
+	}
+
+	void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+		//DADOS PARA SAVE POINT
+		savePtsData.resetPt = transform.position;
+		savePtsData.health = GetComponent<PlayerHealth> ().health;
+		savePtsData.energy = GetComponent<PlayerEnergy> ().energy;
+		savePtsData.angle = transform.rotation;
+		savePtsData.cards = cards;
+		savePtsData.hasPistol = hasPistol;
+		savePtsData.hasJetpack = hasJetpack;
+		//FIM DOS DADOS PARA SAVE POINT
+	}
+
+	private void OnEnable() {
+		SceneManager.sceneLoaded += OnSceneLoaded;
+
+		//Configurando listeners de eventos
+		EventsManager.onJumpBtn += Jump;
+		EventsManager.onDashBtn += Dash;
+		EventsManager.onMagneticFieldBtn += SwitchMagneticField;
+		EventsManager.onHorizontalBtn += MoveHorizontally;
+		EventsManager.onFireBtn += Fire;
+		EventsManager.onClimbDownCmd += ClimbDown;
+		EventsManager.onDialogueStart += SetUpdateFalse;
+		EventsManager.onDialogueEnd += SetUpdateTrue;
+	}
+
+	private void OnDisable() {
+		SceneManager.sceneLoaded -= OnSceneLoaded;
+
+		//Configurando listeners de eventos
+		EventsManager.onJumpBtn -= Jump;
+		EventsManager.onDashBtn -= Dash;
+		EventsManager.onMagneticFieldBtn -= SwitchMagneticField;
+		EventsManager.onHorizontalBtn -= MoveHorizontally;
+		EventsManager.onFireBtn -= Fire;
+		EventsManager.onClimbDownCmd -= ClimbDown;
+		EventsManager.onDialogueStart -= SetUpdateFalse;
+		EventsManager.onDialogueEnd -= SetUpdateTrue;
+	}
 }
