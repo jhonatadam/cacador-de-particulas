@@ -3,7 +3,7 @@
 Alvinn:
 O que foi isso ARI? '-'
 ARI: 
-Hum, pensei que nunca iriamos esbarrar com um Zevatron.
+Hum, pensei que nunca iríamos esbarrar com um Zevatron.
 Alvinn: 
 E o que é um Zevatron?
 ARI: 
@@ -11,4 +11,6 @@ ARI:
 Alvinn: 
 Caso uma partícula dessa me atinja, eu morrerei?
 ARI: 
-De certo que sim, então, evite-as.
+De certo que sim, então, melhor evitá-las.
+Alvinn:
+...

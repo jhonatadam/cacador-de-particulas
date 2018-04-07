@@ -1399,11 +1399,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4613457292715392, guid: c6d41bc96a002004c81ac996e650de04, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.713
+      value: 2.717
       objectReference: {fileID: 0}
     - target: {fileID: 4613457292715392, guid: c6d41bc96a002004c81ac996e650de04, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.019
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4613457292715392, guid: c6d41bc96a002004c81ac996e650de04, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1513,11 +1513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb231d8229c4d14a96e1d9e77ba5406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondY: 0.2
+  secondY: 0.1
   startTime: 0
   speed: 0.2
   original: 1
-  length: 0.05
+  length: 0.2
   covered: 0
   fracJourney: 0
 --- !u!1001 &781387537
@@ -3357,8 +3357,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 648802723
-  m_SortingOrder: 1
+  m_SortingLayerID: 62310987
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b5bb385bf6ced3247bbc4c9937da7375, type: 3}
   m_Color: {r: 0.64705884, g: 0.64705884, b: 0.64705884, a: 1}
   m_FlipX: 0
@@ -4812,7 +4812,7 @@ Prefab:
     - target: {fileID: 198445397604750434, guid: 527db0487547044459926df2e00d5d65,
         type: 2}
       propertyPath: ShapeModule.radius
-      value: 0.4468953
+      value: 0.5158662
       objectReference: {fileID: 0}
     - target: {fileID: 198445397604750434, guid: 527db0487547044459926df2e00d5d65,
         type: 2}
@@ -4847,7 +4847,7 @@ Prefab:
     - target: {fileID: 198445397604750434, guid: 527db0487547044459926df2e00d5d65,
         type: 2}
       propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
-      value: 0.3333333
+      value: 0.6666666
       objectReference: {fileID: 0}
     - target: {fileID: 198445397604750434, guid: 527db0487547044459926df2e00d5d65,
         type: 2}
@@ -4858,6 +4858,11 @@ Prefab:
         type: 2}
       propertyPath: InitialModule.startSize.maxCurve.m_Curve.Array.data[0].value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198445397604750434, guid: 527db0487547044459926df2e00d5d65,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 527db0487547044459926df2e00d5d65, type: 2}
@@ -4920,6 +4925,11 @@ Prefab:
       propertyPath: sdm
       value: 
       objectReference: {fileID: 2094958428}
+    - target: {fileID: 212550089175717278, guid: 8a530a88be6e53a4682437e8bd1555b4,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a530a88be6e53a4682437e8bd1555b4, type: 2}
   m_IsPrefabParent: 0

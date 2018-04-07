@@ -7,15 +7,15 @@ Me desculpe Alvinn. Mas tive de resolver alguns assuntos...
 ARI: 
 Bem, me dê a pedra...
 Alvinn: 
-An? Eu quase morri por essa pedra. Um robô gigante, com UM MACHADO GITANTE, tentou me cortar ao meio, e eu sobrevivi... Eu vou terminar a missão que você me deu... Salvar a terra...
+An? Eu quase morri por essa pedra. Um robô gigante, com UM MACHADO GIGANTE, tentou me cortar ao meio, e eu sobrevivi... Eu vou terminar a missão que você me deu... Salvar a terra...
 ARI: 
 Me dê a pedra.
 Alvinn: 
-ARI... Eh... Não. O nosso objetivo vai ser concluido, a pedra estando com você ou comigo. E como disse, eu ia morrendo né? 
+ARI... Eh... Não. O nosso objetivo vai ser concluído, a pedra estando com você ou comigo. E como disse, eu ia morrendo né? 
 Alvinn: 
 Opa... Me lembrei... Você disse que teve de resolver alguns assuntos... ARI, COMO ASSIM? Você disse que estaria sempre comigo, e me abandonou... O que era mais importante do que salvar a terra?
 ARI: 
-Alvinn... Você é um androide.
+Alvinn... Você é um andróide.
 Alvinn: 
 An?
 ARI: 
@@ -39,4 +39,4 @@ Tudo bem Alvinn. Você pode ir, eu não posso tocar em você, de qualquer forma.
 Alvinn: 
 ...
 Alvinn:
-Eu vou salvar todos os humanos, e fazer com que eles matem todas essas AIs imundas... 
+Eu vou salvar todos os humanos, e fazer com que eles matem todas essas AIs imundas...
