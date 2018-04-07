@@ -47,14 +47,9 @@ public class Bullet : MonoBehaviour {
 		}
 	}
 	private void OnTriggerEnter2D(Collider2D other) {
-		if (other.gameObject.layer == 12) {
-			return;
-		}
-		if (!dead) {
+		if (!dead && other.tag == "Enemy") {
 			string tag = other.gameObject.tag;
-			if (tag == "Enemy") {
-				other.gameObject.GetComponent<EnemyHealth> ().DamageEnemy (damage);
-			}
+			other.gameObject.GetComponent<EnemyHealth> ().DamageEnemy (damage);
 			ring.Emit (3);
 			ring.Stop ();
 			ps.Stop ();
