@@ -15970,7 +15970,7 @@ Prefab:
     - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
         type: 2}
       propertyPath: dialoguesOver.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
         type: 2}
@@ -16087,6 +16087,11 @@ Prefab:
     - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
         type: 2}
       propertyPath: dialoguesOver.Array.data[13]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114755177333140290, guid: ecb6d6fe02787fd44be92316cb2fab46,
+        type: 2}
+      propertyPath: dialoguesOver.Array.data[14]
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
