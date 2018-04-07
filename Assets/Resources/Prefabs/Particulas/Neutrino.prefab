@@ -241,9 +241,10 @@ MonoBehaviour:
     type: 2}
   force: {x: 0, y: 0}
   charge: 0
-  energy: 10
-  damage: 10
+  energy: 0
+  damage: 0
   isInFlask: 0
+  probability: 0.005
 --- !u!198 &198221653321140046
 ParticleSystem:
   m_ObjectHideFlags: 1
