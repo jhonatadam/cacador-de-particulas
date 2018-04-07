@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4886624176927800}
   - component: {fileID: 212778413369874032}
   - component: {fileID: 58001847998332072}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ReparerPoint
   m_TagString: ReparerPoint
   m_Icon: {fileID: 0}

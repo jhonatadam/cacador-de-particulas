@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61635112123385178}
   - component: {fileID: 212004852055934214}
   - component: {fileID: 114919299318557444}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Limite Para IA
   m_TagString: IALimite
   m_Icon: {fileID: 0}
