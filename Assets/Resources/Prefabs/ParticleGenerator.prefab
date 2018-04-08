@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4090971558326800}
   - component: {fileID: 114078831863334670}
   - component: {fileID: 212640108664248664}
+  - component: {fileID: 114720108391037560}
   m_Layer: 0
   m_Name: ParticleGenerator
   m_TagString: Untagged
@@ -94,6 +95,7 @@ MonoBehaviour:
   - {fileID: 1173641927758544, guid: 7a6d11c8a9dc2dc43a53e0074c165394, type: 2}
   - {fileID: 1609874538033310, guid: c89682f3f428d47bc8471dd4bc239523, type: 2}
   randomPosition: 0
+  localPosition: 0
   minPosition: 0
   maxPosition: 0
   startParticlesNum: 0
@@ -103,6 +105,21 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
+--- !u!114 &114720108391037560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674818855462792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157f3d1b94c06364f91935e8ccf470de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  findTarget: 1
+  targetName: Player
+  offset: {x: 0, y: -10}
 --- !u!212 &212370110197895560
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -270,12 +270,12 @@ Prefab:
     - target: {fileID: 114078831863334670, guid: bc3ca840e4a8d4233a32866199195ed3,
         type: 2}
       propertyPath: minPosition
-      value: 3.5
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 114078831863334670, guid: bc3ca840e4a8d4233a32866199195ed3,
         type: 2}
       propertyPath: maxPosition
-      value: 11.4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114078831863334670, guid: bc3ca840e4a8d4233a32866199195ed3,
         type: 2}
@@ -392,6 +392,16 @@ Prefab:
         type: 2}
       propertyPath: startParticlesNum
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114078831863334670, guid: bc3ca840e4a8d4233a32866199195ed3,
+        type: 2}
+      propertyPath: localPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114720108391037560, guid: bc3ca840e4a8d4233a32866199195ed3,
+        type: 2}
+      propertyPath: offset.y
+      value: -4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc3ca840e4a8d4233a32866199195ed3, type: 2}
