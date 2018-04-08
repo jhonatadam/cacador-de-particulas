@@ -16,6 +16,7 @@ TagManager:
   - DeathZone
   - ReparerPoint
   - IALimite
+  - DropHP
   layers:
   - Default
   - TransparentFX

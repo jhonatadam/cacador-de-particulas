@@ -201,7 +201,7 @@ MonoBehaviour:
   shortSparkle: {fileID: 1770965635173170, guid: a76ea2bfbd4a7b94f94c5b6a9aca5e17,
     type: 2}
   sparkleRadius: 1.1
-  dropHP: {fileID: 1878250475875276, guid: 73ab58239b043c745b0ba28f2c65f0d8, type: 2}
+  dropHP: {fileID: 1001151515550478, guid: f1d20d602966acb48a01508ee0f2d832, type: 2}
   dropHpChance: 0.5
   rebirthTime: 2
 --- !u!114 &114673879096827180

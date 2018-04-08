@@ -26,7 +26,6 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject dropHP;
 	[Range(0.0f, 1.0f)]
 	public float dropHpChance = 0.5f;
-
 	private ReparadorPoints rpoints;
 	public float rebirthTime = 2.0f;
 	// Use this for initialization
