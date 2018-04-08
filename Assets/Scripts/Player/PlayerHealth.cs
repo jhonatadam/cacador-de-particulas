@@ -14,12 +14,13 @@ public class PlayerHealth : MonoBehaviour {
 	public bool dead = false;
 
 	private Player player;
-
+	private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
 		//Inicializa o HP do player
 		health = maxHealth;
 		player = GetComponent<Player>();
+		audioManager = AudioManager.instance;
 	}
 	
 	// Update is called once per frame
@@ -98,5 +99,16 @@ public class PlayerHealth : MonoBehaviour {
 
 	void UpdateDamageTime() {
 		damageTime++;
+	}
+	void OnCollisionEnter2D(Collision2D coll){
+		if (coll.gameObject.tag == "DropHP") {
+			if (coll.gameObject.GetComponent<DropHP> ().active) {
+				audioManager.PlaySound("DropHP");
+				CurePlayer (coll.gameObject.GetComponent<DropHP> ().amount);
+				coll.gameObject.GetComponent<EffectDestroy> ().End ();
+				coll.gameObject.GetComponent<DropHP> ().active = false;
+			}
+		}
+
 	}
 }
