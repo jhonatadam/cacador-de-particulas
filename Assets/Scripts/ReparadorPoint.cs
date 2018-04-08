@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class ReparadorPoint : MonoBehaviour {
 	public float reparingTime;
+	private float reparingElapsed;
 	public EnemyHealth eh;
+	public bool reparing = false;
 	// Use this for initialization
 	void Start () {
-		
+		transform.SetParent (GameObject.Find ("ReparadorPointsController").transform);
+		reparingElapsed = reparingTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		reparingTime -= Time.deltaTime;
-		if (reparingTime <= 0) {
-			Done ();
+		if (reparing) {
+			reparingElapsed -= Time.deltaTime;
+			if (reparingElapsed <= 0) {
+				Done ();
+			}
 		}
 	}
 	void Done(){
-		if (!Resources.ReferenceEquals (eh, null)) {
+		if (eh != null) {
 			eh.Rebirth ();
 			Destroy (gameObject);
 		}
