@@ -2875,7 +2875,7 @@ Transform:
   - {fileID: 564976453}
   - {fileID: 757258982}
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &43246791
 GameObject:
@@ -3640,6 +3640,11 @@ Prefab:
       propertyPath: m_Name
       value: Limite Para IA (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
   m_IsPrefabParent: 0
@@ -4157,6 +4162,11 @@ Prefab:
     - target: {fileID: 1809908700556758, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
       propertyPath: m_Name
       value: Limite Para IA (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
@@ -7276,6 +7286,11 @@ Prefab:
       propertyPath: m_Name
       value: Limite Para IA (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
   m_IsPrefabParent: 0
@@ -7356,7 +7371,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1298028018450036, guid: e9ba4b12bcabbdf43b67d1a97d2c2a41, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9ba4b12bcabbdf43b67d1a97d2c2a41, type: 2}
@@ -13689,7 +13704,7 @@ Transform:
   - {fileID: 1314784359}
   - {fileID: 1407048698}
   m_Father: {fileID: 0}
-  m_RootOrder: 73
+  m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &500145132
 GameObject:
@@ -23179,7 +23194,7 @@ Transform:
   m_LocalScale: {x: 0.3198309, y: 0.63549745, z: 0.6068313}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 52
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.811}
 --- !u!1 &636535384
 GameObject:
@@ -23431,6 +23446,11 @@ Prefab:
     - target: {fileID: 1809908700556758, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
       propertyPath: m_Name
       value: Limite Para IA (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
@@ -26521,7 +26541,7 @@ Transform:
   - {fileID: 1645811763}
   - {fileID: 434818468}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &726287069
 GameObject:
@@ -32840,6 +32860,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
   m_IsPrefabParent: 0
@@ -33133,7 +33158,7 @@ Transform:
   m_LocalScale: {x: 0.7890273, y: 1.2894598, z: 1.7926449}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &889814892
 GameObject:
@@ -33607,7 +33632,7 @@ Transform:
   m_LocalScale: {x: 2.0900626, y: 2.0900626, z: 2.0900626}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 72
+  m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &931583789
 GameObject:
@@ -33898,6 +33923,11 @@ Prefab:
       propertyPath: m_Name
       value: Limite Para IA (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
   m_IsPrefabParent: 0
@@ -33943,6 +33973,11 @@ Prefab:
     - target: {fileID: 1809908700556758, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
       propertyPath: m_Name
       value: Limite Para IA (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
@@ -51939,7 +51974,7 @@ Transform:
   - {fileID: 1074728458}
   - {fileID: 1435034519}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218952473
 GameObject:
@@ -59102,7 +59137,7 @@ Transform:
   m_LocalScale: {x: 1.6920369, y: 1.6920369, z: 1.6920369}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 179.102}
 --- !u!1 &1409961451
 GameObject:
@@ -59228,6 +59263,11 @@ Prefab:
     - target: {fileID: 1809908700556758, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
       propertyPath: m_Name
       value: Limite Para IA (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
@@ -68700,7 +68740,7 @@ Transform:
   m_LocalScale: {x: 0.83324414, y: 0.83324414, z: 0.83324414}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582266141
 GameObject:
@@ -88784,6 +88824,11 @@ Prefab:
       propertyPath: m_Name
       value: Limite Para IA (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
   m_IsPrefabParent: 0
@@ -100968,6 +101013,11 @@ Prefab:
     - target: {fileID: 1809908700556758, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
       propertyPath: m_Name
       value: Limite Para IA (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114186400387569328, guid: c6679f92eb99c4f47961de64892fa5b9,
+        type: 2}
+      propertyPath: direction
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6679f92eb99c4f47961de64892fa5b9, type: 2}
