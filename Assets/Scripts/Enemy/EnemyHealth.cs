@@ -26,6 +26,8 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject dropHP;
 	[Range(0.0f, 1.0f)]
 	public float dropHpChance = 0.5f;
+	private ReparadorPoints rpoints;
+	public float rebirthTime = 2.0f;
 	// Use this for initialization
 	void Start () {
 		audioManager = AudioManager.instance;
@@ -39,7 +41,7 @@ public class EnemyHealth : MonoBehaviour {
 		if (animator == null) {
 			animator = gameObject.GetComponentInChildren<Animator> ();
 		}
-
+		rpoints = GameObject.Find ("ReparadorPointsController").GetComponent<ReparadorPoints> ();
 	}
 	
 	// Update is called once per frame
@@ -114,11 +116,22 @@ public class EnemyHealth : MonoBehaviour {
 			drophp.transform.position = new Vector3 (transform.position.x + Random.Range (-0.2f, -0.2f), transform.position.y + Random.Range (-0.2f, -0.2f), transform.position.z);
 		}
 		sr.color = new Color (0.3f, 0.23f, 0.35f, 0.9f);
+		if (gameObject.GetComponent<ReparadorBehavior> () == null) {
+			rpoints.CreatePoint (new Vector2 (transform.position.x, transform.position.y), rebirthTime, this);
+		}
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		dead = true;
 		GetComponent<EnemyBehavior> ().dead = true;
-		gameObject.tag = "Ground";
-		rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
+
+	}
+	public void Rebirth(){
+		Collider2D[] colliders = GetComponentsInChildren<Collider2D> ();
+		for (int i = 0; i < colliders.Length; i++) {
+			colliders [i].enabled = true;
+		}
+		sr.color = new Color (1, 1, 1, 1);
+		dead = false;
+		GetComponent<EnemyBehavior> ().dead = false;
 	}
 	void OnDestroy(){
 		sr = null;

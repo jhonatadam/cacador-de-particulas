@@ -203,6 +203,7 @@ MonoBehaviour:
   sparkleRadius: 1.1
   dropHP: {fileID: 1001151515550478, guid: f1d20d602966acb48a01508ee0f2d832, type: 2}
   dropHpChance: 0.5
+  rebirthTime: 2
 --- !u!114 &114673879096827180
 MonoBehaviour:
   m_ObjectHideFlags: 1

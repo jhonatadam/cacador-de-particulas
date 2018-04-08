@@ -97,6 +97,9 @@ public class Player : MonoBehaviour {
 
 	private PlayerSavePtsData savePtsData = new PlayerSavePtsData();
 
+	//indica se o player está em um dialogue
+	private bool inDialogue = false;
+
 	void Awake() {
 		rb2d = GetComponent<Rigidbody2D> ();
 	}
@@ -142,7 +145,6 @@ public class Player : MonoBehaviour {
 			}
 		}
 		if (dashing) {
-			
 			if (dashEnlapsedTime < dashPushTime) { // está em propulsão para frente
 				rb2d.velocity = new Vector2 (rb2d.velocity.x, 0.0f);
 				animator.SetFloat ("playerXVelocity", Mathf.Abs(rb2d.velocity.x));
@@ -158,8 +160,12 @@ public class Player : MonoBehaviour {
 				// restaurando angulo original do player ao longo do dash
 				//transform.Rotate (new Vector3 (0,0, (sr.flipX ? -1 : 1) * (dashAngle * (Time.deltaTime / (dashTime - dashPushTime)))));
 			} else { // saindo do dash
+				if (!inDialogue)
+					updateOn = true;
+				else
+					rb2d.velocity = new Vector2 (0, 0);	
 				dashing = false;
-				updateOn = true;
+
 				dashEnlapsedTime = 0.0f;
 //				transform.localEulerAngles = new Vector3 (0, 0, 0);
 				transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
@@ -442,6 +448,16 @@ public class Player : MonoBehaviour {
 		SetUpdateTrue ();
 	}
 
+	private void EnterInDialogue() {
+		SetUpdateFalse ();
+		inDialogue = true;
+	}
+
+	private void OutOfDialogue() {
+		SetUpdateTrue ();
+		inDialogue = false;
+	}
+
 	void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
 		//DADOS PARA SAVE POINT
 		savePtsData.resetPt = transform.position;
@@ -464,8 +480,8 @@ public class Player : MonoBehaviour {
 		EventsManager.onHorizontalBtn += MoveHorizontally;
 		EventsManager.onFireBtn += Fire;
 		EventsManager.onClimbDownCmd += ClimbDown;
-		EventsManager.onDialogueStart += SetUpdateFalse;
-		EventsManager.onDialogueEnd += SetUpdateTrue;
+		EventsManager.onDialogueStart += EnterInDialogue;
+		EventsManager.onDialogueEnd += OutOfDialogue;
 	}
 
 	private void OnDisable() {
@@ -478,7 +494,7 @@ public class Player : MonoBehaviour {
 		EventsManager.onHorizontalBtn -= MoveHorizontally;
 		EventsManager.onFireBtn -= Fire;
 		EventsManager.onClimbDownCmd -= ClimbDown;
-		EventsManager.onDialogueStart -= SetUpdateFalse;
-		EventsManager.onDialogueEnd -= SetUpdateTrue;
+		EventsManager.onDialogueStart -= EnterInDialogue;
+		EventsManager.onDialogueEnd -= OutOfDialogue;
 	}
 }
