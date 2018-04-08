@@ -7,12 +7,12 @@ public class EffectDestroy : MonoBehaviour {
 	public bool loop;
 	private bool ended = false;
 	private Collider2D col;
-	private bool hasCollider = false;
+	public bool hasCollider = false;
 	// Use this for initialization
 	void Start () {
 		ps = GetComponentsInChildren<ParticleSystem> ();
 		col = GetComponent<Collider2D> ();
-		if (Resources.ReferenceEquals (col, null)) {
+		if (col==null) {
 			hasCollider = false;
 		} else {
 			hasCollider = true;
@@ -31,7 +31,8 @@ public class EffectDestroy : MonoBehaviour {
 				Destroy (gameObject);
 
 			}
-		}else if(!loop){
+		}
+		if(!loop){
 			int count = 0;
 			if (hasCollider) {
 				col.enabled = false;

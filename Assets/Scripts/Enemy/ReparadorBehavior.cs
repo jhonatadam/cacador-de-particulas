@@ -98,6 +98,7 @@ public class ReparadorBehavior : EnemyBehavior {
 		if (hasPointsController && PointsController.GetComponent<ReparadorPoints> ().Size () > 0) {
 			if (other.gameObject.tag == "ReparerPoint") {
 				if (other.gameObject.Equals (GetPoints()[following])) {
+					other.gameObject.GetComponent<ReparadorPoint> ().reparing = true;
 					FoundPoint = true;
 					following = (following + 1) % PointsController.GetComponent<ReparadorPoints> ().Size ();
 					reparingElapsed = 0.0f;
