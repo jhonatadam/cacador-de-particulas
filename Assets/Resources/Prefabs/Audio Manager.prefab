@@ -59,6 +59,7 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
     loop: 0
+    isTrack: 0
   - name: Titulo
     clip: {fileID: 8300000, guid: 88487e9abc542ef4392ea44f1f1d2e5d, type: 3}
     volume: 0.7
@@ -66,6 +67,7 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
     loop: 1
+    isTrack: 1
   - name: Majestic Aurora
     clip: {fileID: 8300000, guid: cb12f3e25e65e0a4d9e55054a5eb449f, type: 3}
     volume: 0.7
@@ -73,6 +75,7 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
     loop: 1
+    isTrack: 1
   - name: Zevatron Falling
     clip: {fileID: 8300000, guid: 22056a86e17de7b4b80358a97fc215fb, type: 3}
     volume: 0.7
@@ -80,6 +83,7 @@ MonoBehaviour:
     randomVolume: 0.1
     randomPitch: 0.1
     loop: 0
+    isTrack: 0
   - name: Zevatron Explosion
     clip: {fileID: 8300000, guid: eb47d13410c2b404a814bd304e47adfe, type: 3}
     volume: 0.7
@@ -87,6 +91,7 @@ MonoBehaviour:
     randomVolume: 0.1
     randomPitch: 0.1
     loop: 0
+    isTrack: 0
   - name: Voice Beep
     clip: {fileID: 8300000, guid: 311775a0ec7a04de3a3728920f767221, type: 3}
     volume: 0.7
@@ -94,6 +99,7 @@ MonoBehaviour:
     randomVolume: 0.1
     randomPitch: 0.1
     loop: 0
+    isTrack: 0
   - name: Tutorial
     clip: {fileID: 8300000, guid: eeef72bfad0eb42439c55b7cb851b24e, type: 3}
     volume: 0.7
@@ -101,6 +107,7 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
     loop: 1
+    isTrack: 1
   - name: Fly
     clip: {fileID: 8300000, guid: ba1147f3c85a74244b6ee843ab6a736a, type: 3}
     volume: 0.7
@@ -108,6 +115,7 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
     loop: 1
+    isTrack: 1
   - name: Sparkle
     clip: {fileID: 8300000, guid: 4e32aa635b132e6449a05b3fc08c0c19, type: 3}
     volume: 0.7
@@ -115,6 +123,7 @@ MonoBehaviour:
     randomVolume: 0.098
     randomPitch: 0.101
     loop: 0
+    isTrack: 0
   - name: Enemy Death
     clip: {fileID: 8300000, guid: 4360413a04620a447bff59a4659198c6, type: 3}
     volume: 0.7
@@ -122,6 +131,7 @@ MonoBehaviour:
     randomVolume: 0.098
     randomPitch: 0.101
     loop: 0
+    isTrack: 0
   - name: Bot1
     clip: {fileID: 8300000, guid: bae2cab381804824db4a762aaf3133af, type: 3}
     volume: 0.821
@@ -129,6 +139,7 @@ MonoBehaviour:
     randomVolume: 0.098
     randomPitch: 0.101
     loop: 0
+    isTrack: 0
   - name: Bot2
     clip: {fileID: 8300000, guid: b91c6c3840b2d284184db98c1171d4f0, type: 3}
     volume: 0.7
@@ -136,3 +147,4 @@ MonoBehaviour:
     randomVolume: 0.098
     randomPitch: 0.101
     loop: 0
+    isTrack: 0

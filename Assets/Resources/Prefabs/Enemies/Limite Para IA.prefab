@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 61635112123385178}
   - component: {fileID: 212004852055934214}
   - component: {fileID: 114919299318557444}
+  - component: {fileID: 114186400387569328}
   m_Layer: 12
   m_Name: Limite Para IA
   m_TagString: IALimite
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1809908700556758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.29, y: 0.24, z: 0}
-  m_LocalScale: {x: 0.20101196, y: 1, z: 1}
+  m_LocalPosition: {x: 2.65, y: 1.0168877, z: 0}
+  m_LocalScale: {x: 0.89997286, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,6 +57,20 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &114186400387569328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1809908700556758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a50a06e00c69143b3a3346785da7fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: "se direction for -1, a IA se direcionar\xE1 para esquerda. Se direction for
+    1, a IA se direcionar\xE1 para direita."
+  direction: 0
 --- !u!114 &114919299318557444
 MonoBehaviour:
   m_ObjectHideFlags: 1

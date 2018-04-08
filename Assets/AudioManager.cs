@@ -76,7 +76,7 @@ public class AudioManager : MonoBehaviour {
 	public void StopSound(string _name){
 		for (int i = 0; i < sounds.Length; i++) {
 			if (sounds [i].name == _name) {
-				if (sounds [i].isTrack) {
+				if (sounds [i].isTrack && isPlaying == _name) {
 					isPlaying = "";
 				}
 				sounds [i].Stop();
