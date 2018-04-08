@@ -24,6 +24,7 @@ public class ReparadorBehavior : EnemyBehavior {
 	private GameObject reparando;
 	private bool lookingForAtrator = true;
 	private SpriteRenderer sr;
+	private bool hasPointsController = false;
 	void OnDestroy(){
 		weapon = null;
 		PointsController = null;
@@ -35,7 +36,10 @@ public class ReparadorBehavior : EnemyBehavior {
 		base.Start ();
 		weapon = GetComponent <ReparadorMeleeWeapon> ();
 		animator = GetComponentInChildren <Animator> ();
-
+		PointsController = GameObject.Find ("ReparadorPointsController");
+		if (!Resources.ReferenceEquals (PointsController, null)) {
+			hasPointsController = true;
+		}
 		sr = GetComponentInChildren<SpriteRenderer> ();
 	}
 
@@ -90,7 +94,8 @@ public class ReparadorBehavior : EnemyBehavior {
 		
 	}
 	void OnTriggerEnter2D(Collider2D other){
-		if (PointsController.GetComponent<ReparadorPoints> ().Size () > 0) {
+		
+		if (hasPointsController && PointsController.GetComponent<ReparadorPoints> ().Size () > 0) {
 			if (other.gameObject.tag == "ReparerPoint") {
 				if (other.gameObject.Equals (GetPoints()[following])) {
 					FoundPoint = true;
@@ -140,7 +145,7 @@ public class ReparadorBehavior : EnemyBehavior {
 		if (dead) {
 			return;
 		}
-		if (PointsController.GetComponent<ReparadorPoints>().Size() > 0) { 
+		if (hasPointsController && PointsController.GetComponent<ReparadorPoints>().Size() > 0) { 
 
 
 			if (FoundPoint) {
