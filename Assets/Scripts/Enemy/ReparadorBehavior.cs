@@ -97,7 +97,7 @@ public class ReparadorBehavior : EnemyBehavior {
 					following = (following + 1) % PointsController.GetComponent<ReparadorPoints> ().Size ();
 					reparingElapsed = 0.0f;
 					rb2d.velocity = new Vector2 (0, 0);
-					print ("FOUND YOU");
+					//print ("FOUND YOU");
 				}
 			}
 		}
