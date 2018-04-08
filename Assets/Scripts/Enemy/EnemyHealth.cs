@@ -23,6 +23,9 @@ public class EnemyHealth : MonoBehaviour {
 	private float lastSparkle = 0;
 	public GameObject shortSparkle;
 	public float sparkleRadius;
+	public GameObject dropHP;
+	[Range(0.0f, 1.0f)]
+	public float dropHpChance = 0.5f;
 	// Use this for initialization
 	void Start () {
 		audioManager = AudioManager.instance;
@@ -102,7 +105,14 @@ public class EnemyHealth : MonoBehaviour {
 		rb2d.velocity = new Vector2 (0, 0);
 		audioManager.PlaySound ("Enemy Death");
 		animator.SetTrigger ("Dead");
-		rb2d.constraints = RigidbodyConstraints2D.None;
+		Collider2D[] colliders = GetComponentsInChildren<Collider2D> ();
+		for (int i = 0; i < colliders.Length; i++) {
+			colliders [i].enabled = false;
+		}
+		if (Random.Range (0.0f, 1.0f) < dropHpChance) {
+			GameObject drophp = Instantiate (dropHP);
+			drophp.transform.position = new Vector3 (transform.position.x + Random.Range (-0.2f, -0.2f), transform.position.y + Random.Range (-0.2f, -0.2f), transform.position.z);
+		}
 		sr.color = new Color (0.3f, 0.23f, 0.35f, 0.9f);
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		dead = true;
