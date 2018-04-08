@@ -96,9 +96,24 @@ public abstract class EnemyBehavior : MonoBehaviour {
 		}
 	}
 
+	public void TurnTo(int direction){
+		if (direction == 1) {
+			isFacingRight = true;
+			transform.rotation = new Quaternion (0, 0, 0, 0);
+		} else if (direction == -1) {
+			isFacingRight = false;
+			transform.rotation = new Quaternion (0, 180, 0, 0);
+		}
+	}
+
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.tag == "IALimite" || other.tag == "Enemy") {
-			TurnAround ();
+			if (other.tag == "IALimite") {
+				int dir = other.gameObject.GetComponent<IALimiter> ().direction;
+				TurnTo (dir);
+			} else {
+				TurnAround ();
+			}
 		}
 	}
 

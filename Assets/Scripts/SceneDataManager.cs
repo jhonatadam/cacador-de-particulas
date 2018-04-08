@@ -122,7 +122,7 @@ public class SceneDataManager : MonoBehaviour {
 			mapManager.updateMap ();
 		}
 		//diálogos
-		print(dialogues.Length);
+		//print(dialogues.Length);
 		foreach (Dialogue dialogue in dialogues) {
 			dialogue.over = tempData.dialoguesOver [dialogue.id];
 		}

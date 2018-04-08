@@ -18,15 +18,15 @@ public class MapManager : MonoBehaviour {
 	}
 
 	public void updateMap() {
-		foreach (int i in discoveredMapBlockers) {
-			print (i);
-		}
+		//foreach (int i in discoveredMapBlockers) {
+			//print (i);
+		//}
 		foreach (Transform mp in transform.GetChild(0)) {
 			
 			MapBlocker mb = mp.gameObject.GetComponent<MapBlocker> ();
 
 			if (discoveredMapBlockers.Contains (mb.id)) {
-				print ("tem o id");
+				//print ("tem o id");
 				Destroy(mb.gameObject);
 			}
 		}

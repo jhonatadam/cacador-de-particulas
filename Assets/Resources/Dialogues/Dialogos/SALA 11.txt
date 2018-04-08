@@ -36,7 +36,7 @@ ARI:
 O que foi Alvinn?
 Alvinn:
 Os robôs daqui, ao serem destruidos, eles deixa cair um fluído verde. Esse fluído, de alguma forma, cura o da no causado pelas partículas e pelos robôs. 
-ALvinn:
+Alvinn:
 Isso é bom. Algo bom no meio desse caos.
 ARI:
 Isso é interessante. Vou pesquisar sobre!

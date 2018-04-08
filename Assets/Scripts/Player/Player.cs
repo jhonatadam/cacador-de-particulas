@@ -413,7 +413,7 @@ public class Player : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D coll){
 		if (coll.gameObject.tag == "DeathZone") {
-			print ("Death");
+			//print ("Death");
 			stun = 0.5f;
 			inputManager.StopListening ();
 			rb2d.velocity = new Vector2 (0, 0);

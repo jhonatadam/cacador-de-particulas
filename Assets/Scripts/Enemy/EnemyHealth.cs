@@ -102,7 +102,7 @@ public class EnemyHealth : MonoBehaviour {
 		rb2d.velocity = new Vector2 (0, 0);
 		audioManager.PlaySound ("Enemy Death");
 		animator.SetTrigger ("Dead");
-
+		rb2d.constraints = RigidbodyConstraints2D.None;
 		sr.color = new Color (0.3f, 0.23f, 0.35f, 0.9f);
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		dead = true;
