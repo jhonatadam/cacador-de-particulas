@@ -37,8 +37,9 @@ public class Dialogue : MonoBehaviour {
 	//id do diálogo. Envolve todos os diálogos do jogo
 	public int id;
 	public float delay = 0.08f;
+	//flag que indica se deve mostrar o texto de uma vez
+	public bool showAll = false;
 	//Flag que indica se o dialogo acabou
-
 	public bool over = false;
 	private AudioManager audioManager;
 
@@ -62,9 +63,12 @@ public class Dialogue : MonoBehaviour {
 					return;
 				}
 			}
-			if (Input.GetAxis("Vertical") < 0) {
+			if (Input.GetAxis ("Vertical") < 0) {
 				delay = 0;
+			} else if (Input.GetButton ("Dash")) {
+				showAll = true;
 			} else {
+				showAll = false;
 				delay = 0.08f;
 			}
 
@@ -94,11 +98,17 @@ public class Dialogue : MonoBehaviour {
 			//Texto do diálogo (linhas ímpares
 			message = dialogo [textoAtual];
 			foreach (char c in message) {
-				if (c.ToString () != " ") {
-					audioManager.PlaySound("Voice Beep");
+				if (showAll) {
+					CampoDeTexto.text = message;
+					audioManager.PlaySound ("Voice Beep");
+					break;
+				} else {
+					if (c.ToString () != " ") {
+						audioManager.PlaySound ("Voice Beep");
+					}
+					CampoDeTexto.text += c;
+					yield return new WaitForSeconds (delay); 
 				}
-				CampoDeTexto.text += c;
-				yield return new WaitForSeconds (delay); 
 			}
 			canContinue = true;
 		}
@@ -111,7 +121,8 @@ public class Dialogue : MonoBehaviour {
 		if (textoAtual >= dialogo.Length) {
 			over = true;
 		} else if(continua) {
-			StartCoroutine(ShowMessage(dialogo [textoAtual]));
+			StartCoroutine (ShowMessage (dialogo [textoAtual]));
+				
 			//StartCoroutine(ShowMessage(dialogo [textoAtual]));
 			textoAtual++;
 			continua = false;
