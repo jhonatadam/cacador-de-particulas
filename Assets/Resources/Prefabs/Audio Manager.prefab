@@ -148,3 +148,11 @@ MonoBehaviour:
     randomPitch: 0.101
     loop: 0
     isTrack: 0
+  - name: DropHP
+    clip: {fileID: 8300000, guid: b82235f32e3a7f24b946896bdd713071, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.098
+    randomPitch: 0.101
+    loop: 0
+    isTrack: 0
