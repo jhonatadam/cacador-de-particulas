@@ -7,7 +7,7 @@ public class EffectDestroy : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ps = GetComponentsInChildren<ParticleSystem> ();
-		print (ps.Length);
+		//print (ps.Length);
 	}
 	
 	// Update is called once per frame

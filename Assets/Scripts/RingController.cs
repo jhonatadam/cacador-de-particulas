@@ -15,7 +15,7 @@ public class RingController : MonoBehaviour {
 		
 	}
 	public void Emit(int n){
-		print ("bbbbbb b >:" + n);
+		//print ("bbbbbb b >:" + n);
 		gameObject.GetComponent<ParticleSystem> ().Emit (n);
 	}
 	public void Stop(){
