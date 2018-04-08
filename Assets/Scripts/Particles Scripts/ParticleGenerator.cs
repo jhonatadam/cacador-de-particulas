@@ -20,6 +20,7 @@ public class ParticleGenerator : MonoBehaviour {
 
 
 	public bool randomPosition;
+	public bool localPosition = false;
 	public float minPosition;
 	public float maxPosition;
 
@@ -81,7 +82,11 @@ public class ParticleGenerator : MonoBehaviour {
 	}
 
 	void RandomPosition () {
-		generatePoint.position = new Vector3 (Random.Range (minPosition, maxPosition), generatePoint.position.y, generatePoint.position.z);
+		if (localPosition) {
+			generatePoint.position = new Vector3 (Random.Range (transform.position.x + minPosition, transform.position.x + maxPosition), generatePoint.position.y, generatePoint.position.z);
+		} else {
+			generatePoint.position = new Vector3 (Random.Range (minPosition, maxPosition), generatePoint.position.y, generatePoint.position.z);
+		}
 	}
 	void OnDestroy(){
 		generatePoint = null;
