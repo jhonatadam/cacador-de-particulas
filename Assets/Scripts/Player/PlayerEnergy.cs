@@ -10,8 +10,6 @@ public class PlayerEnergy : MonoBehaviour {
 	public float energy;
 	public EnergyLevel level;
 	private PistolController pc;
-	ParticleSystem pistolGlow;
-
 	private Player player;
 
 
@@ -25,7 +23,6 @@ public class PlayerEnergy : MonoBehaviour {
 		//energy = 0;
 		pc = gameObject.GetComponentInChildren<PistolController>();
 		print (pc);
-		pistolGlow = gameObject.GetComponentsInChildren<ParticleSystem>()[0];
 	}
 
 	// Update is called once per frame
@@ -94,28 +91,19 @@ public class PlayerEnergy : MonoBehaviour {
 
 		if (temp <= 0.5f) {
 			if (level != EnergyLevel.Verde) {
-				ParticleSystem.MainModule main = pistolGlow.main;
-				main.startColor = new Color (0.1f, 1.0f, 0.2f);
 				gameObject.GetComponent<Player> ().SwitchAnimator ("verde");
-				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Verde;
 
 		} else if (temp <= 0.8f) {
 			if (level != EnergyLevel.Amarelo) {
-				ParticleSystem.MainModule main = pistolGlow.main;
-				main.startColor = new Color (1.0f, 1.0f, 0.2f);
 				gameObject.GetComponent<Player> ().SwitchAnimator ("amarelo");
-				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Amarelo;
 
 		} else {
 			if (level != EnergyLevel.Vermelho) {
-				ParticleSystem.MainModule main = pistolGlow.main;
-				main.startColor = new Color (1.0f, 0.1f, 0.2f);
 				gameObject.GetComponent<Player> ().SwitchAnimator ("vermelho");
-				pistolGlow.Emit (50);
 			}
 			level = EnergyLevel.Vermelho;
 		}
