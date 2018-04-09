@@ -29,6 +29,7 @@ public class EnemyHealth : MonoBehaviour {
 	public float dropHpChance = 0.5f;
 	private ReparadorPoints rpoints;
 	public float rebirthTime = 2.0f;
+	private float gravityOriginal;
 	// Use this for initialization
 	void Start () {
 		dyingElapsed = dyingTime;
@@ -36,6 +37,7 @@ public class EnemyHealth : MonoBehaviour {
 		health = maxHealth;
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
+		gravityOriginal = rb2d.gravityScale;
 		if (sr == null) {
 			sr = gameObject.GetComponentInChildren<SpriteRenderer> ();
 		}
@@ -107,6 +109,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	public void KillEnemy() {
 		rb2d.velocity = new Vector2 (0, 0);
+		rb2d.gravityScale = 0;
 		audioManager.PlaySound ("Enemy Death");
 		animator.SetTrigger ("Dead");
 		Collider2D[] colliders = GetComponentsInChildren<Collider2D> ();
@@ -128,6 +131,7 @@ public class EnemyHealth : MonoBehaviour {
 	}
 	public void Rebirth(){
 		animator.SetTrigger ("Alive");
+		rb2d.gravityScale = gravityOriginal;
 		Collider2D[] colliders = GetComponentsInChildren<Collider2D> ();
 		for (int i = 0; i < colliders.Length; i++) {
 			colliders [i].enabled = true;
