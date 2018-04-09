@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PlayerGun1
+  m_Name: PlayerNu
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: jump
@@ -333,7 +333,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: WalkingGun1
+  m_Name: Walking
   m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
@@ -349,7 +349,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d7a355a9da87d9e439b0fb3bd7132c3d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9a9542b6fd3bfcd4b8fbd6872c7b1023, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -360,7 +360,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: JumpDownStopGun1
+  m_Name: JumpDownStop
   m_Speed: 12
   m_CycleOffset: 0
   m_Transitions:
@@ -373,7 +373,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b6237cfff3bd5f447b4d4f76784642b4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1be58257eeb89ee4e986d6b3853c2148, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -384,7 +384,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: JumpUpGun1
+  m_Name: JumpUp
   m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
@@ -397,7 +397,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a4f9036349cb794419ac1a5ba41bb985, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1ad3ea031242ba343827cd14bf962495, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -408,7 +408,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: JumpDownGun1
+  m_Name: JumpDown
   m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
@@ -421,7 +421,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 90f76a7001783ef4a8e75c6340761332, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1be58257eeb89ee4e986d6b3853c2148, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -432,7 +432,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: JumpUpJumpDownGun1
+  m_Name: JumpUpJumpDown
   m_Speed: 8
   m_CycleOffset: 0
   m_Transitions:
@@ -445,7 +445,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 692dc597dd4f7d64898319773b80c54c, type: 2}
+  m_Motion: {fileID: 7400000, guid: d91df8d33f6b17a4bacfc3c3d70207f4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -456,7 +456,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: StopJumpUpGun1
+  m_Name: StopJumpUp
   m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
@@ -469,7 +469,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: aadf69c2ba42d8940b9cf490ec6929a6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2ec2bfa8b6a439c42ad68553a91c37d0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -480,7 +480,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: StopedGun1
+  m_Name: Stoped
   m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
@@ -495,7 +495,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 85844c39070ce53429d11affee800342, type: 2}
+  m_Motion: {fileID: 7400000, guid: 426767d72dfe8fb4c8cc7cdb8ed4bea6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
