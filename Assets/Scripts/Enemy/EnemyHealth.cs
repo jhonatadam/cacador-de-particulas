@@ -18,6 +18,7 @@ public class EnemyHealth : MonoBehaviour {
 	// Referência do animator
 	public Animator animator;
 	public float dyingTime = 0.5f;
+	private float dyingElapsed;
 	public int sparkleAmount = 4;
 	public float sparkleInterval;
 	private float lastSparkle = 0;
@@ -26,12 +27,17 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject dropHP;
 	[Range(0.0f, 1.0f)]
 	public float dropHpChance = 0.5f;
+	private ReparadorPoints rpoints;
+	public float rebirthTime = 2.0f;
+	private float originalGravity;
 	// Use this for initialization
 	void Start () {
+		dyingElapsed = dyingTime;
 		audioManager = AudioManager.instance;
 		health = maxHealth;
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
+		originalGravity = rb2d.gravityScale;
 		if (sr == null) {
 			sr = gameObject.GetComponentInChildren<SpriteRenderer> ();
 		}
@@ -39,13 +45,13 @@ public class EnemyHealth : MonoBehaviour {
 		if (animator == null) {
 			animator = gameObject.GetComponentInChildren<Animator> ();
 		}
-
+		rpoints = GameObject.Find ("ReparadorPointsController").GetComponent<ReparadorPoints> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (dead) {
-			dyingTime -= Time.deltaTime;
+			dyingElapsed -= Time.deltaTime;
 			if (Time.time - lastSparkle > sparkleInterval && sparkleAmount > 0) {
 				GameObject sprk = Instantiate (shortSparkle);
 				sprk.transform.position = new Vector3 (transform.position.x + Random.Range (-sparkleRadius/2.0f, sparkleRadius/2.0f), transform.position.y + Random.Range (-sparkleRadius/2.0f, sparkleRadius/2.0f), transform.position.z);
@@ -103,6 +109,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	public void KillEnemy() {
 		rb2d.velocity = new Vector2 (0, 0);
+		rb2d.gravityScale = 0.0f;
 		audioManager.PlaySound ("Enemy Death");
 		animator.SetTrigger ("Dead");
 		Collider2D[] colliders = GetComponentsInChildren<Collider2D> ();
@@ -114,11 +121,26 @@ public class EnemyHealth : MonoBehaviour {
 			drophp.transform.position = new Vector3 (transform.position.x + Random.Range (-0.2f, -0.2f), transform.position.y + Random.Range (-0.2f, -0.2f), transform.position.z);
 		}
 		sr.color = new Color (0.3f, 0.23f, 0.35f, 0.9f);
+		if (gameObject.GetComponent<ReparadorBehavior> () == null) {
+			rpoints.CreatePoint (new Vector2 (transform.position.x, transform.position.y), rebirthTime, this);
+		}
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		dead = true;
 		GetComponent<EnemyBehavior> ().dead = true;
-		gameObject.tag = "Ground";
-		rb2d.velocity = new Vector2 (0, rb2d.velocity.y);
+
+	}
+	public void Rebirth(){
+		rb2d.gravityScale = originalGravity;
+		animator.SetTrigger ("Alive");
+		Collider2D[] colliders = GetComponentsInChildren<Collider2D> ();
+		for (int i = 0; i < colliders.Length; i++) {
+			colliders [i].enabled = true;
+		}
+		sparkleAmount = 5;
+		sr.color = new Color (1, 1, 1, 1);
+		dead = false;
+		GetComponent<EnemyBehavior> ().dead = false;
+		health = maxHealth;
 	}
 	void OnDestroy(){
 		sr = null;

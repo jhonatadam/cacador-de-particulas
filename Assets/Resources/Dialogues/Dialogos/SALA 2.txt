@@ -1,7 +1,9 @@
 ﻿Alvinn: 
 O que é isso ARI?
 ARI: 
-É uma máquina que reproduz partículas, para estudar a sua carga e sendo possível ser vista por todos os robôs e humanos do laboratório. 
+É uma máquina que reproduz o efeito das partículas, para estudar a sua carga, rastro, e outros aspectos.
+ARI:
+Essas são visíveis para todos.
 ARI:
 Veja: as de rastro azul são positivas e as de rastro vermelho são negativas.
 Alvinn: 

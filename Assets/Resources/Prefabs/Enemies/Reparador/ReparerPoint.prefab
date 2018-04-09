@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4886624176927800}
   - component: {fileID: 212778413369874032}
   - component: {fileID: 58001847998332072}
+  - component: {fileID: 114197770043876334}
+  - component: {fileID: 114916821022511188}
   m_Layer: 12
   m_Name: ReparerPoint
   m_TagString: ReparerPoint
@@ -55,6 +57,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &114197770043876334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477855927183942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0b5a96e33ba0c42a75275828a59b99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reparingTime: 0
+  eh: {fileID: 0}
+  reparing: 0
+--- !u!114 &114916821022511188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477855927183942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b253e56dc8bb854a84c0b9a3c94f64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212778413369874032
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -87,6 +114,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 26003a424af3dc443b0815125cff407c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.57813805, g: 0.86764705, b: 0.56779844, a: 1}
   m_FlipX: 0
   m_FlipY: 0
