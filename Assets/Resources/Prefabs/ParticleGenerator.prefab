@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114078831863334670}
   - component: {fileID: 212640108664248664}
   - component: {fileID: 114720108391037560}
+  - component: {fileID: 114425005229481444}
   m_Layer: 0
   m_Name: ParticleGenerator
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4544247063572796}
   - component: {fileID: 212370110197895560}
+  - component: {fileID: 114100745968579800}
   m_Layer: 0
   m_Name: GeneratorPoint
   m_TagString: Untagged
@@ -105,6 +107,28 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
+--- !u!114 &114100745968579800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971624753330194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b253e56dc8bb854a84c0b9a3c94f64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114425005229481444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674818855462792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b253e56dc8bb854a84c0b9a3c94f64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114720108391037560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,10 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157f3d1b94c06364f91935e8ccf470de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  findTarget: 1
   targetName: Player
   offset: {x: 0, y: -10}
+  active: 1
 --- !u!212 &212370110197895560
 SpriteRenderer:
   m_ObjectHideFlags: 1
