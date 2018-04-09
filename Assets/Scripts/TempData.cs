@@ -8,7 +8,7 @@ public class TempData : MonoBehaviour {
 
 	public int[] elevatorFloors;
 
-	public List<int> discoveredMapBlockers;
+	//public List<int> discoveredMapBlockers;
 
 	//Lista de todos os diálogos. True para diálogo que não será mais exibido, false c.c.;
 	public List<bool> dialoguesOver;
