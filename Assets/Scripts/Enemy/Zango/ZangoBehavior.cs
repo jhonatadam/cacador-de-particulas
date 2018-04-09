@@ -195,7 +195,7 @@ public class ZangoBehavior : MonoBehaviour {
 	//Função que escolhe o menor caminho entre o player e o zango e move zango para a próxima plataforma.
 	public void chasePlayerInPlatform() {
 		
-		if (actualPlatform == null) {
+		/*if (actualPlatform == null) {
 			Debug.Log ("<color=yellow>zango actual platform is null</color>", this.gameObject);
 			return;
 		}
@@ -221,7 +221,7 @@ public class ZangoBehavior : MonoBehaviour {
 		if (zangoPlatform == destPlatform)
 			return;
 
-		int next = PlataformsGraph.nextPlatform (zangoPlatform, destPlatform);
+		int next = PlataformsGraph.nextPlatform (zangoPlatform, destPlatform);*/
 
 		//TROCAR ISSO PELO PULO OBLIQUO
 		//transform.position = platformsGraph.transform.GetChild (next).position;
@@ -242,7 +242,7 @@ public class ZangoBehavior : MonoBehaviour {
 
 		v = Mathf.Sqrt ((rb2d.gravityScale*x*x)/2*(Mathf.Tan(a)*x - y) * Mathf.Cos(a));
 
-		print ("V " + 2*(Mathf.Tan(a)*x - y) * Mathf.Cos(a));
+		//print ("V " + 2*(Mathf.Tan(a)*x - y) * Mathf.Cos(a));
 
 		float vx = Mathf.Cos (a) * v;
 		float vy = Mathf.Sin (a) * v;
@@ -254,7 +254,7 @@ public class ZangoBehavior : MonoBehaviour {
 		//rb2d.velocity = new Vector2 (20 * (player.transform.position.x < transform.position.x ? -1 : 1), 8);
 		rb2d.AddForce(new Vector2(0, 40000));
 		rb2d.AddForce(new Vector2(10000* (player.transform.position.x < transform.position.x ? -1 : 1), 0));
-		print ("Velocidade x " + rb2d.velocity.x);
+		//print ("Velocidade x " + rb2d.velocity.x);
 	}
 
 
