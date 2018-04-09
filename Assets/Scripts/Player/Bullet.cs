@@ -30,11 +30,12 @@ public class Bullet : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter2D(Collision2D other) {
-		if (other.gameObject.layer == 12) {
+		if (other.gameObject.layer == 12 || other.gameObject.tag == "Player") {
 			return;
 		}
 		if (!dead) {
 			string tag = other.gameObject.tag;
+			print (tag);
 			if (tag == "Enemy") {
 				other.gameObject.GetComponent<EnemyHealth> ().DamageEnemy (damage);
 			}
