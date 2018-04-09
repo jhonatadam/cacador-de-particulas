@@ -37,7 +37,7 @@ public class ZangoFeet : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other) {
 		if (other.tag == "Ground" || other.tag == "Platform") {
-			if (other.name != "Wall-Roof-Ground")
+			if (!other.name.Contains("Wall-Roof-Ground"))
 				behavior.jumping = true;
 			behavior.actualPlatform = null;
 		}

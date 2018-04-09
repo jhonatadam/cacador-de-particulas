@@ -61,7 +61,7 @@ public class PlayerEnergy : MonoBehaviour {
 	 * 
 	 * */
 	public void ChargeEnergy (float charge) {
-		if (!player.GetUpdateOn())
+		if (player.GetInDialogue())
 			return;
 		energy += charge;
 

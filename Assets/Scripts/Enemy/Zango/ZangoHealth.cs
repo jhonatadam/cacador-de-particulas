@@ -14,6 +14,7 @@ public class ZangoHealth : EnemyHealth {
 
 	// Update is called once per frame
 	void Update () {
+		GetComponentInChildren<SpriteRenderer>().color = new Color(1, health/maxHealth, health/maxHealth);
 		if (health <= 0) {
 			KillEnemy ();
 		}

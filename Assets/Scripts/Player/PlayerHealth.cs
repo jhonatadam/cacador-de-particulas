@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour {
 	///</summary>
 	/// <param name="damage">Dano que o player recebe</param>
 	public void DamagePlayer(float damage) {
-		if (damageTime < damageCoolDown || !player.GetUpdateOn() || dead)
+		if (damageTime < damageCoolDown || player.GetInDialogue() || dead)
 			return;
 
 		if (health - damage <= 0) {
@@ -61,7 +61,7 @@ public class PlayerHealth : MonoBehaviour {
 	 **/
 	public void ParticleDamagePlayer(float damage) {
 		
-		if (damageTime < damageCoolDown || !player.GetUpdateOn() || dead)
+		if (damageTime < damageCoolDown || player.GetInDialogue() || dead)
 			return;
 
 		GameObject temp = gameObject.transform.GetChild (3).gameObject;

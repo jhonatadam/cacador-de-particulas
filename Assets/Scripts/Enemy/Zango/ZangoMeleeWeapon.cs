@@ -144,7 +144,6 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 		}
 
 		if (axeChronometer) {
-			print ("Contando o tempo. Restante: " + (Time.time - axeChronometerInit));
 			if (Time.time - axeChronometerInit >= axeInFloorTime) {
 				//liberar machado do chao
 				axeChronometer = false;
@@ -156,7 +155,6 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 				//Tirar isso quando tiver a animação
 				isLoaded = true;
 				actualAttack = "none";
-				print ("Machado liberado. FInito.");
 			}
 		}
 
@@ -164,12 +162,12 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 
 			//Cura
 			//a cada 100 de hp
-			if (cureCounter >= 100.0f) {
+			/*if (cureCounter >= 100.0f) {
 				cureCounter = 100.0f - cureCounter;
 				startZangoCure ();
 				return;
-			}
-			
+			}*/
+
 			//Ataque2 - rotatorio
 			//a cada 50
 			if (rotationCounter >= 50.0f) {
@@ -218,7 +216,6 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 		actualAttack = "upToDown";
 
 		animator.SetTrigger ("Attack");
-		print ("Começou up to down");
 	}
 
 	public void startRotatingAttack() {
@@ -236,13 +233,11 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 			if (actualAttack == "upToDown") {
 				axeHitPlayer = true;
 				animator.SetBool ("HitPlayer", true);
-				print ("Up to down acertou player. Finito");
 			
 				//Calcula a direcao que o player esta em relacao ao inimigo para aplicar o knockback.
 				float direction = other.transform.position.x - transform.position.x;
 				direction = direction / Mathf.Abs (direction);
 				other.gameObject.GetComponent<Player> ().Knockback (direction, 0.5f, 0.1f, 2);
-
 				other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer (upToDownDamage);
 				isLoaded = true;
 				actualAttack = "none";
@@ -267,7 +262,6 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 					
 
 				float dano = Mathf.Lerp (0, 20, 1f) * Time.deltaTime * 2.5f;
-				print ("Rotatório causando dano " + dano);
 				other.gameObject.GetComponent<PlayerHealth> ().DamagePlayer (dano);
 //					rotationDmgCounter = Time.time;
 				//}
@@ -278,7 +272,6 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 	//chamada quando o macahado encosta no chao durante ataque 1
 	public void onStuckStart() {
 		if (!axeChronometer) {
-			print ("Up to down acertou o chao. Iniciando contagem.");
 			axeChronometer = true;
 			axeChronometerInit = Time.time;
 
@@ -290,7 +283,6 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 		GameObject temp;
 
 		float ang = Vector2.Angle (energyBallExit.position, player.transform.transform.position);
-		print (ang);
 		ang = Mathf.Atan2 (player.transform.position.y - energyBallExit.position.y, (player.transform.position.x - energyBallExit.position.x)*(behavior.isFacingRight ? 1 : -1));
 
 		Quaternion rota = Quaternion.Euler (energyBallExit.rotation.eulerAngles.x, energyBallExit.rotation.eulerAngles.y,  ang*Mathf.Rad2Deg);
