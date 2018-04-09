@@ -10,12 +10,17 @@ public class SceneTransition : MonoBehaviour {
 
 	public SceneDataManager sdm;
 	private AudioManager audioManager;
+	public bool useCustomPosition = false;
+	public Vector2 customPosition;
 	void Start () {
 		audioManager = AudioManager.instance;		
 	}
 
 	void Update () {
 		if (cc.getIsInContact ()) {
+			if (useCustomPosition) {
+				sdm.player.transform.position = new Vector3 (customPosition.x, customPosition.y, sdm.player.transform.position.z);
+			}
 			sdm.UpdatePlayerData ();
 			sdm.UpdateSceneData ();
 			SceneManager.LoadScene (nextSceneName);

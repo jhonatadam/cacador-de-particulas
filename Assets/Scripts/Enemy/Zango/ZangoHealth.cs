@@ -5,11 +5,12 @@ using UnityEngine;
 public class ZangoHealth : EnemyHealth {
 
 	private ZangoMeleeWeapon weapon;
-
+	private GameObject battleStarter;
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;
 		weapon = gameObject.GetComponent<ZangoMeleeWeapon> ();
+		battleStarter = GameObject.Find ("BattleStarter");
 	}
 
 	// Update is called once per frame
@@ -49,6 +50,9 @@ public class ZangoHealth : EnemyHealth {
 	}
 
 	public void KillEnemy() {
+		battleStarter.GetComponent<ZangoBattleStarter> ().camera2.SetActive (false);
+		battleStarter.GetComponent<ZangoBattleStarter> ().camera1.SetActive (true);
+
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		Destroy (this.gameObject);
 	}
