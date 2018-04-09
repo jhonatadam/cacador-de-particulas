@@ -5558,11 +5558,6 @@ Prefab:
       propertyPath: maxRespawn
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114619272099767042, guid: 4129b56245bb5894ba34ddce91972cfb,
-        type: 2}
-      propertyPath: limitRespawn
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4129b56245bb5894ba34ddce91972cfb, type: 2}
   m_IsPrefabParent: 0
