@@ -54,6 +54,7 @@ public class Bullet : MonoBehaviour {
 			ring.Emit (3);
 			ring.Stop ();
 			ps.Stop ();
+			GetComponent<TrailRenderer> ().enabled = false;
 			sr.color = new Color (0, 0, 0, 0);
 			cl.enabled = false;
 			dead = true;
