@@ -370,6 +370,10 @@ public class Player : MonoBehaviour {
 		return updateOn;
 	}
 
+	public bool GetInDialogue() {
+		return inDialogue;
+	}
+
 	public void UpdateSpriteDirection (float horizontalMovement) {
 		if (horizontalMovement < 0.0f) {
 //			sr.flipX = true; 

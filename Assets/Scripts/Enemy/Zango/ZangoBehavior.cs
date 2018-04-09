@@ -46,6 +46,9 @@ public class ZangoBehavior : MonoBehaviour {
 	[HideInInspector]
 	public int jumpsNumber = 0;
 
+	public float turningDelay = 1;
+	private float lastTurning = 0;
+
 
 	// Use this for initialization.
 	void Start () {
@@ -97,7 +100,10 @@ public class ZangoBehavior : MonoBehaviour {
 		//Raycast
 		bool platformBetween = trackPlayer ();
 
-		UpdateGuidanceFollowPlayer ();
+		if (Time.time - lastTurning > turningDelay) {
+			UpdateGuidanceFollowPlayer ();
+			lastTurning = Time.time;
+		}
 
 		if (!jumping) {
 			if (platformBetween && playerAboveZango())
