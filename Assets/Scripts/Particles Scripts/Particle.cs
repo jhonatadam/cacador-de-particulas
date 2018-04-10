@@ -28,9 +28,6 @@ public class Particle : MonoBehaviour {
 	public float impulseFrequence = 1;
 	private float lastImpulse = 0;
 
-	public GameObject particleRipple;
-	public GameObject particleRippleD;
-
 	//transform
 	Transform trans;
 	//posição
@@ -142,22 +139,14 @@ public class Particle : MonoBehaviour {
 
 	void OnTriggerStay2D(Collider2D other)
 	{
-		GameObject ripple;
 		if (other.gameObject.tag == "Player") {
 			if (canDamage) {
 				other.GetComponent<PlayerHealth> ().ParticleDamagePlayer (damage);
 				other.GetComponent<PlayerEnergy> ().ChargeEnergy (energy);
 				canDamage = false;
-				ripple = Instantiate (particleRippleD, transform);
-				Destroy (ripple, ripple.GetComponent<ParticleSystem> ().main.startLifetime.constantMax);
-			} else {
-				ripple = Instantiate (particleRipple, transform);
-				Destroy (ripple, ripple.GetComponent<ParticleSystem> ().main.startLifetime.constantMax);
 			}
-
 			destroyParticle ();
 		}
-		ripple = null;
 		if (other.gameObject.tag == "Elevator") {
 			destroyParticle ();
 		}
@@ -170,8 +159,6 @@ public class Particle : MonoBehaviour {
 		daughters = null;
 		ps = null;
 		sr = null;
-		particleRipple = null;
-		particleRippleD = null;
 		trans = null;
 		rb = null;
 	}
