@@ -7,7 +7,6 @@ public class Creditos : MonoBehaviour {
 	public float delay = 5;
 	private float time = 0;
 	private int current = 0;
-	private bool sair = false;
 	private float lastChange = -5;
 	private AudioManager audioManager;
 	// Use this for initialization
@@ -26,7 +25,6 @@ public class Creditos : MonoBehaviour {
 			
 			foreach (Transform child in transform) {
 				if (child == transform.GetChild (current)) {
-					print ("soeraetuaeijr");
 					child.gameObject.GetComponent<SpriteRenderer> ().enabled = true;
 				} else {
 					child.gameObject.GetComponent<SpriteRenderer> ().enabled = false;
@@ -36,7 +34,7 @@ public class Creditos : MonoBehaviour {
 			lastChange = time;
 		}
 		if (time > (transform.childCount + 2) * delay) {
-			if (sair) {
+			if (GameObject.Find("TempData") && GameObject.Find("TempData").GetComponent<TempData>().finalDoJogo) {
 				#if UNITY_EDITOR
 				UnityEditor.EditorApplication.isPlaying = false;
 				#else
