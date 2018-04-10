@@ -22,7 +22,7 @@ public class PlayerEnergy : MonoBehaviour {
 		//Inicializa o HP do player
 		//energy = 0;
 		pc = gameObject.GetComponentInChildren<PistolController>();
-		print (pc);
+//		print (pc);
 	}
 
 	// Update is called once per frame
