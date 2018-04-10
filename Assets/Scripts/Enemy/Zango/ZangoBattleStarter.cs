@@ -8,6 +8,7 @@ public class ZangoBattleStarter : MonoBehaviour {
 	public GameObject camera2;
 	public GameObject zango;
 	public GameObject escotilha;
+	public GameObject portaEnd;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +23,7 @@ public class ZangoBattleStarter : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player") {
 			escotilha.SetActive (true);
+			portaEnd.SetActive (true);
 			camera1.SetActive (false);
 			camera2.SetActive (true);
 			camera2.GetComponent<Animator> ().Play ("CameraFadeOut");
