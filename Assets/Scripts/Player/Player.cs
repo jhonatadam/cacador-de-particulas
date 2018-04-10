@@ -440,6 +440,12 @@ public class Player : MonoBehaviour {
 
 	public void Death() {
 		//carrega os dados salvos quando a cena foi carregada
+		StartCoroutine( deathDelayer());
+	}
+
+	private IEnumerator deathDelayer() {
+		SetUpdateFalse ();
+		yield return new WaitForSeconds (0.5f);
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		transform.position = savePtsData.resetPt;
 		GetComponent<PlayerHealth> ().health = savePtsData.health;
@@ -460,6 +466,10 @@ public class Player : MonoBehaviour {
 	private void OutOfDialogue() {
 		SetUpdateTrue ();
 		inDialogue = false;
+	}
+
+	public void PullTo(Vector2 position){
+		transform.position = new Vector3 (position.x, position.y, transform.position.z);
 	}
 
 	void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
@@ -501,7 +511,5 @@ public class Player : MonoBehaviour {
 		EventsManager.onDialogueStart -= EnterInDialogue;
 		EventsManager.onDialogueEnd -= OutOfDialogue;
 	}
-	public void PullTo(Vector2 position){
-		transform.position = new Vector3 (position.x, position.y, transform.position.z);
-	}
+
 }

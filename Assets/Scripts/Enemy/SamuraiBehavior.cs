@@ -21,7 +21,7 @@ public class SamuraiBehavior : EnemyBehavior {
 		base.Start ();
 		weapon = GetComponent <SamuraiMeleeWeapon> ();
 		animator = GetComponentInChildren <Animator> ();
-		print (animator);
+//		print (animator);
 	}
 
 	void Update () {
