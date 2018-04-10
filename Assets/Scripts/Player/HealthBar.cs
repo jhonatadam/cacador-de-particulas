@@ -32,8 +32,10 @@ public class HealthBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		CalculateHpBarSize ();
-		CalculateEnergyBarSize ();
+		if (foundPlayer) {
+			CalculateHpBarSize ();
+			CalculateEnergyBarSize ();
+		}
 	}
 
 	void CalculateHpBarSize() {
