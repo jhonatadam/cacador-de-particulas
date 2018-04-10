@@ -10,8 +10,10 @@ public class EndDialogue : MonoBehaviour {
 	public float delayForCredits = 4;
 	public GameObject blackScreen;
 	private bool fading = false;
+	private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
+		audioManager = AudioManager.instance;
 		dialogue = GameObject.Find ("Dialogue Final");
 		blackScreen = GameObject.Find ("Black Screen");
 	}
@@ -21,6 +23,7 @@ public class EndDialogue : MonoBehaviour {
 		if (fading) {
 			timer += Time.deltaTime;
 			if (timer > delayForCredits) {
+				audioManager.StopSound("Fly");
 				SceneManager.LoadScene ("Creditos");
 
 			}
