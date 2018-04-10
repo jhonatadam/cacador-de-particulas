@@ -12,18 +12,22 @@ public class HealthBar : MonoBehaviour {
 	public PlayerEnergy playerEnergy;
 	public Image energyBar;
 	private float perCentEnergy;
-
+	private bool foundPlayer = false;
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("Player").GetComponent<PlayerHealth> ();
-		playerEnergy = GameObject.Find ("Player").GetComponent<PlayerEnergy> ();
+		//player = GameObject.Find ("Player").GetComponent<PlayerHealth> ();
+		//playerEnergy = GameObject.Find ("Player").GetComponent<PlayerEnergy> ();
 	}
 
 	void Update() {
-		if(player == null)
-			player = GameObject.Find ("Player").GetComponent<PlayerHealth> ();
-		if(playerEnergy == null)
-			playerEnergy = GameObject.Find ("Player").GetComponent<PlayerEnergy> ();
+		if (!foundPlayer) {
+			if (GameObject.Find ("Player") != null) {
+				player = GameObject.Find ("Player").GetComponent<PlayerHealth> ();
+				playerEnergy = GameObject.Find ("Player").GetComponent<PlayerEnergy> ();
+				foundPlayer = true;
+			}
+		}
+			
 	}
 	
 	// Update is called once per frame

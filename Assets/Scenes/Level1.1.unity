@@ -2632,6 +2632,10 @@ Prefab:
       propertyPath: changeDelay
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1298028018450036, guid: e9ba4b12bcabbdf43b67d1a97d2c2a41, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9ba4b12bcabbdf43b67d1a97d2c2a41, type: 2}
   m_IsPrefabParent: 0
@@ -6911,6 +6915,10 @@ Prefab:
       value: 
       objectReference: {fileID: 1948362654048548, guid: f03d4edbb631240a79eefd0bda49e1b2,
         type: 2}
+    - target: {fileID: 1275701098637142, guid: 05f06b8c09a754cc5a41d4e314f2e709, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05f06b8c09a754cc5a41d4e314f2e709, type: 2}
   m_IsPrefabParent: 0

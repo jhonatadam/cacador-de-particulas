@@ -23,6 +23,10 @@ public class MenuTitle : MonoBehaviour {
 				NovoJogo ();
 				return;
 			}
+			if (mta.GetOption () == 2) {
+				Creditos ();
+				return;
+			}
 			if (mta.GetOption () == 3) {
 				Sair ();
 				return;
@@ -38,6 +42,7 @@ public class MenuTitle : MonoBehaviour {
 		SceneManager.LoadSceneAsync (firstSceneName);
 	}
 	public void Creditos(){
+		audioManager.StopSound ("Titulo");
 		SceneManager.LoadScene ("Creditos");
 	}
 	public void Sair() {
