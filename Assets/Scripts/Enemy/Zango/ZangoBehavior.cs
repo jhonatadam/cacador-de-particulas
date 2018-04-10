@@ -195,7 +195,7 @@ public class ZangoBehavior : MonoBehaviour {
 	//Função que escolhe o menor caminho entre o player e o zango e move zango para a próxima plataforma.
 	public void chasePlayerInPlatform() {
 		
-		/*if (actualPlatform == null) {
+		if (actualPlatform == null) {
 			Debug.Log ("<color=yellow>zango actual platform is null</color>", this.gameObject);
 			return;
 		}
@@ -205,7 +205,7 @@ public class ZangoBehavior : MonoBehaviour {
 			Debug.Log ("<color=yellow>player actual platform is null</color>", this.gameObject);
 			return;
 		}
-			
+		/*	
 		int zangoPlatform = 0;
 		for (int i = 0; i < platformsGraph.transform.childCount; i++) {
 			if (platformsGraph.transform.GetChild (i).gameObject.name == actualPlatform.name)

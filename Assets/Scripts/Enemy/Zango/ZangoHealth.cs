@@ -50,8 +50,9 @@ public class ZangoHealth : EnemyHealth {
 	}
 
 	public void KillEnemy() {
-		battleStarter.GetComponent<ZangoBattleStarter> ().camera2.SetActive (false);
-		battleStarter.GetComponent<ZangoBattleStarter> ().camera1.SetActive (true);
+		//battleStarter.GetComponent<ZangoBattleStarter> ().camera2.SetActive (false);
+		//battleStarter.GetComponent<ZangoBattleStarter> ().camera1.SetActive (true);
+		battleStarter.GetComponent<ZangoBattleStarter> ().portaEnd.SetActive (false);
 
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		Destroy (this.gameObject);
