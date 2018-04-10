@@ -38,7 +38,7 @@ public class MenuTitle : MonoBehaviour {
 		SceneManager.LoadSceneAsync (firstSceneName);
 	}
 	public void Creditos(){
-
+		SceneManager.LoadScene ("Creditos");
 	}
 	public void Sair() {
 		#if UNITY_EDITOR

@@ -156,3 +156,11 @@ MonoBehaviour:
     randomPitch: 0.101
     loop: 0
     isTrack: 0
+  - name: Creditos
+    clip: {fileID: 8300000, guid: 40398aeddd16acf4989de537d36c35b6, type: 3}
+    volume: 0.895
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 1
