@@ -1871,6 +1871,10 @@ Prefab:
       propertyPath: arquivoTexto
       value: 
       objectReference: {fileID: 4900000, guid: 1acd37baf90daff4a8b013d172fcd70f, type: 3}
+    - target: {fileID: 1588009819053254, guid: a828a8e77662b4ea3838d855972a9219, type: 2}
+      propertyPath: m_Name
+      value: Dialogue Final
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a828a8e77662b4ea3838d855972a9219, type: 2}
   m_IsPrefabParent: 0

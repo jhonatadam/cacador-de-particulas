@@ -1782,7 +1782,7 @@ Prefab:
     - target: {fileID: 114089068154093012, guid: 8d91c96377b86cb4fa80f7c64ceb0594,
         type: 2}
       propertyPath: floorsLimits.Array.data[1].y
-      value: 12
+      value: 11.8
       objectReference: {fileID: 0}
     - target: {fileID: 114089068154093012, guid: 8d91c96377b86cb4fa80f7c64ceb0594,
         type: 2}
