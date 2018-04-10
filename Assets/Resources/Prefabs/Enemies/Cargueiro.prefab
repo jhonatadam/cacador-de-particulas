@@ -189,8 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b97359ce08f34b9e9932ae080704a6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 80
-  health: 80
+  maxHealth: 60
+  health: 60
   piscar: 0
   piscarTempo: 0.1
   rb2d: {fileID: 0}
@@ -218,7 +218,7 @@ MonoBehaviour:
   behavior: {fileID: 0}
   isLoaded: 0
   reloadTime: 4
-  damage: 50
+  damage: 30
   timeCounter: 0
   range: 0.6
 --- !u!212 &212333339098834104
