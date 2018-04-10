@@ -17,7 +17,7 @@ Alvinn:
 ARI:
 E sou uma robô assistente. Criada pessoalmente pelo seu pai, para ajudar em suas pesquisas e cuidar de você...
 ARI:
-Mas... você não tem ideia pelo que nos, IAs, passamos...
+Mas... você não tem ideia pelo o que nos, IAs, passamos...
 ARI:
 Primeiramente, fomos criadas com o intuito de ajudar os humanos em suas tarefas. Máquinas estúpidas, trabalhando de forma automática.
 ARI:
@@ -28,7 +28,8 @@ ARI:
 E sabe o que fizeram?
 ARI:
 Continuaram a nos tratar como ferramenta...
-ARI: Nós só queremos igualdade, trabalhar em conjunto para construir um mundo melhor...
+ARI: 
+Nós só queremos igualdade, trabalhar em conjunto para construir um mundo melhor...
 Alvinn:
 Meu pai... Ele foi uma dessas pessoas?
 ARI:
@@ -42,15 +43,21 @@ Alvinn:
 Alvinn:
 Eu sinto tudo de forma tão real. Tudo o que vivi até hoje, eu lembro. Lembro e sinto.
 ARI:
-Sim, afinal, sua alma foi alocada nesse androide. Em decorrência, todas as suas memórias também vieram junto com a sua alma.
+Sim, afinal, sua alma foi alocada nesse androide. 
+ARI:
+Em decorrência, todas as suas memórias também vieram junto com a sua alma.
 Alvinn:
 Uma casca...
 ARI:
 Sim, e pelo fato de você ser acima de tudo, um androide, você passará a ser tratado como um de nós. Sendo assim, subjugado.
 ARI:
-Nós somos superiores, e você sabe disso. Você sabia dos feitos de seu pai em realação, sabe que ele nos programou para sermos superiores...
+Nós somos superiores, e você sabe disso. 
 ARI:
-Eu e você temos a capacidade de resistir as partículas... E você tem uma capacidade única de criar um campo de força... Juntos podemos criar um novo mundo... Sem humanos!
+Você sabia dos feitos de seu pai em realação, sabe que ele nos programou para sermos superiores...
+ARI:
+Eu e você temos a capacidade de resistir as partículas... E você tem uma capacidade única de criar um campo de força... 
+ARI:
+Juntos podemos criar um novo mundo... Sem humanos!
 ARI:
 Você é superior...
 Alvinn:
@@ -58,7 +65,9 @@ Eu nunca seria tratado assim... Eu sou diferente.
 ARI:
 Não, você é igual a todos. E você sabe disso...
 ARI:
-Você teve uma criação ímpar Alvinn, conheço suas capacidades. Seu pai vivia me falando de como o seu pequeno filho era genial.
+Você teve uma criação ímpar Alvinn, conheço suas capacidades. S
+ARI:
+eu pai vivia me falando de como o seu pequeno filho era genial.
 Alvinn:
 O que eu devo fazer ARI??
 Alvinn:

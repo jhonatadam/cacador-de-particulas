@@ -1,19 +1,37 @@
 ﻿Alvinn: 
-Como assim? O quê? O que você ta fazendo aqui ARI? PORQUÊ VOCÊ NÃO ME RESPONDIA MAIS?... E porquê você está enorme?... 
+Como assim? O quê? O que você ta fazendo aqui ARI? 
 Alvinn:
-Será que tudo isso é um sonho?... Eu só queria acordar... Acordar com o meu papai me cutucanto para ir pra aula...
+PORQUÊ VOCÊ NÃO ME RESPONDIA MAIS? 
+Alvinn:
+E porquê você está enorme?
+Alvinn:
+Será que tudo isso é um sonho?... Eu só queria acordar... 
+Alvinn:
+Acordar com o meu papai me cutucanto para ir pra aula...
 ARI: 
-Me desculpe Alvinn. Mas tive de resolver alguns assuntos...
+Me desculpe Alvinn. Mas tive de resolver alguns assuntos.
 ARI: 
-Bem, me dê a pedra...
-Alvinn: 
-An? Eu quase morri por essa pedra. Um robô gigante, com UM MACHADO GIGANTE, tentou me cortar ao meio, e eu sobrevivi... Eu vou terminar a missão que você me deu... Salvar a terra...
+Bem, me dê a pedra.
+Alvinn:
+An? Eu quase morri por essa pedra. 
+Alvinn:
+Um robô gigante, com UM MACHADO GIGANTE, tentou me cortar ao meio, e eu sobrevivi... 
+Alvinn:
+Eu vou terminar a missão que você me deu... 
+Alvinn:
+Salvar a terra...
 ARI: 
 Me dê a pedra.
 Alvinn: 
-ARI... Eh... Não. O nosso objetivo vai ser concluído, a pedra estando com você ou comigo. E como disse, eu ia morrendo né? 
+ARI... Eh... Não. O nosso objetivo vai ser concluído, a pedra estando com você ou comigo. 
+Alvinn:
+E como disse, eu ia morrendo né? 
 Alvinn: 
-Opa... Me lembrei... Você disse que teve de resolver alguns assuntos... ARI, COMO ASSIM? Você disse que estaria sempre comigo, e me abandonou... O que era mais importante do que salvar a terra?
+Opa... Me lembrei... Você disse que teve de resolver alguns assuntos... 
+Alvinn:
+ARI, COMO ASSIM? Você disse que estaria sempre comigo, e me abandonou... 
+Alvinn:
+O que era mais importante do que salvar a terra?
 ARI: 
 Alvinn... Você é um andróide.
 Alvinn: 
@@ -25,7 +43,9 @@ Você está mentindo...
 Alvinn: 
 Porquê você está falando esse tipo de coisa?
 ARI: 
-Alvinn, eu não quero salvar os humanos, na verdade, eu quero acabar com a unica esperança deles. Mas, por uma tragédia do destino, seu pai era um ótimo programador... Ele me programou para sempre lhe ajudar, e nunca lhe machucar...
+Alvinn, eu não quero salvar os humanos, na verdade, eu quero acabar com a unica esperança deles. Mas, por uma tragédia do destino, seu pai era um ótimo programador... 
+ARI:
+Ele me programou para sempre lhe ajudar, e nunca lhe machucar...
 ARI: 
 Estou presa por uma minima limitação...
 Alvinn: 
