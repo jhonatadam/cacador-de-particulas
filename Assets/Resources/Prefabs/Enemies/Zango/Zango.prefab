@@ -302,8 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa88ec295d0d940e495bd4112f137856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 400
-  health: 400
+  maxHealth: 250
+  health: 250
   piscar: 0
   piscarTempo: 0.1
   rb2d: {fileID: 0}

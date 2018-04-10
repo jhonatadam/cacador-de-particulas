@@ -21,7 +21,7 @@ public class Creditos : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		time += Time.deltaTime;
-		if (time - lastChange > delay && current < transform.childCount - 1) {
+		if (time - lastChange > delay && current < transform.childCount) {
 			
 			foreach (Transform child in transform) {
 				if (child == transform.GetChild (current)) {
@@ -33,7 +33,7 @@ public class Creditos : MonoBehaviour {
 			current++;
 			lastChange = time;
 		}
-		if (time > (transform.childCount + 2) * delay) {
+		if (time > (transform.childCount + 3) * delay) {
 			if (GameObject.Find("TempData") && GameObject.Find("TempData").GetComponent<TempData>().finalDoJogo) {
 				#if UNITY_EDITOR
 				UnityEditor.EditorApplication.isPlaying = false;
@@ -41,6 +41,7 @@ public class Creditos : MonoBehaviour {
 				Application.Quit();
 				#endif
 			} else {
+				audioManager.StopSound("Creditos");
 				SceneManager.LoadScene ("MenuTitle");
 			}
 
