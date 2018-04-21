@@ -49,6 +49,9 @@ public class Particle : MonoBehaviour {
 
 	public float probability = 0.005f;
 
+	//Canvas que tem o nome da partícula
+	public GameObject particleNameShower;
+
 	void Start () {
 		initialPosition = transform.position;
 		tail = GetComponent<TrailRenderer> ();
@@ -71,6 +74,9 @@ public class Particle : MonoBehaviour {
 
 		rb.velocity = speed * new Vector2 (Mathf.Cos (rot.z * Mathf.Deg2Rad), Mathf.Sin (rot.z * Mathf.Deg2Rad));
 
+		if (particleNameShower)
+			particleNameShower.SetActive (false);
+
 
 	}
 	
@@ -85,6 +91,11 @@ public class Particle : MonoBehaviour {
 	}
 
 	void Update() {
+		if (Input.GetKeyDown (KeyCode.E))
+			showParticleName ();
+		if (Input.GetKeyUp (KeyCode.E))
+			hideParticleName ();
+		
 		if (isInFlask && Time.time - lastImpulse > impulseFrequence ) {
 			rb.AddForce( new Vector2 (Random.Range (10, 100)*Random.Range (-1.0f, 1.0f), Random.Range (10, 100)*Random.Range (-1.0f, 1.0f)));
 			lastImpulse = Time.time;
@@ -161,5 +172,15 @@ public class Particle : MonoBehaviour {
 		sr = null;
 		trans = null;
 		rb = null;
+	}
+
+	void showParticleName() {
+		if(particleNameShower)
+			particleNameShower.SetActive (true);
+	}
+
+	void hideParticleName() {
+		if(particleNameShower)
+			particleNameShower.SetActive (false);
 	}
 }
