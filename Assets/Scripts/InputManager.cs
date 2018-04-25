@@ -58,6 +58,13 @@ public class InputManager : MonoBehaviour {
 				EventsManager.ClimbDownCmd ();
 			}
 
+			if (Input.GetButton ("ParticleName")) {
+				EventsManager.ParticlesNamesBtn ();
+			}
+
+			if (Input.GetButtonUp ("ParticleName")) {
+				EventsManager.ParticlesNamesBtnUp ();
+			}
 		}
 
 	}

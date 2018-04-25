@@ -74,8 +74,12 @@ public class Particle : MonoBehaviour {
 
 		rb.velocity = speed * new Vector2 (Mathf.Cos (rot.z * Mathf.Deg2Rad), Mathf.Sin (rot.z * Mathf.Deg2Rad));
 
-		if (particleNameShower)
+		if (particleNameShower) {
+			//particleNameShower.transform.rotation = new Quaternion(0, 0, 0, 90);
+			particleNameShower.transform.up = Vector3.up;
 			particleNameShower.SetActive (false);
+
+		}
 
 
 	}
@@ -91,11 +95,6 @@ public class Particle : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown (KeyCode.E))
-			showParticleName ();
-		if (Input.GetKeyUp (KeyCode.E))
-			hideParticleName ();
-		
 		if (isInFlask && Time.time - lastImpulse > impulseFrequence ) {
 			rb.AddForce( new Vector2 (Random.Range (10, 100)*Random.Range (-1.0f, 1.0f), Random.Range (10, 100)*Random.Range (-1.0f, 1.0f)));
 			lastImpulse = Time.time;
@@ -182,5 +181,15 @@ public class Particle : MonoBehaviour {
 	void hideParticleName() {
 		if(particleNameShower)
 			particleNameShower.SetActive (false);
+	}
+
+	private void OnEnable() {
+		EventsManager.onParticlesNamesBtn += showParticleName;
+		EventsManager.onParticlesNamesBtnUp += hideParticleName;
+	}
+
+	private void OnDisable() {
+		EventsManager.onParticlesNamesBtn -= showParticleName;
+		EventsManager.onParticlesNamesBtnUp -= hideParticleName;
 	}
 }

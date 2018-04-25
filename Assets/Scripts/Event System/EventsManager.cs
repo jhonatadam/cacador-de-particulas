@@ -8,6 +8,9 @@ public class EventsManager : MonoBehaviour {
 	 * 1 - Os eventos que terminam com btn sao eventos de quando se 
 	 *     apertam botoes;
 	 * 
+	 * 1.1 - Quando se tem up depois de btn são eventos de quando se soltam
+	 * 		um botão;
+	 * 
 	 * 2 - As funcoes estaticas sao funcoes que ativam os eventos;
 	 * 
 	 * 3 - Os eventos que terminam com cmd sao eventos de quando se
@@ -43,8 +46,13 @@ public class EventsManager : MonoBehaviour {
 	public static MovementEvent onHorizontalBtn;
 	//Quando se aperta o botao de atirar
 	public static Event onFireBtn;
+	//Quando se aperta o botao de mostrar o nome das partículas
+	public static Event onParticlesNamesBtn;
+	//Quando se solta o botao de mostrar o nome das partículas
+	public static Event onParticlesNamesBtnUp;
 	//Quando se o comando climbDown
 	public static Event onClimbDownCmd;
+
 
 	//Quando uma cutscene inicia
 	public static Event onCutsceneStart;
@@ -109,6 +117,16 @@ public class EventsManager : MonoBehaviour {
 	public static void FireBtn() {
 		if (onFireBtn != null)
 			onFireBtn ();
+	}
+		
+	public static void ParticlesNamesBtn() {
+		if(onParticlesNamesBtn != null)
+			onParticlesNamesBtn();
+	}
+
+	public static void ParticlesNamesBtnUp() {
+		if(onParticlesNamesBtnUp != null)
+			onParticlesNamesBtnUp();
 	}
 
 	public static void ClimbDownCmd() {
