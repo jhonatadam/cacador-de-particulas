@@ -1,4 +1,6 @@
-﻿Shader "Custom/HPBarShader"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/HPBarShader"
 {
 	Properties
 	{
@@ -80,7 +82,7 @@
 				v2f OUT;
 				OUT.worldPosition = IN.vertex;
 				//OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);
-				OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+				OUT.vertex = UnityObjectToClipPos(IN.vertex);
 				OUT.texcoord = IN.texcoord;
 				
 				#ifdef UNITY_HALF_TEXEL_OFFSET
