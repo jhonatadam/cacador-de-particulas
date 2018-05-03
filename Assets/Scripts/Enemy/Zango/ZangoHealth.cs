@@ -6,11 +6,13 @@ public class ZangoHealth : EnemyHealth {
 
 	private ZangoMeleeWeapon weapon;
 	private GameObject battleStarter;
+    public AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;
 		weapon = gameObject.GetComponent<ZangoMeleeWeapon> ();
 		battleStarter = GameObject.Find ("BattleStarter");
+        audioManager = AudioManager.instance;
 	}
 
 	// Update is called once per frame
@@ -53,7 +55,7 @@ public class ZangoHealth : EnemyHealth {
 		//battleStarter.GetComponent<ZangoBattleStarter> ().camera2.SetActive (false);
 		//battleStarter.GetComponent<ZangoBattleStarter> ().camera1.SetActive (true);
 		battleStarter.GetComponent<ZangoBattleStarter> ().portaEnd.SetActive (false);
-
+        audioManager.StopSound("Zango");
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		Destroy (this.gameObject);
 	}

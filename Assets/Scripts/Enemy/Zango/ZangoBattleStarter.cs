@@ -9,10 +9,11 @@ public class ZangoBattleStarter : MonoBehaviour {
 	public GameObject zango;
 	public GameObject escotilha;
 	public GameObject portaEnd;
+    private AudioManager audioManager;
 
 	// Use this for initialization
 	void Start () {
-		
+        audioManager = AudioManager.instance;
 	}
 	
 	// Update is called once per frame
@@ -22,6 +23,9 @@ public class ZangoBattleStarter : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other) {
 		if (other.tag == "Player") {
+            if (!audioManager.IsPlaying("Zango")) {
+                audioManager.PlaySound("Zango");
+            }
 			escotilha.SetActive (true);
 			portaEnd.SetActive (true);
 			camera1.SetActive (false);
