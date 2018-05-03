@@ -170,7 +170,7 @@ MonoBehaviour:
     pitch: 1
     randomVolume: 0
     randomPitch: 0
-    loop: 0
+    loop: 1
     isTrack: 1
   - name: Cutscene Track
     clip: {fileID: 8300000, guid: e68ea90319b5cfe4099b70ab089a1496, type: 3}
@@ -178,5 +178,5 @@ MonoBehaviour:
     pitch: 1
     randomVolume: 0
     randomPitch: 0
-    loop: 0
+    loop: 1
     isTrack: 1
