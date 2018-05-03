@@ -164,3 +164,19 @@ MonoBehaviour:
     randomPitch: 0
     loop: 0
     isTrack: 1
+  - name: Zango
+    clip: {fileID: 8300000, guid: 9e3a9769c0d3a814898a13716eb38ca5, type: 3}
+    volume: 0.719
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 1
+  - name: Cutscene Track
+    clip: {fileID: 8300000, guid: e68ea90319b5cfe4099b70ab089a1496, type: 3}
+    volume: 0.965
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 1

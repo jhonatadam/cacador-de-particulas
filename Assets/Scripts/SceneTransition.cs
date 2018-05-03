@@ -36,6 +36,14 @@ public class SceneTransition : MonoBehaviour {
 					audioManager.PlaySound ("Fly");
 				}
 			}
+            if(nextSceneName == "Scenes/Level1.7") {
+                audioManager.StopSound("Fly");
+            }
+            if (nextSceneName == "Scenes/Level2.0") {
+                if(!audioManager.IsPlaying("Cutscene Track")) {
+                    audioManager.PlaySound("Cutscene Track");
+                }
+            }
 		}
 	}
 	void OnDestroy(){
