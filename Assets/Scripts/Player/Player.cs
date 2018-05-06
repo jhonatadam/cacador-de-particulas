@@ -26,6 +26,7 @@ public class Player : MonoBehaviour {
 
 	private bool dashing = false;
 	private float dashEnlapsedTime = 0.0f;
+    public GameObject dashTrail;
 
 	//KB significa KnockBack
 	private bool knockbacking = false;
@@ -83,6 +84,8 @@ public class Player : MonoBehaviour {
 	public RuntimeAnimatorController naked;
 
 	private InputManager inputManager;
+
+
 
 	private class PlayerSavePtsData
 	{
@@ -151,7 +154,7 @@ public class Player : MonoBehaviour {
 				dashEnlapsedTime += Time.deltaTime;
 
 				// restaurando angulo original do player ao longo do dash
-				transform.Rotate (new Vector3 (0,0, (flipX ? 1 : 1)  * (dashAngle * (Time.deltaTime / dashPushTime))));
+				//transform.Rotate (new Vector3 (0,0, (flipX ? 1 : 1)  * (dashAngle * (Time.deltaTime / dashPushTime))));
 			}else if (dashEnlapsedTime < dashTime) { // está parado, faz uma pequena espera pra recuperar os movimentos
 				rb2d.velocity = new Vector2 ((flipX ? -dashEndSpeed : dashEndSpeed) , rb2d.velocity.y);
 				animator.SetFloat ("playerXVelocity", Mathf.Abs(rb2d.velocity.x));
@@ -168,7 +171,7 @@ public class Player : MonoBehaviour {
 
 				dashEnlapsedTime = 0.0f;
 //				transform.localEulerAngles = new Vector3 (0, 0, 0);
-				transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
+				//transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
 			}
 
 		}
@@ -303,8 +306,12 @@ public class Player : MonoBehaviour {
 			dashing = true;
 			updateOn = false;
 			rb2d.velocity = new Vector2 ((flipX ? -dashStartSpeed : dashStartSpeed) , 0.0f);
-			transform.Rotate (new Vector3 (0, 0, (flipX ? -1 : -1) * dashAngle));
-		}
+			//transform.Rotate (new Vector3 (0, 0, (flipX ? 1 : -1) * dashAngle));
+            GameObject dTrail = Instantiate(dashTrail);
+            dTrail.transform.position = transform.position;
+            dTrail.transform.SetParent(transform);
+            dTrail.transform.localPosition = new Vector3(0, 0, 0);
+        }
 	}
 
 	public void Fire () {
