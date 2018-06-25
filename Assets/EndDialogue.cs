@@ -23,7 +23,7 @@ public class EndDialogue : MonoBehaviour {
 		if (fading) {
 			timer += Time.deltaTime;
 			if (timer > delayForCredits) {
-				audioManager.StopSound("Fly");
+				audioManager.StopSound("Cutscene Track");
 				SceneManager.LoadScene ("Creditos");
 
 			}

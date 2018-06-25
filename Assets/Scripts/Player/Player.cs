@@ -6,8 +6,6 @@ using System.IO;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-
-
 public class Player : MonoBehaviour {
 
 	public float speed;
@@ -84,7 +82,7 @@ public class Player : MonoBehaviour {
 	public RuntimeAnimatorController naked;
 
 	private InputManager inputManager;
-
+	private AudioManager audioManager;
 
 
 	private class PlayerSavePtsData
@@ -108,6 +106,7 @@ public class Player : MonoBehaviour {
 	}
 	void Start () {
 		inputManager = GameObject.Find ("InputManager").GetComponent<InputManager> ();
+		audioManager = AudioManager.instance;
 		animator = GetComponent <Animator> ();
 
 		playerEnergy = gameObject.GetComponent<PlayerEnergy> ();
@@ -175,9 +174,6 @@ public class Player : MonoBehaviour {
 			}
 
 		}
-
-
-
 	}
 
 	public void SetPistolActive(bool active){
@@ -285,7 +281,7 @@ public class Player : MonoBehaviour {
 			
 			// aplica forca do salto
 			rb2d.AddForce (new Vector2 (0, jumpForce));
-
+			audioManager.PlaySound ("Jump");
 			// atualizando animator
 			animator.SetBool ("jump", true);
 			
@@ -303,6 +299,7 @@ public class Player : MonoBehaviour {
 
 	public void Dash () {
 		if (updateOn && !dashing) {
+			audioManager.PlaySound ("Dash");
 			dashing = true;
 			updateOn = false;
 			rb2d.velocity = new Vector2 ((flipX ? -dashStartSpeed : dashStartSpeed) , 0.0f);

@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72d65910da1f8f47876e50f41921d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 0.8
   daughters: []
   impulseFrequence: 1
   force: {x: 0, y: 0}
