@@ -33,8 +33,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685201115798346}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.7087207, y: 1.0939826, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
     isTrack: 1
   - name: Majestic Aurora
     clip: {fileID: 8300000, guid: cb12f3e25e65e0a4d9e55054a5eb449f, type: 3}
-    volume: 0.7
+    volume: 0.6
     pitch: 1
     randomVolume: 0
     randomPitch: 0
@@ -180,3 +180,43 @@ MonoBehaviour:
     randomPitch: 0
     loop: 1
     isTrack: 1
+  - name: Dash
+    clip: {fileID: 8300000, guid: f5144cb5f70f7f74b8428d186d542501, type: 3}
+    volume: 0.772
+    pitch: 1
+    randomVolume: 0.053
+    randomPitch: 0.136
+    loop: 0
+    isTrack: 0
+  - name: Grama Step
+    clip: {fileID: 8300000, guid: ac0a6262358745c4b9501f596b9f46b4, type: 3}
+    volume: 0.298
+    pitch: 1
+    randomVolume: 0.158
+    randomPitch: 0.14
+    loop: 0
+    isTrack: 0
+  - name: Jump
+    clip: {fileID: 8300000, guid: 104944e4d978abd45b4ab9f6eb0e5c7e, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.105
+    randomPitch: 0.07
+    loop: 0
+    isTrack: 0
+  - name: Metal Step
+    clip: {fileID: 8300000, guid: 5359c406a680064499b294c9367233a3, type: 3}
+    volume: 0.263
+    pitch: 1
+    randomVolume: 0.11
+    randomPitch: 0.154
+    loop: 0
+    isTrack: 0
+  - name: Pain
+    clip: {fileID: 8300000, guid: 3b3be02d64d3bc549a39c9920eb24c45, type: 3}
+    volume: 0.719
+    pitch: 1
+    randomVolume: 0.127
+    randomPitch: 0.136
+    loop: 0
+    isTrack: 0

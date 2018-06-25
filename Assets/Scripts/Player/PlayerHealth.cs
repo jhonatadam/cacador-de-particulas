@@ -48,7 +48,8 @@ public class PlayerHealth : MonoBehaviour {
 			player.Death ();
 			player.SetUpdateFalse ();
 			return;
-		} 
+		}
+		audioManager.PlaySound ("Pain");
 		health -= damage;
 		damageTime = 0;
 
