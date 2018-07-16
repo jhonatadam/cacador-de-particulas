@@ -1,0 +1,427 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1750167173832744}
+  m_IsPrefabParent: 1
+--- !u!1 &1444570144219088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4039925718849072}
+  - component: {fileID: 114160744253630538}
+  m_Layer: 0
+  m_Name: TempData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1483423372270762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4460970165149564}
+  - component: {fileID: 114383623999442770}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1750167173832744
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4479983771443688}
+  m_Layer: 0
+  m_Name: Dependencias
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1850003808689396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4231529775156648}
+  - component: {fileID: 212128890829611850}
+  - component: {fileID: 114029204866252736}
+  - component: {fileID: 114047597759780928}
+  m_Layer: 13
+  m_Name: Loading Screen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4039925718849072
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444570144219088}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.4069505, y: -2.658514, z: 0.10546875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4479983771443688}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4231529775156648
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850003808689396}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.3986776, y: 0.056789722, z: 180.10547}
+  m_LocalScale: {x: 662.8606, y: 238.6298, z: 1.6571515}
+  m_Children: []
+  m_Father: {fileID: 4479983771443688}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4460970165149564
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483423372270762}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4479983771443688}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4479983771443688
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750167173832744}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3986776, y: -0.056789722, z: -0.10546875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4460970165149564}
+  - {fileID: 4039925718849072}
+  - {fileID: 4231529775156648}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114029204866252736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850003808689396}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4746b1657058f4b93ce80597e6b472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color:
+    serializedVersion: 2
+    key0: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 0, g: 0, b: 0, a: 1}
+    key2: {r: 1, g: 0.3882353, b: 0.3882353, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 386
+    ctime1: 65535
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 64571
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  startChange: 0
+  endChange: 6
+  loop: 0
+--- !u!114 &114047597759780928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850003808689396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02932c0040aa1844fb4d69e23337cc0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114160744253630538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444570144219088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384ff825c699aad438ab6dd9fd620d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorState: 010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  elevatorFloors: 0000000000000000000000000000000001000000
+  finalDoJogo: 0
+  dialoguesOver: 0000000000000000000000000000
+--- !u!114 &114383623999442770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1483423372270762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4592d50272dc3004e833c1a8cd40035d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Logo
+    clip: {fileID: 8300000, guid: a6640ef32ff14114f9d1c8151c8947db, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 0
+  - name: Titulo
+    clip: {fileID: 8300000, guid: 88487e9abc542ef4392ea44f1f1d2e5d, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+    isTrack: 1
+  - name: Majestic Aurora
+    clip: {fileID: 8300000, guid: cb12f3e25e65e0a4d9e55054a5eb449f, type: 3}
+    volume: 0.6
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+    isTrack: 1
+  - name: Zevatron Falling
+    clip: {fileID: 8300000, guid: 22056a86e17de7b4b80358a97fc215fb, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+    isTrack: 0
+  - name: Zevatron Explosion
+    clip: {fileID: 8300000, guid: eb47d13410c2b404a814bd304e47adfe, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+    isTrack: 0
+  - name: Voice Beep
+    clip: {fileID: 8300000, guid: 311775a0ec7a04de3a3728920f767221, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.1
+    randomPitch: 0.1
+    loop: 0
+    isTrack: 0
+  - name: Tutorial
+    clip: {fileID: 8300000, guid: eeef72bfad0eb42439c55b7cb851b24e, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+    isTrack: 1
+  - name: Fly
+    clip: {fileID: 8300000, guid: ba1147f3c85a74244b6ee843ab6a736a, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+    isTrack: 1
+  - name: Sparkle
+    clip: {fileID: 8300000, guid: 4e32aa635b132e6449a05b3fc08c0c19, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.098
+    randomPitch: 0.101
+    loop: 0
+    isTrack: 0
+  - name: Enemy Death
+    clip: {fileID: 8300000, guid: 4360413a04620a447bff59a4659198c6, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.098
+    randomPitch: 0.101
+    loop: 0
+    isTrack: 0
+  - name: Bot1
+    clip: {fileID: 8300000, guid: bae2cab381804824db4a762aaf3133af, type: 3}
+    volume: 0.821
+    pitch: 1
+    randomVolume: 0.098
+    randomPitch: 0.101
+    loop: 0
+    isTrack: 0
+  - name: Bot2
+    clip: {fileID: 8300000, guid: b91c6c3840b2d284184db98c1171d4f0, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.098
+    randomPitch: 0.101
+    loop: 0
+    isTrack: 0
+  - name: DropHP
+    clip: {fileID: 8300000, guid: b82235f32e3a7f24b946896bdd713071, type: 3}
+    volume: 0.7
+    pitch: 1
+    randomVolume: 0.098
+    randomPitch: 0.101
+    loop: 0
+    isTrack: 0
+  - name: Creditos
+    clip: {fileID: 8300000, guid: 40398aeddd16acf4989de537d36c35b6, type: 3}
+    volume: 0.895
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 0
+    isTrack: 1
+  - name: Zango
+    clip: {fileID: 8300000, guid: 9e3a9769c0d3a814898a13716eb38ca5, type: 3}
+    volume: 0.719
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+    isTrack: 1
+  - name: Cutscene Track
+    clip: {fileID: 8300000, guid: e68ea90319b5cfe4099b70ab089a1496, type: 3}
+    volume: 0.965
+    pitch: 1
+    randomVolume: 0
+    randomPitch: 0
+    loop: 1
+    isTrack: 1
+  - name: Dash
+    clip: {fileID: 8300000, guid: f5144cb5f70f7f74b8428d186d542501, type: 3}
+    volume: 0.772
+    pitch: 1
+    randomVolume: 0.053
+    randomPitch: 0.136
+    loop: 0
+    isTrack: 0
+  - name: Grama Step
+    clip: {fileID: 8300000, guid: ac0a6262358745c4b9501f596b9f46b4, type: 3}
+    volume: 0.298
+    pitch: 1
+    randomVolume: 0.158
+    randomPitch: 0.14
+    loop: 0
+    isTrack: 0
+  - name: Jump
+    clip: {fileID: 8300000, guid: 104944e4d978abd45b4ab9f6eb0e5c7e, type: 3}
+    volume: 1
+    pitch: 1
+    randomVolume: 0.105
+    randomPitch: 0.07
+    loop: 0
+    isTrack: 0
+  - name: Metal Step
+    clip: {fileID: 8300000, guid: 5359c406a680064499b294c9367233a3, type: 3}
+    volume: 0.263
+    pitch: 1
+    randomVolume: 0.11
+    randomPitch: 0.154
+    loop: 0
+    isTrack: 0
+  - name: Pain
+    clip: {fileID: 8300000, guid: 3b3be02d64d3bc549a39c9920eb24c45, type: 3}
+    volume: 0.719
+    pitch: 1
+    randomVolume: 0.127
+    randomPitch: 0.136
+    loop: 0
+    isTrack: 0
+--- !u!212 &212128890829611850
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850003808689396}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 2086978347
+  m_SortingLayer: 7
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 21300000, guid: 15b83e93f11de1c468a17a23455d431b, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
