@@ -45,7 +45,6 @@ public class EnemyHealth : MonoBehaviour {
 		if (animator == null) {
 			animator = gameObject.GetComponentInChildren<Animator> ();
 		}
-		rpoints = GameObject.Find ("ReparadorPointsController").GetComponent<ReparadorPoints> ();
 	}
 	
 	// Update is called once per frame
