@@ -18,9 +18,9 @@ public class MagneticField : MonoBehaviour {
 	}
 
 	void Update() {
-		if (player.energy < energyUse * Time.fixedDeltaTime)
+		if (player.energy < energyUse * Time.deltaTime)
 			gameObject.SetActive (false);
-		player.ConsumeEnergy (energyUse * Time.fixedDeltaTime);
+		player.ConsumeEnergy (energyUse * Time.deltaTime);
 	}
 
 	void OnTriggerStay2D(Collider2D other)

@@ -23,26 +23,16 @@ public class SceneTransition : MonoBehaviour {
 			}
 			sdm.UpdatePlayerData ();
 			sdm.UpdateSceneData ();
-			SceneManager.LoadScene (nextSceneName);
+            GameObject.Find("NextSceneName").GetComponent<NextSceneName>().nextSceneName = nextSceneName;
+            SceneManager.LoadScene ("Loading");
 			if (nextSceneName == "Scenes/Level1.1") {
-				audioManager.StopSound ("Tutorial");
-				if (!audioManager.IsPlaying ("Majestic Aurora")) {
-					audioManager.PlaySound ("Majestic Aurora");
-				}
+				audioManager.StopSound ("Tutorial");	
 			}
 			if (nextSceneName == "Scenes/Level1.5") {
 				audioManager.StopSound ("Majestic Aurora");
-				if (!audioManager.IsPlaying ("Fly")) {
-					audioManager.PlaySound ("Fly");
-				}
 			}
             if(nextSceneName == "Scenes/Level1.7") {
                 audioManager.StopSound("Fly");
-            }
-            if (nextSceneName == "Scenes/Level2.0") {
-                if(!audioManager.IsPlaying("Cutscene Track")) {
-                    audioManager.PlaySound("Cutscene Track");
-                }
             }
 		}
 	}

@@ -17,24 +17,23 @@ public class GradientColorChanger : MonoBehaviour {
 	void Start () {	
 		sr = GetComponent<SpriteRenderer> ();
 		dChange = endChange - startChange;
-		awakeTime = Time.time;
+		awakeTime = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.time - awakeTime > startChange && Time.time - awakeTime < endChange) {
-			time += Time.deltaTime;
+        awakeTime += Time.deltaTime;
+		if (awakeTime > startChange && awakeTime < endChange) {
+			time = awakeTime - startChange;
 			float p = time * (1 / dChange);
 			sr.color = color.Evaluate (p);
 		}
 		if (loop) {
-			if (Time.time - awakeTime > endChange) {
-				startChange = endChange;
-				endChange += dChange;
-				time = 0;
+			if (awakeTime > endChange) {
+                awakeTime = startChange;
 			}
 		}
-		if (!loop && Time.time - awakeTime > endChange) {
+		if (!loop && awakeTime > endChange) {
 			done = true;
 		}
 	}
@@ -45,4 +44,8 @@ public class GradientColorChanger : MonoBehaviour {
 	public bool IsDone(){
 		return done;
 	}
+    public void Reset() {
+        awakeTime = 0;
+        sr.color = color.Evaluate(0);
+    }
 }

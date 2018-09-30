@@ -120,9 +120,9 @@ public class EnemyHealth : MonoBehaviour {
 			drophp.transform.position = new Vector3 (transform.position.x + Random.Range (-0.2f, -0.2f), transform.position.y + Random.Range (-0.2f, -0.2f), transform.position.z);
 		}
 		sr.color = new Color (0.3f, 0.23f, 0.35f, 0.9f);
-		if (gameObject.GetComponent<ReparadorBehavior> () == null) {
-			rpoints.CreatePoint (new Vector2 (transform.position.x, transform.position.y), rebirthTime, this);
-		}
+		//if (gameObject.GetComponent<ReparadorBehavior> () == null) {
+		//	rpoints.CreatePoint (new Vector2 (transform.position.x, transform.position.y), rebirthTime, this);
+		//}
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		dead = true;
 		GetComponent<EnemyBehavior> ().dead = true;

@@ -10,6 +10,7 @@ public class CutsceneScene : MonoBehaviour {
     // Use this for initialization
     void Start() {
         vp = GetComponent<UnityEngine.Video.VideoPlayer>();
+        GameObject.Find("NextSceneName").GetComponent<NextSceneName>().nextSceneName = nextSceneName;
     }
 
     // Update is called once per frame
@@ -17,9 +18,9 @@ public class CutsceneScene : MonoBehaviour {
         if(vp.isPlaying){
             hasStarted = true;
         }
-        if (!vp.isPlaying && hasStarted)
+        if ((!vp.isPlaying || Input.GetButtonDown("Jump")) && hasStarted )
         {
-            SceneManager.LoadScene(nextSceneName);
+            SceneManager.LoadScene("Loading");
         }
 	}
 }

@@ -44,7 +44,8 @@ public class Dialogue : MonoBehaviour {
 	private AudioManager audioManager;
 
 	void Start () {
-		canvas.SetActive (false);
+        print(arquivoTexto.text);
+        canvas.SetActive (false);
 		audioManager = AudioManager.instance;
 		LerTexto ();
 	}
@@ -142,14 +143,21 @@ public class Dialogue : MonoBehaviour {
 	}
 
 	private void LerTexto() {
-		//string[] temp = arquivoTexto.text.Split ('\n');
-		dialogo = ProcessText (arquivoTexto.text.Split ('\n'));
-		//dialogo = new string[] {"pato", "quen"};
-	}
+
+        //string[] temp = arquivoTexto.text.Split ('\n');
+        
+
+        dialogo = ProcessText (arquivoTexto.text.Split ('\n'));
+        
+        //dialogo = new string[] {"pato", "quen"};
+    }
 
 	//Função que processa os textos, dividindo as falas para caberem na caixa de dialogo
 	private string[] ProcessText(string[] dialogues) {
-		List<string> dialogues_temp = new List<string> ();
+        for (int i = 0; i < dialogues.Length; i++) {
+            print(dialogues[i]);
+        }
+        List<string> dialogues_temp = new List<string> ();
 		string autor_temp;
 		int j = 0, k = 0;
 		Queue words_queue = new Queue ();
@@ -162,11 +170,16 @@ public class Dialogue : MonoBehaviour {
 			j++;
 			dialogues_temp.Add(autor_temp);
 			dialogues_temp.Add("");
+            try {
+                foreach (string s in dialogues[i].Split(' ')) {
+                    words_queue.Enqueue(s);
+                }
+            } catch(System.IndexOutOfRangeException) {
+                print(i);
+            }
+           
 
-			foreach (string s in dialogues[i].Split(' ')) {
-				words_queue.Enqueue (s);
-			}
-			int temp_size = 0;
+            int temp_size = 0;
 			while (words_queue.Count != 0) {
 				if (((string)words_queue.Peek ()).Length + temp_size <= n_caractere) {
 					temp_size += ((string)words_queue.Peek ()).Length + 1;

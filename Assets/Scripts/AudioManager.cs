@@ -86,6 +86,13 @@ public class AudioManager : MonoBehaviour {
 		//não achou nenhum som
 		Debug.Log("não existe som chamado " + _name + " na lista. Confira o som no AudioManager ou adicione.");
 	}
+    public void StopAnySound() {
+        isPlaying = "";
+        for (int i = 0; i < sounds.Length; i++) {  
+            sounds[i].Stop(); 
+        }
+        return;
+    }
 	public bool IsPlaying(string _name){
 		return _name == isPlaying;
 	}

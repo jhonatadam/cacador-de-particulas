@@ -84,6 +84,8 @@ public class Player : MonoBehaviour {
 	private InputManager inputManager;
 	private AudioManager audioManager;
 
+    private float dying;
+    public float dyingTime = 1.0f;
 
 	private class PlayerSavePtsData
 	{
@@ -105,6 +107,7 @@ public class Player : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D> ();
 	}
 	void Start () {
+        dying = 0;
 		inputManager = GameObject.Find ("InputManager").GetComponent<InputManager> ();
 		audioManager = AudioManager.instance;
 		animator = GetComponent <Animator> ();
@@ -122,6 +125,18 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update () {
+        if(dying > 0) {
+            dying -= Time.deltaTime;
+            audioManager.StopAnySound();
+            GradientColorChanger ch = GameObject.Find("MainCamera").transform.Find("DeathScreen").GetComponent<GradientColorChanger>();
+            ch.enabled = true;
+            ch.endChange = dyingTime;
+            if(dying <= 0) {
+                ch.Reset();
+                ch.enabled = false;
+                ActualDeath();
+            }
+        }
 		if (stun > 0) {
 			stun -= Time.deltaTime;
 			inputManager.StopListening ();
@@ -432,6 +447,7 @@ public class Player : MonoBehaviour {
 			inputManager.StopListening ();
 			rb2d.velocity = new Vector2 (0, 0);
 			FakeDeath (coll.gameObject.GetComponent<DeathZone> ().returnPoint);
+
 		}
 	}
 	public void FakeDeath(Vector2 returnPoint){
@@ -443,9 +459,14 @@ public class Player : MonoBehaviour {
 	}
 
 	public void Death() {
-		//carrega os dados salvos quando a cena foi carregada
-		StartCoroutine( deathDelayer());
-	}
+        //carrega os dados salvos quando a cena foi carregada
+        StartCoroutine(deathDelayer());
+    }
+    private void ActualDeath() {
+       
+
+        
+    }
 
 	private IEnumerator deathDelayer() {
 		SetUpdateFalse ();

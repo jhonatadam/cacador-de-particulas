@@ -252,7 +252,7 @@ MonoBehaviour:
   behavior: {fileID: 0}
   isLoaded: 0
   reloadTime: 1
-  damage: 30
+  damage: 20
   timeCounter: 0
   range: 1
 --- !u!212 &212333339098834104

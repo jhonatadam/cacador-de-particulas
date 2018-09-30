@@ -15,7 +15,8 @@ public class Logo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Time.time > gcc.endChange) {
+		if (Time.time > gcc.endChange || Input.GetButtonDown("Jump")) {
+            audioManager.StopSound("Logo");
 			SceneManager.LoadScene ("MenuTitle");
 		}
 	}
