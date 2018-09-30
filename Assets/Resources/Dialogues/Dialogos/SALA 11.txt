@@ -27,7 +27,9 @@ Que estranho '-'
 ARI: 
 Como já havia dito, seu pai teve que implantar certos dispositivos para que sua vida fosse salva. 
 ARI:
-Você deveria ver isso com bons olhos. Deve ser lindo ter a capacidade de acompanhar o rastro das partículas.
+Você deveria ver isso com bons olhos. 
+ARI:
+Deve ser lindo ter a capacidade de acompanhar o rastro das partículas.
 Alvinn:
 Lindas elas são, muito. Pena que me machucam caso eu não ative meu campo de força.
 Alvinn:
@@ -35,10 +37,12 @@ Mas em compensação... hahahaha...
 ARI:
 O que foi Alvinn?
 Alvinn:
-Os robôs daqui, ao serem destruidos, eles deixa cair um fluído verde. Esse fluído, de alguma forma, cura o da no causado pelas partículas e pelos robôs. 
+Os robôs daqui, ao serem destruidos, eles deixa cair um fluído verde. 
+Alvinn:
+Esse fluído, de alguma forma, cura o dano causado pelas partículas e pelos robôs. 
 Alvinn:
 Isso é bom. Algo bom no meio desse caos.
 ARI:
-Isso é interessante. Vou pesquisar sobre!
+Hum... Isso é interessante. Suas capacidades vão além das que eu imaginava.
 Alvinn:
 Enfim. De volta a nossa jornada!

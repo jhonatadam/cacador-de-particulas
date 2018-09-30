@@ -13,7 +13,7 @@ Em geral os prefixos MEGA, GIGA e TERA são muito utilizados (1 MeV= 106eV; 1GeV
 ARI:
 No entanto, estas energias, quando comparadas àquelas de nosso dia a dia, são muito pequenas. 
 Alvinn: 
-O quê?!
+Como assim?
 ARI: 
 Por exemplo, o caso de um pedaço de ferro de 1kg que cai de uma altura de 1m. 
 ARI:
