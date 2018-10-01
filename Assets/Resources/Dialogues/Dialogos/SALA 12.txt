@@ -22,6 +22,7 @@ Alvinn:
 Eu to com medo ARI...
 ARI:
 Não se preocupe Alvinn, farei tudo para lhe guiar da melhor forma possivel. Posso lhe dar uma dica.
-ARI: Se você passar rapidamente por eles, usando seu jetpack, talvez não leve dano.
+ARI: 
+Se você passar rapidamente por eles, usando seu jetpack, talvez não leve dano.
 Alvinn:
 Tudo bem... Vou tentar! 
