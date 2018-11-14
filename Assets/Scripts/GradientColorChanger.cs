@@ -13,12 +13,17 @@ public class GradientColorChanger : MonoBehaviour {
 	public bool loop = false;
 	private bool done = false;
 	private float awakeTime = 0;
-	// Use this for initialization
-	void Start () {	
-		sr = GetComponent<SpriteRenderer> ();
-		dChange = endChange - startChange;
-		awakeTime = 0;
-	}
+    // Use this for initialization
+    private void OnEnable() {
+        sr = GetComponent<SpriteRenderer>();
+        dChange = endChange - startChange;
+        awakeTime = 0;
+    }
+    void Start () {
+        sr = GetComponent<SpriteRenderer>();
+        dChange = endChange - startChange;
+        awakeTime = 0;
+    }
 	
 	// Update is called once per frame
 	void Update () {

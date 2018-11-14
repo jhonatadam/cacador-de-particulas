@@ -29,8 +29,9 @@ public class FogueteJato : MonoBehaviour {
 		original = sr.color;
 		camera = GameObject.Find ("MainCamera");
 		originalSize = camera.GetComponent<Camera> ().orthographicSize;
-		blackScreen = GameObject.Find ("BlackScreen");
+		blackScreen = transform.Find ("BlackScreen").gameObject;
 		transitionTime = blackScreen.GetComponent<GradientColorChanger> ().endChange;
+        
 	}
 	
 	// Update is called once per frame
@@ -39,19 +40,21 @@ public class FogueteJato : MonoBehaviour {
 			time += Time.deltaTime;
 			if (time >= transitionTime) {
 				sceneTransition.transform.position = transform.position;
-
-			}
+                
+            }
 			rb2d.AddForce (new Vector2(0, force));
 			sr.color = new Color (Mathf.Min (sr.color.r + Time.deltaTime / 0.5f, 1), Mathf.Min (sr.color.g + Time.deltaTime / 0.5f, 1), Mathf.Min (sr.color.b + Time.deltaTime / 0.5f, 1));
-			camera.GetComponent<Camera> ().orthographicSize = Mathf.Min (camera.GetComponent<Camera> ().orthographicSize + Time.deltaTime/0.5f, cameraMaxSize); 
-		}
+			camera.GetComponent<Camera> ().orthographicSize = Mathf.Min (camera.GetComponent<Camera> ().orthographicSize + Time.deltaTime/0.5f, cameraMaxSize);
+
+        }
 	}
 	void FixedUpdate(){
 
 	}
 	public void Activate(){
 		ps.Play ();
-		active = true;
+        GameObject.Find("Shape Confine").GetComponent<PolygonCollider2D>().enabled = false;
+        active = true;
 		blackScreen.GetComponent<GradientColorChanger> ().enabled = true;
 	}
 	void OnTriggerEnter2D(Collider2D other){

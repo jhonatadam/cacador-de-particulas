@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
-using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
@@ -37,6 +36,7 @@ public class Player : MonoBehaviour {
 	private Rigidbody2D rb2d;
 
 	private PlayerEnergy playerEnergy;
+    private PlayerHealth playerHealth;
 
 	public Vector3 previousPosition;
 
@@ -100,11 +100,15 @@ public class Player : MonoBehaviour {
 
 	private PlayerSavePtsData savePtsData = new PlayerSavePtsData();
 
+    public void SetResetPT(Vector3 position) {
+        savePtsData.resetPt = position;
+    }
 	//indica se o player está em um dialogue
 	private bool inDialogue = false;
 
 	void Awake() {
 		rb2d = GetComponent<Rigidbody2D> ();
+        playerHealth = GetComponent<PlayerHealth>();
 	}
 	void Start () {
         dying = 0;
@@ -452,6 +456,7 @@ public class Player : MonoBehaviour {
 	}
 	public void FakeDeath(Vector2 returnPoint){
 		transform.position = new Vector3 (returnPoint.x, returnPoint.y, transform.position.z);
+        playerHealth.CurePlayer(200);
 		GameObject mc = GameObject.Find ("MainCamera");
 		mc.GetComponent<CameraController> ().SetPosition (new Vector3(transform.position.x, mc.transform.position.y, mc.transform.position.z));
 		mc = null;
@@ -460,6 +465,7 @@ public class Player : MonoBehaviour {
 
 	public void Death() {
         //carrega os dados salvos quando a cena foi carregada
+        Time.timeScale = 0.1f;
         StartCoroutine(deathDelayer());
     }
     private void ActualDeath() {
@@ -470,10 +476,10 @@ public class Player : MonoBehaviour {
 
 	private IEnumerator deathDelayer() {
 		SetUpdateFalse ();
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0.05f);
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 		transform.position = savePtsData.resetPt;
-		GetComponent<PlayerHealth> ().health = savePtsData.health;
+		GetComponent<PlayerHealth> ().health = GetComponent<PlayerHealth>().maxHealth;
 		GetComponent<PlayerHealth> ().dead = false;
 		GetComponent<PlayerEnergy> ().energy = savePtsData.energy;
 		transform.rotation = savePtsData.angle;
@@ -481,7 +487,8 @@ public class Player : MonoBehaviour {
 		hasPistol = savePtsData.hasPistol;
 		hasJetpack = savePtsData.hasJetpack;
 		SetUpdateTrue ();
-	}
+        Time.timeScale = 1f;
+    }
 
 	private void EnterInDialogue() {
 		SetUpdateFalse ();

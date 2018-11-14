@@ -74,12 +74,12 @@ public class CameraController : MonoBehaviour {
 
 			Vector3 scrollValue = defineScrollValue ();
 
-			//Move the camera this direction, but faster than the player moved.
-			Vector3 playerDiff = player.GetPreviousPositionDifference ();
-			Vector3 multipliedDifference =  
-				new Vector3 (playerDiff.x * scrollValue.x, playerDiff.y * scrollValue.y, playerDiff.z * scrollValue.z);
+            //Move the camera this direction, but faster than the player moved.
+            //Vector3 playerDiff = player.GetPreviousPositionDifference ();
+            //Vector3 multipliedDifference =  
+            //new Vector3 (playerDiff.x * scrollValue.x, playerDiff.y * scrollValue.y, playerDiff.z * scrollValue.z);
 
-			cameraPosition += multipliedDifference;
+            cameraPosition = new Vector3(player.transform.position.x, player.transform.position.y, cameraPosition.z);
 			
 			//updating our movement window root location based on the current camera position
 			windowRect.x = cameraPosition.x - movementWindowSize.x/2 + windowOffset.x;

@@ -44,7 +44,6 @@ public class Dialogue : MonoBehaviour {
 	private AudioManager audioManager;
 
 	void Start () {
-        print(arquivoTexto.text);
         canvas.SetActive (false);
 		audioManager = AudioManager.instance;
 		LerTexto ();
@@ -120,6 +119,8 @@ public class Dialogue : MonoBehaviour {
 		if (System.Object.ReferenceEquals(dialogo, null))
 			return;
 		if (textoAtual >= dialogo.Length) {
+            print(textoAtual);
+            print(dialogo.Length);
 			over = true;
 		} else if(continua) {
 			StartCoroutine (ShowMessage (dialogo [textoAtual]));
@@ -135,11 +136,8 @@ public class Dialogue : MonoBehaviour {
 
 	IEnumerator Example()
 	{
-		print(Time.time);
 		yield return new WaitForSeconds(1);
-		print(Time.time);
 		yield return new WaitForSeconds(1);
-		print ("HEUHUEHE");
 	}
 
 	private void LerTexto() {
@@ -148,15 +146,11 @@ public class Dialogue : MonoBehaviour {
         
 
         dialogo = ProcessText (arquivoTexto.text.Split ('\n'));
-        
         //dialogo = new string[] {"pato", "quen"};
     }
 
 	//Função que processa os textos, dividindo as falas para caberem na caixa de dialogo
 	private string[] ProcessText(string[] dialogues) {
-        for (int i = 0; i < dialogues.Length; i++) {
-            print(dialogues[i]);
-        }
         List<string> dialogues_temp = new List<string> ();
 		string autor_temp;
 		int j = 0, k = 0;
