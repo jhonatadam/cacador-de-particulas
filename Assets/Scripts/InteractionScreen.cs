@@ -24,11 +24,11 @@ public class InteractionScreen : MonoBehaviour {
 
 	}
 
-	public void showScreen() {
-		if(playerCheck.getIsInContact() && !locked) {
-			screenTemp = Instantiate (screen) as GameObject;
-		}
-	}
+//	public void showScreen() {
+		//if(playerCheck.getIsInContact() && !locked) {
+			//screenTemp = Instantiate (screen) as GameObject;
+		//}
+	
 
 	private void DeleteScreen() {
 		if (screenTemp != null)
@@ -44,14 +44,14 @@ public class InteractionScreen : MonoBehaviour {
 	}
 
 	private void OnEnable() {
-		EventsManager.onInteract += showScreen;
+		//EventsManager.onInteract += showScreen;
 		EventsManager.onScreenShown += LockScreen;
 		EventsManager.onScreenDismissed += UnlockScreen;
 		EventsManager.onScreenDismissed += DeleteScreen;
 	}
 
 	private void OnDisable() {
-		EventsManager.onInteract -= showScreen;
+		//EventsManager.onInteract -= showScreen;
 		EventsManager.onScreenShown -= LockScreen;
 		EventsManager.onScreenDismissed -= UnlockScreen;
 		EventsManager.onScreenDismissed -= DeleteScreen;

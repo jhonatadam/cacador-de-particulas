@@ -5199,6 +5199,26 @@ Prefab:
       propertyPath: m_Name
       value: Particle Destroyer (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
   m_IsPrefabAsset: 0
@@ -5568,6 +5588,26 @@ Prefab:
     - target: {fileID: 1292983546903846, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
       propertyPath: m_Name
       value: Particle Destroyer (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
@@ -7321,6 +7361,26 @@ Prefab:
       propertyPath: m_Name
       value: Particle Destroyer (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
   m_IsPrefabAsset: 0
@@ -8927,11 +8987,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4065527645528044, guid: 8a530a88be6e53a4682437e8bd1555b4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.913
+      value: 12.15
       objectReference: {fileID: 0}
     - target: {fileID: 4065527645528044, guid: 8a530a88be6e53a4682437e8bd1555b4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 22.494
+      value: 22.54
       objectReference: {fileID: 0}
     - target: {fileID: 4065527645528044, guid: 8a530a88be6e53a4682437e8bd1555b4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10200,6 +10260,26 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1.5106997
       objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
   m_IsPrefabAsset: 0
@@ -10253,6 +10333,26 @@ Prefab:
     - target: {fileID: 1292983546903846, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}
       propertyPath: m_Name
       value: Particle Destroyer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 212283776557462882, guid: 3f03ba0ebc983894684f6cdba2243d85,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f03ba0ebc983894684f6cdba2243d85, type: 2}

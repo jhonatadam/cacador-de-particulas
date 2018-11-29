@@ -1111,8 +1111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.8
   jumpForce: 12000
-  dashTime: 0.6
-  dashPushTime: 0.16
+  dashTime: 0.5
+  dashPushTime: 0.2
   dashStartSpeed: 6
   dashEndSpeed: 1
   dashAngle: 20
@@ -1133,10 +1133,11 @@ MonoBehaviour:
   pistolDamage: 8
   pistolEnergyCost: 2
   pistolPushTime: 0.5
-  ondaJetpack: {fileID: 1172224126428934}
+  ondaJetpack: {fileID: 1596412843332060, guid: 8288929964d71b14290b462b6ba2638c,
+    type: 2}
   hasJetpack: 0
   jetpack: {fileID: 1873541332755572}
-  cards: 00000000
+  cards: 
   jet: {fileID: 9100000, guid: c3cdde1d8ddc3f54d9e3768a6094c977, type: 2}
   jetgun1: {fileID: 9100000, guid: a8581a98c981d9c469dc9ac0d4d5023e, type: 2}
   jetgun2: {fileID: 9100000, guid: 6f78d74cb278ae243a4187205b094b92, type: 2}
@@ -1145,6 +1146,7 @@ MonoBehaviour:
   gun2: {fileID: 9100000, guid: aa56620bd1a62fb4a8bc2dfe46222b76, type: 2}
   gun3: {fileID: 9100000, guid: 5684a6aa5bfd04447b78254b81a75101, type: 2}
   naked: {fileID: 9100000, guid: 8341834480aa49c47b828b1c06f2962e, type: 2}
+  dyingTime: 1
 --- !u!114 &114096391842613232
 MonoBehaviour:
   m_ObjectHideFlags: 1

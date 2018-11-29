@@ -6,7 +6,7 @@ public class ZangoHealth : EnemyHealth {
 
 	private ZangoMeleeWeapon weapon;
 	private GameObject battleStarter;
-    public AudioManager audioManager;
+    private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
 		health = maxHealth;

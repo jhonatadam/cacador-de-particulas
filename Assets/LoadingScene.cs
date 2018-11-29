@@ -14,6 +14,7 @@ public class LoadingScene : MonoBehaviour {
 
         if (player != null) {
             gravityscale = player.GetComponent<Rigidbody2D>().gravityScale;
+            player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             player.GetComponent<Rigidbody2D>().gravityScale = 0;
         }
         audioManager = AudioManager.instance;
