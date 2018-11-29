@@ -1113,7 +1113,7 @@ MonoBehaviour:
   jumpForce: 12000
   dashTime: 0.5
   dashPushTime: 0.2
-  dashStartSpeed: 6
+  dashStartSpeed: 5
   dashEndSpeed: 1
   dashAngle: 20
   KBEndSpeed: 1
