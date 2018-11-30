@@ -73,6 +73,8 @@ public class EventsManager : MonoBehaviour {
 	public static Event onJumpBtnHold;
 	//Quando se aperta o botão do jetpack
 	public static Event onJetpackBtn;
+    //Quando tiver com o jetpack e apertar os botões verticais
+    public static MovementEvent onVerticalBtn;
 
 	public static void Interact() {
 		if (onInteract != null)
@@ -113,8 +115,12 @@ public class EventsManager : MonoBehaviour {
 		if (onHorizontalBtn != null)
 			onHorizontalBtn (movement);
 	}
+    public static void VerticalBtn(float movement) {
+        if (onVerticalBtn != null)
+            onVerticalBtn(movement);
+    }
 
-	public static void FireBtn() {
+    public static void FireBtn() {
 		if (onFireBtn != null)
 			onFireBtn ();
 	}

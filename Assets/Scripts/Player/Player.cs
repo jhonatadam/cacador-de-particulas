@@ -147,6 +147,11 @@ public class Player : MonoBehaviour {
 		} else {
 			inputManager.StartListening ();
 		}
+        if (hasJetpack) {
+            if (!(groundCheck.isGrounded() || groundCheck.isPlatformed())) {
+                animator.SetBool("jump", true);
+            }
+        }
 		if (knockbacking) {
 			if (KBElapsedTime < KBPushTime) { //está em propulsão para trás kkk
 				rb2d.velocity = new Vector2 (rb2d.velocity.x, 0.0f);
@@ -200,8 +205,12 @@ public class Player : MonoBehaviour {
 		SwitchAnimator ("gun");
 	}
 	public void SetJetpackActive(bool active){
+        hasJetpack = true;
 		jetpack.SetActive (active);
-		ondaJetpack.SetActive (true);
+        GameObject ondaJ = Instantiate(ondaJetpack);
+        ondaJ.name = "OndaJetpack";
+        ondaJ.transform.SetParent(transform);
+        ondaJ.transform.localPosition = new Vector3(-0.075f, -0.171f, 0);
 		SwitchAnimator ("jet");
 	}
 
@@ -225,7 +234,8 @@ public class Player : MonoBehaviour {
 			UpdateSpriteDirection (horizontalMovement);
 		}	
 	}
-	public void SwitchAnimator(string name){
+    
+    public void SwitchAnimator(string name){
 		//esse metodo é complicado
 		//parâmetros válidos são: "gun", "jet", "verde", "amarelo", "vermelho"
 		//eu fiz ele assim porque eu queria que ele fosse o mais facil possivel de entender

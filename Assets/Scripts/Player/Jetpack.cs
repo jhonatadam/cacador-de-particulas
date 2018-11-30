@@ -30,14 +30,15 @@ public class Jetpack : MonoBehaviour {
 	}
 
 	public void SwitchActivated() {
-		if (!activated) {
-			
-			gameObject.GetComponentInParent<Player> ().canJump = false;
+        float speed = gameObject.GetComponentInParent<Player>().speed;
+        if (!activated) {
+
+            gameObject.GetComponentInParent<Player> ().canJump = false;
             rb.gravityScale = 0.3f;
             activated = !activated;
 		} else {
-			
-			gameObject.GetComponentInParent<Player> ().canJump = true;
+            
+            gameObject.GetComponentInParent<Player> ().canJump = true;
             rb.gravityScale = originalGravity;
             activated = !activated;
 		}
@@ -45,12 +46,20 @@ public class Jetpack : MonoBehaviour {
     public void Propel() {
         if (activated && player.GetComponent<Player>().GetUpdateOn()) {
             if (player.energy < energyUse * Time.deltaTime) {
+                activated = false;
                 rb.gravityScale = originalGravity;
                 return;
             }
             player.ConsumeEnergy(energyUse * Time.deltaTime);
-            rb.velocity = new Vector2(rb.velocity.x, player.GetComponent<Player>().speed*1.6f);
+            rb.velocity = new Vector2(rb.velocity.x, player.GetComponent<Player>().speed);
 
+        }
+    }
+
+    public void MoveVertically(float verticalMovement) {
+        if (activated && player.GetComponent<Player>().GetUpdateOn()) {
+            // atualizando velocidade
+            rb.velocity = new Vector2(rb.velocity.x, verticalMovement * player.GetComponent<Player>().speed);
         }
     }
 
@@ -70,16 +79,18 @@ public class Jetpack : MonoBehaviour {
 	}
 
 	private void OnEnable() {
-		//Configurando listeners de eventos
-		EventsManager.onJumpBtnHold += Propel;
+        //Configurando listeners de eventos
+        EventsManager.onVerticalBtn += MoveVertically;
+        //EventsManager.onJumpBtnHold += Propel;
 		EventsManager.onJetpackBtn += SwitchActivated;
 
 	}
 
 	private void OnDisable() {
-		//Configurando listeners de eventos
-		EventsManager.onJumpBtnHold -= Propel;
-		EventsManager.onJetpackBtn -= SwitchActivated;
+        //Configurando listeners de eventos
+        //EventsManager.onJumpBtnHold -= Propel;
+        EventsManager.onVerticalBtn += MoveVertically;
+        EventsManager.onJetpackBtn -= SwitchActivated;
 
 	}
 }

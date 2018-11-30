@@ -80,10 +80,11 @@ public class InputManager : MonoBehaviour {
 		if (canListen) {
 			
 			float horizontalMovement = Input.GetAxis ("Horizontal");
+            float verticalMovement = Input.GetAxis("Vertical");
+            EventsManager.HorizontalBtn (horizontalMovement);
+            EventsManager.VerticalBtn (verticalMovement);
 
-			EventsManager.HorizontalBtn (horizontalMovement);
-
-		}
+        }
 
 	}
 

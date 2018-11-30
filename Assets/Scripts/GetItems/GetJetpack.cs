@@ -11,7 +11,6 @@ public class GetJetpack : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.gameObject.tag == "Player") {
-			other.gameObject.GetComponent<Player> ().hasJetpack = true;
 			other.gameObject.GetComponent<Player> ().SetJetpackActive (true);
 			//Adiciona cartão vermelho
 			other.gameObject.GetComponent<Player> ().cards.Add (CardEnum.Roxo);
