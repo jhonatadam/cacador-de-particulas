@@ -271,6 +271,11 @@ Prefab:
       propertyPath: elevators.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114662786827654454, guid: 0c2d6716c430f45ad897f09e715958bc,
+        type: 2}
+      propertyPath: dialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4314201938529218, guid: 0c2d6716c430f45ad897f09e715958bc, type: 2}
       propertyPath: m_LocalPosition.x
       value: -6.269544
@@ -348,6 +353,11 @@ Prefab:
       propertyPath: music
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114662786827654454, guid: 0c2d6716c430f45ad897f09e715958bc,
+        type: 2}
+      propertyPath: dialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 1836238563}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c2d6716c430f45ad897f09e715958bc, type: 2}
   m_IsPrefabAsset: 0

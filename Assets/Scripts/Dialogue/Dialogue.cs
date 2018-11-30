@@ -119,8 +119,6 @@ public class Dialogue : MonoBehaviour {
 		if (System.Object.ReferenceEquals(dialogo, null))
 			return;
 		if (textoAtual >= dialogo.Length) {
-            print(textoAtual);
-            print(dialogo.Length);
 			over = true;
 		} else if(continua) {
 			StartCoroutine (ShowMessage (dialogo [textoAtual]));

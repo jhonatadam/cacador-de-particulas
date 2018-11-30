@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour {
 
 	private Player player;
 	private AudioManager audioManager;
+
 	// Use this for initialization
 	void Start () {
 		//Inicializa o HP do player
@@ -40,7 +41,7 @@ public class PlayerHealth : MonoBehaviour {
 	public void DamagePlayer(float damage) {
 		if (damageTime < damageCoolDown || player.GetInDialogue() || dead)
 			return;
-
+        GameObject.Find("HUD").GetComponent<HealthBar>().DamageBlink(damage);
 		if (health - damage <= 0) {
 			health = 0;
 			damageTime = 0;
@@ -52,7 +53,7 @@ public class PlayerHealth : MonoBehaviour {
 		audioManager.PlaySound ("Pain");
 		health -= damage;
 		damageTime = 0;
-
+        
 	}
 
 	/* Função que particula usa para gerar dano no player.
@@ -64,8 +65,8 @@ public class PlayerHealth : MonoBehaviour {
 		
 		if (damageTime < damageCoolDown || player.GetInDialogue() || dead)
 			return;
-
-		GameObject temp = gameObject.transform.GetChild (3).gameObject;
+        GameObject.Find("HUD").GetComponent<HealthBar>().DamageBlink(damage);
+        GameObject temp = gameObject.transform.GetChild (3).gameObject;
 		PlayerEnergy temp2 = gameObject.GetComponent<PlayerEnergy> ();
 
 

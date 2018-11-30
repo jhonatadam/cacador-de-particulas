@@ -147,7 +147,7 @@ public class Player : MonoBehaviour {
 		} else {
 			inputManager.StartListening ();
 		}
-        if (hasJetpack && GetComponentInChildren<Jetpack>().activated) {
+        if (!dashing && hasJetpack && GetComponentInChildren<Jetpack>().activated) {
             if (!(groundCheck.isGrounded() || groundCheck.isPlatformed())) {
                 animator.SetBool("jump", true);
                 if (rb2d.velocity.x > 0) {

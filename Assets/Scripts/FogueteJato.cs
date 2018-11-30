@@ -18,8 +18,10 @@ public class FogueteJato : MonoBehaviour {
 	public GameObject sceneTransition;
 	private float transitionTime;
 	private float time = 0;
+    private GameObject cmvcam;
 	// Use this for initialization
 	void Start () {
+        cmvcam = GameObject.Find("CM vcam1");
 		ps = GetComponentInChildren<ParticleSystem> ();
 		cabine = GameObject.Find ("Cabine");
 		cabine.SetActive (false);
@@ -52,6 +54,7 @@ public class FogueteJato : MonoBehaviour {
 
 	}
 	public void Activate(){
+        cmvcam.GetComponent<Cinemachine.CinemachineConfiner>().enabled = false;
 		ps.Play ();
         GameObject.Find("Shape Confine").GetComponent<PolygonCollider2D>().enabled = false;
         active = true;
