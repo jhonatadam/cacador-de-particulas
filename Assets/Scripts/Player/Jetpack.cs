@@ -46,7 +46,7 @@ public class Jetpack : MonoBehaviour {
     public void Propel() {
         if (activated && player.GetComponent<Player>().GetUpdateOn()) {
             if (player.energy < energyUse * Time.deltaTime) {
-                activated = false;
+                SwitchActivated();
                 rb.gravityScale = originalGravity;
                 return;
             }
@@ -60,7 +60,7 @@ public class Jetpack : MonoBehaviour {
         if (activated && player.GetComponentInParent<Player>().GetUpdateOn()) {
             // atualizando velocidade
             if (player.energy < energyUse * Time.deltaTime) {
-                activated = false;
+                SwitchActivated();
                 rb.gravityScale = originalGravity;
                 return;
             }
