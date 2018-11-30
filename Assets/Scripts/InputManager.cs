@@ -83,7 +83,6 @@ public class InputManager : MonoBehaviour {
             float verticalMovement = Input.GetAxis("Vertical");
             EventsManager.HorizontalBtn (horizontalMovement);
             EventsManager.VerticalBtn (verticalMovement);
-
         }
 
 	}

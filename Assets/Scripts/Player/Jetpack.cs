@@ -32,12 +32,12 @@ public class Jetpack : MonoBehaviour {
 	public void SwitchActivated() {
         float speed = gameObject.GetComponentInParent<Player>().speed;
         if (!activated) {
-
+            gameObject.GetComponentInParent<Player>().ondaJetpack.SetActive(true);
             gameObject.GetComponentInParent<Player> ().canJump = false;
             rb.gravityScale = 0.3f;
             activated = !activated;
 		} else {
-            
+            gameObject.GetComponentInParent<Player>().ondaJetpack.SetActive(false);
             gameObject.GetComponentInParent<Player> ().canJump = true;
             rb.gravityScale = originalGravity;
             activated = !activated;
@@ -57,8 +57,14 @@ public class Jetpack : MonoBehaviour {
     }
 
     public void MoveVertically(float verticalMovement) {
-        if (activated && player.GetComponent<Player>().GetUpdateOn()) {
+        if (activated && player.GetComponentInParent<Player>().GetUpdateOn()) {
             // atualizando velocidade
+            if (player.energy < energyUse * Time.deltaTime) {
+                activated = false;
+                rb.gravityScale = originalGravity;
+                return;
+            }
+            player.ConsumeEnergy(energyUse * Time.deltaTime);
             rb.velocity = new Vector2(rb.velocity.x, verticalMovement * player.GetComponent<Player>().speed);
         }
     }

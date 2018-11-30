@@ -150,7 +150,17 @@ public class Player : MonoBehaviour {
         if (hasJetpack) {
             if (!(groundCheck.isGrounded() || groundCheck.isPlatformed())) {
                 animator.SetBool("jump", true);
+                if (rb2d.velocity.x > 0) {
+                    transform.Rotate(new Vector3(0, 0, -10* rb2d.velocity.x));
+                }
+                if (rb2d.velocity.x < 0) {
+                    transform.Rotate(new Vector3(0, 0, 10 * rb2d.velocity.x));
+                }
+                if(Mathf.Approximately(rb2d.velocity.x, 0)){
+                    transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, transform.rotation.w);
+                }
             }
+            
         }
 		if (knockbacking) {
 			if (KBElapsedTime < KBPushTime) { //está em propulsão para trás kkk
@@ -211,6 +221,8 @@ public class Player : MonoBehaviour {
         ondaJ.name = "OndaJetpack";
         ondaJ.transform.SetParent(transform);
         ondaJ.transform.localPosition = new Vector3(-0.075f, -0.171f, 0);
+        ondaJ.SetActive(false);
+        ondaJetpack = ondaJ;
 		SwitchAnimator ("jet");
 	}
 

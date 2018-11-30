@@ -5,7 +5,7 @@ using UnityEngine;
 public class Zevatron : MonoBehaviour {
 	public GameObject explosion;
 	private ParticleSystem[] ps;
-
+    public float damageOnPlayer;
 	private AudioManager audioManager;
 	// Use this for initialization
 	void Start () {
@@ -26,6 +26,7 @@ public class Zevatron : MonoBehaviour {
 			AutoDestroy ();
 		}
 		if (other.tag == "Player") {
+            other.GetComponent<PlayerHealth>().DamagePlayer(damageOnPlayer);
 			GameObject exp = Instantiate (explosion);
 			exp.transform.position = transform.position;
 			AutoDestroy ();
