@@ -7,7 +7,7 @@ public class Jetpack : MonoBehaviour {
 	public float propelForce;
 	public float maxUpVelocity;
 	[SerializeField]
-	private bool activated;
+	public bool activated;
 
 	public float energyUse;
 
