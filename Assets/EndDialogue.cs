@@ -25,7 +25,6 @@ public class EndDialogue : MonoBehaviour {
 			if (timer > delayForCredits) {
 				audioManager.StopSound("Cutscene Track");
 				SceneManager.LoadScene ("Creditos");
-
 			}
 		}
 		if (dialogue.GetComponent<Dialogue> ().over && !fading) {

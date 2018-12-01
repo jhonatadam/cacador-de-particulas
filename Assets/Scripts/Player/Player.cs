@@ -6,7 +6,7 @@ using System.IO;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-
+    public bool gameshark = false;
 	public float speed;
 	public float jumpForce;
 	public float dashTime;
@@ -111,14 +111,24 @@ public class Player : MonoBehaviour {
         playerHealth = GetComponent<PlayerHealth>();
 	}
 	void Start () {
+        
         dying = 0;
 		inputManager = GameObject.Find ("InputManager").GetComponent<InputManager> ();
 		audioManager = AudioManager.instance;
 		animator = GetComponent <Animator> ();
 
 		playerEnergy = gameObject.GetComponent<PlayerEnergy> ();
-
-		previousPosition = transform.position;
+        
+        if (gameshark) {
+            speed = 5;
+            bulletSpeed = 10;
+            pistolPushTime = 0.06f;
+            playerHealth.maxHealth = 999999;
+            playerHealth.health = 999999;
+            playerEnergy.maxEnergy = 999999;
+            playerEnergy.energy = 999999;
+        }
+        previousPosition = transform.position;
 
 		canJump = true;
 		fire1 = gameObject.GetComponents<AudioSource> () [0];
@@ -147,7 +157,7 @@ public class Player : MonoBehaviour {
 		} else {
 			inputManager.StartListening ();
 		}
-        if (!dashing && hasJetpack && GetComponentInChildren<Jetpack>().activated) {
+        if (!knockbacking && !dashing && hasJetpack && GetComponentInChildren<Jetpack>().activated) {
             if (!(groundCheck.isGrounded() || groundCheck.isPlatformed())) {
                 animator.SetBool("jump", true);
                 if (rb2d.velocity.x > 0) {
@@ -187,7 +197,7 @@ public class Player : MonoBehaviour {
 				dashEnlapsedTime += Time.deltaTime;
 
 				// restaurando angulo original do player ao longo do dash
-				//transform.Rotate (new Vector3 (0,0, (flipX ? 1 : 1)  * (dashAngle * (Time.deltaTime / dashPushTime))));
+				//transform.Rotate (new Vector3 (0,0, (flipX ? 1 : 1) * (dashAngle * (Time.deltaTime / dashPushTime))));
 			}else if (dashEnlapsedTime < dashTime) { // está parado, faz uma pequena espera pra recuperar os movimentos
 				rb2d.velocity = new Vector2 ((flipX ? -dashEndSpeed : dashEndSpeed) , rb2d.velocity.y);
 				animator.SetFloat ("playerXVelocity", Mathf.Abs(rb2d.velocity.x));

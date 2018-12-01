@@ -62,18 +62,19 @@ public class PlayerHealth : MonoBehaviour {
 	 * 
 	 **/
 	public void ParticleDamagePlayer(float damage) {
-		
-		if (damageTime < damageCoolDown || player.GetInDialogue() || dead)
+        GameObject temp = gameObject.transform.GetChild(3).gameObject;
+        PlayerEnergy temp2 = gameObject.GetComponent<PlayerEnergy>();
+
+        if (damageTime < damageCoolDown || player.GetInDialogue() || dead || (temp.activeInHierarchy && temp2.level != EnergyLevel.Vermelho))
 			return;
+
+        if (temp.activeInHierarchy && temp2.level != EnergyLevel.Vermelho) {
+            damage = 0;
+        } 
         GameObject.Find("HUD").GetComponent<HealthBar>().DamageBlink(damage);
-        GameObject temp = gameObject.transform.GetChild (3).gameObject;
-		PlayerEnergy temp2 = gameObject.GetComponent<PlayerEnergy> ();
 
-
-		if (temp.activeInHierarchy && temp2.level != EnergyLevel.Vermelho)
-			damage = 0;
-
-		if (health - damage <= 0) {
+        
+        if (health - damage <= 0) {
 			health = 0;
 			damageTime = 0;
 			dead = true;
