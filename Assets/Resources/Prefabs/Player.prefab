@@ -1016,6 +1016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d71af63abd01b43a7c69237a96e652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameshark: 0
   speed: 1.8
   jumpForce: 12000
   dashTime: 0.5
@@ -1039,7 +1040,7 @@ MonoBehaviour:
   bulletSpeed: 5
   pistolDamage: 8
   pistolEnergyCost: 2
-  pistolPushTime: 0.5
+  pistolPushTime: 0.2
   ondaJetpack: {fileID: 1596412843332060, guid: 8288929964d71b14290b462b6ba2638c,
     type: 2}
   hasJetpack: 0
@@ -1065,8 +1066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2805be5b50994ee4b975f0e4e23f1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergy: 100
-  energy: 40
+  maxEnergy: 200
+  energy: 200
   level: 0
 --- !u!114 &114339331133519824
 MonoBehaviour:
