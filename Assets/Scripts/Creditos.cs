@@ -13,8 +13,10 @@ public class Creditos : MonoBehaviour {
     public GameObject logos;
     private bool logosEnabled = false;
     public GameObject background;
-	// Use this for initialization
-	void Start () {
+    public GameObject background2;
+
+    // Use this for initialization
+    void Start () {
 		audioManager = AudioManager.instance;
 		audioManager.PlaySound ("Creditos");
 		foreach (Transform child in transform) {
@@ -45,6 +47,8 @@ public class Creditos : MonoBehaviour {
 		}
         if (current > transform.childCount && !logosEnabled) {
             background.GetComponent<GradientColorChanger>().enabled = true;
+            background2.GetComponent<GradientColorChanger>().enabled = true;
+
             foreach (Transform child in logos.transform) {
                 child.GetComponent<SpriteRenderer>().enabled = true;
             }
