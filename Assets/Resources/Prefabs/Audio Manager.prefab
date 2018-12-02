@@ -8,15 +8,15 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
+  m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1685201115798346}
-  m_IsPrefabParent: 1
+  m_IsPrefabAsset: 1
 --- !u!1 &1685201115798346
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4460966678103838}
   - component: {fileID: 114585781622913954}
@@ -30,7 +30,7 @@ GameObject:
 --- !u!4 &4460966678103838
 Transform:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685201115798346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -43,7 +43,7 @@ Transform:
 --- !u!114 &114585781622913954
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685201115798346}
   m_Enabled: 1
@@ -218,5 +218,13 @@ MonoBehaviour:
     pitch: 1
     randomVolume: 0.127
     randomPitch: 0.136
+    loop: 0
+    isTrack: 0
+  - name: Enemy Death Zango
+    clip: {fileID: 8300000, guid: 4360413a04620a447bff59a4659198c6, type: 3}
+    volume: 1
+    pitch: 0.592
+    randomVolume: 0.079
+    randomPitch: 0.079
     loop: 0
     isTrack: 0

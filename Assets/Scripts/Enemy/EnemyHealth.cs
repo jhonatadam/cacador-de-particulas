@@ -6,22 +6,22 @@ public class EnemyHealth : MonoBehaviour {
 
 	public float maxHealth;
 	public float health;
-	private SpriteRenderer sr;
+	protected SpriteRenderer sr;
 	public float piscar = 0;
 	public float piscarTempo = 0.1f;
 	private bool fadeOut = false;
-	private float alpha = 1;
+	protected float alpha = 1;
 	[HideInInspector]
 	public Rigidbody2D rb2d;
-	private bool dead = false;
-	private AudioManager audioManager;
+	public bool dead = false;
+	protected AudioManager audioManager;
 	// Referência do animator
 	public Animator animator;
 	public float dyingTime = 0.5f;
-	private float dyingElapsed;
+	protected float dyingElapsed;
 	public int sparkleAmount = 4;
 	public float sparkleInterval;
-	private float lastSparkle = 0;
+	protected float lastSparkle = 0;
 	public GameObject shortSparkle;
 	public float sparkleRadius;
 	public GameObject dropHP;
@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour {
 	public float dropHpChance = 0.5f;
 	private ReparadorPoints rpoints;
 	public float rebirthTime = 2.0f;
-	private float gravityOriginal;
+	protected float gravityOriginal;
 	// Use this for initialization
 	void Start () {
 		dyingElapsed = dyingTime;
@@ -115,7 +115,7 @@ public class EnemyHealth : MonoBehaviour {
 		for (int i = 0; i < colliders.Length; i++) {
 			colliders [i].enabled = false;
 		}
-		if (Random.Range (0.0f, 1.0f) < dropHpChance) {
+		if (dropHP != null && Random.Range (0.0f, 1.0f) < dropHpChance) {
 			GameObject drophp = Instantiate (dropHP);
 			drophp.transform.position = new Vector3 (transform.position.x + Random.Range (-0.2f, -0.2f), transform.position.y + Random.Range (-0.2f, -0.2f), transform.position.z);
 		}
@@ -125,7 +125,10 @@ public class EnemyHealth : MonoBehaviour {
 		//}
 		//TODO essa é apenas uma morte provisória, é preciso fazer corretamente. Colocar animações e etc.
 		dead = true;
-		GetComponent<EnemyBehavior> ().dead = true;
+        EnemyBehavior eb = GetComponent<EnemyBehavior>();
+        if (eb != null) {
+            GetComponent<EnemyBehavior>().dead = true;
+        }
 
 	}
 	public void Rebirth(){

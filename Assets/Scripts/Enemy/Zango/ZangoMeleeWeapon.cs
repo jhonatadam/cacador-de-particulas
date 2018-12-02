@@ -118,10 +118,12 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 	}
 
 	void Update () {
-//		Hit ();
+        //		Hit ();
+        if (GetComponent<ZangoHealth>().IsDead()) {
+            return;
+        }
 
-
-		if (rotatingChronometer) {
+        if (rotatingChronometer) {
 
 			//APLICANDO FORÇA NO ALVINN (SUGANDO)
 			//vetor entre zango e alvinn
@@ -280,9 +282,15 @@ public class ZangoMeleeWeapon : MonoBehaviour {
 
 	//funcao que atira a bola de energia de particulas
 	public void shootEnergyBall() {
-		GameObject temp;
 
-		float ang = Vector2.Angle (energyBallExit.position, player.transform.transform.position);
+		GameObject temp;
+        if(player == null) {
+            print("PLAYER É O PROBLEMA");
+        }
+        if(energyBallExit == null) {
+            print("ENERGYBALLEXIT É O PROBLEMA");
+        }
+		float ang = Vector2.Angle (energyBallExit.position, player.transform.position);
 		ang = Mathf.Atan2 (player.transform.position.y - energyBallExit.position.y, (player.transform.position.x - energyBallExit.position.x)*(behavior.isFacingRight ? 1 : -1));
 
 		Quaternion rota = Quaternion.Euler (energyBallExit.rotation.eulerAngles.x, energyBallExit.rotation.eulerAngles.y,  ang*Mathf.Rad2Deg);

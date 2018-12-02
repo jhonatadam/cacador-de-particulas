@@ -51,7 +51,7 @@ public class ZangoBehavior : MonoBehaviour {
 
 
 	// Use this for initialization.
-	void Start () {
+	void Awake () {
 		try {
 			// Buscando referência do Player.
 			player = GameObject.Find ("Player").GetComponent<Player> ();
@@ -71,6 +71,9 @@ public class ZangoBehavior : MonoBehaviour {
 	}
 
 	void Update() {
+        if (GetComponent<ZangoHealth>().IsDead()) {
+            return;
+        }
 		if (Input.GetKeyDown(KeyCode.T))
 			zangoHealth.DamageEnemy (10);
 		if (Input.GetKeyDown (KeyCode.Y))
