@@ -339,13 +339,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa88ec295d0d940e495bd4112f137856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 800
-  health: 800
+  maxHealth: 700
+  health: 700
   piscar: 0
   piscarTempo: 0.1
   rb2d: {fileID: 0}
   animator: {fileID: 0}
-  dyingTime: 0.5
+  dyingTime: 2
   sparkleAmount: 4
   sparkleInterval: 0
   shortSparkle: {fileID: 0}
