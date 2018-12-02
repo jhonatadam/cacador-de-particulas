@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxEnergy: 200
-  energy: 200
+  energy: 0
   level: 0
 --- !u!114 &114339331133519824
 MonoBehaviour:
