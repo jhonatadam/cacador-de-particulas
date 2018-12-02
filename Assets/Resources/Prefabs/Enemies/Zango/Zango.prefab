@@ -343,7 +343,7 @@ MonoBehaviour:
   isLoaded: 0
   reloadTime: 1
   upToDownDamage: 50
-  rotatingDamage: 500
+  rotatingDamage: 1000
   timeCounter: 0
   range: 3.5
   actualAttack: none
