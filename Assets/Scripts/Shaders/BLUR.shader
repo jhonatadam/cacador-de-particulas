@@ -164,7 +164,7 @@ Shader "Custom/BLUR" {
                 v2f vert (appdata_t v) {
                     v2f o;
                     o.vertex = UnityObjectToClipPos(v.vertex);
-                    #if UNITY_UV_STARTS_AT_TOP
+	                    #if UNITY_UV_STARTS_AT_TOP
                     float scale = -1.0;
                     #else
                     float scale = 1.0;

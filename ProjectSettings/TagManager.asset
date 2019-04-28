@@ -17,6 +17,7 @@ TagManager:
   - ReparerPoint
   - IALimite
   - DropHP
+  - FrezzeManager
   layers:
   - Default
   - TransparentFX

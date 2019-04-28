@@ -31,6 +31,7 @@ public class EnemyHealth : MonoBehaviour {
 	public float rebirthTime = 2.0f;
 	protected float gravityOriginal;
 	// Use this for initialization
+	FreezerInHit frezee;
 	void Start () {
 		dyingElapsed = dyingTime;
 		audioManager = AudioManager.instance;
@@ -38,6 +39,13 @@ public class EnemyHealth : MonoBehaviour {
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 		rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		gravityOriginal = rb2d.gravityScale;
+		
+		GameObject mgr = GameObject.FindWithTag("FrezzeManager");
+
+        if(mgr){
+            frezee = mgr.GetComponent<FreezerInHit>();
+        }
+
 		if (sr == null) {
 			sr = gameObject.GetComponentInChildren<SpriteRenderer> ();
 		}
@@ -82,6 +90,7 @@ public class EnemyHealth : MonoBehaviour {
 			health = 0;
 			return;
 		}
+		frezee.Freeze();
 		piscar = piscarTempo;
 		health -= damage;
 		if (Random.Range (0.0f, 1.0f) > 0.5f) {
