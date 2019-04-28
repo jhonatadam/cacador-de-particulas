@@ -25,6 +25,7 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject shortSparkle;
 	public float sparkleRadius;
 	public GameObject dropHP;
+	public GameObject hitParticlePrefab;
 	[Range(0.0f, 1.0f)]
 	public float dropHpChance = 0.5f;
 	private ReparadorPoints rpoints;
@@ -90,6 +91,9 @@ public class EnemyHealth : MonoBehaviour {
 			health = 0;
 			return;
 		}
+		GameObject hitParticle = Instantiate(hitParticlePrefab) as GameObject;
+		hitParticle.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
 		frezee.Freeze();
 		piscar = piscarTempo;
 		health -= damage;

@@ -186,6 +186,7 @@ MonoBehaviour:
   piscar: 0
   piscarTempo: 0.1
   rb2d: {fileID: 0}
+  dead: 0
   animator: {fileID: 0}
   dyingTime: 0.6
   sparkleAmount: 5
@@ -194,6 +195,8 @@ MonoBehaviour:
     type: 2}
   sparkleRadius: 0.7
   dropHP: {fileID: 1001151515550478, guid: f1d20d602966acb48a01508ee0f2d832, type: 2}
+  hitParticlePrefab: {fileID: 1898414117446798, guid: 40f644a899e80cc4c9e9bdb462150094,
+    type: 2}
   dropHpChance: 0.5
   rebirthTime: 2
 --- !u!114 &114523117488021070
