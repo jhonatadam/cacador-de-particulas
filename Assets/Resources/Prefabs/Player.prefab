@@ -262,7 +262,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012884978742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3990615, y: 0.19409597, z: 0}
+  m_LocalPosition: {x: 62.67514, y: 10.845556, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000010268703816}
@@ -1045,8 +1045,6 @@ MonoBehaviour:
     type: 2}
   hasJetpack: 0
   jetpack: {fileID: 1873541332755572}
-  deathParticle: {fileID: 198820882895194816, guid: 31a33ea6d7a40314984f7e02f2e7469e,
-    type: 2}
   cards: 
   jet: {fileID: 9100000, guid: c3cdde1d8ddc3f54d9e3768a6094c977, type: 2}
   jetgun1: {fileID: 9100000, guid: a8581a98c981d9c469dc9ac0d4d5023e, type: 2}
@@ -1071,6 +1069,8 @@ MonoBehaviour:
   maxEnergy: 200
   energy: 0
   level: 0
+  EnergyUpPrefab: {fileID: 1131434950166080, guid: a5a2e7034bd37974c9bf0aae3bc06366,
+    type: 2}
 --- !u!114 &114339331133519824
 MonoBehaviour:
   m_ObjectHideFlags: 1

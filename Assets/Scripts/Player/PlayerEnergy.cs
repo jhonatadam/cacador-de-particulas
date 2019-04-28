@@ -11,6 +11,7 @@ public class PlayerEnergy : MonoBehaviour {
 	public EnergyLevel level;
 	private PistolController pc;
 	private Player player;
+	public GameObject EnergyUpPrefab;
 
 
 	// Use this for initialization
@@ -61,6 +62,8 @@ public class PlayerEnergy : MonoBehaviour {
 		if (player.GetInDialogue())
 			return;
 		energy += charge;
+		GameObject energyUp = Instantiate(EnergyUpPrefab) as GameObject;
+		energyUp.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
 		if (energy > maxEnergy) {
 			energy = maxEnergy;
