@@ -17,7 +17,7 @@ public class Logo : MonoBehaviour {
 	void Update () {
 		if (Time.time > gcc.endChange || Input.GetButtonDown("Jump")) {
             audioManager.StopSound("Logo");
-			SceneManager.LoadScene ("MenuTitle");
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 		}
 	}
 }
