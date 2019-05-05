@@ -295,7 +295,7 @@ PrefabInstance:
     - target: {fileID: 114448073121692210, guid: c1313bbc6124f214282e2c645278ea41,
         type: 3}
       propertyPath: nextSceneName
-      value: NewMenuTitle
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1313bbc6124f214282e2c645278ea41, type: 3}
