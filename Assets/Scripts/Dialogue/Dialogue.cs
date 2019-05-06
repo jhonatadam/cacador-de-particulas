@@ -43,6 +43,7 @@ public class Dialogue : MonoBehaviour {
 	public bool over = false;
 	private AudioManager audioManager;
 
+	
 	void Start () {
         canvas.SetActive (false);
 		audioManager = AudioManager.instance;
@@ -50,6 +51,9 @@ public class Dialogue : MonoBehaviour {
 	}
 
 	void Update () {
+		if(gameObject.GetComponent<LanguageVerificator>().verificator == true){
+			this.arquivoTexto.name = this.arquivoTexto.name + "EN";
+		}
 		if (active) {
 			canvas.SetActive (true);
 

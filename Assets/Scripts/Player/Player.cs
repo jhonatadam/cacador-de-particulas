@@ -109,7 +109,9 @@ public class Player : MonoBehaviour {
 	void Awake() {
 		rb2d = GetComponent<Rigidbody2D> ();
         playerHealth = GetComponent<PlayerHealth>();
+		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
+
 	void Start () {
         
         dying = 0;
@@ -537,6 +539,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+		if (scene.name == "NewMenuTitle") {
+		Destroy(this.gameObject);
+		Debug.Log("I am inside the if statement");
+		}
 		//DADOS PARA SAVE POINT
 		savePtsData.resetPt = transform.position;
 		savePtsData.health = GetComponent<PlayerHealth> ().health;
