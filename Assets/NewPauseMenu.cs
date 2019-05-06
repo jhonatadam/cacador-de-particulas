@@ -35,7 +35,7 @@ public class NewPauseMenu : MonoBehaviour {
     public void LoadMenu(){
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("NewMenuTitle");
+        SceneManager.LoadScene("NewMenuTitle", LoadSceneMode.Single);
     }
 
     public void QuitGame(){
