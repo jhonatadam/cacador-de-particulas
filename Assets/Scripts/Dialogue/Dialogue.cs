@@ -42,6 +42,7 @@ public class Dialogue : MonoBehaviour {
 	//Flag que indica se o dialogo acabou
 	public bool over = false;
 	private AudioManager audioManager;
+	public LanguageVerificator language;
 
 	
 	void Start () {
@@ -51,12 +52,12 @@ public class Dialogue : MonoBehaviour {
 	}
 
 	void Update () {
-		if(gameObject.GetComponent<LanguageVerificator>().verificator == true){
+		if(language.verificator == true){
 			this.arquivoTexto.name = this.arquivoTexto.name + "EN";
+			Debug.Log(arquivoTexto.name);
 		}
 		if (active) {
 			canvas.SetActive (true);
-
 			if (canContinue && Input.GetButtonDown ("Jump")) {
 				continua = true;
 				CampoDeTexto.text = "";
@@ -147,7 +148,6 @@ public class Dialogue : MonoBehaviour {
 	private void LerTexto() {
 
         //string[] temp = arquivoTexto.text.Split ('\n');
-        
 
         dialogo = ProcessText (arquivoTexto.text.Split ('\n'));
         //dialogo = new string[] {"pato", "quen"};
@@ -201,4 +201,5 @@ public class Dialogue : MonoBehaviour {
 	public bool isActive() {
 		return active;
 	}
+	
 }
