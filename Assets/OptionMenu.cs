@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OptionMenu : MonoBehaviour {
-    public static bool English = false;
+    public static bool English;
 
     // Start is called before the first frame update
     public void PortuguesLanguage(){

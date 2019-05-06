@@ -42,20 +42,16 @@ public class Dialogue : MonoBehaviour {
 	//Flag que indica se o dialogo acabou
 	public bool over = false;
 	private AudioManager audioManager;
-	public LanguageVerificator language;
 
-	
 	void Start () {
+
         canvas.SetActive (false);
 		audioManager = AudioManager.instance;
 		LerTexto ();
 	}
 
 	void Update () {
-		if(language.verificator == true){
-			this.arquivoTexto.name = this.arquivoTexto.name + "EN";
-			Debug.Log(arquivoTexto.name);
-		}
+		
 		if (active) {
 			canvas.SetActive (true);
 			if (canContinue && Input.GetButtonDown ("Jump")) {
