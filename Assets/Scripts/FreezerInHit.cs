@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 public class FreezerInHit : MonoBehaviour {
-
-	[Range(0f, 8f)]
+    public static FreezerInHit instance;
+    [Range(0f, 8f)]
 	public float duration = 1f;
 
 	bool _isFronzen = false;
@@ -13,7 +13,14 @@ public class FreezerInHit : MonoBehaviour {
 	// Update is called once per frame
 
 	void Awake(){
-		DontDestroyOnLoad(this.gameObject);
+        if (instance != null) {
+            if (instance != this) {
+                Destroy(this.gameObject);
+            }
+        } else {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
 	}
 	
 	void Update () {

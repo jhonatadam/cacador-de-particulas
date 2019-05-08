@@ -84,10 +84,13 @@ public class Player : MonoBehaviour {
 	private InputManager inputManager;
 	private AudioManager audioManager;
 
-    private float dying;
+    public bool dying;
+    public float dyingCounter;
+    public float dyingSlow = 0.1f;
     public float dyingTime = 1.0f;
+    private GradientColorChanger ch;
 
-	private class PlayerSavePtsData
+    private class PlayerSavePtsData
 	{
 		public Vector3 resetPt;
 		public float health;
@@ -112,8 +115,10 @@ public class Player : MonoBehaviour {
 	}
 	void Start () {
         
-        dying = 0;
-		inputManager = GameObject.Find ("InputManager").GetComponent<InputManager> ();
+        dying = false;
+        dyingCounter = 0;
+        
+        inputManager = GameObject.Find ("InputManager").GetComponent<InputManager> ();
 		audioManager = AudioManager.instance;
 		animator = GetComponent <Animator> ();
 
@@ -139,17 +144,18 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update () {
-        if(dying > 0) {
-            dying -= Time.deltaTime;
-            audioManager.StopAnySound();
-            GradientColorChanger ch = GameObject.Find("MainCamera").transform.Find("DeathScreen").GetComponent<GradientColorChanger>();
-            ch.enabled = true;
-            ch.endChange = dyingTime;
-            if(dying <= 0) {
+        if(dying) {
+            dyingCounter += Time.deltaTime*(1.0f/dyingSlow);
+            
+            if(dyingCounter >= dyingTime) {
+                dying = false;
+                dyingCounter = 0;
                 ch.Reset();
                 ch.enabled = false;
-                ActualDeath();
+                Time.timeScale = 1.0f;
+                StartCoroutine(deathDelayer());
             }
+            return;
         }
 		if (stun > 0) {
 			stun -= Time.deltaTime;
@@ -497,8 +503,12 @@ public class Player : MonoBehaviour {
 
 	public void Death() {
         //carrega os dados salvos quando a cena foi carregada
-        Time.timeScale = 0.1f;
-        StartCoroutine(deathDelayer());
+        Time.timeScale = dyingSlow;
+        dying = true;
+        ch = GameObject.Find("MainCamera").transform.Find("DeathScreen").GetComponent<GradientColorChanger>();
+        audioManager.StopAnySound();
+        ch.enabled = true;
+        ch.endChange = dyingTime * dyingSlow;
     }
     private void ActualDeath() {
        
