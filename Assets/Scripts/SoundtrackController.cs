@@ -8,6 +8,7 @@ public class SoundtrackController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         audioManager = AudioManager.instance;
+        audioManager.StopAnySound();
 	}
 	
 	// Update is called once per frame
