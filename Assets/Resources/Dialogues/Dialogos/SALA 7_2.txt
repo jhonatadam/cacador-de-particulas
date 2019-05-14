@@ -3,10 +3,24 @@ Um foton.
 Alvinn:
 Como é lindo...
 Alvinn:
-Espero poder ver isso mais vezes
+Espero poder ver isso mais vezes.
 Alvinn:
-Ele me machuca?
+Ele me machucam?
 ARI:
-Não, pode ficar tranquilo em relação aos fotons daqui. Eles possuem pouca energia.
+Eles possuem pouca energia. Não são um perigo contra sua vida.
+ARI:
+Fótons são partículas que constitue a luz e podem ser considerados pequenos pacotes que transportam energia contida nas radiações.
+ARI:
+O fóton é uma partícula mediadora da força eletromatnética.
+ARI:
+Seu decaimento é responsável pela criação ded pares elétrons-pósitrons.
+ARI:
+O Foton é representado pela letra grega γ (gama).
+ARI:
+A energia mínima do fóton para ocorrer a geração de pares é 1.022 MeV, mas há fótons mais energéticos.
 Alvinn:
-Ainda bem :)
+Quem diria que uma criança de oito anos estaria aprendendo física de partículas no fim do mundo?
+ARI:
+Existe uma chance de 0,0000000093% de chance de acontecer.
+Alvinn:
+Nossa ARI '-' Quanta precisão.
