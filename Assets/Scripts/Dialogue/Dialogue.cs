@@ -10,6 +10,8 @@ public class Dialogue : MonoBehaviour {
 
 	private DialogueText dialogueText;
 
+    public TextAsset textoPT;
+    public TextAsset textoEN;
 	public TextAsset arquivoTexto;
 
 	public GameObject canvas;
@@ -42,11 +44,18 @@ public class Dialogue : MonoBehaviour {
 	//Flag que indica se o dialogo acabou
 	public bool over = false;
 	private AudioManager audioManager;
-
+    private Idioma idioma;
+    
 	void Start () {
 
         canvas.SetActive (false);
 		audioManager = AudioManager.instance;
+        idioma = Idioma.instance;
+        if(idioma.GetIdioma() == IdiomaEnum.English) {
+            arquivoTexto = textoEN;
+        } else if(idioma.GetIdioma() == IdiomaEnum.Portugues) {
+            arquivoTexto = textoPT;
+        }
 		LerTexto ();
 	}
 
