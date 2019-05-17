@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour {
 
     // Start is called before the first frame update
     public void Play(){
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Scenes/Cutscene");
     }
 
     public void Quit(){
