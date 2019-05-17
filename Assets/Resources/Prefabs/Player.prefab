@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d71af63abd01b43a7c69237a96e652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameshark: 0
+  gameshark: 1
   speed: 1.8
   jumpForce: 12000
   dashTime: 0.5

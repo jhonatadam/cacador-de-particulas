@@ -1,4 +1,4 @@
-ARI:
+﻿ARI:
 Alvinn, the high surface is very dangerous.
 ARI:
 Here the particles are more charged.

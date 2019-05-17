@@ -81,6 +81,9 @@ public class Dialogue : MonoBehaviour {
 				showAll = false;
 				delay = 0.08f;
 			}
+            if (Input.GetKeyDown("p")) {
+                over = true;
+            }
 
 //			if (over && Input.GetButtonDown ("Jump")) {
 //				DeActivate ();

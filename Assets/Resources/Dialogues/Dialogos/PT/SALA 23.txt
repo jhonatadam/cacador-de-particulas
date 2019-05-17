@@ -1,22 +1,22 @@
+ï»¿ARI:
+Alvinn, a alta superficie Ã© muito perigosa.
 ARI:
-Alvinn, a alta superficie é muito perigosa.
+Aqui as partÃ­culas sÃ£o mais carregadas.
 ARI:
-Aqui as partículas são mais carregadas.
-ARI:
-Além de existirem novas partículas.
+AlÃ©m de existirem novas partÃ­culas.
 Alvinn:
-ARI!!! Que bom que você voltou :(
+ARI!!! Que bom que vocÃª voltou :(
 ARI:
-Uma chuva de Zevatrons assola a alta superfície.
+Uma chuva de Zevatrons assola a alta superfÃ­cie.
 ARI:
-Cuidado, ao menor descuido, você pode morrer.
-Alvinn:
-...
+Cuidado, ao menor descuido, vocÃª pode morrer.
 Alvinn:
 ...
 Alvinn:
-Onde você está?
+...
+Alvinn:
+Onde vocÃª estÃ¡?
 Alvinn:
 ARI?!? ARIIIII???
 Alvinn:
-É... Mais uma vez... Sozinho...
+Ã‰... Mais uma vez... Sozinho...
