@@ -4734,7 +4734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -4.5, y: 1}
+  m_AnchoredPosition: {x: -0.864, y: -0.068}
   m_SizeDelta: {x: 0.5, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &223221928383810938
@@ -4901,8 +4901,8 @@ MonoBehaviour:
   impulseFrequence: 1
   force: {x: 0, y: 0}
   charge: 1
-  energy: 10
-  damage: 10
+  energy: 20
+  damage: 20
   isInFlask: 0
   probability: 0.005
   particleNameShower: {fileID: 1494775876738992}
@@ -5271,8 +5271,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 4
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
