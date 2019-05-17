@@ -1,0 +1,24 @@
+﻿Alvinn: 
+ARI, what is this? 
+ARI:
+This is very useful information on how the energy of the particles works.
+ARI:
+The energy of elementary particles is measured in electrons-volts (eV).
+ARI:
+The amount of 1eV is the energy an electron possesses when subjected to a potential difference of 1 volt.
+ARI:
+In joules, the most usual unit in mechanics, 1eV corresponds to 1.602x10-19 j.
+ARI:
+The energy of elementary particles is considered large because it is concentrated in very small regions of space (the particles themselves).
+ARI:
+In general the MEGA, GIGA and TERA prefixes are widely used (1 MeV = 106eV; 1GeV = 109eV; 1TeV = 1012eV).
+ARI:
+However, these energies, when compared to those of our day to day, are very small.
+Alvinn: 
+As well?
+ARI: 
+For example, the case of a 1kg piece of iron falling from a height of 3 feets. 
+ARI:
+Its energy at the moment of impact is 9.81 j, which corresponds to 6,12x107 TeV, something gigantic for the elementary particles.
+Alvinn: 
+Ahhhhh... Now I get it :)

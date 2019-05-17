@@ -1,0 +1,22 @@
+﻿Alvinn: 
+O que é isso ARI? 
+ARI: 
+É uma informação bem útil, sobre como funciona a energia das partículas. 
+ARI: 
+A energia das partículas elementares é medida em elétrons-volt (eV). A quantidade de 1eV é a energia que um elétron possui quando está sujeito a uma diferença de potencial de 1 volt.
+ARI: 
+Em joules, a unidade mais usual em mecânica, 1eV corresponde a 1,602x10-19 j. 
+ARI:
+A energia das partículas elementares é considerada grande pois é concentrada em regiões muito pequenas do espaço (as próprias partículas). 
+ARI: 
+Em geral os prefixos MEGA, GIGA e TERA são muito utilizados (1 MeV= 106eV; 1GeV= 109eV; 1TeV=1012eV). 
+ARI:
+No entanto, estas energias, quando comparadas àquelas de nosso dia a dia, são muito pequenas. 
+Alvinn: 
+Como assim?
+ARI: 
+Por exemplo, o caso de um pedaço de ferro de 1kg que cai de uma altura de 1m. 
+ARI:
+Sua energia no momento do impacto é de 9,81 j, o que corresponde a 6,12x107 TeV, algo gigantesco para as partículas elementares.
+Alvinn: 
+Ahhhhh. Agora eu entendi :)

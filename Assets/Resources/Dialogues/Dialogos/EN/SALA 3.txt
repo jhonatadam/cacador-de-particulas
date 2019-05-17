@@ -1,0 +1,14 @@
+﻿ARI:
+Alvinn...
+ARI:
+There is some equipment scattered around the lab. 
+ARI:
+You must collect them to make your journey easier.
+ARI:
+Therefore, you should explore the laboratory well.
+Alvinn:
+"Easier"?!?
+ARI:
+Yes. When you collect some, you will see the power they have.
+Alvinn:
+Okay '-'

@@ -1,0 +1,12 @@
+﻿Alvinn: 
+O que é isso ARI?
+ARI: 
+É uma máquina que reproduz o efeito das partículas, usada para estudar a sua carga, rastro, e outros aspectos.
+ARI:
+Essas são visíveis para todos.
+ARI:
+Veja, as particulas de rastro azul, possuem carga positiva.
+ARI:
+E as de rastro vermelho possuem carga negativa.
+Alvinn:
+Hum... Lembrarei disso.

@@ -1,0 +1,12 @@
+﻿Alvinn: 
+ARI, what is that?
+ARI:
+It is a machine that reproduces the effect of the particles, used to study their charge, trail, and other aspects.
+ARI:
+These are visible to all.
+ARI:
+See, the particles with the blue trail have positive charge.
+ARI:
+And the particles with the red trail have negative charge.
+Alvinn:
+Hum... I will remember that.

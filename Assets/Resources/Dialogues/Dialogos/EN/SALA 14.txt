@@ -1,0 +1,22 @@
+﻿Alvinn:
+'-'... '-'...
+Alvinn:
+ARI, what was that? '-'
+ARI:
+Hum, I thought we were never going to bump with a Zevatron..
+ARI:
+But things are totally out of control and normal.
+Alvinn:
+And what is a Zevatron?
+ARI:
+It is a rare cosmic ray because it has enough energy compared to the others observed. Its energy is of the order of 10²¹eV (1ZeV). 
+ARI:
+Such particles are actually highly energetic protons or neutrons.
+ARI:
+The greatest doubt hanging over this cosmic ray is how it has attained such great energy.
+Alvinn:
+If such a particle strikes me, will I die?
+ARI:
+Of course, yes, then, best to avoid them.
+Alvinn:
+...
