@@ -621,6 +621,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20477934187552114, guid: 8d91c96377b86cb4fa80f7c64ceb0594,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7.8967896
+      objectReference: {fileID: 0}
     - target: {fileID: 114089068154093012, guid: 8d91c96377b86cb4fa80f7c64ceb0594,
         type: 3}
       propertyPath: floorsLimits.Array.size
@@ -706,14 +711,28 @@ PrefabInstance:
       propertyPath: floorsLimits.Array.data[0].width
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 20477934187552114, guid: 8d91c96377b86cb4fa80f7c64ceb0594,
-        type: 3}
-      propertyPath: orthographic size
-      value: 7.8967896
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 81905287248053600, guid: 8d91c96377b86cb4fa80f7c64ceb0594, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8d91c96377b86cb4fa80f7c64ceb0594, type: 3}
+--- !u!1 &347546221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1408454721001154, guid: 8d91c96377b86cb4fa80f7c64ceb0594,
+    type: 3}
+  m_PrefabInstance: {fileID: 347546220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &347546222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347546221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 3fc560a5a6fa4c440afcb6098b0968c4, type: 2}
 --- !u!1001 &371525745
 PrefabInstance:
   m_ObjectHideFlags: 0
