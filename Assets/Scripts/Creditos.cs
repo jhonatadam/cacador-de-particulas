@@ -63,9 +63,14 @@ public class Creditos : MonoBehaviour {
 				#endif
 			} else {
 				audioManager.StopSound("Creditos");
-				SceneManager.LoadScene ("MenuTitle");
+				SceneManager.LoadScene ("NewMenuTitle");
 			}
 
+		}
+
+		if(Input.GetButtonDown("Jump")){
+			audioManager.StopSound("Creditos");
+			SceneManager.LoadScene ("NewMenuTitle");
 		}
 	}
 }
