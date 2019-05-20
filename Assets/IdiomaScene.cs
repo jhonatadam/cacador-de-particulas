@@ -12,7 +12,7 @@ public class IdiomaScene : MonoBehaviour
     void Start()
     {
         flare = transform.Find("Flare").gameObject;
-        idioma = GameObject.Find("Idioma");
+        idioma = GameObject.Find("IdiomaData");
     }
 
     // Update is called once per frame
@@ -20,23 +20,23 @@ public class IdiomaScene : MonoBehaviour
     {
         if(Input.GetAxis("Vertical") > 0) {
             if(selected == 1) {
-                flare.transform.Translate(new Vector3(0, 2.5f, 0));
+                flare.transform.Translate(new Vector3(0, 2.9f, 0));
                 selected = 0;
             }
         }
         if (Input.GetAxis("Vertical") < 0) {
             if (selected == 0) {
-                flare.transform.Translate(new Vector3(0, -2.5f, 0));
+                flare.transform.Translate(new Vector3(0, -2.9f, 0));
                 selected = 1;
             }
         }
         if(Input.GetButtonDown("Jump") || Input.GetKeyDown("return")) {
+            print(idioma.GetComponent<Idioma>());
             if(selected == 0) {
                 idioma.GetComponent<Idioma>().SetIdioma(IdiomaEnum.Portugues);
             } else if(selected == 1) {
                 idioma.GetComponent<Idioma>().SetIdioma(IdiomaEnum.English);
             }
-            
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
