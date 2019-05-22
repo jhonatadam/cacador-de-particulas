@@ -48,25 +48,39 @@ public class Elevator : MonoBehaviour {
 	private AudioSource audioSource;
 
 	private TempData tempData;
+    public int worldFloor;
+    private bool playerInside;
+    private float callElevatorTime = 1;
 
-	void Start () {
+    void Start () {
+
 		player = GameObject.Find ("Player").GetComponent<Player> ();
 		tempData = GameObject.Find ("TempData").GetComponent<TempData> ();
 
 		currentFloor = tempData.elevatorFloors [id];
+        playerInside = false;
 
-
-		nextFloor = currentFloor;
+        nextFloor = currentFloor;
 
 		sr = GetComponent <SpriteRenderer> ();
 		sprites = Resources.LoadAll<Sprite>(spritePath + spriteName);
 
 		audioSource = GetComponent <AudioSource> ();
-	}
+
+        
+    }
 
 	void FixedUpdate () {
+        if (playerCheck.getIsInContact()) {
+            playerInside = true;
+        }
 
+        if (callElevatorTime > 0) {
+            callElevatorTime -= Time.fixedDeltaTime;
+            CallElevator();
+        }
 		if (currentFloor != nextFloor) {
+
 			if (currentFloor < nextFloor) {
 				if (transform.position.y < floorsPosition[nextFloor]) {
 					Move ();
@@ -80,14 +94,28 @@ public class Elevator : MonoBehaviour {
 					Stop ();
 				}
 			}
-		}
+        } 
 			
 	}
 
+    public void CallElevator() {
+        if (!playerInside) {
+            int worldfPlayer = GameObject.Find("MainCamera").GetComponent<CameraController>().GetPlayerCurrentFloor();
+            int wf = currentFloor + worldFloor;
+            nextFloor = worldfPlayer - worldFloor;
+            if (wf < worldfPlayer) {
+                nextFloor = Mathf.Min(nextFloor, floorsPosition.Length - 1);
+            } else {
+                nextFloor = Mathf.Max(nextFloor, 0);
+            }
+        }
+    }
+
 	public void GoToNextFloor (float verticalMovement) {
-		
-		if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) && player.GetComponent<Player> ().GetUpdateOn ()) {
-			if (verticalMovement > 0.0f && (floorsPosition.Length > (currentFloor + 1))) {
+        
+        if ( playerCheck.getIsInContact() && (currentFloor == nextFloor) && player.GetComponent<Player> ().GetUpdateOn ()) {
+            playerInside = true;
+            if (verticalMovement > 0.0f && (floorsPosition.Length > (currentFloor + 1))) {
 				nextFloor += 1;
 				sr.sprite = sprites[1];
 
@@ -148,12 +176,14 @@ public class Elevator : MonoBehaviour {
 		Vector3 speed = new Vector3 (0, step, 0);
 
 		transform.Translate (direction * speed);
-		player.transform.Translate (direction * speed);
-		cam.transform.Translate (direction * speed);
+        if (playerInside) {
+            player.transform.Translate(direction * speed);
+            cam.transform.Translate(direction * speed);
+        }
+    }
 
-	}
 
-	private void Stop () {
+    private void Stop () {
 		currentFloor = nextFloor;
 		transform.position = new Vector3 (transform.position.x, floorsPosition[nextFloor], transform.position.z);
 		sr.sprite = sprites[0];

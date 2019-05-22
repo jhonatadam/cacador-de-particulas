@@ -106,15 +106,15 @@ public class SceneDataManager : MonoBehaviour {
 			door.state = tempData.doorState [door.id];
 		}
 
-		foreach (Elevator e in elevators) {
+		//foreach (Elevator e in elevators) {
 			// pegando o andar que o elevador deve estar
-			int i = tempData.elevatorFloors [e.id];
+			//int i = tempData.elevatorFloors [e.id];
 
-			e.currentFloor = i;
-			e.nextFloor = i;
-			e.transform.position = 
-				new Vector3 (e.transform.position.x, e.floorsPosition[i], e.transform.position.z);
-		}
+			//e.currentFloor = i;
+			//e.nextFloor = i;
+			//e.transform.position = 
+				//new Vector3 (e.transform.position.x, e.floorsPosition[i], e.transform.position.z);
+		//}
 
 		//if (searchForMap) {
 			//Informando as áreas descobertas do mapa
@@ -194,9 +194,9 @@ public class SceneDataManager : MonoBehaviour {
 
 	public void UpdateSceneData () {
 		// elevadores
-		foreach (Elevator elevator in elevators) {
-			tempData.elevatorFloors [elevator.id] = elevator.currentFloor;
-		}
+		//foreach (Elevator elevator in elevators) {
+			//tempData.elevatorFloors [elevator.id] = elevator.currentFloor;
+		//}
 
 		// portas
 		foreach (Door door in doors) {

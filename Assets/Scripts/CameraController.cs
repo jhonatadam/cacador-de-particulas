@@ -37,12 +37,16 @@ public class CameraController : MonoBehaviour {
 	private float collect = 0;
 	private float collectDelay = 30;
 
+    public float startingSceneTime = 2;
+    private float sstCounter;
+    private bool sst;
 	void Start () {
-		// salvando limites da camera
-		//CameraLimits cl = new CameraLimits ();
-		//cl.floorsLimits = floorsLimits;
-		//print (JsonUtility.ToJson(cl));
-
+        // salvando limites da camera
+        //CameraLimits cl = new CameraLimits ();
+        //cl.floorsLimits = floorsLimits;
+        //print (JsonUtility.ToJson(cl));
+        sstCounter = 0;
+        sst = true;
 		cameraPosition = transform.position;
 		previousPosition = transform.position;
 		//These are the root x/y coordinates that we will use to create our boundary rectangle.
@@ -52,27 +56,36 @@ public class CameraController : MonoBehaviour {
 
 		//From our anchor point, we set the size of the window based on the public variable above.
 		windowRect = new Rect(windowAnchorX, windowAnchorY, movementWindowSize.x, movementWindowSize.y);
-	}
+        
+
+    }
 
 
 	void Update() {
-		collect += Time.deltaTime;
-		if (collect >= collectDelay) {
-			System.GC.Collect ();
-			collect = 0;
-		}
-		if (!hasFoundPlayer) {
-			player = GameObject.Find ("Player").GetComponent<Player> ();
-			hasFoundPlayer = true;
-		}
-		
-		//Only worry about updating the camera based on player position if the player has actually moved.
-		//If the tracking isn't active at all, we don't bother with any of this crap.
-		if ( activeTracking && (player.GetPreviousPositionDifference () != new Vector3 (0, 0, 0)))
-		{
-			cameraPosition = transform.position;
+       
+        collect += Time.deltaTime;
+        if (collect >= collectDelay) {
+            System.GC.Collect();
+            collect = 0;
+        }
+        if (!hasFoundPlayer) {
+            player = GameObject.Find("Player").GetComponent<Player>();
+            if (player != null) {
+                float x = floorsLimits[GetPlayerCurrentFloor()].x;
+                float y = floorsLimits[GetPlayerCurrentFloor()].y;
+                SetPosition(new Vector3(player.transform.position.x, y, transform.position.z));
+                hasFoundPlayer = true;
+            } else {
+                return;
+            }
+        }
 
-			Vector3 scrollValue = defineScrollValue ();
+        //Only worry about updating the camera based on player position if the player has actually moved.
+        //If the tracking isn't active at all, we don't bother with any of this crap.
+        if (activeTracking && (player.GetPreviousPositionDifference() != new Vector3(0, 0, 0))) {
+            cameraPosition = transform.position;
+
+            Vector3 scrollValue = defineScrollValue();
 
             //Move the camera this direction, but faster than the player moved.
             //Vector3 playerDiff = player.GetPreviousPositionDifference ();
@@ -80,45 +93,45 @@ public class CameraController : MonoBehaviour {
             //new Vector3 (playerDiff.x * scrollValue.x, playerDiff.y * scrollValue.y, playerDiff.z * scrollValue.z);
 
             cameraPosition = new Vector3(player.transform.position.x, player.transform.position.y, cameraPosition.z);
-			
-			//updating our movement window root location based on the current camera position
-			windowRect.x = cameraPosition.x - movementWindowSize.x/2 + windowOffset.x;
-			windowRect.y = cameraPosition.y - movementWindowSize.y/2 + windowOffset.y;
 
-			// We may have overshot the boundaries, or the player just may have been moving too 
-			// fast/popped into another place. This corrects for those cases, and snaps the 
-			// boundary to the player.
+            //updating our movement window root location based on the current camera position
+            windowRect.x = cameraPosition.x - movementWindowSize.x / 2 + windowOffset.x;
+            windowRect.y = cameraPosition.y - movementWindowSize.y / 2 + windowOffset.y;
 
-			if(!windowRect.Contains(player.transform.position))
-			{
-				Vector3 positionDifference = player.transform.position - cameraPosition;
-				positionDifference.x -= windowOffset.x;
-				positionDifference.y -= windowOffset.y;
+            // We may have overshot the boundaries, or the player just may have been moving too 
+            // fast/popped into another place. This corrects for those cases, and snaps the 
+            // boundary to the player.
 
-				//I made a function to figure out how much to move in order to snap the boundary to the player.
-				cameraPosition.x += DifferenceOutOfBounds( positionDifference.x, movementWindowSize.x );
+            if (!windowRect.Contains(player.transform.position)) {
+                Vector3 positionDifference = player.transform.position - cameraPosition;
+                positionDifference.x -= windowOffset.x;
+                positionDifference.y -= windowOffset.y;
+
+                //I made a function to figure out how much to move in order to snap the boundary to the player.
+                cameraPosition.x += DifferenceOutOfBounds(positionDifference.x, movementWindowSize.x);
 
 
-				cameraPosition.y += DifferenceOutOfBounds( positionDifference.y, movementWindowSize.y );
+                cameraPosition.y += DifferenceOutOfBounds(positionDifference.y, movementWindowSize.y);
 
-			}
+            }
 
-			// Here we clamp the desired position into the area declared in the limit variables.
-			if( limitCameraMovement )
-			{
-				Rect currentFloorLimits = floorsLimits [GetPlayerCurrentFloor ()];
-				cameraPosition.y = Mathf.Clamp ( cameraPosition.y, currentFloorLimits.y, currentFloorLimits.yMax);
-				cameraPosition.x = Mathf.Clamp ( cameraPosition.x, currentFloorLimits.x, currentFloorLimits.xMax);
-			}
+            // Here we clamp the desired position into the area declared in the limit variables.
+            if (limitCameraMovement) {
+                Rect currentFloorLimits = floorsLimits[GetPlayerCurrentFloor()];
+                cameraPosition.y = Mathf.Clamp(cameraPosition.y, currentFloorLimits.y, currentFloorLimits.yMax);
+                cameraPosition.x = Mathf.Clamp(cameraPosition.x, currentFloorLimits.x, currentFloorLimits.xMax);
+            }
 
-			// and now we're updating the camera position using what came of all the calculations above.
-			transform.position = cameraPosition;
+            // and now we're updating the camera position using what came of all the calculations above.
+            transform.position = cameraPosition;
 
-		}
+        }
 	}
 
 	void LateUpdate() {
-		previousPosition = transform.position;
+        if (!sst) {
+            previousPosition = transform.position;
+        }
 	}
 		
 	private Vector3 defineScrollValue () {
@@ -182,7 +195,7 @@ public class CameraController : MonoBehaviour {
 	}
 
 
-	private int GetPlayerCurrentFloor () {
+	public int GetPlayerCurrentFloor () {
 		int currentFloor = 0;
 		float minDist = Mathf.Infinity;
 

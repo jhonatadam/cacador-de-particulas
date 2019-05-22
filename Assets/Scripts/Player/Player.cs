@@ -90,6 +90,8 @@ public class Player : MonoBehaviour {
     public float dyingTime = 1.0f;
     private GradientColorChanger ch;
 
+    public SceneDataManager sdm;
+
     private class PlayerSavePtsData
 	{
 		public Vector3 resetPt;
@@ -113,6 +115,7 @@ public class Player : MonoBehaviour {
 		rb2d = GetComponent<Rigidbody2D> ();
         playerHealth = GetComponent<PlayerHealth>();
 		SceneManager.sceneLoaded += OnSceneLoaded;
+        sdm = GameObject.Find("SceneDataManager").GetComponent<SceneDataManager>();
 	}
 
 	void Start () {
@@ -531,6 +534,9 @@ public class Player : MonoBehaviour {
 		hasPistol = savePtsData.hasPistol;
 		hasJetpack = savePtsData.hasJetpack;
 		SetUpdateTrue ();
+        //não tenho ideia se isso aqui vai funcionar:
+        //pra voltar ao normal é só apagar a linha seguinte
+        sdm.UpdateSceneData();
         Time.timeScale = 1f;
     }
 
