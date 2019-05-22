@@ -377,6 +377,7 @@ MonoBehaviour:
   dyingCounter: 0
   dyingSlow: 0.1
   dyingTime: 2
+  sdm: {fileID: 0}
 --- !u!50 &50000012792235538
 Rigidbody2D:
   serializedVersion: 4
@@ -956,7 +957,7 @@ Transform:
   m_GameObject: {fileID: 1511213019771056}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4152781924037012}
   - {fileID: 4018510852485488}

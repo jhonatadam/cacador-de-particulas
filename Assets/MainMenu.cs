@@ -37,30 +37,30 @@ public class MainMenu : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("up")) {
-            if (selected > 0) {
-                flare.transform.Translate(new Vector3(0, 1.65f, 0));
-                selected --;
-            }
-        }
-        if (Input.GetKeyDown("down")) {
-            if (selected < 2) {
-                flare.transform.Translate(new Vector3(0, -1.65f, 0));
-                selected ++;
-            }
-        }
-        if (Input.GetButtonDown("Jump") || Input.GetKeyDown("return")) {
+        // if (Input.GetKeyDown("up")) {
+        //     if (selected > 0) {
+        //         flare.transform.Translate(new Vector3(0, 1.65f, 0));
+        //         selected --;
+        //     }
+        // }
+        // if (Input.GetKeyDown("down")) {
+        //     if (selected < 2) {
+        //         flare.transform.Translate(new Vector3(0, -1.65f, 0));
+        //         selected ++;
+        //     }
+        // }
+        // if (Input.GetButtonDown("Jump") || Input.GetKeyDown("return")) {
             
-            if (selected == 0) {
-                Play();
-                return;
-            } else if (selected == 1) {
-                Creditos();
-                return;
-            } else if (selected == 2) {
-                Quit();
-                return;
-            }
-        }
+        //     if (selected == 0) {
+        //         Play();
+        //         return;
+        //     } else if (selected == 1) {
+        //         Creditos();
+        //         return;
+        //     } else if (selected == 2) {
+        //         Quit();
+        //         return;
+        //     }
+        // }
     }
 }
